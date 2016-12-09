@@ -38,7 +38,9 @@ fileApp :: Application
 fileApp = serve fileApi server
 
 mkApp :: IO()
-mkApp = run (read port identity) fileApp 
+mkApp = do
+    fsToDsHandshake
+    run (read port identity) fileApp 
 
 getFiles :: ApiHandler [FilePath]
 getFiles = liftIO (getDirectoryContents resources)
@@ -53,5 +55,15 @@ uploadFile (File f c) = do
     liftIO (writeFile (resources ++ "/" ++ f) c)
     return (File f c)
 
+fsToDsHandshake :: IO()
+fsToDsHandshake = do
+    manager <- newManager defaultManagerSettings
+    result <- runClientM identity (ClientEnv manager (BaseUrl Http "localhost" 8081 ""))
+    case result of
+        Left err -> putStrLn $ "Error: " ++ show err
+        Right (Response code id) ->
+            case code of
+                HandshakeSuccessful -> return ()
+                HandshakeError -> fsToDsHandshake
 
 

@@ -42,7 +42,7 @@ instance FromJSON Resources
 --  Response Packet 
 ------------------------------
 data Response = Response { 
-    code :: Int, 
+    code :: ResponseCode, 
     server :: Identity 
 } deriving (Eq, Show, Generic)
 
@@ -52,7 +52,7 @@ instance FromJSON Response
 ------------------------------
 --  Response Codes 
 ------------------------------
-data ResponseCodes = 
+data ResponseCode = 
     FileUploadComplete |
     FileUploadError |
     HandshakeSuccessful |
