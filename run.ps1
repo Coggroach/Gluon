@@ -15,9 +15,14 @@ function Start-Execute {
     stack exec $Name
 }
 
+function Update-Dependancies {
+    cabal install
+}
+
 switch ($Command) {
     "Build" { Start-Build; }
     "Execute" { Start-Execute; }
+    "Update" { Update-Dependancies; }
     Default {
         Start-Build;
         Start-Execute;
