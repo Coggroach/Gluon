@@ -29,6 +29,16 @@ instance ToJSON Identity
 instance FromJSON Identity
 
 ------------------------------
+--  Resources Directory 
+------------------------------
+data Resources = Resources { 
+    path :: String     
+} deriving (Eq, Show, Generic)
+
+instance ToJSON Resources
+instance FromJSON Resources
+
+------------------------------
 --  Response Packet 
 ------------------------------
 data Response = Response { 
@@ -47,4 +57,3 @@ data ResponseCodes =
     FileUploadError |
     HandshakeSuccessful |
     HandshakeError
-    

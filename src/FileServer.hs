@@ -12,25 +12,18 @@ import           GHC.Generics
 import           Network.Wai
 import           Network.Wai.Handler.Warp
 import           Servant
+import           Servant.API
+import           Servant.Client
 import           System.IO
 import           System.Directory
+import           CommonServer
+import           CommonServerApi
+import           CommonServerApiClient
 
-data FileServer = FileServer { address :: String, port :: Int, name :: String }
+identity = Identity "localhost" "8081"
 
-resources :: String
+resources :: Resources
 resources = "res/FileServers";
-
-type FileApi = 
-    "files" :> Get '[JSON] [String] :<|>
-    "download" :> Capture "fileName" String :> Get '[JSON] File :<|>
-    "upload" :> ReqBody '[JSON] File :> Post '[JSON] File
-
-type Handler = ExceptT ServantErr IO
-
-data File = File { fileName :: FilePath, fileContent :: String } deriving (Eq, Show, Generic)
-
-instance ToJSON File
-instance FromJSON File
 
 fileApi :: Proxy FileApi
 fileApi = Proxy
@@ -45,17 +38,17 @@ fileApp :: Application
 fileApp = serve fileApi server
 
 mkApp :: IO()
-mkApp = run 8081 fileApp 
+mkApp = run (read port identity) fileApp 
 
-getFiles :: Handler [FilePath]
+getFiles :: ApiHandler [FilePath]
 getFiles = liftIO (getDirectoryContents resources)
 
-downloadFile :: FilePath -> Handler File
+downloadFile :: FilePath -> ApiHandler File
 downloadFile f = do    
     content <- liftIO (readFile (resources ++ "/" ++ f))
     return (File f content)
 
-uploadFile :: File -> Handler File
+uploadFile :: File -> ApiHandler File
 uploadFile (File f c) = do    
     liftIO (writeFile (resources ++ "/" ++ f) c)
     return (File f c)
