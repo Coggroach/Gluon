@@ -1,0 +1,28 @@
+Configuring servant-server-0.6.1...
+Building servant-server-0.6.1...
+Preprocessing library servant-server-0.6.1...
+[ 1 of 11] Compiling Servant.Server.Internal.Context ( src\Servant\Server\Internal\Context.hs, .stack-work\dist\2672c1f3\build\Servant\Server\Internal\Context.o )
+[ 2 of 11] Compiling Servant.Server.Internal.ServantErr ( src\Servant\Server\Internal\ServantErr.hs, .stack-work\dist\2672c1f3\build\Servant\Server\Internal\ServantErr.o )
+[ 3 of 11] Compiling Servant.Server.Internal.RoutingApplication ( src\Servant\Server\Internal\RoutingApplication.hs, .stack-work\dist\2672c1f3\build\Servant\Server\Internal\RoutingApplication.o )
+[ 4 of 11] Compiling Servant.Server.Internal.BasicAuth ( src\Servant\Server\Internal\BasicAuth.hs, .stack-work\dist\2672c1f3\build\Servant\Server\Internal\BasicAuth.o )
+[ 5 of 11] Compiling Servant.Server.Internal.Router ( src\Servant\Server\Internal\Router.hs, .stack-work\dist\2672c1f3\build\Servant\Server\Internal\Router.o )
+[ 6 of 11] Compiling Servant.Server.Internal.Enter ( src\Servant\Server\Internal\Enter.hs, .stack-work\dist\2672c1f3\build\Servant\Server\Internal\Enter.o )
+[ 7 of 11] Compiling Servant.Server.Internal ( src\Servant\Server\Internal.hs, .stack-work\dist\2672c1f3\build\Servant\Server\Internal.o )
+
+src\Servant\Server\Internal.hs:33:1: Warning:
+    The import of `Data.Text' is redundant
+      except perhaps to import instances from `Data.Text'
+    To import instances alone, use: import Data.Text()
+[ 8 of 11] Compiling Servant.Server   ( src\Servant\Server.hs, .stack-work\dist\2672c1f3\build\Servant\Server.o )
+[ 9 of 11] Compiling Servant.Utils.StaticFiles ( src\Servant\Utils\StaticFiles.hs, .stack-work\dist\2672c1f3\build\Servant\Utils\StaticFiles.o )
+[10 of 11] Compiling Servant          ( src\Servant.hs, .stack-work\dist\2672c1f3\build\Servant.o )
+[11 of 11] Compiling Servant.Server.Experimental.Auth ( src\Servant\Server\Experimental\Auth.hs, .stack-work\dist\2672c1f3\build\Servant\Server\Experimental\Auth.o )
+In-place registering servant-server-0.6.1...
+Preprocessing executable 'greet' for servant-server-0.6.1...
+[1 of 1] Compiling Main             ( example\greet.hs, .stack-work\dist\2672c1f3\build\greet\greet-tmp\Main.o )
+Linking .stack-work\dist\2672c1f3\build\greet\greet.exe ...
+Installing library in
+E:\Development\Haskell\Projects\Gluon\.stack-work\install\09641122\lib\x86_64-windows-ghc-7.10.3\servant-server-0.6.1-0RVUMBVJQgGDCuOlwa25a2
+Installing executable(s) in
+E:\Development\Haskell\Projects\Gluon\.stack-work\install\09641122\bin
+Registering servant-server-0.6.1...
