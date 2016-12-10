@@ -40,7 +40,7 @@ fileApp = serve fileApi server
 mkApp :: IO()
 mkApp = do
     fsToDsHandshake
-    run (read port identity) fileApp 
+    run (port identity) fileApp 
 
 getFiles :: ApiHandler [FilePath]
 getFiles = liftIO (getDirectoryContents resources)

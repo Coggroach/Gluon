@@ -21,7 +21,8 @@ instance FromJSON File
 ------------------------------
 data Identity = Identity { 
     address :: String, 
-    port :: String 
+    port :: String,
+    serverType :: ServerType
 } deriving (Eq, Show, Generic)
 
 instance ToJSON Identity
@@ -71,3 +72,4 @@ data ResponseCode =
     HandshakeError |
     IdentityFound |
     IdentityNotFound |
+    IdentityReceived

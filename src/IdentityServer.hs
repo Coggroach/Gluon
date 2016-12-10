@@ -21,7 +21,7 @@ import           CommonServerApi
 import           CommonServerApiClient
 
 identity :: Identity
-identity = Identity "localhost" "8001"
+identity = Identity "localhost" "8001" ServerType.IdentityServer
 
 identityApi :: Proxy IdentityApi
 identityApi = Proxy
@@ -40,8 +40,28 @@ identityApp = serve identityApi server
 mkIdentityServer :: IO()
 mkIdentityServer = run (read port identity) identityApp
 
-identities :: [(Identity, ServerType)]
+identities :: [Identity]
+identities = []
 
+getPorts :: [Int]
+getPorts = map (port Identity) identities
 
 submit :: Identity -> ApiHandler Response
-submit i = 
+submit i = do
+    identities ++ [i]
+    return (Response IdentityReceived identity)
+
+getNext :: ServerType -> ApiHandler Identity
+getNext st = return head (filter (\n -> serverType n == st) identities)
+
+getAll :: ServerType -> ApiHandler [Identity]
+getAll st = return filter (\n -> serverType n == st) identities
+
+getPort :: ServerType -> ApiHandler Int
+getPort st = return (maximum getPorts) + 1
+
+report :: Identity -> ApiHandler Response
+report i = do
+    result <- i `elem` identities
+    if result then return (Response IdentityFound i)
+    else return (Response IdentityNotFound i)
