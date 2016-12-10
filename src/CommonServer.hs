@@ -5,7 +5,6 @@
 
 module CommonServer where
 
-
 ------------------------------
 --  File Structure
 ------------------------------
@@ -27,6 +26,19 @@ data Identity = Identity {
 
 instance ToJSON Identity
 instance FromJSON Identity
+
+------------------------------
+--  Registered Server Types 
+------------------------------
+
+data ServerType = 
+    FileServer |
+    DirectoryServer |
+    ProxyServer |
+    SecurityServer |
+    TransactionServer |
+    IdentityServer |
+    ReplicationServer
 
 ------------------------------
 --  Resources Directory 
@@ -56,4 +68,6 @@ data ResponseCode =
     FileUploadComplete |
     FileUploadError |
     HandshakeSuccessful |
-    HandshakeError
+    HandshakeError |
+    IdentityFound |
+    IdentityNotFound |

@@ -25,6 +25,13 @@ type DirectoryApi =
     "close" :> ReqBody '[JSON] CommonServer.File :> Post '[JSON] CommonServer.Response
 
 type HandshakeApi =
-  "shake" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response :<|>
-  "echo" :> Capture "param" String :> Get '[JSON] String
+    "shake" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response :<|>
+    "echo" :> Capture "param" String :> Get '[JSON] String
+
+type IdentityApi =
+    "submit" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response :<|>
+    "next" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] CommonServer.Identity :<|>
+    "all" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] [CommonServer.Identity] :<|>
+    "port" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] Int :<|>
+    "report" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response
 
