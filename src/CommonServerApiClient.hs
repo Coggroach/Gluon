@@ -11,17 +11,19 @@ import           Servant.Client
 import           CommonServerApi
 import           CommonServer
 
-handshakeApi :: Proxy handshakeApi
-handshakeApi = Proxy
+identityApi :: Proxy IdentityApi
+identityApi = Proxy
 
 -- | The function type of the interface here.
 -- Each function matches one of the endpoints in type API from UseHaskellAPI.hs
 
-shake :: Identity -> ClientM Int
-
-echo :: String -> ClientM String
+identitySubmit :: Identity -> ClientM Response
+identityNext :: ServerType -> ClientM Identity
+identityAll :: ServerType -> ClientM [Identity]
+identityPort :: ServerType -> ClientM Int
+identityReport :: Identity -> ClientM Response
 
 -- | The following provides the implementations of these types
 -- Note that the order of the functions must match the endpoints in the type API from UseHaskell.hs
 
-(shake :<|> echo) =  client handshakeApi
+(identitySubmit :<|> identityNext :<|> identityAll :<|> identityPort :<|> identityReport) =  client handshakeApi
