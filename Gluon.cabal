@@ -18,8 +18,10 @@ library
   exposed-modules:     FileServer
   build-depends:       
       base
+    , aeson
     , servant == 0.6.*
     , servant-server
+    , servant-client
     , transformers
     , aeson
     , wai
