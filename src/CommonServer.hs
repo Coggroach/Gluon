@@ -56,6 +56,27 @@ instance ToJSON Resources
 instance FromJSON Resources
 
 ------------------------------
+--  Client Data
+------------------------------
+data Client = Client {
+    username :: String,
+    password :: String
+} deriving (Eq, Show, Generic)
+instance ToJSON Client
+instance FromJSON Client
+------------------------------
+--  Security Token
+------------------------------
+data Token = Token {
+    sessionId :: String,
+    sessionKey :: String,
+    ticket :: String,
+    client :: Identity
+} deriving (Eq, Show, Generic)
+instance ToJSON Token
+instance FromJSON Token
+
+------------------------------
 --  Response Packet 
 ------------------------------
 data Response = Response { 
