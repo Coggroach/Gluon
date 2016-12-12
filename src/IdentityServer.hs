@@ -18,27 +18,27 @@ import           Servant.Client
 import           System.IO
 import           CommonServer
 import           CommonServerApi
-import           CommonServerApiClient
+--import           CommonServerApiClient
 
 identity :: Identity
-identity = Identity "localhost" "8001" ServerType.IdentityServer
+identity = Identity "localhost" "8081" CommonServer.IdentityServer
 
 identityApi :: Proxy IdentityApi
 identityApi = Proxy
 
-server :: Server IdentityApi
-server = 
+identityServer :: Server IdentityApi
+identityServer = 
     submit :<|>
     getNext :<|>
     getAll :<|>
-    getPort :<|>
+    IdentityServer.getPort :<|>
     report
 
 identityApp :: Application
-identityApp = serve identityApi server
+identityApp = serve identityApi identityServer
 
 mkIdentityServer :: IO()
-mkIdentityServer = run (read port identity) identityApp
+mkIdentityServer = run (read (port identity)::Int) identityApp
 
 identities :: [Identity]
 identities = []
@@ -46,21 +46,21 @@ identities = []
 getPorts :: [Int]
 getPorts = map (port Identity) identities
 
-submit :: Identity -> ApiHandler Response
+submit :: Identity -> ApiHandler CommonServer.Response
 submit i = do
     identities ++ [i]
     return (Response IdentityReceived identity)
 
 getNext :: ServerType -> ApiHandler Identity
-getNext st = return head (filter (\n -> serverType n == st) identities)
+getNext st = liftIO (head (filter (\n -> (serverType n) == st) identities))
 
 getAll :: ServerType -> ApiHandler [Identity]
-getAll st = return filter (\n -> serverType n == st) identities
+getAll st = (liftIO (filter (\n -> (serverType n) == st) identities))
 
 getPort :: ServerType -> ApiHandler Int
 getPort st = return (maximum getPorts) + 1
 
-report :: Identity -> ApiHandler Response
+report :: Identity -> ApiHandler CommonServer.Response
 report i = do
     result <- i `elem` identities
     if result then return (Response IdentityFound i)

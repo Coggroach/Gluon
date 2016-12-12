@@ -15,7 +15,7 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     FileServer
+  exposed-modules:     IdentityServer
   build-depends:       
       base
     , aeson
@@ -25,6 +25,7 @@ library
     , transformers
     , aeson
     , wai
+    , network-info
     , warp
     , directory
   default-language:    Haskell2010

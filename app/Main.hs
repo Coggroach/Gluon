@@ -1,6 +1,6 @@
 module Main where
 
-import FileServer
+import IdentityServer
 
 main :: IO ()
-main = mkApp
+main = identityApp
