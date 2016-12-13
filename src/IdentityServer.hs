@@ -17,7 +17,7 @@ import           Servant.Client
 import           System.IO
 import           CommonServer
 import           CommonServerApi
---import           CommonServerApiClient
+import           CommonServerApiClient
 
 identityApi :: Proxy IdentityApi
 identityApi = Proxy
@@ -31,7 +31,7 @@ identityServer =
     report
 
 identityApp :: Application
-identityApp = serve identityApi identityServer
+identityApp = serve IdentityServer.identityApi identityServer
 
 mkIdentityServer :: IO()
 mkIdentityServer = run getIdentityPort theIdentity identityApp

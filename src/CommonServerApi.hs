@@ -47,9 +47,9 @@ type TransactionApi =
     "statusT" :> Get '[JSON] CommonServer.Response
 
 type IdentityApi =
-    "submit" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response :<|>
-    "next" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] CommonServer.Identity :<|>
-    "all" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] [CommonServer.Identity] :<|>
-    "port" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] Int :<|>
-    "report" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response
+         "submit" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response
+    :<|> "next" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] CommonServer.Identity
+    :<|> "all" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] [CommonServer.Identity]
+    :<|> "port" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] Int 
+    :<|> "report" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response
 
