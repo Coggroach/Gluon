@@ -11,7 +11,6 @@ import           Data.Aeson
 import           GHC.Generics
 import           Network.Wai
 import           Network.Wai.Handler.Warp
-import           Network.Info
 import           Servant
 import           Servant.API
 import           Servant.Client
@@ -19,9 +18,6 @@ import           System.IO
 import           CommonServer
 import           CommonServerApi
 --import           CommonServerApiClient
-
-identity :: Identity
-identity = Identity "localhost" "8081" CommonServer.IdentityServer
 
 identityApi :: Proxy IdentityApi
 identityApi = Proxy
@@ -38,13 +34,28 @@ identityApp :: Application
 identityApp = serve identityApi identityServer
 
 mkIdentityServer :: IO()
-mkIdentityServer = run (read (port identity)::Int) identityApp
+mkIdentityServer = run getIdentityPort theIdentity identityApp
 
 identities :: [Identity]
-identities = []
+identities = [theIdentity]
+
+getPortRecursive :: Int -> [Int]
+getPortRecursive 0 = ports
+getPortRecursive i = do
+    id  <- identities !! (i-1)    
+    ports ++ getIdentityPort id
+    return getPortRecursive (i-1)
+
+ports :: [Int]
+ports = []
 
 getPorts :: [Int]
-getPorts = map (port Identity) identities
+getPorts = do
+    len  <- length identities
+    if length ports != len then do
+        port <- []
+        getPortRecursive len
+    else ports        
 
 submit :: Identity -> ApiHandler CommonServer.Response
 submit i = do
@@ -52,10 +63,10 @@ submit i = do
     return (Response IdentityReceived identity)
 
 getNext :: ServerType -> ApiHandler Identity
-getNext st = liftIO (head (filter (\n -> (serverType n) == st) identities))
+getNext st = liftIO (head (filter (\n -> serverType n == st) identities))
 
 getAll :: ServerType -> ApiHandler [Identity]
-getAll st = (liftIO (filter (\n -> (serverType n) == st) identities))
+getAll st = liftIO (filter (\n -> serverType n == st) identities)
 
 getPort :: ServerType -> ApiHandler Int
 getPort st = return (maximum getPorts) + 1

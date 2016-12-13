@@ -6,6 +6,7 @@
 module CommonServer where
 import Data.Aeson
 import GHC.Generics
+import Network.Info
 ------------------------------
 --  File Structure
 ------------------------------
@@ -80,8 +81,9 @@ instance FromJSON Token
 --  Response Packet 
 ------------------------------
 data Response = Response { 
-    code :: ResponseCode, 
-    server :: Identity 
+    responseCode :: ResponseCode, 
+    serverId :: Identity,
+    payload :: String
 } deriving (Eq, Show, Generic)
 
 instance ToJSON Response
@@ -101,3 +103,20 @@ data ResponseCode =
     deriving(Eq, Show, Generic)
 instance ToJSON ResponseCode
 instance FromJSON ResponseCode
+
+------------------------------
+--  Common Variables 
+------------------------------
+
+theIdentity :: Identity
+theIdentity = Identity (getNetworkIpAddress 0) "8081" IdentityServer
+
+------------------------------
+--  Common Functions 
+------------------------------
+
+getIdentityPort :: Identity -> Int
+getIdentityPort i = read (port i):: Int
+
+getNetworkIpAddress :: Int -> String
+getNetworkIpAddress i = unsafePerformIO (ipv4 (head getNetworkInterfaces)) 

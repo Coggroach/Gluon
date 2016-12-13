@@ -8,6 +8,7 @@ $Name = "gluon-exe";
 #Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted
 
 function Start-Build {
+    clear
     stack build
 }
 
