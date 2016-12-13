@@ -1,18 +1,23 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-12 15:30:49.706413 UTC
+2016-12-13 21:47:38.991242 UTC
 
-interface Gluon_DUq4XxuYxeuBaFYI7N08EO:CommonServerApiClient 7103
-  interface hash: f43184387bf2b3b280de918c0fcbdcc7
-  ABI hash: 84031378178d521facef7802e8695da7
-  export-list hash: b817ccd6bba9a4d666279410125b8644
-  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+interface Gluon_3c0hBOYHBzt0FMHIIc6JUg:CommonServerApiClient 7103
+  interface hash: d28b58cbaa248e91c1e3346195be18af
+  ABI hash: b8e46becd80874770eae005f43b1ced8
+  export-list hash: 10fb2ee0dd719215c0ba6549b35b460e
+  orphan hash: c03b8651be37d177c893de0ec7e98dcf
   flag hash: bcc5da25ea635b0660fea707e0c8b821
   sig of: Nothing
   used TH splices: False
   where
 exports:
+  CommonServerApiClient.idall
   CommonServerApiClient.identityApi
+  CommonServerApiClient.idnext
+  CommonServerApiClient.idport
+  CommonServerApiClient.idreport
+  CommonServerApiClient.idsubmit
 module dependencies: CommonServer CommonServerApi
 package dependencies: aeson-0.11.1.4@aeson_FnADcKFoDWeK9YK1Yvshsy
                       array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA
@@ -98,7 +103,7 @@ orphans: aeson-0.11.1.4@aeson_FnADcKFoDWeK9YK1Yvshsy:Data.Aeson.Types.Generic
          transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF:Control.Monad.Trans.Error
          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Fusion.Bundle
          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed
-family instance modules: Gluon_DUq4XxuYxeuBaFYI7N08EO:CommonServer
+family instance modules: Gluon_3c0hBOYHBzt0FMHIIc6JUg:CommonServer
                          attoparsec-0.13.0.1@attop_C6pUTDzrecbIO4LDYHwJUG:Data.Attoparsec.Internal.Types
                          base-4.8.2.0:Control.Applicative base-4.8.2.0:Data.Either
                          base-4.8.2.0:Data.Functor.Identity base-4.8.2.0:Data.Monoid
@@ -136,20 +141,737 @@ family instance modules: Gluon_DUq4XxuYxeuBaFYI7N08EO:CommonServer
                          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed
                          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed.Base
                          zlib-0.6.1.1@zlib_7LjT7TSHX8U3VTy3t378Vu:Codec.Compression.Zlib.Stream
-import  -/  CommonServer e070dfe7e29d93dbb872d7d72b8a7b21
-  exports: afe264e3139ed750e8ad42382c5d7832
-import  -/  CommonServerApi 183b5751e223243bcdfc3f9a591e51d9
-  exports: 923f8f9474892e2d4a45100a5b9b2a3f
-  IdentityApi a132a520552a24ccbe5d8ef7f6c630e4
+import  -/  CommonServer f104abe4d935127655b2d5071c9f49c3
+  exports: 8f9319f4c2575259d7dc9ad7e9067911
+  Identity 38e855830780fce97ed3779967655cdf
+  Response 891c1f1280d45c4dfbfa2e39c022f9f8
+  ServerType c23c74f6eb5ff4a090c9c06e1a7cfacf
+import  -/  CommonServerApi 0054b07d696425f674478490be4daac9
+  exports: 8eaa55666d11fa24a2b65c02c2c03148
+  IdentityApi 4a3d3991fcece79d4904a9dbfc83618b
 import  -/  base-4.8.2.0:Data.Proxy ace6418f386b055d277aea86443e836b
 import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  http-client-0.4.27.1@httpc_GhFIRbhfQ2OIhioSkHd0Oe:Network.HTTP.Client 82ec097233f2f62ccf62725e712f521d
+import  -/  http-client-0.4.27.1@httpc_GhFIRbhfQ2OIhioSkHd0Oe:Network.HTTP.Client.Types 98130419a6a309efe43cc73beca294bd
 import  -/  servant-0.6.1@serva_9CwZpmCZABe9Jk8sZzagoI:Servant.API 7104723fca8a6b901df2ec4cb469d6fd
+import  -/  servant-0.6.1@serva_9CwZpmCZABe9Jk8sZzagoI:Servant.API.Alternative f7a7ccd34cbe7062ed0eb575e9924edc
 import  -/  servant-client-0.6.1@serva_AAVu0JgiexGGtQ1tS15zNw:Servant.Client d1878de7f9de5096d9884f129c06e5d8
-a1a966c9069059a3cd979be7ae5589d7
+import  -/  servant-client-0.6.1@serva_AAVu0JgiexGGtQ1tS15zNw:Servant.Common.BaseUrl c48e6c3ad4197e94024126ccbcbb38c0
+import  -/  servant-client-0.6.1@serva_AAVu0JgiexGGtQ1tS15zNw:Servant.Common.Req d89b8b5959a3d2ea1d12231b46084e9a
+d32ed2fb462afadf8eef7358a51573a5
+  $s$fMimeUnrender*JSONa ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonServer.Identity
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonServer.Identity
+                  Servant.API.ContentTypes.$fAccept*JSON_$ccontentType
+                    `cast`
+                  (Sym (Servant.API.ContentTypes.NTCo:Accept[0]
+                            <*>_N <Servant.API.ContentTypes.JSON>_N))
+                  CommonServerApiClient.$s$fMimeUnrender*JSONa1 -}
+437b728595ad296ffad7cf2c2cf3d317
+  $s$fMimeUnrender*JSONa1 ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.Either.Either GHC.Base.String CommonServer.Identity
+  {- Arity: 2, Strictness: <L,A><L,1*U>,
+     Unfolding: InlineRule (2, True, True)
+                (\ ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+                   eta :: Data.ByteString.Lazy.Internal.ByteString ->
+                 Servant.API.ContentTypes.eitherDecodeLenient
+                   @ CommonServer.Identity
+                   CommonServer.$fFromJSONIdentity_$cparseJSON
+                     `cast`
+                   (Sym (Data.Aeson.Types.Class.NTCo:FromJSON[0]
+                             <CommonServer.Identity>_N))
+                   eta) -}
+c738f26aaad92076ae93e8e6e2499ae0
+  $s$fMimeUnrender*JSONa10 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON GHC.Types.Int
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ GHC.Types.Int
+                  Servant.API.ContentTypes.$fAccept*JSON_$ccontentType
+                    `cast`
+                  (Sym (Servant.API.ContentTypes.NTCo:Accept[0]
+                            <*>_N <Servant.API.ContentTypes.JSON>_N))
+                  CommonServerApiClient.$s$fMimeUnrender*JSONa11 -}
+66ad2d1d17458a5949f5d4474df4ad3b
+  $s$fMimeUnrender*JSONa11 ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.Either.Either GHC.Base.String GHC.Types.Int
+  {- Arity: 2, Strictness: <L,A><L,1*U>,
+     Unfolding: InlineRule (2, True, True)
+                (\ ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+                   eta :: Data.ByteString.Lazy.Internal.ByteString ->
+                 Servant.API.ContentTypes.eitherDecodeLenient
+                   @ GHC.Types.Int
+                   Data.Aeson.Types.Instances.$fFromJSONInt_$cparseJSON
+                     `cast`
+                   (Sym (Data.Aeson.Types.Class.NTCo:FromJSON[0] <GHC.Types.Int>_N))
+                   eta) -}
+fee31233f7eec88f3af0e5b26bd0756e
+  $s$fMimeUnrender*JSONa2 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonServer.Response
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonServer.Response
+                  Servant.API.ContentTypes.$fAccept*JSON_$ccontentType
+                    `cast`
+                  (Sym (Servant.API.ContentTypes.NTCo:Accept[0]
+                            <*>_N <Servant.API.ContentTypes.JSON>_N))
+                  CommonServerApiClient.$s$fMimeUnrender*JSONa3 -}
+a05d6e561224875974a57a97b446546d
+  $s$fMimeUnrender*JSONa3 ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.Either.Either GHC.Base.String CommonServer.Response
+  {- Arity: 2, Strictness: <L,A><L,1*U>,
+     Unfolding: InlineRule (2, True, True)
+                (\ ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+                   eta :: Data.ByteString.Lazy.Internal.ByteString ->
+                 Servant.API.ContentTypes.eitherDecodeLenient
+                   @ CommonServer.Response
+                   CommonServer.$fFromJSONResponse_$cparseJSON
+                     `cast`
+                   (Sym (Data.Aeson.Types.Class.NTCo:FromJSON[0]
+                             <CommonServer.Response>_N))
+                   eta) -}
+7b6ff0785afa20ad1d3a2ffbcd49e4f8
+  $s$fMimeUnrender*JSONa4 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON [CommonServer.Identity]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ [CommonServer.Identity]
+                  Servant.API.ContentTypes.$fAccept*JSON_$ccontentType
+                    `cast`
+                  (Sym (Servant.API.ContentTypes.NTCo:Accept[0]
+                            <*>_N <Servant.API.ContentTypes.JSON>_N))
+                  CommonServerApiClient.$s$fMimeUnrender*JSONa5 -}
+504689483c456820f7d45dc8c2a20567
+  $s$fMimeUnrender*JSONa5 ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.Either.Either GHC.Base.String [CommonServer.Identity]
+  {- Arity: 2, Strictness: <L,A><L,1*U>,
+     Unfolding: InlineRule (2, True, True)
+                (\ ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+                   eta :: Data.ByteString.Lazy.Internal.ByteString ->
+                 Servant.API.ContentTypes.eitherDecodeLenient
+                   @ [CommonServer.Identity]
+                   CommonServerApiClient.$s$fMimeUnrender*JSONa6
+                     `cast`
+                   (Sym (Data.Aeson.Types.Class.NTCo:FromJSON[0]
+                             <[CommonServer.Identity]>_N))
+                   eta) -}
+9686c7aa3ebddc51c09ae0dde6e6c53e
+  $s$fMimeUnrender*JSONa6 ::
+    Data.Aeson.Types.Internal.Value
+    -> Data.Aeson.Types.Internal.Parser [CommonServer.Identity]
+  {- Arity: 1,
+     Unfolding: (Data.Aeson.Types.Instances.withArray
+                   @ [CommonServer.Identity]
+                   CommonServerApiClient.$s$fMimeUnrender*JSONa9
+                   CommonServerApiClient.$s$fMimeUnrender*JSONa7
+                     `cast`
+                   (<Data.Aeson.Types.Internal.Array>_R
+                    ->_R Sym (Data.Aeson.Types.Internal.NTCo:Parser[0]
+                                  <[CommonServer.Identity]>_R))) -}
+bd1a4a3a82dcd88d7ba9ea60ed6a73e4
+  $s$fMimeUnrender*JSONa7 ::
+    Data.Aeson.Types.Internal.Array
+    -> forall (f :: * -> *) r.
+       Data.Aeson.Types.Internal.JSONPath
+       -> Data.Aeson.Types.Internal.Failure f r
+       -> Data.Aeson.Types.Internal.Success [CommonServer.Identity] f r
+       -> f r
+  {- Arity: 1, Strictness: <L,1*U(U,U,U)>,
+     Unfolding: (\ x :: Data.Aeson.Types.Internal.Array ->
+                 CommonServerApiClient.$s$fMimeUnrender*JSONa8
+                   (GHC.List.zipWith
+                      @ GHC.Types.Int
+                      @ Data.Aeson.Types.Internal.Value
+                      @ (Data.Aeson.Types.Internal.Parser CommonServer.Identity)
+                      CommonServerApiClient.$s$fMimeUnrender*JSONa_a109
+                      CommonServerApiClient.$s$fMimeUnrender*JSONa_a110
+                      (case x of v2 { Data.Vector.Vector ipv ipv1 ipv2 ->
+                       letrec {
+                         $wgo :: GHC.Prim.Int# -> [Data.Aeson.Types.Internal.Value]
+                           {- Arity: 1, Strictness: <L,U>, Inline: [0] -}
+                         = \ ww :: GHC.Prim.Int# ->
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.>=# ww ipv1) of wild2 {
+                             GHC.Types.False
+                             -> case GHC.Prim.indexArray#
+                                       @ Data.Aeson.Types.Internal.Value
+                                       ipv2
+                                       (GHC.Prim.+# ipv ww) of ds2 { (##) ipv3 ->
+                                GHC.Types.:
+                                  @ Data.Aeson.Types.Internal.Value
+                                  ipv3
+                                  ($wgo (GHC.Prim.+# ww 1)) }
+                             GHC.Types.True -> GHC.Types.[] @ Data.Aeson.Types.Internal.Value }
+                       } in
+                       $wgo 0 }))) -}
+973c67188718302c5dc9d0401facee68
+  $s$fMimeUnrender*JSONa8 ::
+    [Data.Aeson.Types.Internal.Parser CommonServer.Identity]
+    -> forall (f :: * -> *) r.
+       Data.Aeson.Types.Internal.JSONPath
+       -> Data.Aeson.Types.Internal.Failure f r
+       -> Data.Aeson.Types.Internal.Success [CommonServer.Identity] f r
+       -> f r
+  {- Arity: 4, HasNoCafRefs, Strictness: <S,1*U><L,U><L,U><L,C(U)> -}
+d37230c56517835e2bd3e111362903bf
+  $s$fMimeUnrender*JSONa9 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "[a]"#) -}
+b7230bcd45daecbafe2e6f7bcf669ffa
+  $s$fMimeUnrender*JSONa_a109 ::
+    GHC.Types.Int
+    -> Data.Aeson.Types.Internal.Value
+    -> Data.Aeson.Types.Internal.Parser CommonServer.Identity
+  {- Arity: 2, Strictness: <L,1*U(U)><L,U>,
+     Unfolding: (\ idx :: GHC.Types.Int
+                   value :: Data.Aeson.Types.Internal.Value ->
+                 let {
+                   pathElem17 :: Data.Aeson.Types.Internal.JSONPathElement
+                   = case idx of dt { GHC.Types.I# dt1 ->
+                     Data.Aeson.Types.Internal.Index dt1 }
+                 } in
+                 let {
+                   p :: Data.Aeson.Types.Internal.Parser CommonServer.Identity
+                   = CommonServer.$fFromJSONIdentity_$cparseJSON value
+                 } in
+                 (\ @ (f :: * -> *)
+                    @ r
+                    path :: Data.Aeson.Types.Internal.JSONPath
+                    kf :: Data.Aeson.Types.Internal.Failure f r
+                    ks :: Data.Aeson.Types.Internal.Success
+                            CommonServer.Identity f r ->
+                  p `cast`
+                  (Data.Aeson.Types.Internal.NTCo:Parser[0]
+                       <CommonServer.Identity>_R)
+                    @ f
+                    @ r
+                    (GHC.Types.:
+                       @ Data.Aeson.Types.Internal.JSONPathElement
+                       pathElem17
+                       path)
+                    kf
+                    ks)
+                   `cast`
+                 (Sym (Data.Aeson.Types.Internal.NTCo:Parser[0]
+                           <CommonServer.Identity>_R))) -}
+e6d741a5aecd0d3867b01a2f8c254202
+  $s$fMimeUnrender*JSONa_a110 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Enum.eftInt 0 9223372036854775807) -}
+385d06c8d63fff6bf1a74c81d9896600
+  idall ::
+    CommonServer.ServerType
+    -> Network.HTTP.Client.Types.Manager
+    -> Servant.Common.BaseUrl.BaseUrl
+    -> Servant.Common.Req.ClientM [CommonServer.Identity]
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                CommonServerApiClient.idall1
+                  `cast`
+                (<CommonServer.ServerType>_R
+                 ->_R Sub (Servant.Client.TFCo:R:Client*Verb2[0]
+                               <Network.HTTP.Types.Method.StdMethod>_N
+                               <'Network.HTTP.Types.Method.POST>_N
+                               <200>_N
+                               <'[Servant.API.ContentTypes.JSON]>_N
+                               <[CommonServer.Identity]>_N)) -}
+67de167f11559bbcdf3b4beb5f57698d
+  idall1 ::
+    CommonServer.ServerType
+    -> Servant.Client.Client
+         (Servant.API.Verbs.Verb
+            'Network.HTTP.Types.Method.POST
+            200
+            '[Servant.API.ContentTypes.JSON]
+            [CommonServer.Identity])
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ body :: CommonServer.ServerType ->
+                 CommonServerApiClient.idall5
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.Verbs.Verb
+                           'Network.HTTP.Types.Method.POST
+                           200
+                           '[Servant.API.ContentTypes.JSON]
+                           [CommonServer.Identity]))
+                   (Servant.Common.Req.Req
+                      CommonServerApiClient.idall2
+                      (GHC.Types.[]
+                         @ (Data.Text.Internal.Text,
+                            GHC.Base.Maybe Data.Text.Internal.Text))
+                      (GHC.Base.Just
+                         @ (Data.ByteString.Lazy.Internal.ByteString,
+                            Network.HTTP.Media.MediaType.Internal.MediaType)
+                         (Data.ByteString.Builder.toLazyByteString
+                            (Data.Aeson.Encode.Builder.encodeToBuilder
+                               (CommonServer.$fToJSONServerType1 body)
+                                 `cast`
+                               (Data.Aeson.Types.Generic.NTCo:Tagged[0]
+                                    <Data.Aeson.Types.Generic.True>_P
+                                    <Data.Aeson.Types.Internal.Value>_R)),
+                          Servant.API.ContentTypes.$fAccept*JSON1))
+                      (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
+                      (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text)))) -}
+357471462c8b0b30fde2f55c5ae81c9a
+  idall2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   CommonServerApiClient.idall3) -}
+72f3ecfc35079405c2b3addb957d2589
+  idall3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "/"#
+                   CommonServerApiClient.idall4) -}
+7bf795e6d4e019df53c5bd2521076f07
+  idall4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "all"#) -}
+b3fd1d7b59cee274534d6887009ae48b
+  idall5 ::
+    Data.Proxy.Proxy
+      (Servant.API.Verbs.Verb
+         'Network.HTTP.Types.Method.POST
+         200
+         '[Servant.API.ContentTypes.JSON]
+         [CommonServer.Identity])
+    -> Servant.Common.Req.Req
+    -> Servant.Client.Client
+         (Servant.API.Verbs.Verb
+            'Network.HTTP.Types.Method.POST
+            200
+            '[Servant.API.ContentTypes.JSON]
+            [CommonServer.Identity])
+  {- Unfolding: (Servant.Client.$w$cclientWithRoute1
+                   @ Network.HTTP.Types.Method.StdMethod
+                   @ 'Network.HTTP.Types.Method.POST
+                   @ 200
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ [CommonServer.Identity]
+                   @ Servant.API.ContentTypes.JSON
+                   @ '[]
+                   CommonServerApiClient.$s$fMimeUnrender*JSONa4
+                   Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
+                     `cast`
+                   (Sym (Servant.API.Verbs.NTCo:ReflectMethod[0]
+                             <Network.HTTP.Types.Method.StdMethod>_N
+                             <'Network.HTTP.Types.Method.POST>_N))) -}
+5a31927d7a5f2b57bf288b8135822743
   identityApi :: Data.Proxy.Proxy CommonServerApi.IdentityApi
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
                 (Data.Proxy.Proxy @ * @ CommonServerApi.IdentityApi) -}
+e84cf3701cbad55714e35083afda703c
+  idnext ::
+    CommonServer.ServerType
+    -> Network.HTTP.Client.Types.Manager
+    -> Servant.Common.BaseUrl.BaseUrl
+    -> Servant.Common.Req.ClientM CommonServer.Identity
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                CommonServerApiClient.idnext1
+                  `cast`
+                (<CommonServer.ServerType>_R
+                 ->_R Sub (Servant.Client.TFCo:R:Client*Verb2[0]
+                               <Network.HTTP.Types.Method.StdMethod>_N
+                               <'Network.HTTP.Types.Method.POST>_N
+                               <200>_N
+                               <'[Servant.API.ContentTypes.JSON]>_N
+                               <CommonServer.Identity>_N)) -}
+bb384580a05fb38ae58aa3623b4856ed
+  idnext1 ::
+    CommonServer.ServerType
+    -> Servant.Client.Client
+         (Servant.API.Verbs.Verb
+            'Network.HTTP.Types.Method.POST
+            200
+            '[Servant.API.ContentTypes.JSON]
+            CommonServer.Identity)
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ body :: CommonServer.ServerType ->
+                 CommonServerApiClient.idnext5
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.Verbs.Verb
+                           'Network.HTTP.Types.Method.POST
+                           200
+                           '[Servant.API.ContentTypes.JSON]
+                           CommonServer.Identity))
+                   (Servant.Common.Req.Req
+                      CommonServerApiClient.idnext2
+                      (GHC.Types.[]
+                         @ (Data.Text.Internal.Text,
+                            GHC.Base.Maybe Data.Text.Internal.Text))
+                      (GHC.Base.Just
+                         @ (Data.ByteString.Lazy.Internal.ByteString,
+                            Network.HTTP.Media.MediaType.Internal.MediaType)
+                         (Data.ByteString.Builder.toLazyByteString
+                            (Data.Aeson.Encode.Builder.encodeToBuilder
+                               (CommonServer.$fToJSONServerType1 body)
+                                 `cast`
+                               (Data.Aeson.Types.Generic.NTCo:Tagged[0]
+                                    <Data.Aeson.Types.Generic.True>_P
+                                    <Data.Aeson.Types.Internal.Value>_R)),
+                          Servant.API.ContentTypes.$fAccept*JSON1))
+                      (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
+                      (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text)))) -}
+63257f0c0ae29525eb77f86de0e2a457
+  idnext2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   CommonServerApiClient.idnext3) -}
+7dca44e192cfda1adeb34b3acffb2fe5
+  idnext3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "/"#
+                   CommonServerApiClient.idnext4) -}
+5de7a5b7afe4210bb06c6efc32f9e1dc
+  idnext4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "next"#) -}
+3a430b63524f9de75ddccf5f3dad37bc
+  idnext5 ::
+    Data.Proxy.Proxy
+      (Servant.API.Verbs.Verb
+         'Network.HTTP.Types.Method.POST
+         200
+         '[Servant.API.ContentTypes.JSON]
+         CommonServer.Identity)
+    -> Servant.Common.Req.Req
+    -> Servant.Client.Client
+         (Servant.API.Verbs.Verb
+            'Network.HTTP.Types.Method.POST
+            200
+            '[Servant.API.ContentTypes.JSON]
+            CommonServer.Identity)
+  {- Unfolding: (Servant.Client.$w$cclientWithRoute1
+                   @ Network.HTTP.Types.Method.StdMethod
+                   @ 'Network.HTTP.Types.Method.POST
+                   @ 200
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonServer.Identity
+                   @ Servant.API.ContentTypes.JSON
+                   @ '[]
+                   CommonServerApiClient.$s$fMimeUnrender*JSONa
+                   Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
+                     `cast`
+                   (Sym (Servant.API.Verbs.NTCo:ReflectMethod[0]
+                             <Network.HTTP.Types.Method.StdMethod>_N
+                             <'Network.HTTP.Types.Method.POST>_N))) -}
+5efdaddbab717c366865f9bc054ed262
+  idport ::
+    CommonServer.ServerType
+    -> Network.HTTP.Client.Types.Manager
+    -> Servant.Common.BaseUrl.BaseUrl
+    -> Servant.Common.Req.ClientM GHC.Types.Int
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                CommonServerApiClient.idport1
+                  `cast`
+                (<CommonServer.ServerType>_R
+                 ->_R Sub (Servant.Client.TFCo:R:Client*Verb2[0]
+                               <Network.HTTP.Types.Method.StdMethod>_N
+                               <'Network.HTTP.Types.Method.POST>_N
+                               <200>_N
+                               <'[Servant.API.ContentTypes.JSON]>_N
+                               <GHC.Types.Int>_N)) -}
+f7b90cf3d42edc3b6055c13694ecd087
+  idport1 ::
+    CommonServer.ServerType
+    -> Servant.Client.Client
+         (Servant.API.Verbs.Verb
+            'Network.HTTP.Types.Method.POST
+            200
+            '[Servant.API.ContentTypes.JSON]
+            GHC.Types.Int)
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ body :: CommonServer.ServerType ->
+                 CommonServerApiClient.idport5
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.Verbs.Verb
+                           'Network.HTTP.Types.Method.POST
+                           200
+                           '[Servant.API.ContentTypes.JSON]
+                           GHC.Types.Int))
+                   (Servant.Common.Req.Req
+                      CommonServerApiClient.idport2
+                      (GHC.Types.[]
+                         @ (Data.Text.Internal.Text,
+                            GHC.Base.Maybe Data.Text.Internal.Text))
+                      (GHC.Base.Just
+                         @ (Data.ByteString.Lazy.Internal.ByteString,
+                            Network.HTTP.Media.MediaType.Internal.MediaType)
+                         (Data.ByteString.Builder.toLazyByteString
+                            (Data.Aeson.Encode.Builder.encodeToBuilder
+                               (CommonServer.$fToJSONServerType1 body)
+                                 `cast`
+                               (Data.Aeson.Types.Generic.NTCo:Tagged[0]
+                                    <Data.Aeson.Types.Generic.True>_P
+                                    <Data.Aeson.Types.Internal.Value>_R)),
+                          Servant.API.ContentTypes.$fAccept*JSON1))
+                      (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
+                      (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text)))) -}
+befebe99ed45dcee5953151909a0ed32
+  idport2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   CommonServerApiClient.idport3) -}
+1b3a3d50d4218a713d823e4eed476f41
+  idport3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "/"#
+                   CommonServerApiClient.idport4) -}
+6552acb8d18c169268c92b9f4c9b080e
+  idport4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "port"#) -}
+29de48d5ee1c49aa5d7e70ad602beec4
+  idport5 ::
+    Data.Proxy.Proxy
+      (Servant.API.Verbs.Verb
+         'Network.HTTP.Types.Method.POST
+         200
+         '[Servant.API.ContentTypes.JSON]
+         GHC.Types.Int)
+    -> Servant.Common.Req.Req
+    -> Servant.Client.Client
+         (Servant.API.Verbs.Verb
+            'Network.HTTP.Types.Method.POST
+            200
+            '[Servant.API.ContentTypes.JSON]
+            GHC.Types.Int)
+  {- Unfolding: (Servant.Client.$w$cclientWithRoute1
+                   @ Network.HTTP.Types.Method.StdMethod
+                   @ 'Network.HTTP.Types.Method.POST
+                   @ 200
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ GHC.Types.Int
+                   @ Servant.API.ContentTypes.JSON
+                   @ '[]
+                   CommonServerApiClient.$s$fMimeUnrender*JSONa10
+                   Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
+                     `cast`
+                   (Sym (Servant.API.Verbs.NTCo:ReflectMethod[0]
+                             <Network.HTTP.Types.Method.StdMethod>_N
+                             <'Network.HTTP.Types.Method.POST>_N))) -}
+fd7c124ede32d484021a9726c4cff178
+  idreport ::
+    CommonServer.Identity
+    -> Network.HTTP.Client.Types.Manager
+    -> Servant.Common.BaseUrl.BaseUrl
+    -> Servant.Common.Req.ClientM CommonServer.Response
+  {- Arity: 1, Strictness: <L,1*U(U,U,U)>,
+     Unfolding: InlineRule (0, True, True)
+                CommonServerApiClient.idreport1
+                  `cast`
+                (<CommonServer.Identity>_R
+                 ->_R Sub (Servant.Client.TFCo:R:Client*Verb2[0]
+                               <Network.HTTP.Types.Method.StdMethod>_N
+                               <'Network.HTTP.Types.Method.POST>_N
+                               <200>_N
+                               <'[Servant.API.ContentTypes.JSON]>_N
+                               <CommonServer.Response>_N)) -}
+6b1d14cb7a47c0f1a6a7396097c124f0
+  idreport1 ::
+    CommonServer.Identity
+    -> Servant.Client.Client
+         (Servant.API.Verbs.Verb
+            'Network.HTTP.Types.Method.POST
+            200
+            '[Servant.API.ContentTypes.JSON]
+            CommonServer.Response)
+  {- Arity: 1, Strictness: <L,1*U(U,U,U)>,
+     Unfolding: (\ body :: CommonServer.Identity ->
+                 CommonServerApiClient.idreport5
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.Verbs.Verb
+                           'Network.HTTP.Types.Method.POST
+                           200
+                           '[Servant.API.ContentTypes.JSON]
+                           CommonServer.Response))
+                   (Servant.Common.Req.Req
+                      CommonServerApiClient.idreport2
+                      (GHC.Types.[]
+                         @ (Data.Text.Internal.Text,
+                            GHC.Base.Maybe Data.Text.Internal.Text))
+                      (GHC.Base.Just
+                         @ (Data.ByteString.Lazy.Internal.ByteString,
+                            Network.HTTP.Media.MediaType.Internal.MediaType)
+                         (Data.ByteString.Builder.toLazyByteString
+                            (Data.Aeson.Encode.Builder.encodeToBuilder
+                               (CommonServer.$fToJSONIdentity1 body)
+                                 `cast`
+                               (Data.Aeson.Types.Generic.NTCo:Tagged[0]
+                                    <Data.Aeson.Types.Generic.True>_P
+                                    <Data.Aeson.Types.Internal.Value>_R)),
+                          Servant.API.ContentTypes.$fAccept*JSON1))
+                      (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
+                      (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text)))) -}
+257de78ad6cfaa1f8044ae96ffa1590c
+  idreport2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   CommonServerApiClient.idreport3) -}
+d536a04dbdbd7338f8bb89f9dc3a9038
+  idreport3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "/"#
+                   CommonServerApiClient.idreport4) -}
+47474e3b8cee81be1836b8b37a898beb
+  idreport4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "report"#) -}
+683ac2054019bb12f76def0a77be1697
+  idreport5 ::
+    Data.Proxy.Proxy
+      (Servant.API.Verbs.Verb
+         'Network.HTTP.Types.Method.POST
+         200
+         '[Servant.API.ContentTypes.JSON]
+         CommonServer.Response)
+    -> Servant.Common.Req.Req
+    -> Servant.Client.Client
+         (Servant.API.Verbs.Verb
+            'Network.HTTP.Types.Method.POST
+            200
+            '[Servant.API.ContentTypes.JSON]
+            CommonServer.Response)
+  {- Unfolding: (Servant.Client.$w$cclientWithRoute1
+                   @ Network.HTTP.Types.Method.StdMethod
+                   @ 'Network.HTTP.Types.Method.POST
+                   @ 200
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonServer.Response
+                   @ Servant.API.ContentTypes.JSON
+                   @ '[]
+                   CommonServerApiClient.$s$fMimeUnrender*JSONa2
+                   Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
+                     `cast`
+                   (Sym (Servant.API.Verbs.NTCo:ReflectMethod[0]
+                             <Network.HTTP.Types.Method.StdMethod>_N
+                             <'Network.HTTP.Types.Method.POST>_N))) -}
+de8ba8c77e8b547b609119a562b6bde9
+  idsubmit ::
+    CommonServer.Identity
+    -> Network.HTTP.Client.Types.Manager
+    -> Servant.Common.BaseUrl.BaseUrl
+    -> Servant.Common.Req.ClientM CommonServer.Response
+  {- Arity: 1, Strictness: <L,1*U(U,U,U)>,
+     Unfolding: InlineRule (0, True, True)
+                CommonServerApiClient.idsubmit1
+                  `cast`
+                (<CommonServer.Identity>_R
+                 ->_R Sub (Servant.Client.TFCo:R:Client*Verb2[0]
+                               <Network.HTTP.Types.Method.StdMethod>_N
+                               <'Network.HTTP.Types.Method.POST>_N
+                               <200>_N
+                               <'[Servant.API.ContentTypes.JSON]>_N
+                               <CommonServer.Response>_N)) -}
+1bde66e31069c3bb99f6e821ff583cfe
+  idsubmit1 ::
+    CommonServer.Identity
+    -> Servant.Client.Client
+         (Servant.API.Verbs.Verb
+            'Network.HTTP.Types.Method.POST
+            200
+            '[Servant.API.ContentTypes.JSON]
+            CommonServer.Response)
+  {- Arity: 1, Strictness: <L,1*U(U,U,U)>,
+     Unfolding: (\ body :: CommonServer.Identity ->
+                 CommonServerApiClient.idreport5
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.Verbs.Verb
+                           'Network.HTTP.Types.Method.POST
+                           200
+                           '[Servant.API.ContentTypes.JSON]
+                           CommonServer.Response))
+                   (Servant.Common.Req.Req
+                      CommonServerApiClient.idsubmit2
+                      (GHC.Types.[]
+                         @ (Data.Text.Internal.Text,
+                            GHC.Base.Maybe Data.Text.Internal.Text))
+                      (GHC.Base.Just
+                         @ (Data.ByteString.Lazy.Internal.ByteString,
+                            Network.HTTP.Media.MediaType.Internal.MediaType)
+                         (Data.ByteString.Builder.toLazyByteString
+                            (Data.Aeson.Encode.Builder.encodeToBuilder
+                               (CommonServer.$fToJSONIdentity1 body)
+                                 `cast`
+                               (Data.Aeson.Types.Generic.NTCo:Tagged[0]
+                                    <Data.Aeson.Types.Generic.True>_P
+                                    <Data.Aeson.Types.Internal.Value>_R)),
+                          Servant.API.ContentTypes.$fAccept*JSON1))
+                      (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
+                      (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text)))) -}
+add3cf2a754c206f1fb8090efebea888
+  idsubmit2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   CommonServerApiClient.idsubmit3) -}
+b4445846d2b155979522e80ae0ded024
+  idsubmit3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "/"#
+                   CommonServerApiClient.idsubmit4) -}
+0014d8a1914fef3fed870d6f15331509
+  idsubmit4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "submit"#) -}
+"SPEC/CommonServerApiClient $fMimeUnrender*JSONa @ Identity" [ALWAYS] forall $dAccept :: Servant.API.ContentTypes.Accept
+                                                                                           Servant.API.ContentTypes.JSON
+                                                                             $dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                             CommonServer.Identity
+  Servant.API.ContentTypes.$fMimeUnrender*JSONa @ CommonServer.Identity
+                                                $dAccept
+                                                $dFromJSON
+  = CommonServerApiClient.$s$fMimeUnrender*JSONa
+"SPEC/CommonServerApiClient $fMimeUnrender*JSONa @ Int" [ALWAYS] forall $dAccept :: Servant.API.ContentTypes.Accept
+                                                                                      Servant.API.ContentTypes.JSON
+                                                                        $dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                        GHC.Types.Int
+  Servant.API.ContentTypes.$fMimeUnrender*JSONa @ GHC.Types.Int
+                                                $dAccept
+                                                $dFromJSON
+  = CommonServerApiClient.$s$fMimeUnrender*JSONa10
+"SPEC/CommonServerApiClient $fMimeUnrender*JSONa @ Response" [ALWAYS] forall $dAccept :: Servant.API.ContentTypes.Accept
+                                                                                           Servant.API.ContentTypes.JSON
+                                                                             $dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                             CommonServer.Response
+  Servant.API.ContentTypes.$fMimeUnrender*JSONa @ CommonServer.Response
+                                                $dAccept
+                                                $dFromJSON
+  = CommonServerApiClient.$s$fMimeUnrender*JSONa2
+"SPEC/CommonServerApiClient $fMimeUnrender*JSONa @ [Identity]" [ALWAYS] forall $dAccept :: Servant.API.ContentTypes.Accept
+                                                                                             Servant.API.ContentTypes.JSON
+                                                                               $dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                               [CommonServer.Identity]
+  Servant.API.ContentTypes.$fMimeUnrender*JSONa @ [CommonServer.Identity]
+                                                $dAccept
+                                                $dFromJSON
+  = CommonServerApiClient.$s$fMimeUnrender*JSONa4
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

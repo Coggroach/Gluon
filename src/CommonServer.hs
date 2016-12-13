@@ -1,11 +1,12 @@
 {-# LANGUAGE DataKinds     #-}
 {-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase    #-}
+--{-# LANGUAGE LambdaCase    #-}
 {-# LANGUAGE TypeOperators #-}
 
 module CommonServer where
 import Data.Aeson
 import GHC.Generics
+import Network.HTTP.Client (newManager, defaultManagerSettings)
 ------------------------------
 --  File Structure
 ------------------------------

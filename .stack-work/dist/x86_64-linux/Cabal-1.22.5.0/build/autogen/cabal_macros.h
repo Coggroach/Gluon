@@ -21,6 +21,20 @@
   (major1) == 1 && (major2) <  2 || \
   (major1) == 1 && (major2) == 2 && (minor) <= 2)
 
+/* package either-4.4.1 */
+#define VERSION_either "4.4.1"
+#define MIN_VERSION_either(major1,major2,minor) (\
+  (major1) <  4 || \
+  (major1) == 4 && (major2) <  4 || \
+  (major1) == 4 && (major2) == 4 && (minor) <= 1)
+
+/* package http-client-0.4.27.1 */
+#define VERSION_http_client "0.4.27.1"
+#define MIN_VERSION_http_client(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  4 || \
+  (major1) == 0 && (major2) == 4 && (minor) <= 27)
+
 /* package network-info-0.2.0.8 */
 #define VERSION_network_info "0.2.0.8"
 #define MIN_VERSION_network_info(major1,major2,minor) (\
@@ -154,5 +168,5 @@
   (major1) == 2 && (major2) <  26 || \
   (major1) == 2 && (major2) == 26 && (minor) <= 0)
 
-#define CURRENT_PACKAGE_KEY "Gluon_DIc09izJf3WGBTiZZlClK0"
+#define CURRENT_PACKAGE_KEY "Gluon_3c0hBOYHBzt0FMHIIc6JUg"
 

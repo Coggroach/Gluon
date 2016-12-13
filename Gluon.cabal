@@ -28,6 +28,8 @@ library
     , network-info
     , warp
     , directory
+    , http-client
+    , either
   default-language:    Haskell2010
 
 executable Gluon-exe

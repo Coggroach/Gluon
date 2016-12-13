@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-12 16:05:23.253735 UTC
+2016-12-13 21:40:23.408564 UTC
 
-interface Gluon_DIc09izJf3WGBTiZZlClK0:CommonServerApi 7103
-  interface hash: 2989cf4d7c132e36cb288203381d8cba
-  ABI hash: 609e5464ea82d033466c6e16225a0bbe
-  export-list hash: 532db6921699969b65943534d330c845
+interface Gluon_3c0hBOYHBzt0FMHIIc6JUg:CommonServerApi 7103
+  interface hash: 2f527d70193be9bd0e326fa616406c57
+  ABI hash: 0054b07d696425f674478490be4daac9
+  export-list hash: 8eaa55666d11fa24a2b65c02c2c03148
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: bea0a91af668c0b7258111742e92dbbc
   sig of: Nothing
@@ -33,16 +33,20 @@ package dependencies: aeson-0.11.1.4@aeson_FnADcKFoDWeK9YK1Yvshsy
                       bytestring-conversion-0.3.1@bytes_8LVXo3gXHpF1KBlcf4PrxV
                       case-insensitive-1.2.0.6@casei_4HKCZYPfrJALfK51ySNnwP
                       containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      cookie-0.4.1.6@cooki_2Eb4iZo39x3Ihl7jVKbtZO
                       cryptonite-0.15@crypt_CcjcowokjyFJ3PzxfpgObb
+                      data-default-class-0.0.1@datad_K91y8NcZUJI9yaBI61rgdD
                       deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59
                       directory-1.2.2.0@direc_0hFG6ZxK1nk4zsyOqbNHfm
                       dlist-0.7.1.2@dlist_AO7XAasbAeyL0XLKeq1Aui
                       double-conversion-2.0.1.0@doubl_9d4SFE0Uwt89cnl39kvRqX
+                      exceptions-0.8.2.1@excep_6lgwjdgwblY7rzh5s6SLd8
                       fail-4.9.0.0@fail_2xB1AvdW34sDm9N3JOe33G
                       file-embed-0.0.9.1@filee_ID0BQq7SkFm2s7BTdE1urr
                       filepath-1.4.0.0@filep_Ey7a1in9roBAE8bUFJ5R9m ghc-prim-0.4.0.0
                       hashable-1.2.4.0@hasha_EalUWgp8NarBYWPbvYAD8I
                       http-api-data-0.2.2@httpa_3kiLcpdXTUe4CYRpIoinpP
+                      http-client-0.4.27.1@httpc_GhFIRbhfQ2OIhioSkHd0Oe
                       http-date-0.0.6.1@httpd_K48ICbZdR7j4Lbow4Laii0
                       http-media-0.6.3@httpm_AWBFPnop4sqI1hj6VwXKVc
                       http-types-0.9@httpt_2kqnYpPBpbH1f4ygoPM6qu integer-gmp-1.0.0.0
@@ -59,6 +63,8 @@ package dependencies: aeson-0.11.1.4@aeson_FnADcKFoDWeK9YK1Yvshsy
                       semigroups-0.18.1@semig_IBlkGPjZsYWGswV1yLDA9m
                       servant-0.6.1@serva_9CwZpmCZABe9Jk8sZzagoI
                       servant-server-0.6.1@serva_LQt330HrscrJL72IAADJlf
+                      stm-2.4.4.1@stm_EyxFXFfnfY05IrjGaqCxeD
+                      streaming-commons-0.1.15.2@strea_0Pv1kz8leJoAmtjyRTUWHG
                       string-conversions-0.4@strin_JslXiDngwin4HR9nIe3KgC
                       tagged-0.8.3@tagge_5cptKNCoGdxJM6eqqNERxD template-haskell-2.10.0.0
                       text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne
@@ -83,8 +89,10 @@ orphans: aeson-0.11.1.4@aeson_FnADcKFoDWeK9YK1Yvshsy:Data.Aeson.Types.Generic
          binary-0.7.5.0@binar_3uXFWMoAGBg0xKP9MHKRwi:Data.Binary.Generic
          bytestring-0.10.6.0@bytes_6VWy06pWzJq9evDvK2d4w6:Data.ByteString.Builder
          hashable-1.2.4.0@hasha_EalUWgp8NarBYWPbvYAD8I:Data.Hashable.Generic
+         http-client-0.4.27.1@httpc_GhFIRbhfQ2OIhioSkHd0Oe:Network.HTTP.Client.Request
          network-2.6.2.1@netwo_A6pE0dLgMEk2GtUa1JtTJQ:Network.Socket
          network-2.6.2.1@netwo_A6pE0dLgMEk2GtUa1JtTJQ:Network.Socket.Types
+         stm-2.4.4.1@stm_EyxFXFfnfY05IrjGaqCxeD:Control.Monad.STM
          text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text
          text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text.Lazy
          text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text.Show
@@ -94,7 +102,7 @@ orphans: aeson-0.11.1.4@aeson_FnADcKFoDWeK9YK1Yvshsy:Data.Aeson.Types.Generic
          transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF:Control.Monad.Trans.Error
          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Fusion.Bundle
          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed
-family instance modules: Gluon_DIc09izJf3WGBTiZZlClK0:CommonServer
+family instance modules: Gluon_3c0hBOYHBzt0FMHIIc6JUg:CommonServer
                          attoparsec-0.13.0.1@attop_C6pUTDzrecbIO4LDYHwJUG:Data.Attoparsec.Internal.Types
                          base-4.8.2.0:Control.Applicative base-4.8.2.0:Data.Either
                          base-4.8.2.0:Data.Functor.Identity base-4.8.2.0:Data.Monoid
@@ -107,6 +115,7 @@ family instance modules: Gluon_DIc09izJf3WGBTiZZlClK0:CommonServer
                          containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Sequence
                          containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
                          dlist-0.7.1.2@dlist_AO7XAasbAeyL0XLKeq1Aui:Data.DList
+                         http-client-0.4.27.1@httpc_GhFIRbhfQ2OIhioSkHd0Oe:Network.HTTP.Client
                          network-uri-2.6.1.0@netwo_DarCcUHK1BCJHlIYOjXe67:Network.URI
                          pretty-1.1.2.0@prett_JItwetRppk1H5Uq3xbjDGC:Text.PrettyPrint.HughesPJ
                          primitive-0.6.1.0@primi_EphY2c7CCxSCBKjAN0YTR3:Control.Monad.Primitive
@@ -129,14 +138,14 @@ family instance modules: Gluon_DIc09izJf3WGBTiZZlClK0:CommonServer
                          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed
                          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed.Base
                          zlib-0.6.1.1@zlib_7LjT7TSHX8U3VTy3t378Vu:Codec.Compression.Zlib.Stream
-import  -/  CommonServer e61b491671adc63fc5218a5c6646c89f
-  exports: 07223774921c104b546dbf46188c08ee
-  Client 57eab006f35c26779139796657df45be
-  File a4048dfffb73a481bddc9dd878994648
-  Identity 6be14b1c5f5de06332c40897d8b5282f
-  Response 4315fe48fa7ef8127b2831de7c8502cc
-  ServerType 6be14b1c5f5de06332c40897d8b5282f
-  Token 6fed93eeb64dec62b85f3348102165b1
+import  -/  CommonServer f104abe4d935127655b2d5071c9f49c3
+  exports: 8f9319f4c2575259d7dc9ad7e9067911
+  Client d4a9b8161c405151af5fc2b9d816882b
+  File adb994af574065097ceffbd429c2cfee
+  Identity 38e855830780fce97ed3779967655cdf
+  Response 891c1f1280d45c4dfbfa2e39c022f9f8
+  ServerType c23c74f6eb5ff4a090c9c06e1a7cfacf
+  Token 9bed88e19d5580dba111fa854d13ebd5
 import  -/  aeson-0.11.1.4@aeson_FnADcKFoDWeK9YK1Yvshsy:Data.Aeson 6de419280155a9f33ea172f2cb565b86
 import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
 import  -/  base-4.8.2.0:GHC.IO bb5b81adcea33b14bd4abe16d7dde45f
@@ -152,11 +161,11 @@ import  -/  servant-server-0.6.1@serva_LQt330HrscrJL72IAADJlf:Servant 6b973832be
 import  -/  servant-server-0.6.1@serva_LQt330HrscrJL72IAADJlf:Servant.Server.Internal.ServantErr 9cf15c1136854fdd27f674a94edd41d1
 import  -/  transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF:Control.Monad.Trans.Except 2f5d46e037f0502f77738cc68eb8b917
 import  -/  wai-3.2.0.1@wai_JB7VbdtjyMwBLI2ypNm7dR:Network.Wai d53853cbaa9e5092ee9f5b21228e3853
-ba8258ebd192e47f33107f6c9f98e5f5
+fd8aeb162e2e7b8a107f55584de14ae6
   type ApiHandler =
     Control.Monad.Trans.Except.ExceptT
       Servant.Server.Internal.ServantErr.ServantErr GHC.Types.IO
-f1af7c6f415a996f12e4b29c452c4bfa
+2792e3ee5908ce4a0573dccffd6398ab
   type DirectoryApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -193,7 +202,7 @@ f1af7c6f415a996f12e4b29c452c4bfa
                                                                                                                                                                                         Servant.API.Sub.:> Servant.API.Verbs.Get
                                                                                                                                                                                                              '[Servant.API.ContentTypes.JSON]
                                                                                                                                                                                                              CommonServer.Response))))))
-962c3d1dee07ce2e54c493c04e9df6d1
+882e86ca5c5b4e9acd7f975b063af5a2
   type FileApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -211,7 +220,7 @@ f1af7c6f415a996f12e4b29c452c4bfa
                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                          '[Servant.API.ContentTypes.JSON]
                                                                                                          CommonServer.Response)))
-54870ccb773b4dc60acbbda9b2dd6ea6
+4a3d3991fcece79d4904a9dbfc83618b
   type IdentityApi =
     ("submit"
      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
@@ -247,7 +256,7 @@ f1af7c6f415a996f12e4b29c452c4bfa
                                                                                                                                                 Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                                                                                      '[Servant.API.ContentTypes.JSON]
                                                                                                                                                                      CommonServer.Response)))))
-c9256b327ec0ffb8c6ee992aa81972ae
+fe518b0eabef6cac52ff2639d8b15b4d
   type ProxyApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -272,7 +281,7 @@ c9256b327ec0ffb8c6ee992aa81972ae
                                                                                                                   Servant.API.Sub.:> Servant.API.Verbs.Get
                                                                                                                                        '[Servant.API.ContentTypes.JSON]
                                                                                                                                        CommonServer.Response))))
-8b9918bf2ed5e39e6366f2994bf186af
+354ae9842dce45a4f6009db73a7bbd26
   type SecurityApi =
     ("login"
      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
@@ -285,7 +294,7 @@ c9256b327ec0ffb8c6ee992aa81972ae
                                                       Servant.API.Sub.:> Servant.API.Verbs.Get
                                                                            '[Servant.API.ContentTypes.JSON]
                                                                            CommonServer.Token))
-35da0492d946a18ee91478f27893b63d
+520fea109fc0248d968ef445a59944cc
   type TransactionApi =
     ("beginT"
      Servant.API.Sub.:> Servant.API.Verbs.Get

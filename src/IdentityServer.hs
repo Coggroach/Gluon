@@ -18,7 +18,7 @@ import           Servant.Client
 import           System.IO
 import           CommonServer
 import           CommonServerApi
---import           CommonServerApiClient
+import           CommonServerApiClient
 
 identity :: Identity
 identity = Identity "localhost" "8081" CommonServer.IdentityServer
@@ -35,7 +35,7 @@ identityServer =
     report
 
 identityApp :: Application
-identityApp = serve identityApi identityServer
+identityApp = serve IdentityServer.identityApi identityServer
 
 mkIdentityServer :: IO()
 mkIdentityServer = run (read (port identity)::Int) identityApp

@@ -10,6 +10,7 @@ import           Servant.API
 import           Servant.Client
 import           CommonServerApi
 import           CommonServer
+import Network.HTTP.Client hiding(Proxy, Response)
 
 identityApi :: Proxy IdentityApi
 identityApi = Proxy
@@ -17,13 +18,15 @@ identityApi = Proxy
 -- | The function type of the interface here.
 -- Each function matches one of the endpoints in type API from UseHaskellAPI.hs
 
---identitySubmit :: Identity -> ClientM Response
---identityNext :: ServerType -> ClientM Identity
---identityAll :: ServerType -> ClientM [Identity]
---identityPort :: ServerType -> ClientM Int
---identityReport :: Identity -> ClientM Response
+idsubmit :: Identity -> Manager -> BaseUrl -> ClientM Response
+idnext :: ServerType -> Manager -> BaseUrl -> ClientM Identity
+idall :: ServerType -> Manager -> BaseUrl -> ClientM [Identity]
+idport :: ServerType -> Manager -> BaseUrl -> ClientM Int
+idreport :: Identity -> Manager -> BaseUrl -> ClientM Response
 
 -- | The following provides the implementations of these types
 -- Note that the order of the functions must match the endpoints in the type API from UseHaskell.hs
 
---(identitySubmit :<|> identityNext :<|> identityAll :<|> identityPort :<|> identityReport) =  Servant.Client.client identityApi
+idsubmit :<|> idnext :<|> idall :<|> idport :<|> idreport =  Servant.Client.client identityApi
+
+
