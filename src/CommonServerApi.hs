@@ -12,6 +12,7 @@ import           Servant
 import           CommonServer
 
 type ApiHandler = ExceptT ServantErr IO
+type ClientM = EitherT ServantError IO
 
 type FileApi = 
     "files" :> Get '[JSON] [FilePath] :<|>

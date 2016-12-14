@@ -20,7 +20,7 @@ import           CommonServer
 import           CommonServerApi
 import           CommonServerApiClient
 
-identity = Identity "localhost" "8081" FileServer
+fileIdentity = Identity (getNetworkIpAddress 0) "" FileServer
 
 resources :: Resources
 resources = Resources "res/FileServers";
@@ -28,32 +28,30 @@ resources = Resources "res/FileServers";
 fileApi :: Proxy FileApi
 fileApi = Proxy
 
-server :: Server FileApi
-server = 
+fileServer :: Server FileApi
+fileServer = 
     getFiles :<|>
     downloadFile :<|>
     uploadFile
 
 fileApp :: Application
-fileApp = serve fileApi FileServer.server
+fileApp = serve fileApi fileServer
 
 mkApp :: IO()
-mkApp = do
-   -- fsToDsHandshake
-    run (read (port identity)::Int) fileApp 
+mkApp = run (read (port fileIdentity)::Int) fileApp 
 
 getFiles :: ApiHandler [FilePath]
 getFiles = liftIO (getDirectoryContents (path resources))
 
 downloadFile :: FilePath -> ApiHandler File
 downloadFile f = do    
-    content <- liftIO (readFile ((path resources) ++ "/" ++ f))
+    content <- liftIO (readFile (path resources) ++ "/" ++ f)
     return (File f content)
 
 uploadFile :: File -> ApiHandler CommonServer.Response
 uploadFile (File f c) = do    
-    liftIO (writeFile ((path resources) ++ "/" ++ f) c)
-    return (CommonServer.Response FileUploadComplete identity)
+    liftIO (writeFile (path resources) ++ "/" ++ f c)
+    return (CommonServer.Response FileUploadComplete fileIdentity)
 
 --fsToDsHandshake :: IO()
 --fsToDsHandshake = do

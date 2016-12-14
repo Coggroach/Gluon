@@ -21,9 +21,23 @@
   (major1) == 1 && (major2) <  2 || \
   (major1) == 1 && (major2) == 2 && (minor) <= 2)
 
+/* package network-info-0.2.0.8 */
+#define VERSION_network_info "0.2.0.8"
+#define MIN_VERSION_network_info(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  2 || \
+  (major1) == 0 && (major2) == 2 && (minor) <= 0)
+
 /* package servant-0.6.1 */
 #define VERSION_servant "0.6.1"
 #define MIN_VERSION_servant(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  6 || \
+  (major1) == 0 && (major2) == 6 && (minor) <= 1)
+
+/* package servant-client-0.6.1 */
+#define VERSION_servant_client "0.6.1"
+#define MIN_VERSION_servant_client(major1,major2,minor) (\
   (major1) <  0 || \
   (major1) == 0 && (major2) <  6 || \
   (major1) == 0 && (major2) == 6 && (minor) <= 1)
@@ -140,5 +154,5 @@
   (major1) == 2 && (major2) <  25 || \
   (major1) == 2 && (major2) == 25 && (minor) <= 0)
 
-#define CURRENT_PACKAGE_KEY "Gluon_IVcQzZwl5VwDXZ5KQ484Tt"
+#define CURRENT_PACKAGE_KEY "Gluon_F6zkNhHVua2ICFHehfGuqk"
 
