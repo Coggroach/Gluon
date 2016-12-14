@@ -33,6 +33,9 @@ type DirectoryApi =
  --   "endTrans" :> Get '[JSON] CommonServer.Response :<|>
  --   "commitTrans" :> Get '[JSON] CommonServer.Response
 
+directoryApi :: Proxy DirectoryApi
+directoryApi = Proxy
+
 type SecurityApi =
     "login" :> ReqBody '[JSON] CommonServer.Client :> Post '[JSON] CommonServer.Token :<|>
     "session" :> Capture "id" String :> Get '[JSON] CommonServer.Token
@@ -50,8 +53,11 @@ type TransactionApi =
 
 type IdentityApi =
          "submit" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response
-    :<|> "next" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] CommonServer.Identity
+   -- :<|> "next" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] CommonServer.Identity
     :<|> "all" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] [CommonServer.Identity]
     :<|> "port" :> ReqBody '[JSON] CommonServer.ServerType :> Post '[JSON] Int 
-    :<|> "report" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response
+   -- :<|> "report" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response
+
+identityApi :: Proxy IdentityApi
+identityApi = Proxy
 

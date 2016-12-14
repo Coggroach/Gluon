@@ -1,18 +1,20 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-14 20:36:32.0179687 UTC
+2016-12-14 22:58:40.4675842 UTC
 
-interface Gluon_I9b8FqjfDzwJOPF6lOVpx8:CommonServerApi 7103
-  interface hash: fcce4d8d5c0e22448a32a83448f698f3
-  ABI hash: 30554b92b9d722f2fd026f422f9b3935
-  export-list hash: 69b0e8a9e2fc80781d841673fb1aac22
+interface Gluon_5tHbrtDuvm2LmlLmaE7JnD:CommonServerApi 7103
+  interface hash: 58ad47cedab5eb79795039ccef9e8dd1
+  ABI hash: fc9c2ecca44e8b4571a5f3edd0ac5cb0
+  export-list hash: 6d3bd6543f8b5a8f5d8870377de9aeb9
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: c6f96741d2782fce216922f7107a6902
   sig of: Nothing
   used TH splices: False
   where
 exports:
+  CommonServerApi.directoryApi
   CommonServerApi.fileApi
+  CommonServerApi.identityApi
   CommonServerApi.ApiHandler
   CommonServerApi.DirectoryApi
   CommonServerApi.FileApi
@@ -97,7 +99,7 @@ orphans: aeson-0.11.2.1@aeson_KAMFeDDz7R3DOFfjTwSIjq:Data.Aeson.Types.Generic
          transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF:Control.Monad.Trans.Error
          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Fusion.Bundle
          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed
-family instance modules: Gluon_I9b8FqjfDzwJOPF6lOVpx8:CommonServer
+family instance modules: Gluon_5tHbrtDuvm2LmlLmaE7JnD:CommonServer
                          attoparsec-0.13.0.1@attop_C6pUTDzrecbIO4LDYHwJUG:Data.Attoparsec.Internal.Types
                          base-4.8.2.0:Control.Applicative base-4.8.2.0:Data.Either
                          base-4.8.2.0:Data.Functor.Identity base-4.8.2.0:Data.Monoid
@@ -137,14 +139,14 @@ family instance modules: Gluon_I9b8FqjfDzwJOPF6lOVpx8:CommonServer
                          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed
                          vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed.Base
                          zlib-0.6.1.1@zlib_7LjT7TSHX8U3VTy3t378Vu:Codec.Compression.Zlib.Stream
-import  -/  CommonServer 4df7a243b4b459a8b0b2881d79128b1a
-  exports: 5f25cf3e1f9fea5f99902c637b1a3f67
-  Client e9ba977e91da926683870bb29317aa0e
-  File 129cdda5294db8e3bd3825dde5bf92ca
-  Identity 9655ab20233cd96526e85030f8a3f9af
-  Response 9fff6bbfe25a302dfe791c89a77d2e88
-  ServerType 9655ab20233cd96526e85030f8a3f9af
-  Token f9da4d29ddf611c8d79cd98937964d98
+import  -/  CommonServer 6105d1e226e137cb459175a354690d30
+  exports: 2e00fa8866c4564eab88d01f396c3e13
+  Client 3825a2adb7d87f8c49e6d2cdcd653743
+  File 1df54696c711303dc1b1a392b86a7447
+  Identity d48b895c9728c16efaa721ed9374df25
+  Response 6b1afae212999416ba1c209ec5b40fdb
+  ServerType d48b895c9728c16efaa721ed9374df25
+  Token f1e2facc66943aec06c193d5689c3836
 import  -/  aeson-0.11.2.1@aeson_KAMFeDDz7R3DOFfjTwSIjq:Data.Aeson 91eeae79e36d5e27cf4e96cf8eea88a5
 import  -/  base-4.8.2.0:Data.Proxy ace6418f386b055d277aea86443e836b
 import  -/  base-4.8.2.0:GHC.Base a4939789b2cfd60b36ed163e56a623cd
@@ -161,11 +163,11 @@ import  -/  servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.API.Sub b509abd
 import  -/  servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.API.Verbs 44f1cc7da682c2db52cba21a3f248867
 import  -/  transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF:Control.Monad.Trans.Except 6961604358ca052b2f17ea0b96dc6f50
 import  -/  wai-3.2.1.1@wai_CqDEPeakAnK0XtGg4drPuY:Network.Wai 09a29f5adfd5b802997eee5e86932ab5
-cc2db7c57d326b73746684fd2e2454ff
+3c81aace6d27be56105816506e4a3b8c
   type ApiHandler =
     Control.Monad.Trans.Except.ExceptT
       Servant.Server.Internal.ServantErr.ServantErr GHC.Types.IO
-e4553e81541c807789fa95e348628dbe
+3e6fa58d66251c6a42c454e54783cc82
   type DirectoryApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -183,7 +185,7 @@ e4553e81541c807789fa95e348628dbe
                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Get
                                                                                                          '[Servant.API.ContentTypes.JSON]
                                                                                                          CommonServer.File)))
-6ff30c61379ea37554b08fa895dd2c3f
+8ef918068068b41cc6c501b711d33497
   type FileApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -201,7 +203,7 @@ e4553e81541c807789fa95e348628dbe
                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                          '[Servant.API.ContentTypes.JSON]
                                                                                                          CommonServer.Response)))
-505e66217d850da5c77671374b3f9109
+e1c59f7f8e0cd3b11ee9be5678eef831
   type IdentityApi =
     ("submit"
      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
@@ -209,35 +211,21 @@ e4553e81541c807789fa95e348628dbe
                          Servant.API.Sub.:> Servant.API.Verbs.Post
                                               '[Servant.API.ContentTypes.JSON]
                                               CommonServer.Response))
-    Servant.API.Alternative.:<|> (("next"
+    Servant.API.Alternative.:<|> (("all"
                                    Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
                                                          '[Servant.API.ContentTypes.JSON]
                                                          CommonServer.ServerType
                                                        Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                             '[Servant.API.ContentTypes.JSON]
-                                                                            CommonServer.Identity))
-                                  Servant.API.Alternative.:<|> (("all"
-                                                                 Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
-                                                                                       '[Servant.API.ContentTypes.JSON]
-                                                                                       CommonServer.ServerType
-                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
-                                                                                                          '[Servant.API.ContentTypes.JSON]
-                                                                                                          [CommonServer.Identity]))
-                                                                Servant.API.Alternative.:<|> (("port"
-                                                                                               Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
-                                                                                                                     '[Servant.API.ContentTypes.JSON]
-                                                                                                                     CommonServer.ServerType
-                                                                                                                   Servant.API.Sub.:> Servant.API.Verbs.Post
-                                                                                                                                        '[Servant.API.ContentTypes.JSON]
-                                                                                                                                        GHC.Types.Int))
-                                                                                              Servant.API.Alternative.:<|> ("report"
-                                                                                                                            Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
-                                                                                                                                                  '[Servant.API.ContentTypes.JSON]
-                                                                                                                                                  CommonServer.Identity
-                                                                                                                                                Servant.API.Sub.:> Servant.API.Verbs.Post
-                                                                                                                                                                     '[Servant.API.ContentTypes.JSON]
-                                                                                                                                                                     CommonServer.Response)))))
-f670315fecf4c72d2d957d85066d9747
+                                                                            [CommonServer.Identity]))
+                                  Servant.API.Alternative.:<|> ("port"
+                                                                Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                      '[Servant.API.ContentTypes.JSON]
+                                                                                      CommonServer.ServerType
+                                                                                    Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                         '[Servant.API.ContentTypes.JSON]
+                                                                                                         GHC.Types.Int)))
+cc8eb2e7c11b33028ef2ab4cb10f941a
   type ProxyApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -262,7 +250,7 @@ f670315fecf4c72d2d957d85066d9747
                                                                                                                   Servant.API.Sub.:> Servant.API.Verbs.Get
                                                                                                                                        '[Servant.API.ContentTypes.JSON]
                                                                                                                                        CommonServer.Response))))
-fd15be656fe1bf125246bd2a4d207d80
+d29762df8f3d7230f72a5b1758c4647c
   type SecurityApi =
     ("login"
      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
@@ -275,7 +263,7 @@ fd15be656fe1bf125246bd2a4d207d80
                                                       Servant.API.Sub.:> Servant.API.Verbs.Get
                                                                            '[Servant.API.ContentTypes.JSON]
                                                                            CommonServer.Token))
-6774920266f976fa20a9cdcc9a73c91f
+e56c7407fd4ec4acec2d076566541148
   type TransactionApi =
     ("beginT"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -288,11 +276,21 @@ fd15be656fe1bf125246bd2a4d207d80
                                                                 Servant.API.Sub.:> Servant.API.Verbs.Get
                                                                                      '[Servant.API.ContentTypes.JSON]
                                                                                      CommonServer.Response))
-f2df07483ff2598a456eca4f2f742710
+669242411f0683e8c071a3116a822784
+  directoryApi :: Data.Proxy.Proxy CommonServerApi.DirectoryApi
+  {- HasNoCafRefs,
+     Unfolding: InlineRule (0, True, True)
+                (Data.Proxy.Proxy @ * @ CommonServerApi.DirectoryApi) -}
+3120816357adf79cdb878bb1fac0862b
   fileApi :: Data.Proxy.Proxy CommonServerApi.FileApi
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
                 (Data.Proxy.Proxy @ * @ CommonServerApi.FileApi) -}
+64d07dd6ef39bb5a76272118d6c5bebb
+  identityApi :: Data.Proxy.Proxy CommonServerApi.IdentityApi
+  {- HasNoCafRefs,
+     Unfolding: InlineRule (0, True, True)
+                (Data.Proxy.Proxy @ * @ CommonServerApi.IdentityApi) -}
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

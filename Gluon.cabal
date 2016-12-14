@@ -33,6 +33,7 @@ library
     , time
     , random
     , containers
+    , bytestring
   default-language:    Haskell2010
 
 executable Gluon-exe
@@ -49,6 +50,7 @@ executable Gluon-exe
     , warp
     , directory
     , Gluon
+    , bytestring
   default-language:    Haskell2010
 
 test-suite Gluon-test
@@ -69,6 +71,7 @@ test-suite Gluon-test
     , warp >= 3.2.4
     , http-client
     , http-types
+    , bytestring
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 

@@ -49,9 +49,6 @@ filemappings = []
 fileservers :: [CommonServer.Identity]
 fileservers = []
 
-directoryApi :: Proxy DirectoryApi
-directoryApi = Proxy
-
 directoryServer :: Server DirectoryApi
 directoryServer = 
     file :<|>
