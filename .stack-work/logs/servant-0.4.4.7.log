@@ -1,0 +1,25 @@
+Configuring servant-0.4.4.7...
+Building servant-0.4.4.7...
+Preprocessing library servant-0.4.4.7...
+[ 1 of 18] Compiling Servant.Common.Text ( src/Servant/Common/Text.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/Common/Text.o )
+[ 2 of 18] Compiling Servant.API.Raw  ( src/Servant/API/Raw.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/Raw.o )
+[ 3 of 18] Compiling Servant.API.ContentTypes ( src/Servant/API/ContentTypes.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/ContentTypes.o )
+[ 4 of 18] Compiling Servant.API.Patch ( src/Servant/API/Patch.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/Patch.o )
+[ 5 of 18] Compiling Servant.API.Put  ( src/Servant/API/Put.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/Put.o )
+[ 6 of 18] Compiling Servant.API.Delete ( src/Servant/API/Delete.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/Delete.o )
+[ 7 of 18] Compiling Servant.API.Post ( src/Servant/API/Post.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/Post.o )
+[ 8 of 18] Compiling Servant.API.Get  ( src/Servant/API/Get.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/Get.o )
+[ 9 of 18] Compiling Servant.API.MatrixParam ( src/Servant/API/MatrixParam.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/MatrixParam.o )
+[10 of 18] Compiling Servant.API.ReqBody ( src/Servant/API/ReqBody.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/ReqBody.o )
+[11 of 18] Compiling Servant.API.QueryParam ( src/Servant/API/QueryParam.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/QueryParam.o )
+[12 of 18] Compiling Servant.API.Header ( src/Servant/API/Header.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/Header.o )
+[13 of 18] Compiling Servant.API.ResponseHeaders ( src/Servant/API/ResponseHeaders.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/ResponseHeaders.o )
+[14 of 18] Compiling Servant.API.Capture ( src/Servant/API/Capture.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/Capture.o )
+[15 of 18] Compiling Servant.API.Alternative ( src/Servant/API/Alternative.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/Alternative.o )
+[16 of 18] Compiling Servant.API.Sub  ( src/Servant/API/Sub.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API/Sub.o )
+[17 of 18] Compiling Servant.Utils.Links ( src/Servant/Utils/Links.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/Utils/Links.o )
+[18 of 18] Compiling Servant.API      ( src/Servant/API.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/Servant/API.o )
+In-place registering servant-0.4.4.7...
+Installing library in
+/home/ggunn/.stack/snapshots/x86_64-linux/nightly-2016-04-14/7.10.3/lib/x86_64-linux-ghc-7.10.3/servant-0.4.4.7-DfT2BkPoPdd47fbZE7Xs6K
+Registering servant-0.4.4.7...

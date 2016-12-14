@@ -18,15 +18,24 @@ identityApi = Proxy
 -- | The function type of the interface here.
 -- Each function matches one of the endpoints in type API from UseHaskellAPI.hs
 
-idsubmit :: Identity -> Manager -> BaseUrl -> ClientM Response
-idnext :: ServerType -> Manager -> BaseUrl -> ClientM Identity
-idall :: ServerType -> Manager -> BaseUrl -> ClientM [Identity]
-idport :: ServerType -> Manager -> BaseUrl -> ClientM Int
-idreport :: Identity -> Manager -> BaseUrl -> ClientM Response
+idsubmit :: Identity -> ClientM Response
+idnext :: ServerType -> ClientM Identity
+idall :: ServerType ->  ClientM [Identity]
+idport :: ServerType -> ClientM Int
+idreport :: Identity -> ClientM Response
 
 -- | The following provides the implementations of these types
 -- Note that the order of the functions must match the endpoints in the type API from UseHaskell.hs
 
 idsubmit :<|> idnext :<|> idall :<|> idport :<|> idreport =  Servant.Client.client identityApi
+
+fileApi :: Proxy FileApi
+fileApi = Proxy
+
+fsfiles :: ClientM [FilePath]
+fsdownload :: String ->  ClientM File
+fsupload :: File -> ClientM Response
+
+fsfiles :<|> fsdownload :<|> fsupload = Servant.Client.client fileApi
 
 

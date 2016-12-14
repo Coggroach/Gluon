@@ -1,6 +1,6 @@
 module Main where
 
-import IdentityServer
+import DirectoryServer
 
 main :: IO ()
-main = identityApp
+main = directoryApp

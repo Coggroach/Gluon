@@ -17,7 +17,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/home/ggunn/Gluon/.stack-work/install/x86_64-linux/nightly-2016-04-14/7.10.3/bin"
-libdir     = "/home/ggunn/Gluon/.stack-work/install/x86_64-linux/nightly-2016-04-14/7.10.3/lib/x86_64-linux-ghc-7.10.3/Gluon-0.1.0.0-3c0hBOYHBzt0FMHIIc6JUg"
+libdir     = "/home/ggunn/Gluon/.stack-work/install/x86_64-linux/nightly-2016-04-14/7.10.3/lib/x86_64-linux-ghc-7.10.3/Gluon-0.1.0.0-Bh7wC9NIlLvDu8Fmof1W8w"
 datadir    = "/home/ggunn/Gluon/.stack-work/install/x86_64-linux/nightly-2016-04-14/7.10.3/share/x86_64-linux-ghc-7.10.3/Gluon-0.1.0.0"
 libexecdir = "/home/ggunn/Gluon/.stack-work/install/x86_64-linux/nightly-2016-04-14/7.10.3/libexec"
 sysconfdir = "/home/ggunn/Gluon/.stack-work/install/x86_64-linux/nightly-2016-04-14/7.10.3/etc"

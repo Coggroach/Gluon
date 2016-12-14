@@ -24,11 +24,11 @@ type FileApi =
 type DirectoryApi = 
     "files" :> Get '[JSON] [String] :<|>
     "files" :> Capture "uuid" String :> Get '[JSON] [String] :<|>
-    "open" :> Capture "fileName" String :> Get '[JSON] CommonServer.File :<|>
-    "close" :> ReqBody '[JSON] CommonServer.File :> Post '[JSON] CommonServer.Response :<|>
-    "beginTrans" :> Get '[JSON] CommonServer.Response :<|>
-    "endTrans" :> Get '[JSON] CommonServer.Response :<|>
-    "commitTrans" :> Get '[JSON] CommonServer.Response
+    "open" :> Capture "fileName" String :> Get '[JSON] CommonServer.File -- :<|>
+ --   "close" :> ReqBody '[JSON] CommonServer.File :> Post '[JSON] CommonServer.Response :<|>
+ --   "beginTrans" :> Get '[JSON] CommonServer.Response :<|>
+ --   "endTrans" :> Get '[JSON] CommonServer.Response :<|>
+ --   "commitTrans" :> Get '[JSON] CommonServer.Response
 
 type SecurityApi =
     "login" :> ReqBody '[JSON] CommonServer.Client :> Post '[JSON] CommonServer.Token :<|>
