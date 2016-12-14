@@ -1,0 +1,303 @@
+
+==================== FINAL INTERFACE ====================
+2016-12-14 20:36:32.0179687 UTC
+
+interface Gluon_I9b8FqjfDzwJOPF6lOVpx8:CommonServerApi 7103
+  interface hash: fcce4d8d5c0e22448a32a83448f698f3
+  ABI hash: 30554b92b9d722f2fd026f422f9b3935
+  export-list hash: 69b0e8a9e2fc80781d841673fb1aac22
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: c6f96741d2782fce216922f7107a6902
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  CommonServerApi.fileApi
+  CommonServerApi.ApiHandler
+  CommonServerApi.DirectoryApi
+  CommonServerApi.FileApi
+  CommonServerApi.IdentityApi
+  CommonServerApi.ProxyApi
+  CommonServerApi.SecurityApi
+  CommonServerApi.TransactionApi
+module dependencies: CommonServer
+package dependencies: Win32-2.3.1.0@Win32_ELFLzTRksT8Dql3wobiWvb
+                      aeson-0.11.2.1@aeson_KAMFeDDz7R3DOFfjTwSIjq
+                      array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA
+                      attoparsec-0.13.0.1@attop_C6pUTDzrecbIO4LDYHwJUG base-4.8.2.0
+                      base64-bytestring-1.0.0.1@base6_AkCk8zInckjJsyQ4AIFHPN
+                      base-compat-0.9.1@basec_2xZbfoWKo1S83E1QMdM4mB
+                      binary-0.7.5.0@binar_3uXFWMoAGBg0xKP9MHKRwi
+                      blaze-builder-0.4.0.1@blaze_4KI2nf4lf9oHEgXiILyTYj
+                      blaze-markup-0.7.0.3@blaze_C7imNkL0ufD2cjmU64FP9k
+                      blaze-html-0.8.1.1@blaze_Iq6GES6DAMS0745KzFL7i6
+                      bytestring-0.10.6.0@bytes_6VWy06pWzJq9evDvK2d4w6
+                      case-insensitive-1.2.0.6@casei_4HKCZYPfrJALfK51ySNnwP
+                      containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      cryptonite-0.15@crypt_LaLL2RN491I6L9vo6ZQiyT
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59
+                      directory-1.2.2.0@direc_5xLaLBWdxVZAOIxWfpUWaS
+                      dlist-0.7.1.2@dlist_AO7XAasbAeyL0XLKeq1Aui
+                      fail-4.9.0.0@fail_2xB1AvdW34sDm9N3JOe33G
+                      file-embed-0.0.9.1@filee_HfPg6JErFrIDNLfrtBdIZ7
+                      filepath-1.4.0.0@filep_Ey7a1in9roBAE8bUFJ5R9m ghc-prim-0.4.0.0
+                      hashable-1.2.4.0@hasha_EalUWgp8NarBYWPbvYAD8I
+                      http-api-data-0.3.3@httpa_FxvlZ27N4iQIWsTJS67vgD
+                      http-date-0.0.6.1@httpd_K48ICbZdR7j4Lbow4Laii0
+                      http-media-0.6.3@httpm_AWBFPnop4sqI1hj6VwXKVc
+                      http-types-0.9@httpt_2kqnYpPBpbH1f4ygoPM6qu integer-gmp-1.0.0.0
+                      memory-0.12@memor_Ax7qupEQgxCDhyhN5xpnFa
+                      mime-types-0.1.0.6@mimet_9JBMcwv2Xiq5zZQuEgPby5
+                      mmorph-1.0.9@mmorp_IhSSn2CszX6LAVJezRQ6Az
+                      mtl-2.2.1@mtl_Aue4leSeVkpKLsfHIV51E8
+                      network-info-0.2.0.8@netwo_4D1rNCmCoa407R20QFaQ3o
+                      network-uri-2.6.1.0@netwo_DarCcUHK1BCJHlIYOjXe67
+                      network-2.6.2.1@netwo_JvRqUnCVngAETdubChvApm
+                      parsec-3.1.9@parse_7aUabKPjr5W6Al5Ge35AQl
+                      pretty-1.1.2.0@prett_JItwetRppk1H5Uq3xbjDGC
+                      primitive-0.6.1.0@primi_EphY2c7CCxSCBKjAN0YTR3
+                      random-1.1@rando_7Qv4dDT5WBF9U3tMWkytIb
+                      scientific-0.3.4.6@scien_5s26qRhE5w04kI4pP1Rtwm
+                      semigroups-0.18.1@semig_IBlkGPjZsYWGswV1yLDA9m
+                      servant-server-0.9.1.1@serva_6a7jEVma6ol0MkhoahBU09
+                      servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj
+                      string-conversions-0.4@strin_JslXiDngwin4HR9nIe3KgC
+                      tagged-0.8.3@tagge_5cptKNCoGdxJM6eqqNERxD template-haskell-2.10.0.0
+                      text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne
+                      time-1.5.0.1@time_IYbjC7tGONY15oDy1fGJKz
+                      time-locale-compat-0.1.1.1@timel_CVx5rIGuqIp24PzQC7WK9G
+                      transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF
+                      unix-compat-0.4.3.1@unixc_FfC9CFPtPR9Eab2JkbpKd5
+                      unordered-containers-0.2.7.0@unord_2BLx4faR35mFWLJj5xiBgm
+                      uri-bytestring-0.2.0.0@uriby_IM0uWcdJSqKGFr1KVDegRG
+                      utf8-string-1.0.1.1@utf8s_L8eKHa7Iv9q7FVKUYW6u4b
+                      uuid-types-1.0.3@uuidt_1wV1rKVWXlh1eT8IY71k0x
+                      vault-0.3.0.6@vault_Ds02DFWDupK8kyaJ6uM5fA
+                      vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln
+                      wai-3.2.1.1@wai_CqDEPeakAnK0XtGg4drPuY
+                      wai-app-static-3.1.5@waiap_GaF2a3RZC3P64yJ6boOj8N
+                      word8-0.1.2@word8_6yKBsGbmsbLB2UCORShr75
+                      zlib-0.6.1.1@zlib_7LjT7TSHX8U3VTy3t378Vu
+orphans: aeson-0.11.2.1@aeson_KAMFeDDz7R3DOFfjTwSIjq:Data.Aeson.Types.Generic
+         aeson-0.11.2.1@aeson_KAMFeDDz7R3DOFfjTwSIjq:Data.Aeson.Types.Instances
+         attoparsec-0.13.0.1@attop_C6pUTDzrecbIO4LDYHwJUG:Data.Attoparsec.ByteString.Char8
+         attoparsec-0.13.0.1@attop_C6pUTDzrecbIO4LDYHwJUG:Data.Attoparsec.Text.Internal
+         base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+         binary-0.7.5.0@binar_3uXFWMoAGBg0xKP9MHKRwi:Data.Binary.Generic
+         bytestring-0.10.6.0@bytes_6VWy06pWzJq9evDvK2d4w6:Data.ByteString.Builder
+         hashable-1.2.4.0@hasha_EalUWgp8NarBYWPbvYAD8I:Data.Hashable.Generic
+         network-2.6.2.1@netwo_JvRqUnCVngAETdubChvApm:Network.Socket
+         network-2.6.2.1@netwo_JvRqUnCVngAETdubChvApm:Network.Socket.Types
+         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text
+         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text.Lazy
+         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text.Show
+         time-1.5.0.1@time_IYbjC7tGONY15oDy1fGJKz:Data.Time.Calendar.Gregorian
+         time-1.5.0.1@time_IYbjC7tGONY15oDy1fGJKz:Data.Time.Format.Parse
+         time-1.5.0.1@time_IYbjC7tGONY15oDy1fGJKz:Data.Time.LocalTime.LocalTime
+         transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF:Control.Monad.Trans.Error
+         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Fusion.Bundle
+         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed
+family instance modules: Gluon_I9b8FqjfDzwJOPF6lOVpx8:CommonServer
+                         attoparsec-0.13.0.1@attop_C6pUTDzrecbIO4LDYHwJUG:Data.Attoparsec.Internal.Types
+                         base-4.8.2.0:Control.Applicative base-4.8.2.0:Data.Either
+                         base-4.8.2.0:Data.Functor.Identity base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:Data.Void
+                         base-4.8.2.0:GHC.Exts base-4.8.2.0:GHC.Generics
+                         base-4.8.2.0:GHC.TypeLits
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.IntMap.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.IntSet.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Sequence
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+                         dlist-0.7.1.2@dlist_AO7XAasbAeyL0XLKeq1Aui:Data.DList
+                         http-api-data-0.3.3@httpa_FxvlZ27N4iQIWsTJS67vgD:Web.Internal.FormUrlEncoded
+                         network-uri-2.6.1.0@netwo_DarCcUHK1BCJHlIYOjXe67:Network.URI
+                         pretty-1.1.2.0@prett_JItwetRppk1H5Uq3xbjDGC:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.1.0@primi_EphY2c7CCxSCBKjAN0YTR3:Control.Monad.Primitive
+                         semigroups-0.18.1@semig_IBlkGPjZsYWGswV1yLDA9m:Data.List.NonEmpty
+                         semigroups-0.18.1@semig_IBlkGPjZsYWGswV1yLDA9m:Data.Semigroup
+                         servant-server-0.9.1.1@serva_6a7jEVma6ol0MkhoahBU09:Servant.Server.Internal
+                         servant-server-0.9.1.1@serva_6a7jEVma6ol0MkhoahBU09:Servant.Server.Internal.BasicAuth
+                         servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.API.ContentTypes
+                         servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.API.IsSecure
+                         servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.API.Verbs
+                         servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.Utils.Links
+                         tagged-0.8.3@tagge_5cptKNCoGdxJM6eqqNERxD:Data.Tagged
+                         template-haskell-2.10.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text
+                         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text.Lazy
+                         unordered-containers-0.2.7.0@unord_2BLx4faR35mFWLJj5xiBgm:Data.HashMap.Base
+                         unordered-containers-0.2.7.0@unord_2BLx4faR35mFWLJj5xiBgm:Data.HashSet
+                         uri-bytestring-0.2.0.0@uriby_IM0uWcdJSqKGFr1KVDegRG:URI.ByteString.Types
+                         uuid-types-1.0.3@uuidt_1wV1rKVWXlh1eT8IY71k0x:Data.UUID.Types.Internal
+                         uuid-types-1.0.3@uuidt_1wV1rKVWXlh1eT8IY71k0x:Data.UUID.Types.Internal.Builder
+                         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector
+                         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Primitive
+                         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Storable
+                         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed
+                         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed.Base
+                         zlib-0.6.1.1@zlib_7LjT7TSHX8U3VTy3t378Vu:Codec.Compression.Zlib.Stream
+import  -/  CommonServer 4df7a243b4b459a8b0b2881d79128b1a
+  exports: 5f25cf3e1f9fea5f99902c637b1a3f67
+  Client e9ba977e91da926683870bb29317aa0e
+  File 129cdda5294db8e3bd3825dde5bf92ca
+  Identity 9655ab20233cd96526e85030f8a3f9af
+  Response 9fff6bbfe25a302dfe791c89a77d2e88
+  ServerType 9655ab20233cd96526e85030f8a3f9af
+  Token f9da4d29ddf611c8d79cd98937964d98
+import  -/  aeson-0.11.2.1@aeson_KAMFeDDz7R3DOFfjTwSIjq:Data.Aeson 91eeae79e36d5e27cf4e96cf8eea88a5
+import  -/  base-4.8.2.0:Data.Proxy ace6418f386b055d277aea86443e836b
+import  -/  base-4.8.2.0:GHC.Base a4939789b2cfd60b36ed163e56a623cd
+import  -/  base-4.8.2.0:GHC.IO bb5b81adcea33b14bd4abe16d7dde45f
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  servant-server-0.9.1.1@serva_6a7jEVma6ol0MkhoahBU09:Servant e43bf5de677071d362d25f859ebb8e9b
+import  -/  servant-server-0.9.1.1@serva_6a7jEVma6ol0MkhoahBU09:Servant.Server.Internal.ServantErr e13f59c2b6225ced3d77bd7bdc21b1c2
+import  -/  servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.API.Alternative e3001b028dff0684101630240653af21
+import  -/  servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.API.Capture 194f7fc1e3e5e5a04e48111fcfabc09b
+import  -/  servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.API.ContentTypes 955c0f3c0a7f6d29a3b96f457866f7ab
+import  -/  servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.API.ReqBody 5bafffd59fd9d04fa861bfd8736df7d8
+import  -/  servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.API.Sub b509abdcba93decbb629b119082e7aa1
+import  -/  servant-0.9.1.1@serva_JCQ56NTmayk4LtlqRulspj:Servant.API.Verbs 44f1cc7da682c2db52cba21a3f248867
+import  -/  transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF:Control.Monad.Trans.Except 6961604358ca052b2f17ea0b96dc6f50
+import  -/  wai-3.2.1.1@wai_CqDEPeakAnK0XtGg4drPuY:Network.Wai 09a29f5adfd5b802997eee5e86932ab5
+cc2db7c57d326b73746684fd2e2454ff
+  type ApiHandler =
+    Control.Monad.Trans.Except.ExceptT
+      Servant.Server.Internal.ServantErr.ServantErr GHC.Types.IO
+e4553e81541c807789fa95e348628dbe
+  type DirectoryApi =
+    ("files"
+     Servant.API.Sub.:> Servant.API.Verbs.Get
+                          '[Servant.API.ContentTypes.JSON] [GHC.Base.String])
+    Servant.API.Alternative.:<|> (("files"
+                                   Servant.API.Sub.:> (Servant.API.Capture.Capture
+                                                         "uuid" GHC.Base.String
+                                                       Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                            '[Servant.API.ContentTypes.JSON]
+                                                                            [GHC.Base.String]))
+                                  Servant.API.Alternative.:<|> ("open"
+                                                                Servant.API.Sub.:> (Servant.API.Capture.Capture
+                                                                                      "fileName"
+                                                                                      GHC.Base.String
+                                                                                    Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                                                         '[Servant.API.ContentTypes.JSON]
+                                                                                                         CommonServer.File)))
+6ff30c61379ea37554b08fa895dd2c3f
+  type FileApi =
+    ("files"
+     Servant.API.Sub.:> Servant.API.Verbs.Get
+                          '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath])
+    Servant.API.Alternative.:<|> (("download"
+                                   Servant.API.Sub.:> (Servant.API.Capture.Capture
+                                                         "fileName" GHC.Base.String
+                                                       Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                            '[Servant.API.ContentTypes.JSON]
+                                                                            CommonServer.File))
+                                  Servant.API.Alternative.:<|> ("upload"
+                                                                Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                      '[Servant.API.ContentTypes.JSON]
+                                                                                      CommonServer.File
+                                                                                    Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                         '[Servant.API.ContentTypes.JSON]
+                                                                                                         CommonServer.Response)))
+505e66217d850da5c77671374b3f9109
+  type IdentityApi =
+    ("submit"
+     Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                           '[Servant.API.ContentTypes.JSON] CommonServer.Identity
+                         Servant.API.Sub.:> Servant.API.Verbs.Post
+                                              '[Servant.API.ContentTypes.JSON]
+                                              CommonServer.Response))
+    Servant.API.Alternative.:<|> (("next"
+                                   Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                         '[Servant.API.ContentTypes.JSON]
+                                                         CommonServer.ServerType
+                                                       Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                            '[Servant.API.ContentTypes.JSON]
+                                                                            CommonServer.Identity))
+                                  Servant.API.Alternative.:<|> (("all"
+                                                                 Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                       CommonServer.ServerType
+                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                                          [CommonServer.Identity]))
+                                                                Servant.API.Alternative.:<|> (("port"
+                                                                                               Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                                                     CommonServer.ServerType
+                                                                                                                   Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                        '[Servant.API.ContentTypes.JSON]
+                                                                                                                                        GHC.Types.Int))
+                                                                                              Servant.API.Alternative.:<|> ("report"
+                                                                                                                            Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                  CommonServer.Identity
+                                                                                                                                                Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                                     CommonServer.Response)))))
+f670315fecf4c72d2d957d85066d9747
+  type ProxyApi =
+    ("files"
+     Servant.API.Sub.:> Servant.API.Verbs.Get
+                          '[Servant.API.ContentTypes.JSON] [GHC.Base.String])
+    Servant.API.Alternative.:<|> (("open"
+                                   Servant.API.Sub.:> (Servant.API.Capture.Capture
+                                                         "fileName" GHC.Base.String
+                                                       Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                            '[Servant.API.ContentTypes.JSON]
+                                                                            CommonServer.File))
+                                  Servant.API.Alternative.:<|> (("close"
+                                                                 Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                       CommonServer.File
+                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                                          CommonServer.Response))
+                                                                Servant.API.Alternative.:<|> ("close"
+                                                                                              Servant.API.Sub.:> (Servant.API.Capture.Capture
+                                                                                                                    "fileName"
+                                                                                                                    GHC.Base.String
+                                                                                                                  Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                                                                       CommonServer.Response))))
+fd15be656fe1bf125246bd2a4d207d80
+  type SecurityApi =
+    ("login"
+     Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                           '[Servant.API.ContentTypes.JSON] CommonServer.Client
+                         Servant.API.Sub.:> Servant.API.Verbs.Post
+                                              '[Servant.API.ContentTypes.JSON] CommonServer.Token))
+    Servant.API.Alternative.:<|> ("session"
+                                  Servant.API.Sub.:> (Servant.API.Capture.Capture
+                                                        "id" GHC.Base.String
+                                                      Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                           '[Servant.API.ContentTypes.JSON]
+                                                                           CommonServer.Token))
+6774920266f976fa20a9cdcc9a73c91f
+  type TransactionApi =
+    ("beginT"
+     Servant.API.Sub.:> Servant.API.Verbs.Get
+                          '[Servant.API.ContentTypes.JSON] CommonServer.Response)
+    Servant.API.Alternative.:<|> (("endT"
+                                   Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                        '[Servant.API.ContentTypes.JSON]
+                                                        CommonServer.Response)
+                                  Servant.API.Alternative.:<|> ("statusT"
+                                                                Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                     CommonServer.Response))
+f2df07483ff2598a456eca4f2f742710
+  fileApi :: Data.Proxy.Proxy CommonServerApi.FileApi
+  {- HasNoCafRefs,
+     Unfolding: InlineRule (0, True, True)
+                (Data.Proxy.Proxy @ * @ CommonServerApi.FileApi) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

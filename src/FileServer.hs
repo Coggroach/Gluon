@@ -25,9 +25,6 @@ fileIdentity = Identity (getNetworkIpAddress 0) "" FileServer
 resources :: Resources
 resources = Resources "res/FileServers";
 
-fileApi :: Proxy FileApi
-fileApi = Proxy
-
 fileServer :: Server FileApi
 fileServer = 
     getFiles :<|>
@@ -37,21 +34,24 @@ fileServer =
 fileApp :: Application
 fileApp = serve fileApi fileServer
 
-mkApp :: IO()
-mkApp = run (read (port fileIdentity)::Int) fileApp 
+mkFileServer :: IO()
+mkFileServer = run (read (port fileIdentity)::Int) fileApp 
 
 getFiles :: ApiHandler [FilePath]
 getFiles = liftIO (getDirectoryContents (path resources))
 
+getFilePath :: FilePath -> FilePath
+getFilePath f = path resources ++ "/" ++ f
+
 downloadFile :: FilePath -> ApiHandler File
 downloadFile f = do    
-    content <- liftIO (readFile (path resources) ++ "/" ++ f)
+    content <- liftIO (readFile (getFilePath f))
     return (File f content)
 
 uploadFile :: File -> ApiHandler CommonServer.Response
 uploadFile (File f c) = do    
-    liftIO (writeFile (path resources) ++ "/" ++ f c)
-    return (CommonServer.Response FileUploadComplete fileIdentity)
+    liftIO (writeFile (getFilePath f) c)
+    return (CommonServer.Response CommonServer.FileUploadComplete fileIdentity "")
 
 --fsToDsHandshake :: IO()
 --fsToDsHandshake = do

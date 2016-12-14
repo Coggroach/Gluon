@@ -29,9 +29,6 @@ idreport :: Identity -> ClientM Response
 
 idsubmit :<|> idnext :<|> idall :<|> idport :<|> idreport =  Servant.Client.client identityApi
 
-fileApi :: Proxy FileApi
-fileApi = Proxy
-
 fsfiles :: ClientM [FilePath]
 fsdownload :: String ->  ClientM File
 fsupload :: File -> ClientM Response

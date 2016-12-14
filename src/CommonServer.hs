@@ -7,6 +7,7 @@ module CommonServer where
 import Data.Aeson
 import GHC.Generics
 import Network.Info
+import System.IO.Unsafe
 ------------------------------
 --  File Structure
 ------------------------------
@@ -25,7 +26,7 @@ data Identity = Identity {
     address :: String, 
     port :: String,
     serverType :: ServerType
-} deriving (Eq, Show, Generic)
+} deriving (Generic)
 
 instance ToJSON Identity
 instance FromJSON Identity
@@ -42,7 +43,7 @@ data ServerType =
     TransactionServer |
     IdentityServer |
     ReplicationServer
-    deriving(Eq, Show, Generic)
+    deriving(Eq, Show, Generic, Read)
 instance ToJSON ServerType
 instance FromJSON ServerType
 
@@ -73,7 +74,7 @@ data Token = Token {
     sessionKey :: String,
     ticket :: String,
     client :: Identity
-} deriving (Eq, Show, Generic)
+} deriving (Generic)
 instance ToJSON Token
 instance FromJSON Token
 
@@ -84,7 +85,7 @@ data Response = Response {
     responseCode :: ResponseCode, 
     serverId :: Identity,
     payload :: String
-} deriving (Eq, Show, Generic)
+} deriving (Generic)
 
 instance ToJSON Response
 instance FromJSON Response
@@ -100,7 +101,7 @@ data ResponseCode =
     IdentityFound |
     IdentityNotFound |
     IdentityReceived
-    deriving(Eq, Show, Generic)
+    deriving(Eq, Show, Generic, Read)
 instance ToJSON ResponseCode
 instance FromJSON ResponseCode
 
@@ -118,5 +119,11 @@ theIdentity = Identity (getNetworkIpAddress 0) "8081" IdentityServer
 getIdentityPort :: Identity -> Int
 getIdentityPort i = read (port i):: Int
 
+getNetworkInterface :: Int -> NetworkInterface
+getNetworkInterface i = unsafePerformIO getNetworkInterfaces !! i
+
+getIpv4AsString :: NetworkInterface -> String
+getIpv4AsString n = show (ipv4 n)
+
 getNetworkIpAddress :: Int -> String
-getNetworkIpAddress i = unsafePerformIO (ipv4 (head getNetworkInterfaces)) 
+getNetworkIpAddress i = getIpv4AsString (getNetworkInterface i)

@@ -62,18 +62,14 @@ directoryServer =
  --   endTrans :<|>
  --   commitTrans
 
-directoryApp :: Application
-directoryApp = serve DirectoryServer.directoryApi directoryServer
+mkDirectoryServer :: Application
+mkDirectoryServer = serve DirectoryServer.directoryApi directoryServer
 
-submitquery :: ClientM (CommonServer.Response)
-submitquery = do
-  identity <- idsubmit (Identity "localhost" "8082" DirectoryServer)
-  return (identity)
+submitquery :: ClientM CommonServer.Response
+submitquery = idsubmit (Identity "localhost" "8082" DirectoryServer)  
 
-getfsquery :: ClientM ([Identity])
-getfsquery = do
-  getfs <- idall FileServer
-  return (getfs)
+getfsquery :: ClientM [Identity]
+getfsquery = idall FileServer  
 
 getinitfiles :: CommonServer.Identity -> [Filemapping]
 getinitfiles  i = do
@@ -81,11 +77,10 @@ getinitfiles  i = do
    res <- runClientM fsfiles (ClientEnv manager (BaseUrl Http (address i) (read(port i)) "files"))
    case res of
     Left err -> putStrLn $ "Error: " ++ show err
-    Right (response) -> do
+    Right response -> do
     	map (newfilemap (address i) (port i)) response
-    	putStrLn $ "Files found successfully"
-
-   return(filemappings)
+    	putStrLn "Files found successfully"
+   return filemappings
 
 newfilemap :: String -> String -> FilePath -> IO()
 newfilemap address port fname = do
@@ -99,14 +94,13 @@ mkdirectoryServer = do
   res <- runClientM submitquery (ClientEnv manager (BaseUrl Http "localhost" 8081 "submit"))
   case res of
     Left err -> putStrLn $ "Error: " ++ show err
-    Right (response) -> do
-      print response
+    Right response -> print response
   fs <- runClientM getfsquery (ClientEnv manager (BaseUrl Http "localhost" 8081 "all"))
   case fs of
    	Left err -> putStrLn $ "Error: " ++ show err
-   	Right (response) -> do
+   	Right response -> do
    		fileservers <- response
-   		putStrLn $ "FileServers Received Successfully"
+   		putStrLn "FileServers Received Successfully"
   
   map getinitfiles fileservers
 
@@ -116,7 +110,7 @@ getFilenamesRecursive :: String -> [Filemapping]-> [String]
 getFilenamesRecursive 0  ff = ff
 getFilenamesRecursive i ff = do
     id  <- ff !! (i-1)    
-    ff ++ (filename id)
+    ff ++ filename id
     return getFilenamesRecursive (i-1)
 
 filenames :: [String]
@@ -136,18 +130,18 @@ file = getFilenames filemappings
 
 
 files :: String -> ApiHandler [String]
-files s = getFilenames (filter (\n -> (fmaddress n) == s) filemappings)
+files s = getFilenames (filter (\n -> fmaddress n == s) filemappings)
 	
 
 open :: String -> ApiHandler File
-open fname = getFilewFname fname
+open = getFilewFname
 
 getFilewFname :: String -> File
 getFilewFname fname = do
     manager <- newManager defaultManagerSettings
-    fmapping <- liftIO (filter (\n -> (filename n) == fname) filemappings)
-    res <- runClientM (filename fmapping) (ClientEnv manager (BaseUrl Http (address fmapping) read(port fmapping) "download"))
-    return (res)
+    fmapping <- liftIO (filter (\n -> filename n == fname) filemappings)
+    runClientM (filename fmapping) (ClientEnv manager (BaseUrl Http (address fmapping) read(port fmapping) "download"))
+
 
 --close :: File -> ApiHandler CommonServer.Response
 --close file = do

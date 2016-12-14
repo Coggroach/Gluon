@@ -12,7 +12,6 @@ import           Servant
 import           CommonServer
 
 type ApiHandler = ExceptT ServantErr IO
-type ClientM = EitherT ServantError IO
 
 type FileApi = 
     "files" :> Get '[JSON] [FilePath] :<|>
@@ -21,6 +20,9 @@ type FileApi =
 --    "beginTrans" :> Get '[JSON] CommonServer.Response :<|>
 --    "endTrans" :> Get '[JSON] CommonServer.Response :<|>
 --    "commitTrans" :> Get '[JSON] CommonServer.Response
+
+fileApi :: Proxy FileApi
+fileApi = Proxy
 
 type DirectoryApi = 
     "files" :> Get '[JSON] [String] :<|>

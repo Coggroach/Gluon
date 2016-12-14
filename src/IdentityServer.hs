@@ -52,7 +52,7 @@ ports = []
 getPorts :: [Int]
 getPorts = do
     len  <- length identities
-    if length ports != len then do
+    if length ports /= len then do
         port <- []
         getPortRecursive len
     else ports        
@@ -60,7 +60,7 @@ getPorts = do
 submit :: Identity -> ApiHandler CommonServer.Response
 submit i = do
     identities ++ [i]
-    return (Response IdentityReceived identity)
+    return (Response IdentityReceived theIdentity)
 
 getNext :: ServerType -> ApiHandler Identity
 getNext st = liftIO (head (filter (\n -> serverType n == st) identities))
@@ -71,8 +71,10 @@ getAll st = liftIO (filter (\n -> serverType n == st) identities)
 getPort :: ServerType -> ApiHandler Int
 getPort st = return (maximum getPorts) + 1
 
+
+
 report :: Identity -> ApiHandler CommonServer.Response
 report i = do
     result <- i `elem` identities
-    if result then return (Response IdentityFound i)
-    else return (Response IdentityNotFound i)
+    if result then CommonServer.Response CommonServer.IdentityFound i ""
+    else CommonServer.Response CommonServer.IdentityNotFound i ""    
