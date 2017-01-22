@@ -22,10 +22,8 @@ import           CommonServerApi
 identityServer :: Server IdentityApi
 identityServer = 
     submit :<|>
-    --getNext :<|>
     getAll :<|>
-    IdentityServer.getPort -- :<|>
-    --report
+    IdentityServer.getPort
 
 identityResources :: Resources
 identityResources = Resources "res/IdentityServer"

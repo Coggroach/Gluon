@@ -20,7 +20,14 @@ import           CommonServer
 import           CommonServerApi
 import           CommonServerApiClient
 
-fileIdentity = Identity (getNetworkIpAddress 0) "" FileServer
+fileIdentity :: CommonServer.Identity
+
+getFileIdentity :: CommonServer.Identity
+getFileIdentity = do
+    ip <- getNetworkIpAddress 0
+    submit <- identityClientSubmitHelper (CommonServer.Identity ip "" CommonServer.FileServer)
+    portResponse <- identityClientPortHelper CommonServer.FileServer
+    return (CommonServer.Identity ip (payload fileIdentity) CommonServer.FileServer)
 
 resources :: Resources
 resources = Resources "res/FileServers";
@@ -35,7 +42,18 @@ fileApp :: Application
 fileApp = serve fileApi fileServer
 
 mkFileServer :: IO()
-mkFileServer = run (read (port fileIdentity)::Int) fileApp 
+mkFileServer = do
+    let dir = getFilePath ""
+    createDirectoryIfMissing True dir
+    setCurrentDirectory dir
+    fileIdentity <- getFileIdentity
+    directoryIdentity <- head identityClientGetHelper CommonServer.DirectoryServer
+    putStrLn "Attempting to Join DirectoryServer..."
+    manager <- newManager defaultManagerSettings
+    response <- runClientM (directoryClientJoin fileIdentity) (ClientEnv manager (BaseUrl Http (address directoryIdentity) (port directoryIdentity) ""))    
+    case response of
+        Left err -> putStrLn "Error: " ++ show err
+        Right response -> run (read (port fileIdentity)::Int) fileApp 
 
 getFiles :: ApiHandler [FilePath]
 getFiles = liftIO (getDirectoryContents (path resources))
@@ -52,16 +70,3 @@ uploadFile :: File -> ApiHandler CommonServer.Response
 uploadFile (File f c) = do    
     liftIO (writeFile (getFilePath f) c)
     return (CommonServer.Response CommonServer.FileUploadComplete fileIdentity "")
-
---fsToDsHandshake :: IO()
---fsToDsHandshake = do
-   -- manager <- newManager defaultManagerSettings
-   -- result <- runClientM identity (ClientEnv manager (BaseUrl Http "localhost" 8081 ""))
-   -- case result of
-    --    Left err -> putStrLn $ "Error: " ++ show err
-     --   Right (Response code id) ->
-      --      case code of
-       --         HandshakeSuccessful -> return ()
-        --        HandshakeError -> fsToDsHandshake
-
-
