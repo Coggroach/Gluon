@@ -19,6 +19,7 @@ import           System.Directory
 import           CommonServer
 import           CommonServerApi
 import           CommonServerApiClient
+import           Network.HTTP.Client (newManager, defaultManagerSettings)
 
 fileIdentity :: CommonServer.Identity
 

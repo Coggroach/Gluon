@@ -87,17 +87,8 @@ filterIdentities s = do
     filterIdentitiesRecursive is s (length is)
 
 
---getNext :: ServerType -> ApiHandler Identity
---getNext st = liftIO (head (filterIdentities st))
-
 getAll :: ServerType -> ApiHandler [Identity]
 getAll st = liftIO (filterIdentities st)
 
-getPort :: ServerType -> ApiHandler Int
+getPort :: ServerType -> ApiHandler CommonServer.Response
 getPort st = return (maximum getPorts) + 1
-
---report :: Identity -> ApiHandler CommonServer.Response
---report i = liftIO (CommonServer.Response CommonServer.IdentityNotFound i "")--do
---   result <- i `elem` identities
---   if result then CommonServer.Response CommonServer.IdentityFound i ""
---   else CommonServer.Response CommonServer.IdentityNotFound i ""    

@@ -8,8 +8,12 @@ module CommonServerApi where
 import           Control.Monad.Trans.Except
 import           Data.Aeson
 import           Network.Wai
+import           Network.Wai.Handler.Warp
 import           Servant
+import           Servant.API
+import           Servant.Client
 import           CommonServer
+import           Network.HTTP.Client (newManager, defaultManagerSettings)
 
 ------------------------------
 --  ApiHandler
@@ -34,7 +38,7 @@ fileClientFiles :: ClientM [FilePath]
 fileClientDownload :: String -> ClientM CommonServer.File
 fileClientUpload :: CommonServer.File -> ClientM CommonServer.Response
 
-fileClientFiles :<|> fileClientDownload :<|> fileClientUpload = client fileApi
+fileClientFiles :<|> fileClientDownload :<|> fileClientUpload = Servant.Client.client fileApi
 
 ------------------------------
 --  DirectoryServer Api
@@ -58,7 +62,7 @@ directoryClientOpen :: String -> ClientM  CommonServer.File
 directoryClientClose :: CommonServer.File -> ClientM CommonServer.Response
 directoryClientJoin :: CommonServer.Identity -> ClientM CommonServer.Response
 
-directoryClientFilesA :<|> directoryClientFilesB :<|> directoryClientOpen:<|> directoryClientClose :<|> directoryClientJoin = client directoryApi
+directoryClientFilesA :<|> directoryClientFilesB :<|> directoryClientOpen:<|> directoryClientClose :<|> directoryClientJoin = Servant.Client.client directoryApi
 
 ------------------------------
 --  SecurityServer Api
@@ -108,7 +112,7 @@ identityClientSubmit :: CommonServer.Identity -> ClientM CommonServer.Response
 identityClientGet :: CommonServer.ServerType -> ClientM [CommonServer.Identity]
 identityClientPort :: CommonServer.ServerType -> ClientM CommonServer.Response
 
-identityClientSubmit :<|> identityClientGet :<|> identityClientPort = client identityApi
+identityClientSubmit :<|> identityClientGet :<|> identityClientPort = Servant.Client.client identityApi
 
 identityConnectingString :: String -> String
 identityConnectingString s = "Connecting to IdentityServer:" ++ s
@@ -139,6 +143,10 @@ identityClientGetHelper s = do
     manager <- newManager defaultManagerSettings
     ids <- runClientM (identityClientGet s) (ClientEnv manager (BaseUrl Http (address theIdentity) (port theIdentity) ""))
     case ids of
-        Left err -> putStrLn "Error: " ++ show err
-        Right ids -> putStrLn "Response: " ++ show ids
-    return ids
+        Left err -> do
+            putStrLn $ "Error: " ++ show err
+            return []
+        Right ids -> do
+            putStrLn $ "Response: " ++ ids
+            return ids
+        
