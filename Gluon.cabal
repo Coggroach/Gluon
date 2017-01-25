@@ -30,6 +30,7 @@ library
     , directory
     , http-client
     , either
+    , either-unwrap
     , time
     , random
     , containers

@@ -42,6 +42,13 @@
   (major1) == 4 && (major2) <  4 || \
   (major1) == 4 && (major2) == 4 && (minor) <= 1)
 
+/* package either-unwrap-1.1 */
+#define VERSION_either_unwrap "1.1"
+#define MIN_VERSION_either_unwrap(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  1 || \
+  (major1) == 1 && (major2) == 1 && (minor) <= 0)
+
 /* package http-client-0.4.27.1 */
 #define VERSION_http_client "0.4.27.1"
 #define MIN_VERSION_http_client(major1,major2,minor) (\
@@ -196,5 +203,5 @@
   (major1) == 2 && (major2) <  25 || \
   (major1) == 2 && (major2) == 25 && (minor) <= 0)
 
-#define CURRENT_PACKAGE_KEY "Gluon_5tHbrtDuvm2LmlLmaE7JnD"
+#define CURRENT_PACKAGE_KEY "Gluon_EFEcGTK6snE3aBUDcxRbN1"
 

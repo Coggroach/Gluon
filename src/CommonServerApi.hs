@@ -6,6 +6,7 @@
 module CommonServerApi where
 
 import           Control.Monad.Trans.Except
+import           Data.Either.Unwrap
 import           Data.Aeson
 import           Network.Wai
 import           Network.Wai.Handler.Warp
@@ -141,12 +142,12 @@ identityClientGetHelper :: CommonServer.ServerType -> [CommonServer.Identity]
 identityClientGetHelper s = do
     putStrLn identityConnectingString "Get"
     manager <- newManager defaultManagerSettings
-    ids <- runClientM (identityClientGet s) (ClientEnv manager (BaseUrl Http (address theIdentity) (port theIdentity) ""))
-    case ids of
+    eitherIds <- runClientM (identityClientGet s) (ClientEnv manager (BaseUrl Http (address theIdentity) (port theIdentity) ""))
+    case eitherIds of
         Left err -> do
             putStrLn $ "Error: " ++ show err
-            return []
-        Right ids -> do
-            putStrLn $ "Response: " ++ ids
-            return ids
+            []
+        Right rIds -> do
+            putStrLn $ "Response: " ++ rIds
+            fromRight eitherIds
         
