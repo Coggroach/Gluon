@@ -41,7 +41,6 @@ data ServerType =
     ProxyServer |
     SecurityServer |
     TransactionServer |
-    IdentityServer |
     ReplicationServer
     deriving(Eq, Show, Generic, Read)
 instance ToJSON ServerType
@@ -95,12 +94,7 @@ instance FromJSON Response
 ------------------------------
 data ResponseCode = 
     FileUploadComplete |
-    FileUploadError |
-    HandshakeSuccessful |
-    HandshakeError |
-    IdentityFound |
-    IdentityNotFound |
-    IdentityReceived
+    FileUploadError
     deriving(Eq, Show, Generic, Read)
 instance ToJSON ResponseCode
 instance FromJSON ResponseCode
@@ -109,8 +103,11 @@ instance FromJSON ResponseCode
 --  Common Variables 
 ------------------------------
 
-theIdentity :: Identity
-theIdentity = Identity (getNetworkIpAddress 0) "8081" IdentityServer
+fileServerIdentity :: Identity
+fileServerIdentity = Identity "localhost" "8082" FileServer
+
+directoryServerIdentity :: Identity
+directoryServerIdentity = Identity "localhost" "8083" DirectoryServer
 
 ------------------------------
 --  Common Functions 
@@ -118,12 +115,3 @@ theIdentity = Identity (getNetworkIpAddress 0) "8081" IdentityServer
 
 getIdentityPort :: Identity -> Int
 getIdentityPort i = read (port i):: Int
-
-getNetworkInterface :: Int -> NetworkInterface
-getNetworkInterface i = unsafePerformIO getNetworkInterfaces !! i
-
-getIpv4AsString :: NetworkInterface -> String
-getIpv4AsString n = show (ipv4 n)
-
-getNetworkIpAddress :: Int -> String
-getNetworkIpAddress i = getIpv4AsString (getNetworkInterface i)

@@ -15,7 +15,7 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     DirectoryServer, FileServer, IdentityServer, CommonServer
+  exposed-modules:     DirectoryServer, FileServer, CommonServer
   build-depends:       
       base
     , aeson

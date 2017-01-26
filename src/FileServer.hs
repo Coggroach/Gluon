@@ -20,15 +20,6 @@ import           CommonServer
 import           CommonServerApi
 import           Network.HTTP.Client (newManager, defaultManagerSettings)
 
-fileIdentity :: CommonServer.Identity
-
-getFileIdentity :: CommonServer.Identity
-getFileIdentity = do
-    ip <- getNetworkIpAddress 0
-    submit <- identityClientSubmit (CommonServer.Identity ip "" CommonServer.FileServer)
-    portResponse <- identityClientPort CommonServer.FileServer
-    return (CommonServer.Identity ip (payload fileIdentity) CommonServer.FileServer)
-
 resources :: Resources
 resources = Resources "res/FileServers";
 
@@ -46,14 +37,11 @@ mkFileServer = do
     let dir = getFilePath ""
     createDirectoryIfMissing True dir
     setCurrentDirectory dir
-    fileIdentity <- getFileIdentity
-    directoryIdentity <- head identityClientGet CommonServer.DirectoryServer
-    putStrLn "Attempting to Join DirectoryServer..."
     manager <- newManager defaultManagerSettings
-    response <- runClientM (directoryClientJoin fileIdentity) (ClientEnv manager (BaseUrl Http (address directoryIdentity) (port directoryIdentity) ""))    
+    response <- runClientM (directoryClientJoin fileServerIdentity) (ClientEnv manager (BaseUrl Http (address directoryServerIdentity) (getIdentityPort directoryServerIdentity) ""))    
     case response of
-        Left err -> putStrLn "Error: " ++ show err
-        Right response -> run (read (port fileIdentity)::Int) fileApp 
+        Left err -> putStrLn $ "Error: " ++ show err
+        Right response -> run (getIdentityPort fileServerIdentity) fileApp 
 
 getFiles :: ApiHandler [FilePath]
 getFiles = liftIO (getDirectoryContents (path resources))
@@ -69,4 +57,4 @@ downloadFile f = do
 uploadFile :: File -> ApiHandler CommonServer.Response
 uploadFile (File f c) = do    
     liftIO (writeFile (getFilePath f) c)
-    return (CommonServer.Response CommonServer.FileUploadComplete fileIdentity "")
+    return (CommonServer.Response CommonServer.FileUploadComplete fileServerIdentity "")
