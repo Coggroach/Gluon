@@ -18,130 +18,42 @@ import           Servant.Client
 import           System.IO
 import           CommonServer
 import           CommonServerApi
-import Data.Map (Map)
-import Data.Time
-import System.Random
+import           Data.Map (Map)
+import           Data.Time
+import           System.Random
 import qualified Data.Map as M
-import Network.HTTP.Client (newManager, defaultManagerSettings)
+import           Network.HTTP.Client (newManager, defaultManagerSettings)
 
-data Filemapping = Filemapping{
-	filename :: String,
-    fmaddress :: String,
-    fmport :: String
-}
-
-data Fileserver = Fileserver{
-	fsaddress :: String,
-	fsport :: String,
-	servertype :: ServerType
-}
-
---data Directoryserver = Directoryserver{
---      filemappings   :: TVar (M.Map Filename Filemapping)
---    , fileservers :: TVar (M.Map Uuid Fileserver)
---    , fileservercount :: TVar Int
--- }
-
-filemappings :: [Filemapping]
-filemappings = []
-
-fileservers :: [CommonServer.Identity]
-fileservers = []
+resources :: Resources
+resources = Resources "res/DirectoryServer";
 
 directoryServer :: Server DirectoryApi
 directoryServer = 
-    file :<|>
-    files :<|>
-    open -- :<|>
- --   close :<|>
- --   beginTrans :<|>
- --   endTrans :<|>
- --   commitTrans
+    getFiles :<|>
+    getFilesFrom :<|>
+    openFile :<|>
+    closeFile :<|>
+    joinServer
 
-mkDirectoryServer :: Application
-mkDirectoryServer = serve DirectoryServer.directoryApi directoryServer
+directoryApp :: Application 
+directoryApp = serve directoryApi directoryServer
 
-submitquery :: ClientM CommonServer.Response
-submitquery = idsubmit (Identity "localhost" "8082" DirectoryServer)  
+mkDirectoryServer :: IO()
+mkDirectoryServer = do
+    createDirectoryIfMissing True dir
+    setCurrentDirectory dir
+    run (getIdentityPort directoryServerIdentity) directoryApp
 
-getfsquery :: ClientM [Identity]
-getfsquery = idall FileServer  
+getFiles :: ApiHandler [FilePath]
 
-getinitfiles :: CommonServer.Identity -> [Filemapping]
-getinitfiles  i = do
-   manager <- newManager defaultManagerSettings
-   res <- runClientM fsfiles (ClientEnv manager (BaseUrl Http (address i) (read(port i)) "files"))
-   case res of
-    Left err -> putStrLn $ "Error: " ++ show err
-    Right response -> do
-    	map (newfilemap (address i) (port i)) response
-    	putStrLn "Files found successfully"
-   return filemappings
+getFilesFrom :: CommonServer.Identity -> ApiHandler [FilePath] 
 
-newfilemap :: String -> String -> FilePath -> IO()
-newfilemap address port fname = do
-	filemap <- Filemapping fname address port 
-	filemappings ++ [filemap]
-	return()
+openFile :: String -> ApiHandler CommonServer.File
 
-mkdirectoryServer :: IO()
-mkdirectoryServer = do 
-  manager <- newManager defaultManagerSettings
-  res <- runClientM submitquery (ClientEnv manager (BaseUrl Http "localhost" 8081 "submit"))
-  case res of
-    Left err -> putStrLn $ "Error: " ++ show err
-    Right response -> print response
-  fs <- runClientM getfsquery (ClientEnv manager (BaseUrl Http "localhost" 8081 "all"))
-  case fs of
-   	Left err -> putStrLn $ "Error: " ++ show err
-   	Right response -> do
-   		fileservers <- response
-   		putStrLn "FileServers Received Successfully"
-  
-  map getinitfiles fileservers
+closeFile :: CommonServer.File -> ApiHandler CommonServer.Response
 
-  run 8082 directoryApp
-
-getFilenamesRecursive :: String -> [Filemapping]-> [String]
-getFilenamesRecursive 0  ff = ff
-getFilenamesRecursive i ff = do
-    id  <- ff !! (i-1)    
-    ff ++ filename id
-    return getFilenamesRecursive (i-1)
-
-filenames :: [String]
-filenames = []
-
-getFilenames :: [Filemapping] -> [String]
-getFilenames ff = do
-    len  <- length ff
-    if length ff /= len then do
-        ff <- []
-        getFilenamesRecursive len
-    else ff 
-
-
-file :: ApiHandler [String]
-file = getFilenames filemappings
-
-
-files :: String -> ApiHandler [String]
-files s = getFilenames (filter (\n -> fmaddress n == s) filemappings)
-	
-
-open :: String -> ApiHandler File
-open = getFilewFname
-
-getFilewFname :: String -> File
-getFilewFname fname = do
-    manager <- newManager defaultManagerSettings
-    fmapping <- liftIO (filter (\n -> filename n == fname) filemappings)
-    runClientM (filename fmapping) (ClientEnv manager (BaseUrl Http (address fmapping) read(port fmapping) "download"))
-
-
---close :: File -> ApiHandler CommonServer.Response
---close file = do
-
-
+joinServer :: CommonServer.Identity -> ApiHandler CommonServer.Response
+joinServer i = liftIO $ do
+    
 
 
