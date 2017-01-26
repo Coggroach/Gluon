@@ -18,7 +18,6 @@ import           System.IO
 import           System.Directory
 import           CommonServer
 import           CommonServerApi
-import           CommonServerApiClient
 import           Network.HTTP.Client (newManager, defaultManagerSettings)
 
 fileIdentity :: CommonServer.Identity
@@ -26,8 +25,8 @@ fileIdentity :: CommonServer.Identity
 getFileIdentity :: CommonServer.Identity
 getFileIdentity = do
     ip <- getNetworkIpAddress 0
-    submit <- identityClientSubmitHelper (CommonServer.Identity ip "" CommonServer.FileServer)
-    portResponse <- identityClientPortHelper CommonServer.FileServer
+    submit <- identityClientSubmit (CommonServer.Identity ip "" CommonServer.FileServer)
+    portResponse <- identityClientPort CommonServer.FileServer
     return (CommonServer.Identity ip (payload fileIdentity) CommonServer.FileServer)
 
 resources :: Resources
@@ -48,7 +47,7 @@ mkFileServer = do
     createDirectoryIfMissing True dir
     setCurrentDirectory dir
     fileIdentity <- getFileIdentity
-    directoryIdentity <- head identityClientGetHelper CommonServer.DirectoryServer
+    directoryIdentity <- head identityClientGet CommonServer.DirectoryServer
     putStrLn "Attempting to Join DirectoryServer..."
     manager <- newManager defaultManagerSettings
     response <- runClientM (directoryClientJoin fileIdentity) (ClientEnv manager (BaseUrl Http (address directoryIdentity) (port directoryIdentity) ""))    

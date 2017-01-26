@@ -109,45 +109,41 @@ type IdentityApi =
 identityApi :: Proxy IdentityApi
 identityApi = Proxy
 
-identityClientSubmit :: CommonServer.Identity -> ClientM CommonServer.Response
-identityClientGet :: CommonServer.ServerType -> ClientM [CommonServer.Identity]
-identityClientPort :: CommonServer.ServerType -> ClientM CommonServer.Response
+identityApiSubmitHelper :: CommonServer.Identity -> ClientM CommonServer.Response
+identityApiGetHelper :: CommonServer.ServerType -> ClientM [CommonServer.Identity]
+identityApiPortHelper :: CommonServer.ServerType -> ClientM CommonServer.Response
 
-identityClientSubmit :<|> identityClientGet :<|> identityClientPort = Servant.Client.client identityApi
+identityApiSubmitHelper :<|> identityApiGetHelper :<|> identityApiPortHelper = Servant.Client.client identityApi
 
 identityConnectingString :: String -> String
 identityConnectingString s = "Connecting to IdentityServer:" ++ s
 
-identityClientSubmitHelper :: CommonServer.Identity -> CommonServer.Response
-identityClientSubmitHelper i = do
-    putStrLn identityConnectingString "Submit"
+identityClientSubmit :: CommonServer.Identity -> ClientM CommonServer.Response
+identityClientSubmit i = do
+    putStrLn $ identityConnectingString "Submit"
     manager <- newManager defaultManagerSettings
-    response <- runClientM (identityClientSubmit i) (ClientEnv manager (BaseUrl Http (address theIdentity) (port theIdentity) ""))
+    response <- runClientM (identityApiSubmitHelper i) (ClientEnv manager (BaseUrl Http (address theIdentity) (read(port theIdentity)::Int) ""))
     case response of
         Left err -> putStrLn "Error: " ++ show err
         Right response -> putStrLn "Response: " ++ show (responseCode response)
     return response
 
-identityClientPortHelper :: CommonServer.ServerType -> CommonServer.Response
-identityClientPortHelper s = do
-    putStrLn identityConnectingString "Port"
+identityClientGet :: CommonServer.ServerType -> ClientM [CommonServer.Identity]
+identityClientGet s = do
+    putStrLn $ identityConnectingString "Get"
     manager <- newManager defaultManagerSettings
-    response <- runClientM (identityClientPort s) (ClientEnv manager (BaseUrl Http (address theIdentity) (port theIdentity) ""))
-    case response of
-        Left err -> putStrLn "Error: " ++ show err
-        Right response -> putStrLn "Response: " ++ show (responseCode response)
-    return response
-
-identityClientGetHelper :: CommonServer.ServerType -> [CommonServer.Identity]
-identityClientGetHelper s = do
-    putStrLn identityConnectingString "Get"
-    manager <- newManager defaultManagerSettings
-    eitherIds <- runClientM (identityClientGet s) (ClientEnv manager (BaseUrl Http (address theIdentity) (port theIdentity) ""))
+    eitherIds <- runClientM (identityApiGetHelper s) (ClientEnv manager (BaseUrl Http (address theIdentity) (read(port theIdentity)::Int) ""))
     case eitherIds of
-        Left err -> do
-            putStrLn $ "Error: " ++ show err
-            []
-        Right rIds -> do
-            putStrLn $ "Response: " ++ rIds
-            fromRight eitherIds
+        Left err -> return []
+        Right rIds -> return rIds
+
+identityClientPort :: CommonServer.ServerType -> ClientM CommonServer.Response
+identityClientPort s = do
+    putStrLn $ identityConnectingString "Port"
+    manager <- newManager defaultManagerSettings
+    response <- runClientM (identityApiPortHelper s) (ClientEnv manager (BaseUrl Http (address theIdentity) (read(port theIdentity)::Int) ""))
+    case response of
+        Left err -> putStrLn "Error: " ++ show err
+        Right response -> putStrLn "Response: " ++ show (responseCode response)
+    return response  
         

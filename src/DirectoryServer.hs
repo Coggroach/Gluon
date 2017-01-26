@@ -18,7 +18,6 @@ import           Servant.Client
 import           System.IO
 import           CommonServer
 import           CommonServerApi
-import           CommonServerApiClient
 import Data.Map (Map)
 import Data.Time
 import System.Random
