@@ -5,6 +5,7 @@
 
 module CommonServer where
 import Data.Aeson
+import Data.Bson.Generic
 import GHC.Generics
 import Network.Info
 import System.IO.Unsafe
@@ -30,6 +31,9 @@ data Identity = Identity {
 
 instance ToJSON Identity
 instance FromJSON Identity
+
+deriving instance FromBSON Identity
+deriving instance ToBSON   Identity
 
 ------------------------------
 --  Registered Server Types 
