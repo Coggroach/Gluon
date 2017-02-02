@@ -1,53 +1,52 @@
 Configuring mmorph-1.0.9...
 Building mmorph-1.0.9...
 Preprocessing library mmorph-1.0.9...
-[1 of 2] Compiling Control.Monad.Morph ( src\Control\Monad\Morph.hs, .stack-work\dist\2672c1f3\build\Control\Monad\Morph.o )
+[1 of 2] Compiling Control.Monad.Morph ( src\Control\Monad\Morph.hs, .stack-work\dist\b7fec021\build\Control\Monad\Morph.o )
 
-src\Control\Monad\Morph.hs:76:1: Warning:
+src\Control\Monad\Morph.hs:76:1: warning: [-Wdeprecations]
     Module `Control.Monad.Trans.Error' is deprecated:
       Use Control.Monad.Trans.Except instead
 
-src\Control\Monad\Morph.hs:112:20: Warning:
-    In the use of type constructor or class `E.ErrorT'
+src\Control\Monad\Morph.hs:112:20: warning: [-Wdeprecations]
+    In the use of type constructor or class `ErrorT'
     (imported from Control.Monad.Trans.Error):
     Deprecated: "Use Control.Monad.Trans.Except instead"
 
-src\Control\Monad\Morph.hs:113:19: Warning:
-    In the use of data constructor `E.ErrorT'
+src\Control\Monad\Morph.hs:113:19: warning: [-Wdeprecations]
+    In the use of data constructor `ErrorT'
     (imported from Control.Monad.Trans.Error):
     Deprecated: "Use Control.Monad.Trans.Except instead"
 
-src\Control\Monad\Morph.hs:113:34: Warning:
-    In the use of `E.runErrorT'
+src\Control\Monad\Morph.hs:113:34: warning: [-Wdeprecations]
+    In the use of `runErrorT'
     (imported from Control.Monad.Trans.Error):
     Deprecated: "Use Control.Monad.Trans.Except instead"
 
-src\Control\Monad\Morph.hs:233:11: Warning:
-    In the use of type constructor or class `E.Error'
+src\Control\Monad\Morph.hs:233:11: warning: [-Wdeprecations]
+    In the use of type constructor or class `Error'
     (imported from Control.Monad.Trans.Error):
     Deprecated: "Use Control.Monad.Trans.Except instead"
 
-src\Control\Monad\Morph.hs:233:33: Warning:
-    In the use of type constructor or class `E.ErrorT'
+src\Control\Monad\Morph.hs:233:33: warning: [-Wdeprecations]
+    In the use of type constructor or class `ErrorT'
     (imported from Control.Monad.Trans.Error):
     Deprecated: "Use Control.Monad.Trans.Except instead"
 
-src\Control\Monad\Morph.hs:234:17: Warning:
-    In the use of data constructor `E.ErrorT'
+src\Control\Monad\Morph.hs:234:17: warning: [-Wdeprecations]
+    In the use of data constructor `ErrorT'
     (imported from Control.Monad.Trans.Error):
     Deprecated: "Use Control.Monad.Trans.Except instead"
 
-src\Control\Monad\Morph.hs:235:14: Warning:
-    In the use of `E.runErrorT'
+src\Control\Monad\Morph.hs:235:14: warning: [-Wdeprecations]
+    In the use of `runErrorT'
     (imported from Control.Monad.Trans.Error):
     Deprecated: "Use Control.Monad.Trans.Except instead"
 
-src\Control\Monad\Morph.hs:235:30: Warning:
-    In the use of `E.runErrorT'
+src\Control\Monad\Morph.hs:235:30: warning: [-Wdeprecations]
+    In the use of `runErrorT'
     (imported from Control.Monad.Trans.Error):
     Deprecated: "Use Control.Monad.Trans.Except instead"
-[2 of 2] Compiling Control.Monad.Trans.Compose ( src\Control\Monad\Trans\Compose.hs, .stack-work\dist\2672c1f3\build\Control\Monad\Trans\Compose.o )
-In-place registering mmorph-1.0.9...
+[2 of 2] Compiling Control.Monad.Trans.Compose ( src\Control\Monad\Trans\Compose.hs, .stack-work\dist\b7fec021\build\Control\Monad\Trans\Compose.o )
 Installing library in
-E:\Development\Haskell\Projects\Gluon\.stack-work\install\09641122\lib\x86_64-windows-ghc-7.10.3\mmorph-1.0.9-IhSSn2CszX6LAVJezRQ6Az
+C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\mmorph-1.0.9-DmSwQqk5nLj7roLAcydGz
 Registering mmorph-1.0.9...

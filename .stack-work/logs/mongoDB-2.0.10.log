@@ -1,0 +1,65 @@
+Configuring mongoDB-2.0.10...
+Building mongoDB-2.0.10...
+Preprocessing library mongoDB-2.0.10...
+[1 of 8] Compiling Database.MongoDB.Internal.Connection ( Database\MongoDB\Internal\Connection.hs, .stack-work\dist\2672c1f3\build\Database\MongoDB\Internal\Connection.o )
+[2 of 8] Compiling System.IO.Pipeline ( System\IO\Pipeline.hs, .stack-work\dist\2672c1f3\build\System\IO\Pipeline.o )
+[3 of 8] Compiling Database.MongoDB.Internal.Util ( Database\MongoDB\Internal\Util.hs, .stack-work\dist\2672c1f3\build\Database\MongoDB\Internal\Util.o )
+
+Database\MongoDB\Internal\Util.hs:24:1: Warning:
+    Module `Control.Monad.Error' is deprecated:
+      Use Control.Monad.Except instead
+
+Database\MongoDB\Internal\Util.hs:72:34: Warning:
+    In the use of type constructor or class `Error'
+    (imported from Control.Monad.Error, but defined in transformers-0.4.2.0:Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Database\MongoDB\Internal\Util.hs:74:31: Warning:
+    In the use of `strMsg'
+    (imported from Control.Monad.Error, but defined in transformers-0.4.2.0:Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+[4 of 8] Compiling Database.MongoDB.Internal.Protocol ( Database\MongoDB\Internal\Protocol.hs, .stack-work\dist\2672c1f3\build\Database\MongoDB\Internal\Protocol.o )
+
+Database\MongoDB\Internal\Protocol.hs:28:1: Warning:
+    The import of `Control.Arrow' is redundant
+      except perhaps to import instances from `Control.Arrow'
+    To import instances alone, use: import Control.Arrow()
+
+Database\MongoDB\Internal\Protocol.hs:51:1: Warning:
+    The import of `whenJust'
+    from module `Database.MongoDB.Internal.Util' is redundant
+[5 of 8] Compiling Database.MongoDB.Query ( Database\MongoDB\Query.hs, .stack-work\dist\2672c1f3\build\Database\MongoDB\Query.o )
+
+Database\MongoDB\Query.hs:66:1: Warning:
+    The import of `Control.Applicative' is redundant
+      except perhaps to import instances from `Control.Applicative'
+    To import instances alone, use: import Control.Applicative()
+
+Database\MongoDB\Query.hs:69:1: Warning:
+    Module `Control.Monad.Error' is deprecated:
+      Use Control.Monad.Except instead
+
+Database\MongoDB\Query.hs:131:10: Warning:
+    In the use of type constructor or class `Error'
+    (imported from Control.Monad.Error, but defined in transformers-0.4.2.0:Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Database\MongoDB\Query.hs:131:10: Warning:
+    In the use of type constructor or class `Error'
+    (imported from Control.Monad.Error, but defined in transformers-0.4.2.0:Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Database\MongoDB\Query.hs:280:27: Warning:
+    This binding for `client2' shadows the existing binding
+      bound at Database\MongoDB\Query.hs:267:17
+[6 of 8] Compiling Database.MongoDB.Connection ( Database\MongoDB\Connection.hs, .stack-work\dist\2672c1f3\build\Database\MongoDB\Connection.o )
+
+Database\MongoDB\Connection.hs:36:1: Warning:
+    Module `Control.Monad.Error' is deprecated:
+      Use Control.Monad.Except instead
+[7 of 8] Compiling Database.MongoDB.Admin ( Database\MongoDB\Admin.hs, .stack-work\dist\2672c1f3\build\Database\MongoDB\Admin.o )
+[8 of 8] Compiling Database.MongoDB ( Database\MongoDB.hs, .stack-work\dist\2672c1f3\build\Database\MongoDB.o )
+In-place registering mongoDB-2.0.10...
+Installing library in
+C:\sr\snapshots\d0ec92a1\lib\x86_64-windows-ghc-7.10.3\mongoDB-2.0.10-AIANnhOVhie7u8kUbIeVuY
+Registering mongoDB-2.0.10...

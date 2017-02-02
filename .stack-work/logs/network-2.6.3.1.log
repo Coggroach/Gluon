@@ -1,0 +1,11 @@
+[1 of 1] Compiling Main             ( C:\Users\TARDIS\AppData\Local\Temp\stack12668\network-2.6.3.1\Setup.hs, C:\Users\TARDIS\AppData\Local\Temp\stack12668\network-2.6.3.1\.stack-work\dist\b7fec021\setup\Main.o )
+Linking C:\Users\TARDIS\AppData\Local\Temp\stack12668\network-2.6.3.1\.stack-work\dist\b7fec021\setup\setup.exe ...
+Configuring network-2.6.3.1...
+configure: WARNING: unrecognized options: --with-compiler
+checking build system type... i686-pc-cygwin
+checking host system type... i686-pc-cygwin
+checking for gcc... E:\PROGRA~1\HASKEL~1\802E01~1.1\mingw\bin\gcc.exe
+checking whether the C compiler works... no
+configure: error: in `/cygdrive/c/Users/TARDIS/AppData/Local/Temp/stack12668/network-2.6.3.1':
+configure: error: C compiler cannot create executables
+See `config.log' for more details
