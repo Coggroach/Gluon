@@ -5,9 +5,9 @@ description:         Please see README.md
 homepage:            https://github.com/githubuser/Gluon#readme
 license:             BSD3
 license-file:        LICENSE
-author:              Author name here
+author:              Coggroach
 maintainer:          example@example.com
-copyright:           2016 Author name here
+copyright:           2016 Coggroach
 category:            Web
 build-type:          Simple
 -- extra-source-files:
@@ -15,7 +15,7 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     DirectoryServer, FileServer, CommonServer
+  exposed-modules:     DirectoryServer, FileServer, CommonServer, CommonServerApi, MongoDbConnector
   build-depends:       base >= 4.7 && < 5
                      , servant == 0.9.*
                      , servant-server
@@ -38,6 +38,7 @@ library
                      , mtl
                      , network
                      , http-client
+                     , containers
   default-language:    Haskell2010
 
 executable Gluon-exe
@@ -45,7 +46,8 @@ executable Gluon-exe
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       
-      base
+      base,
+      Gluon
   default-language:    Haskell2010
 
 test-suite Gluon-test

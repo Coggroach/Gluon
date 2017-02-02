@@ -89,7 +89,8 @@ data Response = Response {
 ------------------------------
 data ResponseCode = 
     FileUploadComplete |
-    FileUploadError
+    FileUploadError |
+    DirectoryJoinSuccess
     deriving(Eq, Show, Generic, Read, ToJSON, FromJSON, ToBSON, FromBSON)
 
 ------------------------------
