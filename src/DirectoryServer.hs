@@ -65,6 +65,7 @@ mkDirectoryServer :: IO()
 mkDirectoryServer = do
     createDirectoryIfMissing True (path resources)
     setCurrentDirectory (path resources)
+    putStrLn $ "Starting DirectoryServer: " ++ (getIdentityString directoryServerIdentity)
     run (getIdentityPort directoryServerIdentity) directoryApp
 
 ------------------------------
@@ -79,7 +80,7 @@ upsertFileMapping id array filename = do
 
 upsertFileServer :: CommonServer.Identity -> IO()
 upsertFileServer i = do
-    let key = (address i) ++ ":" ++ (port i)
+    let key = getIdentityString i
     putStrLn $ "Storing FileServer: " ++ key
     withMongoDbConnection $ Database.MongoDB.upsert (Database.MongoDB.select ["_id" =: key] "FILESERVER_RECORD") $ toBSON i
 

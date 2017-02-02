@@ -98,10 +98,10 @@ data ResponseCode =
 ------------------------------
 
 fileServerIdentity :: Identity
-fileServerIdentity = Identity "localhost" "8082" FileServer
+fileServerIdentity = Identity "192.168.0.25" "8082" FileServer
 
 directoryServerIdentity :: Identity
-directoryServerIdentity = Identity "localhost" "8083" DirectoryServer
+directoryServerIdentity = Identity "192.168.0.25" "8081" DirectoryServer
 
 ------------------------------
 --  Common Functions 
@@ -109,3 +109,9 @@ directoryServerIdentity = Identity "localhost" "8083" DirectoryServer
 
 getIdentityPort :: Identity -> Int
 getIdentityPort i = read (port i):: Int
+
+getIdentityString :: Identity -> String
+getIdentityString i = (address i) ++ ":" ++ (port i)
+
+getIdentitySafeString :: Identity -> String
+getIdentitySafeString i = (address i) ++ "_" ++ (port i)

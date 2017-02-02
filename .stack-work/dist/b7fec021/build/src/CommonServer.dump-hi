@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-02-02 21:49:17.4904457 UTC
+2017-02-02 22:53:52.4206815 UTC
 
 interface Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer [orphan module] [family instance module] 8001
-  interface hash: 10fb55780f43f91361d1b699f9db03fa
-  ABI hash: 5b0339bc16684017d5e0c02e95712a0d
-  export-list hash: d82ea1abc70dbd52457936d87efbbe1d
+  interface hash: 71704ba74cbd00fd351acfd3a47011d9
+  ABI hash: fc5167a1f82fb844bd6dda9085414d34
+  export-list hash: 6583c0f0b0c7582c8fda4f9beea02f1a
   orphan hash: 99d29f64b335e525f84e307dec90785a
   flag hash: b114ef48677a2c4a46915ceb66b3c73b
   sig of: Nothing
@@ -15,6 +15,8 @@ exports:
   CommonServer.directoryServerIdentity
   CommonServer.fileServerIdentity
   CommonServer.getIdentityPort
+  CommonServer.getIdentitySafeString
+  CommonServer.getIdentityString
   CommonServer.Client{CommonServer.Client password username}
   CommonServer.File{CommonServer.File fileContent fileName}
   CommonServer.Identity{CommonServer.Identity address port serverType}
@@ -25261,6 +25263,24 @@ e63b8279d25bbe31b1d3d265428ed964
                            ipv }) of ds1 { (#,#) ipv ipv1 ->
                  case ipv1 of dt1 { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
                  (# dt1 #) } } }) -}
+51f34624d45af6442d9065f39fbd2da7
+  $wgetIdentitySafeString ::
+    GHC.Base.String -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String) (ww1 :: GHC.Base.String) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   ww
+                   (GHC.CString.unpackAppendCString# "_"# ww1)) -}
+1e38b3961aaa25fe59ba944744239dd9
+  $wgetIdentityString ::
+    GHC.Base.String -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String) (ww1 :: GHC.Base.String) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   ww
+                   (GHC.CString.unpackAppendCString# ":"# ww1)) -}
 e0a1635b5c815dacab3980985d174bdf
   $wouter ::
     Data.Text.Array.MArray GHC.Prim.RealWorld
@@ -25617,19 +25637,19 @@ e63b8279d25bbe31b1d3d265428ed964
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: CommonServer.Token) ->
                  case ds of wild { CommonServer.Token ds1 ds2 ds3 ds4 -> ds4 }) -}
-f8cd6194ecc00fc1079ef063821f6dd7
+965611d59d69e66296a88f2b54e8fadf
   directoryServerIdentity :: CommonServer.Identity
   {- Strictness: m,
      Unfolding: (CommonServer.Identity
                    CommonServer.directoryServerIdentity2
                    CommonServer.directoryServerIdentity1
                    CommonServer.DirectoryServer) -}
-eaa3a61c2c3bcd00475680de94dbc898
+2d0cbc10f7c9f95ccccda4e9fe20ed48
   directoryServerIdentity1 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "8083"#) -}
-94a07fae1840171cca5167dc9761cf50
+  {- Unfolding: (GHC.CString.unpackCString# "8081"#) -}
+5d97e3cd66612e1bdd209e0c13451bf7
   directoryServerIdentity2 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "localhost"#) -}
+  {- Unfolding: (GHC.CString.unpackCString# "192.168.0.25"#) -}
 1058a5a38294300d693848f834e6b56d
   fileContent :: CommonServer.File -> GHC.Base.String
   RecSel Left CommonServer.File
@@ -25644,7 +25664,7 @@ eaa3a61c2c3bcd00475680de94dbc898
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: CommonServer.File) ->
                  case ds of wild { CommonServer.File ds1 ds2 -> ds1 }) -}
-c98cb72fd588fce20223c6b0ae109ee0
+f2a4ff592045dd2bcda3e2826becc099
   fileServerIdentity :: CommonServer.Identity
   {- Strictness: m,
      Unfolding: (CommonServer.Identity
@@ -25684,6 +25704,22 @@ b897df2a8c73e2557b041b7e9ed529f1
                  (Text.ParserCombinators.ReadP.N:ReadP[0] <GHC.Types.Int>_R)
                    @ GHC.Types.Int
                    (Text.Read.readEither5 @ GHC.Types.Int)) -}
+478f820636a3bdab26af2cab345fc2c5
+  getIdentitySafeString :: CommonServer.Identity -> GHC.Base.String
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLL),1*U(1*U,U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: CommonServer.Identity) ->
+                 case w of ww { CommonServer.Identity ww1 ww2 ww3 ->
+                 CommonServer.$wgetIdentitySafeString ww1 ww2 }) -}
+9c7824f55c0deea7ea03dc4bd385cb52
+  getIdentityString :: CommonServer.Identity -> GHC.Base.String
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLL),1*U(1*U,U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: CommonServer.Identity) ->
+                 case w of ww { CommonServer.Identity ww1 ww2 ww3 ->
+                 CommonServer.$wgetIdentityString ww1 ww2 }) -}
 e8dc50629f6819afe33df2ee3555263f
   password :: CommonServer.Client -> GHC.Base.String
   RecSel Left CommonServer.Client
