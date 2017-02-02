@@ -20,9 +20,15 @@ import           CommonServer
 import           CommonServerApi
 import           Network.HTTP.Client (newManager, defaultManagerSettings)
 
+------------------------------
+--  Variables
+------------------------------
 resources :: Resources
 resources = Resources "res/FileServers";
 
+------------------------------
+--  Server Functions
+------------------------------
 fileServer :: Server FileApi
 fileServer = 
     getFiles :<|>
@@ -43,6 +49,9 @@ mkFileServer = do
         Left err -> putStrLn $ "Error: " ++ show err
         Right response -> run (getIdentityPort fileServerIdentity) fileApp 
 
+------------------------------
+--  Serving Functions
+------------------------------
 getFiles :: ApiHandler [FilePath]
 getFiles = liftIO (getDirectoryContents (path resources))
 

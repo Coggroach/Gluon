@@ -45,8 +45,7 @@ fileClientFiles :<|> fileClientDownload :<|> fileClientUpload = Servant.Client.c
 --  DirectoryServer Api
 ------------------------------
 type DirectoryApi = 
-    "files" :> Get '[JSON] [FilePath] :<|>
-    "files" :> ReqBody '[JSON] CommonServer.Identity :> Get '[JSON] [FilePath] :<|>
+    "files" :> Get '[JSON] [FilePath] :<|>    
     "open" :> Capture "fileName" String :> Get '[JSON] CommonServer.File :<|>
     "close" :> ReqBody '[JSON] CommonServer.File :> Post '[JSON] CommonServer.Response :<|>
     "join" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response  
