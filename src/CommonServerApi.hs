@@ -6,7 +6,6 @@
 module CommonServerApi where
 
 import           Control.Monad.Trans.Except
-import           Data.Either.Unwrap
 import           Data.Aeson
 import           Network.Wai
 import           Network.Wai.Handler.Warp
@@ -56,13 +55,12 @@ type DirectoryApi =
 directoryApi :: Proxy DirectoryApi
 directoryApi = Proxy
 
-directoryClientFilesA :: ClientM [FilePath]
-directoryClientFilesB :: CommonServer.Identity -> ClientM [FilePath]
+directoryClientFiles :: ClientM [FilePath]
 directoryClientOpen :: String -> ClientM  CommonServer.File
 directoryClientClose :: CommonServer.File -> ClientM CommonServer.Response
 directoryClientJoin :: CommonServer.Identity -> ClientM CommonServer.Response
 
-directoryClientFilesA :<|> directoryClientFilesB :<|> directoryClientOpen:<|> directoryClientClose :<|> directoryClientJoin = Servant.Client.client directoryApi
+directoryClientFiles :<|> directoryClientOpen:<|> directoryClientClose :<|> directoryClientJoin = Servant.Client.client directoryApi
 
 ------------------------------
 --  SecurityServer Api

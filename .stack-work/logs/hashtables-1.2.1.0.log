@@ -60,5 +60,5 @@ src\Data\HashTable\IO.hs:186:1: warning: [-Wredundant-constraints]
            toList :: (C.HashTable h, Eq k, Hashable k) =>
                      IOHashTable h k v -> IO [(k, v)]
 Installing library in
-C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\hashtables-1.2.1.0-1ucWEA6Tnj1XvKrOj82Ys
+C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\hashtables-1.2.1.0-97BixhaJIWTIDAaThqJujl
 Registering hashtables-1.2.1.0...

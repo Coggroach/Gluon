@@ -13,5 +13,5 @@ src\Data\Void\Unsafe.hs:42:1: warning: [-Wredundant-constraints]
     * In the type signature for:
            unsafeVacuousM :: Monad m => m Void -> m a
 Installing library in
-C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\void-0.7.1-JBHfBORKjN94IsBvLxXXlz
+C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\void-0.7.1-DMDx4oiJSktE01vWZZ8Wjg
 Registering void-0.7.1...

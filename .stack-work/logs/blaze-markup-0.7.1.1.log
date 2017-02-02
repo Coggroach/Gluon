@@ -12,5 +12,5 @@ src\Text\Blaze\Internal.hs:170:10: warning: [-Wredundant-constraints]
 [5 of 6] Compiling Text.Blaze.Renderer.Utf8 ( src\Text\Blaze\Renderer\Utf8.hs, .stack-work\dist\b7fec021\build\Text\Blaze\Renderer\Utf8.o )
 [6 of 6] Compiling Text.Blaze       ( src\Text\Blaze.hs, .stack-work\dist\b7fec021\build\Text\Blaze.o )
 Installing library in
-C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\blaze-markup-0.7.1.1-GGM5nP9jZuZ9fymRS32rvZ
+C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\blaze-markup-0.7.1.1-IE161DWDHNXF9O8bBguli5
 Registering blaze-markup-0.7.1.1...

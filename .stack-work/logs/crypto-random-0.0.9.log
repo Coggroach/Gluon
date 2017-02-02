@@ -21,5 +21,5 @@ cbits\rdrand.c:72:16: error:
       int aligned = (unsigned long) buffer % 8;
                     ^
 Installing library in
-C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\crypto-random-0.0.9-B6bZrNRx0NULnmR4NCoKEM
+C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\crypto-random-0.0.9-AGKuDxkGmdkICMALIbcYDi
 Registering crypto-random-0.0.9...

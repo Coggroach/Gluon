@@ -53,5 +53,5 @@ Data\Aeson\Types\Generic.hs:759:10: warning: [-Wredundant-constraints]
 [15 of 16] Compiling Data.Aeson       ( Data\Aeson.hs, .stack-work\dist\b7fec021\build\Data\Aeson.o )
 [16 of 16] Compiling Data.Aeson.TH    ( Data\Aeson\TH.hs, .stack-work\dist\b7fec021\build\Data\Aeson\TH.o )
 Installing library in
-C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\aeson-0.11.2.1-ByXhYhAOjwT2lX0EEzDlEU
+C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz
 Registering aeson-0.11.2.1...

@@ -22,5 +22,5 @@ src\Data\Vault\ST\ST.hs:17:1: warning: [-Wunused-imports]
     To import instances alone, use: import Control.Applicative()
 [5 of 5] Compiling Data.Vault.Lazy  ( src\Data\Vault\Lazy.hs, .stack-work\dist\b7fec021\build\Data\Vault\Lazy.o )
 Installing library in
-C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\vault-0.3.0.6-5bJ8O372CGi2589QkJEjhz
+C:\sr\snapshots\e1c674d9\lib\x86_64-windows-ghc-8.0.1\vault-0.3.0.6-CA9Xj82tAPe9nD32xVMgDG
 Registering vault-0.3.0.6...

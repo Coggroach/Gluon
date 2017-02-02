@@ -57,4 +57,5 @@ defEnv :: Show a
               -> IO a
 defEnv env fn def doWarn = lookupEnv env >>= \ e -> case e of
       Just s  -> return $ fn s
-      Nothing -> def
+      Nothing -> do
+        return def

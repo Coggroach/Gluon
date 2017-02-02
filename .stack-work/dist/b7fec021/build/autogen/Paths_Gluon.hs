@@ -29,11 +29,11 @@ version :: Version
 version = Version [0,1,0,0] []
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
-bindir     = "E:\\Development\\Haskell\\Projects\\Gluon\\.stack-work\\install\\48716ccc\\bin"
-libdir     = "E:\\Development\\Haskell\\Projects\\Gluon\\.stack-work\\install\\48716ccc\\lib\\x86_64-windows-ghc-8.0.1\\Gluon-0.1.0.0-2UdCqnHtygNFYmtyXl73Wl"
-datadir    = "E:\\Development\\Haskell\\Projects\\Gluon\\.stack-work\\install\\48716ccc\\share\\x86_64-windows-ghc-8.0.1\\Gluon-0.1.0.0"
-libexecdir = "E:\\Development\\Haskell\\Projects\\Gluon\\.stack-work\\install\\48716ccc\\libexec"
-sysconfdir = "E:\\Development\\Haskell\\Projects\\Gluon\\.stack-work\\install\\48716ccc\\etc"
+bindir     = "E:\\Development\\Haskell\\Projects\\Gluon\\.stack-work\\install\\1bb99e24\\bin"
+libdir     = "E:\\Development\\Haskell\\Projects\\Gluon\\.stack-work\\install\\1bb99e24\\lib\\x86_64-windows-ghc-8.0.1\\Gluon-0.1.0.0-1cMXiYagSaXAuhpJfJwOMe"
+datadir    = "E:\\Development\\Haskell\\Projects\\Gluon\\.stack-work\\install\\1bb99e24\\share\\x86_64-windows-ghc-8.0.1\\Gluon-0.1.0.0"
+libexecdir = "E:\\Development\\Haskell\\Projects\\Gluon\\.stack-work\\install\\1bb99e24\\libexec"
+sysconfdir = "E:\\Development\\Haskell\\Projects\\Gluon\\.stack-work\\install\\1bb99e24\\etc"
 
 getBinDir, getLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
 getBinDir = catchIO (getEnv "Gluon_bindir") (\_ -> return bindir)

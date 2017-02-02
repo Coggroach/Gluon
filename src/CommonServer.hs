@@ -1,24 +1,32 @@
 {-# LANGUAGE DataKinds     #-}
+{-# LANGUAGE DeriveAnyClass#-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE LambdaCase    #-}
+{-# LANGUAGE FlexibleInstances    #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE TypeSynonymInstances #-}
 
 module CommonServer where
 import Data.Aeson
 import Data.Bson.Generic
 import GHC.Generics
-import Network.Info
 import System.IO.Unsafe
+
+deriving instance FromBSON String
+deriving instance ToBSON   String
+
+deriving instance FromBSON Bool
+deriving instance ToBSON Bool
+
 ------------------------------
 --  File Structure
 ------------------------------
 data File = File { 
     fileName :: FilePath, 
     fileContent :: String 
-} deriving (Eq, Show, Generic)
-
-instance ToJSON File
-instance FromJSON File
+} deriving (Eq, Show, Generic, ToJSON, FromJSON)
 
 ------------------------------
 --  Server Identity 
@@ -27,18 +35,11 @@ data Identity = Identity {
     address :: String, 
     port :: String,
     serverType :: ServerType
-} deriving (Generic)
-
-instance ToJSON Identity
-instance FromJSON Identity
-
-deriving instance FromBSON Identity
-deriving instance ToBSON   Identity
+} deriving (Generic, Eq, Show, ToJSON, FromJSON, FromBSON, ToBSON)
 
 ------------------------------
 --  Registered Server Types 
 ------------------------------
-
 data ServerType = 
     FileServer |
     DirectoryServer |
@@ -46,19 +47,15 @@ data ServerType =
     SecurityServer |
     TransactionServer |
     ReplicationServer
-    deriving(Eq, Show, Generic, Read)
-instance ToJSON ServerType
-instance FromJSON ServerType
+    deriving(Eq, Show, Generic, Read, ToJSON, FromJSON, FromBSON, ToBSON)
+
 
 ------------------------------
 --  Resources Directory 
 ------------------------------
 data Resources = Resources { 
     path :: String     
-} deriving (Eq, Show, Generic)
-
-instance ToJSON Resources
-instance FromJSON Resources
+} deriving (Eq, Show, Generic, ToJSON, FromJSON)
 
 ------------------------------
 --  Client Data
@@ -66,9 +63,8 @@ instance FromJSON Resources
 data Client = Client {
     username :: String,
     password :: String
-} deriving (Eq, Show, Generic)
-instance ToJSON Client
-instance FromJSON Client
+} deriving (Eq, Show, Generic, ToJSON, FromJSON)
+
 ------------------------------
 --  Security Token
 ------------------------------
@@ -77,9 +73,7 @@ data Token = Token {
     sessionKey :: String,
     ticket :: String,
     client :: Identity
-} deriving (Generic)
-instance ToJSON Token
-instance FromJSON Token
+} deriving (Generic, ToJSON, FromJSON)
 
 ------------------------------
 --  Response Packet 
@@ -88,10 +82,7 @@ data Response = Response {
     responseCode :: ResponseCode, 
     serverId :: Identity,
     payload :: String
-} deriving (Generic)
-
-instance ToJSON Response
-instance FromJSON Response
+} deriving (Generic, ToJSON, FromJSON, ToBSON, FromBSON)
 
 ------------------------------
 --  Response Codes 
@@ -99,9 +90,7 @@ instance FromJSON Response
 data ResponseCode = 
     FileUploadComplete |
     FileUploadError
-    deriving(Eq, Show, Generic, Read)
-instance ToJSON ResponseCode
-instance FromJSON ResponseCode
+    deriving(Eq, Show, Generic, Read, ToJSON, FromJSON, ToBSON, FromBSON)
 
 ------------------------------
 --  Common Variables 

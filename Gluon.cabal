@@ -36,6 +36,7 @@ library
                      , bytestring
                      , bson
                      , mtl
+                     , network
                      , http-client
   default-language:    Haskell2010
 
