@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-02-02 21:28:15.9232717 UTC
+2017-02-02 23:37:43.1934764 UTC
 
 interface Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:MongoDbConnector 8001
-  interface hash: 77dd7043f524d626190bf0ff02cae072
-  ABI hash: 842c45839acb07a59a32ebe9e600c0dd
-  export-list hash: c77fb2bcc01d4af431ac8bec63c84d21
+  interface hash: 084f811764d07808f55d24ac7c89cb6b
+  ABI hash: d9cd435632c8073fb2f266385c33aaed
+  export-list hash: 86a4dcd7321fdadbbbb10156593d57de
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 746dba3a46960b377f64c0f9e44cd9b9
   sig of: Nothing
@@ -14,6 +14,7 @@ interface Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:MongoDbConnector 8001
 exports:
   MongoDbConnector.defEnv
   MongoDbConnector.drainCursor
+  MongoDbConnector.logLevel
   MongoDbConnector.mongoDbDatabase
   MongoDbConnector.mongoDbIp
   MongoDbConnector.mongoDbPort
@@ -213,6 +214,48 @@ e3f4ea5030a4f481c68fae55d2cb8332
          GHC.Types.IO
          [Data.Bson.Document]
   {- Arity: 2, Strictness: <L,U><L,U> -}
+4218dc0dde003628ab22adc7cb33ed6d
+  logLevel :: GHC.Types.IO GHC.Base.String
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                MongoDbConnector.logLevel1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R)) -}
+29313c3f1b617c74cd064b2f333dce85
+  logLevel1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case (Foreign.Marshal.Array.withArrayLen0
+                         @ Foreign.C.Types.CWchar
+                         @ (GHC.Base.Maybe [GHC.Types.Char])
+                         Foreign.C.Types.$fStorableCWchar
+                         Foreign.C.String.newCWString2
+                           `cast`
+                         (Sym (Foreign.C.Types.N:CWchar[0]))
+                         MongoDbConnector.logLevel3
+                         System.Environment.getEnv4
+                           `cast`
+                         (<GHC.Types.Int>_R
+                          ->_R <Foreign.C.String.CWString>_R
+                          ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.Maybe [GHC.Types.Char]>_R)))
+                        `cast`
+                      (GHC.Types.N:IO[0] <GHC.Base.Maybe GHC.Base.String>_R)
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of wild {
+                   GHC.Base.Nothing -> (# ipv, MongoDbConnector.logLevel2 #)
+                   GHC.Base.Just s1 -> (# ipv, s1 #) } }) -}
+d5129b39904ecf8b3c6dd970ab22aa5e
+  logLevel2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "DEBUG"#) -}
+ac936978c1c4838407e57b09bf687435
+  logLevel3 :: [Foreign.C.Types.CWchar]
+  {- Unfolding: (Foreign.C.String.withCWString_go
+                   MongoDbConnector.logLevel4) -}
+7758f7c5024060f69de422f37a8999e2
+  logLevel4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "LOG_LEVEL"#) -}
 280dd8bacb151e4c98a6668974e24208
   mongoDbDatabase :: GHC.Types.IO GHC.Base.String
   {- Arity: 1, Strictness: <S,U>,

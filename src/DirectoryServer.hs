@@ -79,10 +79,11 @@ upsertFileMapping id array filename = do
     return $ (FileMapping filename id):array
 
 upsertFileServer :: CommonServer.Identity -> IO()
-upsertFileServer i = do
-    let key = getIdentityString i
+upsertFileServer i = liftIO $ do
+    let key = getIdentitySafeString i
     putStrLn $ "Storing FileServer: " ++ key
     withMongoDbConnection $ Database.MongoDB.upsert (Database.MongoDB.select ["_id" =: key] "FILESERVER_RECORD") $ toBSON i
+    putStrLn "Success"
 
 getFilesFromFileServer :: CommonServer.Identity -> IO()
 getFilesFromFileServer i = liftIO $ do

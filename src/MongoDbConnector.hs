@@ -49,6 +49,9 @@ mongoDbPort = defEnv "MONGODB_PORT" read 27017 False
 mongoDbDatabase :: IO String
 mongoDbDatabase = defEnv "MONGODB_DATABASE" Prelude.id "USEHASKELLDB" True
 
+logLevel :: IO String
+logLevel = defEnv "LOG_LEVEL" Prelude.id "DEBUG" True
+
 defEnv :: Show a
               => String        -- Environment Variable name
               -> (String -> a)  -- function to process variable string (set as 'id' if not needed)

@@ -1,7 +1,7 @@
 Preprocessing library Gluon-0.1.0.0...
-[5 of 5] Compiling FileServer       ( src\FileServer.hs, .stack-work\dist\b7fec021\build\FileServer.o )
+[5 of 5] Compiling DirectoryServer  ( src\DirectoryServer.hs, .stack-work\dist\b7fec021\build\DirectoryServer.o )
 Preprocessing executable 'Gluon-exe' for Gluon-0.1.0.0...
-[1 of 1] Compiling Main             ( app\Main.hs, .stack-work\dist\b7fec021\build\Gluon-exe\Gluon-exe-tmp\Main.o ) [FileServer changed]
+[1 of 1] Compiling Main             ( app\Main.hs, .stack-work\dist\b7fec021\build\Gluon-exe\Gluon-exe-tmp\Main.o ) [DirectoryServer changed]
 Linking .stack-work\dist\b7fec021\build\Gluon-exe\Gluon-exe.exe ...
 Installing library in
 E:\Development\Haskell\Projects\Gluon\.stack-work\install\1bb99e24\lib\x86_64-windows-ghc-8.0.1\Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV
