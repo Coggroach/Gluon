@@ -31,6 +31,14 @@ withMongoDbConnection act  = do
   Database.MongoDB.close pipe
   return ret
 
+connectToDatabase :: Action IO a -> IO a
+connectToDatabase act = do
+  pipe <- connect (host "127.0.0.1")
+  --e <- 
+  access pipe master "GluonDatabase" act
+  --close pipe
+  --return e
+
 drainCursor :: Cursor -> Action IO [Document]
 drainCursor cur = drainCursor' cur []
   where

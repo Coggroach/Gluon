@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2017-02-02 22:53:52.4206815 UTC
+2017-02-04 16:27:39.9078345 UTC
 
 interface Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer [orphan module] [family instance module] 8001
-  interface hash: 71704ba74cbd00fd351acfd3a47011d9
-  ABI hash: fc5167a1f82fb844bd6dda9085414d34
+  interface hash: c2ce1b0f8c2bb674743f58ce1b3c7411
+  ABI hash: b1a73ca3f2747fc718692818f0e97766
   export-list hash: 6583c0f0b0c7582c8fda4f9beea02f1a
   orphan hash: 99d29f64b335e525f84e307dec90785a
   flag hash: b114ef48677a2c4a46915ceb66b3c73b
@@ -25637,7 +25637,7 @@ e63b8279d25bbe31b1d3d265428ed964
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: CommonServer.Token) ->
                  case ds of wild { CommonServer.Token ds1 ds2 ds3 ds4 -> ds4 }) -}
-965611d59d69e66296a88f2b54e8fadf
+038c855f9cc071fa7676ba377f9d6dc3
   directoryServerIdentity :: CommonServer.Identity
   {- Strictness: m,
      Unfolding: (CommonServer.Identity
@@ -25647,9 +25647,9 @@ e63b8279d25bbe31b1d3d265428ed964
 2d0cbc10f7c9f95ccccda4e9fe20ed48
   directoryServerIdentity1 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "8081"#) -}
-5d97e3cd66612e1bdd209e0c13451bf7
+67eeb2859d0d2ae6021a20bf36b0d23d
   directoryServerIdentity2 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "192.168.0.25"#) -}
+  {- Unfolding: (GHC.CString.unpackCString# "127.0.0.1"#) -}
 1058a5a38294300d693848f834e6b56d
   fileContent :: CommonServer.File -> GHC.Base.String
   RecSel Left CommonServer.File
@@ -25664,7 +25664,7 @@ e63b8279d25bbe31b1d3d265428ed964
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: CommonServer.File) ->
                  case ds of wild { CommonServer.File ds1 ds2 -> ds1 }) -}
-f2a4ff592045dd2bcda3e2826becc099
+e08947f8e6e16c78d5dcd4c1730d22f8
   fileServerIdentity :: CommonServer.Identity
   {- Strictness: m,
      Unfolding: (CommonServer.Identity

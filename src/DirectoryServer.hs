@@ -4,8 +4,6 @@
 {-# LANGUAGE FlexibleContexts     #-}
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE StandaloneDeriving   #-}
-{-# LANGUAGE TemplateHaskell      #-}
 {-# LANGUAGE TypeOperators        #-}
 {-# LANGUAGE TypeSynonymInstances #-}
 
@@ -28,7 +26,7 @@ import           CommonServerApi
 import           Data.Map
 import           Data.Time
 import           Data.List
-import           Data.Maybe                   (catMaybes)
+import           Data.Maybe                   (catMaybes, mapMaybe)
 import           Data.Text                    (pack, unpack)
 import           System.Random
 import           Network.HTTP.Client (newManager, defaultManagerSettings)
@@ -64,25 +62,33 @@ directoryApp = serve directoryApi directoryServer
 mkDirectoryServer :: IO()
 mkDirectoryServer = do
     createDirectoryIfMissing True (path resources)
-    setCurrentDirectory (path resources)
-    putStrLn $ "Starting DirectoryServer: " ++ (getIdentityString directoryServerIdentity)
+    setCurrentDirectory (path resources)    
+    putStrLn $ "Starting DirectoryServer: " ++ getIdentityString directoryServerIdentity
+    deleteDatabases
     run (getIdentityPort directoryServerIdentity) directoryApp
 
 ------------------------------
 --  Helper Functions
 ------------------------------
+deleteDatabases :: IO ()
+deleteDatabases = liftIO $ do
+    putStrLn "Clearing: FileMappingDb, FileServerDb"
+    connectToDatabase $ do
+        Database.MongoDB.delete (select [] "FileMappingDb")
+        Database.MongoDB.delete (select [] "FileServerDb")
+
 upsertFileMapping :: CommonServer.Identity -> [FileMapping] -> String -> IO [FileMapping]
 upsertFileMapping id array filename = do
-    putStrLn $ "Storing File: " ++ filename
+    putStrLn $ "Storing FileMapping: " ++ filename
     let filemapping = FileMapping filename id
-    withMongoDbConnection $ upsert (select ["_id" =: filename] "FILEMAPPING_RECORD") $ toBSON filemapping
-    return $ (FileMapping filename id):array
+    connectToDatabase $ upsert (select ["_id" =: filename] "FileMappingDb") $ toBSON filemapping
+    return $ FileMapping filename id : array
 
 upsertFileServer :: CommonServer.Identity -> IO()
 upsertFileServer i = liftIO $ do
     let key = getIdentitySafeString i
     putStrLn $ "Storing FileServer: " ++ key
-    withMongoDbConnection $ Database.MongoDB.upsert (Database.MongoDB.select ["_id" =: key] "FILESERVER_RECORD") $ toBSON i
+    connectToDatabase $ Database.MongoDB.upsert (Database.MongoDB.select ["_id" =: key] "FileServerDb") $ toBSON i
     putStrLn "Success"
 
 getFilesFromFileServer :: CommonServer.Identity -> IO()
@@ -92,32 +98,30 @@ getFilesFromFileServer i = liftIO $ do
     case response of
         Left err -> putStrLn $ "Error: " ++ show err
         Right response' -> do
-            mapM (upsertFileMapping i []) response'
+            mapM_ (upsertFileMapping i []) response'
             return ()
 
 findFileMapping :: String -> IO FileMapping
 findFileMapping key = do
     putStrLn $ "Searching with Key: " ++ key
-    filemapping <- withMongoDbConnection $ do
-        docs <- Database.MongoDB.find (Database.MongoDB.select ["_id" =: key] "FILEMAPPING_RECORD") >>= drainCursor
-        return $ catMaybes $ Data.List.map (\ b -> fromBSON b :: Maybe FileMapping) docs
-    return $ head $ filemapping
+    filemapping <- connectToDatabase $ do
+        docs <- Database.MongoDB.find (Database.MongoDB.select ["_id" =: key] "FileMappingDb") >>= drainCursor
+        return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe FileMapping) docs
+    return $ head filemapping
 
 getAllFileServers :: IO [CommonServer.Identity]
 getAllFileServers = do
     putStrLn "Fetching FileServer List."
-    fileServers <- withMongoDbConnection $ do
-        docs <- Database.MongoDB.find (Database.MongoDB.select [] "FILESERVER_RECORD") >>= drainCursor
-        return $ catMaybes $ Data.List.map (\ b -> fromBSON b :: Maybe CommonServer.Identity) docs
-    return fileServers
+    connectToDatabase $ do
+        docs <- Database.MongoDB.find (Database.MongoDB.select [] "FileServerDb") >>= drainCursor
+        return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe CommonServer.Identity) docs
 
 getAllFileMappings :: IO [FileMapping]
 getAllFileMappings = do
     putStrLn "Fetching FileMapping List."
-    fileMappings <- liftIO $ withMongoDbConnection $ do
-        docs <- Database.MongoDB.find (Database.MongoDB.select [] "FILEMAPPING_RECORD") >>= drainCursor
-        return $ catMaybes $ Data.List.map (\ b -> fromBSON b :: Maybe FileMapping) docs
-    return fileMappings
+    connectToDatabase $ do
+        docs <- Database.MongoDB.find (Database.MongoDB.select [] "FileMappingDb") >>= drainCursor
+        return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe FileMapping) docs
 
 downloadFromFileServer :: String -> CommonServer.Identity -> IO CommonServer.File
 downloadFromFileServer fn i = do
@@ -142,7 +146,7 @@ getFiles :: ApiHandler [FilePath]
 getFiles = liftIO $ do
     putStrLn "Fetching File List"
     fileServers <- getAllFileServers
-    mapM getFilesFromFileServer fileServers
+    mapM_ getFilesFromFileServer fileServers
     fileMappings <- getAllFileMappings
     let fileNames = Data.List.map DirectoryServer.fileName fileMappings
     return (Data.List.nub $ Data.List.sort fileNames)
@@ -151,15 +155,13 @@ openFile :: String -> ApiHandler CommonServer.File
 openFile fn = liftIO $ do
     putStrLn $ "Opening File: " ++ fn
     fileMapping <- findFileMapping fn
-    file <- downloadFromFileServer fn $ identity fileMapping
-    return file
+    downloadFromFileServer fn $ identity fileMapping
 
 closeFile :: CommonServer.File -> ApiHandler CommonServer.Response
 closeFile f = liftIO $ do
-    putStrLn $ "Closing File: " ++ (CommonServer.fileName f)
+    putStrLn $ "Closing File: " ++ CommonServer.fileName f
     fileMapping <- findFileMapping (CommonServer.fileName f)
-    response <- uploadToFileServer f (identity fileMapping)
-    return response
+    uploadToFileServer f (identity fileMapping)
 
 joinServer :: CommonServer.Identity -> ApiHandler CommonServer.Response
 joinServer i = liftIO $ do

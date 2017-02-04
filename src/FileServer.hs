@@ -40,7 +40,7 @@ fileApp = serve fileApi fileServer
 
 mkFileServer :: IO()
 mkFileServer = do
-    let dir = (path resources)
+    let dir = path resources
     createDirectoryIfMissing True dir
     setCurrentDirectory dir
     putStrLn "Connecting to DirectoryServer..."
@@ -48,8 +48,8 @@ mkFileServer = do
     response <- runClientM (directoryClientJoin fileServerIdentity) (ClientEnv manager (BaseUrl Http (address directoryServerIdentity) (getIdentityPort directoryServerIdentity) ""))    
     case response of
         Left err -> putStrLn $ "Error: " ++ show err
-        Right response -> putStrLn $ "Success: connected to DirectoryServer"
-    putStrLn $ "Starting FileServer: " ++ (getIdentityString fileServerIdentity)
+        Right response -> putStrLn "Success: connected to DirectoryServer"
+    putStrLn $ "Starting FileServer: " ++ getIdentityString fileServerIdentity
     run (getIdentityPort fileServerIdentity) fileApp 
 
 ------------------------------

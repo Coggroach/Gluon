@@ -98,10 +98,10 @@ data ResponseCode =
 ------------------------------
 
 fileServerIdentity :: Identity
-fileServerIdentity = Identity "192.168.0.25" "8082" FileServer
+fileServerIdentity = Identity "127.0.0.1" "8082" FileServer
 
 directoryServerIdentity :: Identity
-directoryServerIdentity = Identity "192.168.0.25" "8081" DirectoryServer
+directoryServerIdentity = Identity "127.0.0.1" "8081" DirectoryServer
 
 ------------------------------
 --  Common Functions 
@@ -111,7 +111,7 @@ getIdentityPort :: Identity -> Int
 getIdentityPort i = read (port i):: Int
 
 getIdentityString :: Identity -> String
-getIdentityString i = (address i) ++ ":" ++ (port i)
+getIdentityString i = address i ++ ":" ++ port i
 
 getIdentitySafeString :: Identity -> String
-getIdentitySafeString i = (address i) ++ "_" ++ (port i)
+getIdentitySafeString i = address i ++ "_" ++ port i
