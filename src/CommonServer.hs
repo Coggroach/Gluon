@@ -103,7 +103,8 @@ data Response = Response {
 data ResponseCode = 
     FileUploadComplete |
     FileUploadError |
-    DirectoryJoinSuccess
+    DirectoryJoinSuccess |
+    SecurityClientRegistered
     deriving(Eq, Show, Generic, Read, ToJSON, FromJSON, ToBSON, FromBSON)
 
 ------------------------------
@@ -163,6 +164,9 @@ logConnection c s m = putStrLn $ "[" ++ c ++ "==>>" ++ s ++ "]:" ++ m
 ------------------------------
 --  Encryption Functions 
 ------------------------------
+
+sharedSecret :: String
+sharedSecret = "Things we all should Know!"
 
 encryptDecrypt :: String -> String -> String
 encryptDecrypt key = zipWith (\a b -> chr $ xor (ord a) (ord b)) (cycle key)

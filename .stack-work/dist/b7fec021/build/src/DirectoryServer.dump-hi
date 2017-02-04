@@ -1,12 +1,12 @@
 
 ==================== FINAL INTERFACE ====================
-2017-02-04 19:04:58.5040382 UTC
+2017-02-04 20:38:02.3228206 UTC
 
 interface Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:DirectoryServer [family instance module] 8001
-  interface hash: 83a28c657d877759e7e08e6cdf511746
-  ABI hash: 8fe3b67e72b05cdbc58c66eb139b29ce
-  export-list hash: fa0ee287c1f20acab039b9cd536ad643
-  orphan hash: 31cdd7ba5e6c16610c1a2f96258a2013
+  interface hash: e49a90011f28ab4dcd7de62d72cb9f74
+  ABI hash: d3faa70b80e346095d71cc4c1eefec52
+  export-list hash: f177bdb94d08db46b2260aaddec06f3a
+  orphan hash: ff41799cad5947bf56204d49a7450902
   flag hash: e86faf246ab80a8d5a1b92fcc1360c46
   sig of: Nothing
   used TH splices: False
@@ -201,38 +201,39 @@ family instance modules: Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  CommonServer 1390bea2776880b39742b8a65ca6caeb
-  exports: 88e76211602e81ee3f5556b8100893d7
-  DirectoryJoinSuccess fb22ae2fe43c65e02f8219562d02b13e
-  File 6ad8c784b1f91829c5e06ea7405ec516
-  File fd15d43d8aee6ccee7fa2753cca47f58
-  FileUploadError 54f61e34a1a1248777836905f8a2a214
-  Identity 4e09ce37058336db3df8a399c5ebdb24
-  Resources 3eedfa21843d31060a26c830017589e3
-  Resources 6dcd1258aefe8ac46625c0bde7dae835
-  Response 0d8cd28b9d4fdc82de2a855878693884
-  Response 4e09ce37058336db3df8a399c5ebdb24
-  address 7fa441c01c0ad7fab79e806ca25488d4
-  directoryServerIdentity 69946c62f117d17a27182a630d552cf2
-  fileName 2629a61f314b5dc2266525859d90c7ed
-  getIdentityPort f64a852d4d628386e5410ca359dcb8ae
-  getIdentitySafeString 66caadd626952dc5505138f9b4d8bc94
-  getIdentityString 0b2e9480c86836350d962e823716e2df
+import  -/  CommonServer 141ca0d9fa7a20a9c1304af924a1f47d
+  exports: 6b1a3add680aac99001f129c81c43f21
+  DirectoryJoinSuccess b5053cde78d37e5c980ad742af1517ee
+  File de52842cff160cad0d993d4898a24ff9
+  File 386eccfae747c0d0f77d878f6355480b
+  FileUploadError 9b2991e2b227e7a308bfc0cf27f77d65
+  Identity c4351ce1cc7cad656a110a13ff907ed0
+  Resources cce5ddd180aa3271fae69cf85565726d
+  Resources b7a2f0680c4a974d33f8bcc8fcf6419a
+  Response 2c7588958c15823addfd053f906bba1b
+  Response c4351ce1cc7cad656a110a13ff907ed0
+  address 0518eee9ea902238fbc99e582a225d78
+  directoryServerIdentity 6e2248c23a38cea67d707a4cdf454962
+  fileName 7d233ec8bc40530015663ed37f7dc8ed
+  getIdentityPort ce93a5d3f98c4e3114870e0088021597
+  getIdentitySafeString b10008cb36e9bd5d1898567de901e9c4
+  getIdentityString dd4d33007367a616b7c131ac619c98d5
   logAction 67521feb2c9d16e2eec4df6d06dc82c5
-  logConnection 92e19ee2d4438751a4e069326876b2b0
+  logConnection b0739c4def4ef1f0e0da147e98bac21c
   logDatabase 65440336b0af3847526c77e22df70dad
   logError a7b65c5b3e362bf1dc96001c19bb3ea1
   logHeading 43eec4262a13ef3f88ad28d1fada7b6f
-  path ba61456f9fa12984f2b731c13e779f06
-  port b17b557e3e161e97cef2075e14a1562b
-import  -/  CommonServerApi cb71e7b0712d41d6db02a826351aff41
-  exports: 592e414b36dc7aba8d7592646b6d781a
+  logTrailing 1ef388b4add1c6112f1109f876c2a420
+  path a5db3d2a84b2c73514f174ce2f3263d6
+  port 79625dc4eef6b21c443b2dd67e5364db
+import  -/  CommonServerApi 9f1581ed8c3a35e2237619b19331de05
+  exports: 3f99e28829bb1643817387461dcf1292
   ApiHandler 231c7e4613e81ffd1be884fe0c4b6817
-  DirectoryApi 72875adbeba7c1817a1e20efe2d1a3ab
-  directoryApi d8607ea6bd4b25e0b3c20d8a339d8149
-  fileClientDownload d128ce7f8fd267f5ae720f6b2db10407
+  DirectoryApi 4e436de642266d6f9f61d445f1f6c807
+  directoryApi d8307f81a94263e62ef1b5bdc9b7b28d
+  fileClientDownload e476d00580dbe90232db7a7aa48a7904
   fileClientFiles bf5bc82fbd9ee075793b26e3a5fc2ae7
-  fileClientUpload ce80cd7720e4d1d189eeb934f1c236f1
+  fileClientUpload 180c8d7b56149bcbd5a84371e24dc429
 import  -/  MongoDbConnector e6043e92a69386ef6dbd0263147cfeef
   exports: 195ced448d1d936e2baf506ab3de4d5a
   connectToDatabase 497c812f9c1b3e78d2c14152b3b904b9
@@ -280,7 +281,7 @@ import  -/  transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Except
 import  -/  wai-3.2.1.1@wai-3.2.1.1-GVNFJ2NUhhADT18B8nh1gg:Network.Wai 6802161fda2a254e932e92defc21d045
 import  -/  warp-3.2.9@warp-3.2.9-3hyX88L3Ey11UVH92i8P4R:Network.Wai.Handler.Warp 80364e098a21cbf3e268e5ee24bf0351
 import  -/  warp-3.2.9@warp-3.2.9-3hyX88L3Ey11UVH92i8P4R:Network.Wai.Handler.Warp.Run 1dbf1f4e5768a75efe6facb4e0c716b3
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fEqFileMapping :: GHC.Classes.Eq DirectoryServer.FileMapping
   DFunId
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -288,7 +289,7 @@ b8eb24b152fed54f9bc79b46641ab455
                   @ DirectoryServer.FileMapping
                   DirectoryServer.$fEqFileMapping_$c==
                   DirectoryServer.$fEqFileMapping_$c/= -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fEqFileMapping_$c/= ::
     DirectoryServer.FileMapping
     -> DirectoryServer.FileMapping -> GHC.Types.Bool
@@ -301,7 +302,7 @@ b8eb24b152fed54f9bc79b46641ab455
                  case w of ww { DirectoryServer.FileMapping ww1 ww2 ->
                  case w1 of ww3 { DirectoryServer.FileMapping ww4 ww5 ->
                  DirectoryServer.$w$c/= ww1 ww2 ww4 ww5 } }) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fEqFileMapping_$c== ::
     DirectoryServer.FileMapping
     -> DirectoryServer.FileMapping -> GHC.Types.Bool
@@ -314,7 +315,7 @@ b8eb24b152fed54f9bc79b46641ab455
                  case w of ww { DirectoryServer.FileMapping ww1 ww2 ->
                  case w1 of ww3 { DirectoryServer.FileMapping ww4 ww5 ->
                  DirectoryServer.$w$c== ww1 ww2 ww4 ww5 } }) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fFromBSONFileMapping ::
     Data.Bson.Generic.FromBSON DirectoryServer.FileMapping
   DFunId
@@ -360,7 +361,7 @@ b8eb24b152fed54f9bc79b46641ab455
 c5feaf9ceb6ccdc6837d61527e1a407b
   $fFromBSONFileMapping4 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "identity"#) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fFromBSONFileMapping_$cfromBSON ::
     Data.Bson.Document -> GHC.Base.Maybe DirectoryServer.FileMapping
   {- Arity: 1, Strictness: <S,U>,
@@ -512,7 +513,7 @@ c714bf98eef8f231c18346ace69cd6b4
                                 'GHC.Generics.NoSourceStrictness
                                 'GHC.Generics.DecidedLazy) f a) ->
                  DirectoryServer.$fFromBSONFileMapping4) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fFromJSONFileMapping ::
     Data.Aeson.Types.Class.FromJSON DirectoryServer.FileMapping
   DFunId
@@ -522,7 +523,7 @@ b8eb24b152fed54f9bc79b46641ab455
                   `cast`
                 (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
                           <DirectoryServer.FileMapping>_N)) -}
-20e2757993d0c0f51f2a152d4254ba52
+d6b073377841f37f0deefe62ad6ec99d
   $fFromJSONFileMapping1 ::
     Data.Aeson.Types.Internal.Options
     -> GHC.Base.Maybe Data.Text.Internal.Text
@@ -569,7 +570,7 @@ aeedc48275dadc6b73695724060a5306
 6bed1d4384014016c909f1fa15355e59
   $fFromJSONFileMapping3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "String"#) -}
-4993bcc9a773434a894e9dfc472207e4
+fb97c91a57cee3d33cdcea8d507d8c65
   $fFromJSONFileMapping4 ::
     Data.Aeson.Types.Internal.Options
     -> Data.Aeson.Types.Internal.Value
@@ -581,7 +582,7 @@ aeedc48275dadc6b73695724060a5306
                    (w :: Data.Aeson.Types.Internal.Options)
                    (w1 :: Data.Aeson.Types.Internal.Value) ->
                  DirectoryServer.$w$dGFromJSON1 @ a1 w1) -}
-0aab6a40b74708049b348f85f8751259
+580ec7fbe2f3e919978e184eb147e5ca
   $fFromJSONFileMapping5 ::
     (GHC.Generics.:*:)
       (GHC.Generics.M1
@@ -624,7 +625,7 @@ aeedc48275dadc6b73695724060a5306
                                 (GHC.Generics.Rec0 CommonServer.Identity))
                              a) ->
                  GHC.Types.False) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fFromJSONFileMapping_$cparseJSON ::
     Data.Aeson.Types.Internal.Value
     -> Data.Aeson.Types.Internal.Parser DirectoryServer.FileMapping
@@ -786,7 +787,7 @@ b8eb24b152fed54f9bc79b46641ab455
                    `cast`
                  (Sym (Data.Aeson.Types.Internal.N:Parser[0]
                            <DirectoryServer.FileMapping>_R))) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fGenericFileMapping ::
     GHC.Generics.Generic DirectoryServer.FileMapping
   DFunId
@@ -795,7 +796,7 @@ b8eb24b152fed54f9bc79b46641ab455
                   @ DirectoryServer.FileMapping
                   DirectoryServer.$fGenericFileMapping_$cfrom
                   DirectoryServer.$fGenericFileMapping_$cto -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fGenericFileMapping_$cfrom ::
     DirectoryServer.FileMapping
     -> GHC.Generics.Rep DirectoryServer.FileMapping x
@@ -902,7 +903,7 @@ b8eb24b152fed54f9bc79b46641ab455
                                                                GHC.Generics.R
                                                                CommonServer.Identity))>_R))
                            (Sub (Sym (DirectoryServer.Rep_FileMapping[0])))) <x>_N) }) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fGenericFileMapping_$cto ::
     GHC.Generics.Rep DirectoryServer.FileMapping x
     -> DirectoryServer.FileMapping
@@ -992,7 +993,7 @@ b8eb24b152fed54f9bc79b46641ab455
                              <GHC.Generics.K1 GHC.Generics.R CommonServer.Identity>_R <x>_N)
                         (GHC.Generics.N:K1[0]
                              <GHC.Generics.R>_P <CommonServer.Identity>_R <x>_P)) }) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fShowFileMapping :: GHC.Show.Show DirectoryServer.FileMapping
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -1001,7 +1002,7 @@ b8eb24b152fed54f9bc79b46641ab455
                   DirectoryServer.$fShowFileMapping_$cshowsPrec
                   DirectoryServer.$fShowFileMapping_$cshow
                   DirectoryServer.$fShowFileMapping_$cshowList -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fShowFileMapping1 :: DirectoryServer.FileMapping -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (\ (w :: DirectoryServer.FileMapping)
@@ -1023,7 +1024,7 @@ d2d6cfd5a98b9fb91954ee2f97b0c841
 15c43ca241cfc9a16c7ccbafbb01fd92
   $fShowFileMapping6 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "FileMapping {"#) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fShowFileMapping_$cshow ::
     DirectoryServer.FileMapping -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U(1*U,1*U(1*U,1*U,1*U))>,
@@ -1033,14 +1034,14 @@ b8eb24b152fed54f9bc79b46641ab455
                    GHC.Show.shows22
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fShowFileMapping_$cshowList ::
     [DirectoryServer.FileMapping] -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (GHC.Show.showList__
                    @ DirectoryServer.FileMapping
                    DirectoryServer.$fShowFileMapping1) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fShowFileMapping_$cshowsPrec ::
     GHC.Types.Int -> DirectoryServer.FileMapping -> GHC.Show.ShowS
   {- Arity: 3,
@@ -1053,7 +1054,7 @@ b8eb24b152fed54f9bc79b46641ab455
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { DirectoryServer.FileMapping ww3 ww4 ->
                  DirectoryServer.$w$cshowsPrec ww1 ww3 ww4 w2 } }) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fToBSONFileMapping ::
     Data.Bson.Generic.ToBSON DirectoryServer.FileMapping
   DFunId
@@ -1066,7 +1067,7 @@ b8eb24b152fed54f9bc79b46641ab455
 637612e5ffe3178f6c165db9facfd384
   $fToBSONFileMapping1 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "FileMapping"#) -}
-80cfec54192ec8b9b23601caf98ed0ee
+e83d0520c3f7b8408cd886c04cd4839c
   $fToBSONFileMapping2 ::
     GHC.Types.Int
     -> (GHC.Generics.:*:)
@@ -1149,7 +1150,7 @@ cca0a91a84b1182da7a1b01b7d34b4db
                    CommonServer.$fFromJSONFile5
                    0#
                    ipv }) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fToBSONFileMapping_$ctoBSON ::
     DirectoryServer.FileMapping -> Data.Bson.Document
   {- Arity: 1, Strictness: <L,1*U(U,U)>,
@@ -1322,7 +1323,7 @@ b8eb24b152fed54f9bc79b46641ab455
                      GHC.Generics.$WSTrue
                        `cast`
                      (Sym (GHC.Generics.N:SingI[0]) <GHC.Types.Bool>_N <'GHC.Types.True>_N)) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fToJSONFileMapping ::
     Data.Aeson.Types.Class.ToJSON DirectoryServer.FileMapping
   DFunId
@@ -1331,7 +1332,7 @@ b8eb24b152fed54f9bc79b46641ab455
                   @ DirectoryServer.FileMapping
                   DirectoryServer.$fToJSONFileMapping_$ctoJSON
                   DirectoryServer.$fToJSONFileMapping_$ctoEncoding -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fToJSONFileMapping1 ::
     DirectoryServer.FileMapping
     -> Data.Aeson.Types.Generic.Tagged
@@ -1400,7 +1401,7 @@ b8eb24b152fed54f9bc79b46641ab455
                    CommonServer.$fFromJSONFile5
                    0#
                    ipv }) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fToJSONFileMapping_$ctoEncoding ::
     DirectoryServer.FileMapping -> Data.Aeson.Types.Internal.Encoding
   {- Arity: 1, Strictness: <S,1*U(1*U,1*U(U,U,U))>,
@@ -1412,7 +1413,7 @@ b8eb24b152fed54f9bc79b46641ab455
                   `cast`
                 (<DirectoryServer.FileMapping>_R
                  ->_R Sym (Data.Aeson.Types.Internal.N:Encoding[0])) -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   $fToJSONFileMapping_$ctoJSON ::
     DirectoryServer.FileMapping -> Data.Aeson.Types.Internal.Value
   {- Arity: 1, Strictness: <S,1*U(1*U,1*U(U,U,U))>m1,
@@ -1423,7 +1424,7 @@ b8eb24b152fed54f9bc79b46641ab455
                  ->_R Data.Aeson.Types.Generic.N:Tagged[0]
                           <Data.Aeson.Types.Generic.True>_P
                           <Data.Aeson.Types.Internal.Value>_R) -}
-ad10e797ed76269f1f650d83f0692a9a
+701a294802950efd0d2bf7c8b584d3de
   $s$fAllCTRender:a ::
     Servant.API.ContentTypes.AllCTRender
       '[Servant.API.ContentTypes.JSON] CommonServer.Response
@@ -1455,14 +1456,14 @@ ad10e797ed76269f1f650d83f0692a9a
                        `cast`
                      (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
                      DirectoryServer.$s$fAllCTRender:a1) -}
-5912f88f6e39dd6c2c254e894857f92d
+02d0f98cd89d665cf8c3cd39c510ba24
   $s$fAllCTRender:a1 ::
     Servant.API.ContentTypes.AllMimeRender
       '[Servant.API.ContentTypes.JSON] CommonServer.Response
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.$s$fAllCTRender:a_$s$fAllMimeRender:a0 -}
-6e079e9dc3a4305de751165de0bea4a9
+c2772670ad188e0c05622b4dfe5d5673
   $s$fAllCTRender:a2 ::
     Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
     -> CommonServer.Response
@@ -1486,15 +1487,47 @@ ad10e797ed76269f1f650d83f0692a9a
                    (GHC.Types.[]
                       @ (Network.HTTP.Media.MediaType.Internal.MediaType,
                          Data.ByteString.Lazy.Internal.ByteString))) -}
-1d439254df592ada6de69bb09e56ff7a
+634e507828637d81293ed00ae13c96f9
   $s$fAllCTRender:a3 ::
     Servant.API.ContentTypes.MimeRender
       Servant.API.ContentTypes.JSON CommonServer.Response
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa -}
-b3810ab76e6e8e4d01809742125b84fa
+dac7b933e8fc939f20b92d711ed98e0a
   $s$fAllCTRender:a4 ::
+    Servant.API.ContentTypes.AllCTRender
+      '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ [GHC.IO.FilePath]
+                  (Servant.API.ContentTypes.$fAllCTRender:a_$cp1AllCTRender
+                     @ Servant.API.ContentTypes.JSON
+                     @ '[]
+                     @ [GHC.IO.FilePath]
+                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:Accept[0]
+                               <*>_N <Servant.API.ContentTypes.JSON>_N))
+                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
+                     DirectoryServer.$s$fAllCTRender:a_$dAllMimeRender)
+                  (Servant.API.ContentTypes.$fAllCTRender:a_$chandleAcceptH
+                     @ Servant.API.ContentTypes.JSON
+                     @ '[]
+                     @ [GHC.IO.FilePath]
+                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:Accept[0]
+                               <*>_N <Servant.API.ContentTypes.JSON>_N))
+                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
+                     DirectoryServer.$s$fAllCTRender:a_$dAllMimeRender) -}
+909412bc82f3f6d93370f409e0dba00e
+  $s$fAllCTRender:a5 ::
     Servant.API.ContentTypes.AllCTRender
       '[Servant.API.ContentTypes.JSON] CommonServer.File
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -1512,7 +1545,7 @@ b3810ab76e6e8e4d01809742125b84fa
                      Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
                        `cast`
                      (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
-                     DirectoryServer.$s$fAllCTRender:a_$dAllMimeRender)
+                     DirectoryServer.$s$fAllCTRender:a_$dAllMimeRender1)
                   (Servant.API.ContentTypes.$fAllCTRender:a_$chandleAcceptH
                      @ Servant.API.ContentTypes.JSON
                      @ '[]
@@ -1524,9 +1557,9 @@ b3810ab76e6e8e4d01809742125b84fa
                      Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
                        `cast`
                      (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
-                     DirectoryServer.$s$fAllCTRender:a_$dAllMimeRender) -}
-74c39f8fcaddd8232d7208bb6f80eb81
-  $s$fAllCTRender:a5 ::
+                     DirectoryServer.$s$fAllCTRender:a_$dAllMimeRender1) -}
+f4a7a549abffae3a4babbd2fae980ded
+  $s$fAllCTRender:a6 ::
     Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
     -> CommonServer.File
     -> [(Network.HTTP.Media.MediaType.Internal.MediaType,
@@ -1549,63 +1582,31 @@ b3810ab76e6e8e4d01809742125b84fa
                    (GHC.Types.[]
                       @ (Network.HTTP.Media.MediaType.Internal.MediaType,
                          Data.ByteString.Lazy.Internal.ByteString))) -}
-b596ee1b1722e74ada7f768b206e6aee
-  $s$fAllCTRender:a6 ::
-    Servant.API.ContentTypes.AllCTRender
-      '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath]
-  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun:.
-                  @ '[Servant.API.ContentTypes.JSON]
-                  @ [GHC.IO.FilePath]
-                  (Servant.API.ContentTypes.$fAllCTRender:a_$cp1AllCTRender
-                     @ Servant.API.ContentTypes.JSON
-                     @ '[]
-                     @ [GHC.IO.FilePath]
-                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
-                       `cast`
-                     (Sym (Servant.API.ContentTypes.N:Accept[0]
-                               <*>_N <Servant.API.ContentTypes.JSON>_N))
-                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
-                       `cast`
-                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
-                     DirectoryServer.$s$fAllCTRender:a_$dAllMimeRender1)
-                  (Servant.API.ContentTypes.$fAllCTRender:a_$chandleAcceptH
-                     @ Servant.API.ContentTypes.JSON
-                     @ '[]
-                     @ [GHC.IO.FilePath]
-                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
-                       `cast`
-                     (Sym (Servant.API.ContentTypes.N:Accept[0]
-                               <*>_N <Servant.API.ContentTypes.JSON>_N))
-                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
-                       `cast`
-                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
-                     DirectoryServer.$s$fAllCTRender:a_$dAllMimeRender1) -}
-e93e7b2291379df6b8bcd8e4a34033d7
+1276a982a7cd8ce575fa2d31a308984d
   $s$fAllCTRender:a_$dAllMimeRender ::
+    Servant.API.ContentTypes.AllMimeRender
+      '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath]
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                DirectoryServer.$s$fAllCTRender:a_$s$fAllMimeRender:a1 -}
+baf93a9d709341b5b56e6e6e89608e04
+  $s$fAllCTRender:a_$dAllMimeRender1 ::
     Servant.API.ContentTypes.AllMimeRender
       '[Servant.API.ContentTypes.JSON] CommonServer.File
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
-                DirectoryServer.$s$fAllCTRender:a_$s$fAllMimeRender:a1 -}
-4f1a78f98e28e43ac1a5f05802238cfc
-  $s$fAllCTRender:a_$dAllMimeRender1 ::
-    Servant.API.ContentTypes.AllMimeRender
-      '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath]
-  {- Strictness: m,
-     Unfolding: InlineRule (0, True, True)
                 DirectoryServer.$s$fAllCTRender:a_$s$fAllMimeRender:a2 -}
-5ea8383ec77792406e7ed4e28220e8ca
+661b6a214ca966c286f796a12d66e271
   $s$fAllCTRender:a_$dMimeRender ::
     Servant.API.ContentTypes.MimeRender
-      Servant.API.ContentTypes.JSON CommonServer.File
+      Servant.API.ContentTypes.JSON [GHC.IO.FilePath]
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa1 -}
-9fe25d3e4f312ba38d26e8bdb0a0473f
+493f0b26596b139968a0062cab8cdbf3
   $s$fAllCTRender:a_$dMimeRender1 ::
     Servant.API.ContentTypes.MimeRender
-      Servant.API.ContentTypes.JSON [GHC.IO.FilePath]
+      Servant.API.ContentTypes.JSON CommonServer.File
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa2 -}
@@ -1615,7 +1616,7 @@ e93e7b2291379df6b8bcd8e4a34033d7
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.$s$fAllCTRender:a_$s$fToJSON[] -}
-5d483443d294187d33f1bd9459983dc7
+999b5601c08c83d409b97d75d70c5951
   $s$fAllCTRender:a_$s$fAllMimeRender:a0 ::
     Servant.API.ContentTypes.AllMimeRender
       '[Servant.API.ContentTypes.JSON] CommonServer.Response
@@ -1628,7 +1629,7 @@ e93e7b2291379df6b8bcd8e4a34033d7
                      @ CommonServer.Response
                      DirectoryServer.$s$fAllCTRender:a3)
                   DirectoryServer.$s$fAllCTRender:a2 -}
-eb0f6909c835584440479c9d19625211
+5843e67d063b40cca74d3177fdec9b76
   $s$fAllCTRender:a_$s$fAllMimeRender:a0_$callMimeRender ::
     Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
     -> [GHC.IO.FilePath]
@@ -1648,27 +1649,14 @@ eb0f6909c835584440479c9d19625211
                     (Servant.API.ContentTypes.N:Accept[0]
                          <GHC.Types.*>_N <Servant.API.ContentTypes.JSON>_N)
                       (Data.Proxy.Proxy @ GHC.Types.* @ Servant.API.ContentTypes.JSON),
-                    DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender2
+                    DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender1
                       (Data.Proxy.Proxy @ GHC.Types.* @ Servant.API.ContentTypes.JSON)
                       eta1)
                    (GHC.Types.[]
                       @ (Network.HTTP.Media.MediaType.Internal.MediaType,
                          Data.ByteString.Lazy.Internal.ByteString))) -}
-a686e3af1b67878072d57c23afd3268a
+e121e3214d896396b1b056582074c60b
   $s$fAllCTRender:a_$s$fAllMimeRender:a1 ::
-    Servant.API.ContentTypes.AllMimeRender
-      '[Servant.API.ContentTypes.JSON] CommonServer.File
-  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun:.
-                  @ '[Servant.API.ContentTypes.JSON]
-                  @ CommonServer.File
-                  (Servant.API.ContentTypes.$fAllMimeRender:a0_$cp1AllMimeRender
-                     @ Servant.API.ContentTypes.JSON
-                     @ CommonServer.File
-                     DirectoryServer.$s$fAllCTRender:a_$dMimeRender)
-                  DirectoryServer.$s$fAllCTRender:a5 -}
-ea85de756cd8b5aa9bf861e99eda976d
-  $s$fAllCTRender:a_$s$fAllMimeRender:a2 ::
     Servant.API.ContentTypes.AllMimeRender
       '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath]
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -1678,9 +1666,22 @@ ea85de756cd8b5aa9bf861e99eda976d
                   (Servant.API.ContentTypes.$fAllMimeRender:a0_$cp1AllMimeRender
                      @ Servant.API.ContentTypes.JSON
                      @ [GHC.IO.FilePath]
-                     DirectoryServer.$s$fAllCTRender:a_$dMimeRender1)
+                     DirectoryServer.$s$fAllCTRender:a_$dMimeRender)
                   DirectoryServer.$s$fAllCTRender:a_$s$fAllMimeRender:a0_$callMimeRender -}
-aa8a7c4afdba4ed356a7ff4e543dbdab
+1c735bf1c79006ea90402ab0fda687c8
+  $s$fAllCTRender:a_$s$fAllMimeRender:a2 ::
+    Servant.API.ContentTypes.AllMimeRender
+      '[Servant.API.ContentTypes.JSON] CommonServer.File
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonServer.File
+                  (Servant.API.ContentTypes.$fAllMimeRender:a0_$cp1AllMimeRender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonServer.File
+                     DirectoryServer.$s$fAllCTRender:a_$dMimeRender1)
+                  DirectoryServer.$s$fAllCTRender:a6 -}
+a8d1b696da8f516a77f90782f0a1b71c
   $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa ::
     Servant.API.ContentTypes.MimeRender
       Servant.API.ContentTypes.JSON CommonServer.Response
@@ -1693,21 +1694,8 @@ aa8a7c4afdba4ed356a7ff4e543dbdab
                      @ CommonServer.Response
                      CommonServer.$fToJSONResponse)
                   DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender -}
-f540aee4a59151b034fb0c848f1414f4
+1f73be9ad1a71c40328efdb3a1344bbf
   $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa1 ::
-    Servant.API.ContentTypes.MimeRender
-      Servant.API.ContentTypes.JSON CommonServer.File
-  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun:.
-                  @ *
-                  @ Servant.API.ContentTypes.JSON
-                  @ CommonServer.File
-                  (Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cp1MimeRender
-                     @ CommonServer.File
-                     CommonServer.$fToJSONFile)
-                  DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender1 -}
-5589e79c47a8e3637f75eb4b32e8cd5c
-  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa2 ::
     Servant.API.ContentTypes.MimeRender
       Servant.API.ContentTypes.JSON [GHC.IO.FilePath]
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -1718,8 +1706,21 @@ f540aee4a59151b034fb0c848f1414f4
                   (Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cp1MimeRender
                      @ [GHC.IO.FilePath]
                      DirectoryServer.$s$fAllCTRender:a_$dToJSON)
+                  DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender1 -}
+b13733af129fb9d94e233daa7dd6393d
+  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa2 ::
+    Servant.API.ContentTypes.MimeRender
+      Servant.API.ContentTypes.JSON CommonServer.File
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonServer.File
+                  (Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cp1MimeRender
+                     @ CommonServer.File
+                     CommonServer.$fToJSONFile)
                   DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender2 -}
-39f193b59eb1cd28f4acacc41a80acb6
+b640f04a3d77a857027417ab17596d2a
   $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender ::
     Data.Proxy.Proxy Servant.API.ContentTypes.JSON
     -> CommonServer.Response
@@ -1734,22 +1735,8 @@ f540aee4a59151b034fb0c848f1414f4
                          (CommonServer.$fToJSONResponse_$ctoJSON eta))
                         `cast`
                       (Sym (Data.Aeson.Types.Internal.N:Encoding[0])))) -}
-16c0622af3432dba2ceb3ee65857c09d
+2c9487ec918ae764c5089325383627f5
   $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender1 ::
-    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
-    -> CommonServer.File -> Data.ByteString.Lazy.Internal.ByteString
-  {- Arity: 2, Strictness: <L,A><L,1*U(1*U,1*U)>,
-     Unfolding: InlineRule (1, True, False)
-                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
-                   (eta :: CommonServer.File) ->
-                 Data.ByteString.Builder.toLazyByteString
-                   (Data.Aeson.Types.Internal.fromEncoding
-                      (Data.Aeson.Encode.Builder.encodeToBuilder
-                         (CommonServer.$fToJSONFile_$ctoJSON eta))
-                        `cast`
-                      (Sym (Data.Aeson.Types.Internal.N:Encoding[0])))) -}
-c9245e16606cf86496392ecfbeba071e
-  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender2 ::
     Data.Proxy.Proxy Servant.API.ContentTypes.JSON
     -> [GHC.IO.FilePath] -> Data.ByteString.Lazy.Internal.ByteString
   {- Arity: 2, Strictness: <L,A><L,1*U>,
@@ -1810,6 +1797,20 @@ c9245e16606cf86496392ecfbeba071e
                                              @ GHC.Types.Char
                                              Data.ByteString.Builder.Prim.ASCII.char7)
                                           (GHC.Types.C# ']'#)))))) })) -}
+77175b428015698193c0851d9ac07afa
+  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender2 ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> CommonServer.File -> Data.ByteString.Lazy.Internal.ByteString
+  {- Arity: 2, Strictness: <L,A><L,1*U(1*U,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: CommonServer.File) ->
+                 Data.ByteString.Builder.toLazyByteString
+                   (Data.Aeson.Types.Internal.fromEncoding
+                      (Data.Aeson.Encode.Builder.encodeToBuilder
+                         (CommonServer.$fToJSONFile_$ctoJSON eta))
+                        `cast`
+                      (Sym (Data.Aeson.Types.Internal.N:Encoding[0])))) -}
 f0bcc71fdebbfd5059ea092315029b16
   $s$fAllCTRender:a_$s$fToJSON[] ::
     Data.Aeson.Types.Class.ToJSON [[GHC.Types.Char]]
@@ -1851,7 +1852,7 @@ f0bcc71fdebbfd5059ea092315029b16
                   (Data.Aeson.Types.Instances.$fToJSON[]_$ctoEncoding
                      @ [GHC.Types.Char]
                      Data.Aeson.Types.Instances.$fToJSON[]0) -}
-0c3180b63bf04e408d098cd1cb41eb1f
+9b586ff37a56682a4e88e27d5f7436e5
   $s$fAllMimeUnrender:a ::
     Servant.API.ContentTypes.AllMimeUnrender
       '[Servant.API.ContentTypes.JSON] CommonServer.Identity
@@ -1873,7 +1874,7 @@ f0bcc71fdebbfd5059ea092315029b16
                      DirectoryServer.$s$fAllMimeUnrender:a_$dMimeUnrender
                      (Servant.API.ContentTypes.$fAllMimeUnrender[]a
                         @ CommonServer.Identity)) -}
-7f2d4931f5ac478c919a65ab0a7a5898
+75572cca3653ffbe0a247b092b71d980
   $s$fAllMimeUnrender:a1 ::
     Servant.API.ContentTypes.AllMimeUnrender
       '[Servant.API.ContentTypes.JSON] CommonServer.File
@@ -1895,21 +1896,21 @@ f0bcc71fdebbfd5059ea092315029b16
                      DirectoryServer.$s$fAllMimeUnrender:a_$dMimeUnrender1
                      (Servant.API.ContentTypes.$fAllMimeUnrender[]a
                         @ CommonServer.File)) -}
-af7c554bdad0b0449e32d8da6f9f8b28
+69dc102c78ba2f4d9fd6a39f3d3bab43
   $s$fAllMimeUnrender:a_$dMimeUnrender ::
     Servant.API.ContentTypes.MimeUnrender
       Servant.API.ContentTypes.JSON CommonServer.Identity
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa -}
-a56adb951d10f7f291d0b570b2947916
+53bbf0c7d5ce50ced270b7b8bb205f16
   $s$fAllMimeUnrender:a_$dMimeUnrender1 ::
     Servant.API.ContentTypes.MimeUnrender
       Servant.API.ContentTypes.JSON CommonServer.File
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa1 -}
-6db8f7bbd812111271ede41d77b3882e
+b6b0d339f357a080dff6cd86c149cf27
   $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa ::
     Servant.API.ContentTypes.MimeUnrender
       Servant.API.ContentTypes.JSON CommonServer.Identity
@@ -1925,7 +1926,7 @@ a56adb951d10f7f291d0b570b2947916
                      (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
                                <CommonServer.Identity>_N)))
                   DirectoryServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender -}
-46f780d349a41774f5c315a3e7699221
+a2ee04eb5519bb538448b18b8745296a
   $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa1 ::
     Servant.API.ContentTypes.MimeUnrender
       Servant.API.ContentTypes.JSON CommonServer.File
@@ -1940,7 +1941,7 @@ a56adb951d10f7f291d0b570b2947916
                        `cast`
                      (Sym (Data.Aeson.Types.Class.N:FromJSON[0] <CommonServer.File>_N)))
                   DirectoryServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1 -}
-979c8ddba863112004e53a4b3d246d8d
+a4c55adcf6c324ffc6f3e40f584e683b
   $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender ::
     Data.Proxy.Proxy Servant.API.ContentTypes.JSON
     -> Data.ByteString.Lazy.Internal.ByteString
@@ -1956,7 +1957,7 @@ a56adb951d10f7f291d0b570b2947916
                    (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
                              <CommonServer.Identity>_N))
                    eta) -}
-f8227248061580f8a0d21591f1e23a3d
+075a41d4e80c1600700c7549a299929c
   $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1 ::
     Data.Proxy.Proxy Servant.API.ContentTypes.JSON
     -> Data.ByteString.Lazy.Internal.ByteString
@@ -2010,7 +2011,7 @@ caff13491a021247426a4298dd50bd6f
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
                    "Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV"#) -}
-bb2a71dc3522b110b8b39c871d1a4902
+b23f05ecb5c541bde8fff964bec910c7
   $w$c/= ::
     GHC.IO.FilePath
     -> CommonServer.Identity
@@ -2061,7 +2062,7 @@ bb2a71dc3522b110b8b39c871d1a4902
                                        DEFAULT -> GHC.Types.True
                                        CommonServer.ReplicationServer
                                        -> GHC.Types.False } } } } } } }) -}
-c69dd6eb4432a93e936d9281722eb7a9
+80bee7f76578df86d6a16db4494aefc9
   $w$c== ::
     GHC.IO.FilePath
     -> CommonServer.Identity
@@ -2078,7 +2079,7 @@ c69dd6eb4432a93e936d9281722eb7a9
                  case GHC.Base.eqString ww ww2 of wild {
                    GHC.Types.False -> GHC.Types.False
                    GHC.Types.True -> CommonServer.$fEqIdentity_$c== ww1 ww3 }) -}
-13f9df01cd7a2a97cc7359310a046f94
+d707b0df6bf9b178671a1384d941ef88
   $w$cshowsPrec ::
     GHC.Prim.Int#
     -> GHC.IO.FilePath
@@ -2134,7 +2135,7 @@ c69dd6eb4432a93e936d9281722eb7a9
                         @ GHC.Types.Char
                         GHC.Show.shows9
                         (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows6 w)) }) -}
-6cab05055a85626808e964f2b8bf276d
+9a7574aa2112a295efecdd3dccf45b92
   $w$ctoJSON ::
     GHC.IO.FilePath
     -> CommonServer.Identity -> (# Data.Aeson.Types.Internal.Object #)
@@ -2168,7 +2169,7 @@ c69dd6eb4432a93e936d9281722eb7a9
                            @ Data.Text.Internal.Text
                            @ Data.Aeson.Types.Internal.Value) of dt { DEFAULT ->
                  (# dt #) }) -}
-97ca5a8d8dbe8004047803e5518dcd49
+8ab6575feb06b897ab40c9f4cfeb88e3
   $w$dConsFromJSON' ::
     Data.Aeson.Types.Internal.Options
     -> Data.Aeson.Types.Internal.Value
@@ -2531,7 +2532,7 @@ fb38a4f6bb049c7654e789d92a733de6
                    `cast`
                  (Sym (Data.Aeson.Types.Internal.N:Parser[0]
                            <GHC.Generics.K1 GHC.Generics.R [GHC.Types.Char] a1>_R))) -}
-06bbf052dd9b0943dcf60bcc2cb0165e
+926236eaa64341926f0bef40e22aeed4
   $w$dGFromJSON1 ::
     Data.Aeson.Types.Internal.Value
     -> Data.Aeson.Types.Internal.Parser
@@ -2563,7 +2564,7 @@ fb38a4f6bb049c7654e789d92a733de6
                    `cast`
                  (Sym (Data.Aeson.Types.Internal.N:Parser[0]
                            <GHC.Generics.K1 GHC.Generics.R CommonServer.Identity a1>_R))) -}
-90be2d7e1d2323e970dfff655db8685a
+c72c7c5df651df6db74f14f70d03706a
   $w$dGToBSON ::
     GHC.Generics.M1
       GHC.Generics.S
@@ -2882,7 +2883,7 @@ ff81e688eac312a4cc3750c8e89960e7
                            ipv }) of ds1 { (#,#) ipv ipv1 ->
                  case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
                  (# dt #) } }) -}
-8d2d2fe807d9565f9b8e920915a1e48f
+27fa4d0077cf6486fa07e0716b32db65
   $wgo ::
     [[Data.Bson.Field]] -> (# GHC.IO.FilePath, CommonServer.Identity #)
   {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
@@ -2897,11 +2898,11 @@ ba9f29c5f99829774f0b53ca1d1d7dc4
           Data.Text.Internal.Text #)
   {- Arity: 5, Strictness: <L,U(U)><L,U(U)><S,1*U><S,U><S,U>,
      Inline: [0] -}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   data FileMapping
     = FileMapping {fileName :: GHC.IO.FilePath,
                    identity :: CommonServer.Identity}
-b8eb24b152fed54f9bc79b46641ab455
+56ec6aef3462db931ae6fbbc1f7ea0a4
   axiom Rep_FileMapping::
       GHC.Generics.Rep DirectoryServer.FileMapping
         = GHC.Generics.D1
@@ -2927,7 +2928,7 @@ b8eb24b152fed54f9bc79b46641ab455
                                       'GHC.Generics.NoSourceStrictness
                                       'GHC.Generics.DecidedLazy)
                                    (GHC.Generics.Rec0 CommonServer.Identity)))
-d8919d7b3939860bf65081937ccc8a4c
+b44a6e609855dc1bbf5480362fb1fd69
   closeFile ::
     CommonServer.File
     -> CommonServerApi.ApiHandler CommonServer.Response
@@ -2945,7 +2946,7 @@ d8919d7b3939860bf65081937ccc8a4c
                                     <Servant.Server.Internal.ServantErr.ServantErr>_N
                                     <GHC.Types.IO>_R
                                     <CommonServer.Response>_N))) -}
-b4480b4ed49e86bdf543020902608ae3
+bbb3a798f6533842570839b9f68ef97c
   closeFile1 ::
     CommonServer.File
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -2956,30 +2957,28 @@ b4480b4ed49e86bdf543020902608ae3
   {- Arity: 2, Strictness: <L,U(U,1*U)><S,U>,
      Unfolding: (\ (f :: CommonServer.File)
                    (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case GHC.IO.Handle.Text.hPutStr2
-                        GHC.IO.Handle.FD.stdout
-                        (GHC.CString.unpackAppendCString#
-                           "Closing File: "#
-                           (case f of wild { CommonServer.File ds1 ds2 -> ds1 }))
-                        GHC.Types.True
-                        s of ds1 { (#,#) ipv ipv1 ->
                  case CommonServer.logConnection1
                         (GHC.Types.[] @ GHC.Types.Char)
                         DirectoryServer.closeFile8
                         DirectoryServer.closeFile14
-                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                        s of ds1 { (#,#) ipv ipv1 ->
                  case DirectoryServer.closeFile9
                         (CommonServer.fileName f)
-                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
                  case DirectoryServer.closeFile2
                         f
-                        (case ipv5 of wild { DirectoryServer.FileMapping ds ds4 -> ds4 })
+                        (case ipv3 of wild { DirectoryServer.FileMapping ds ds3 -> ds3 })
+                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        CommonServer.logHeading_t
+                        GHC.Types.True
                         ipv4 of ds4 { (#,#) ipv6 ipv7 ->
                  (# ipv6,
                     Data.Either.Right
                       @ Servant.Server.Internal.ServantErr.ServantErr
                       @ CommonServer.Response
-                      ipv7 #) } } } }) -}
+                      ipv5 #) } } } }) -}
 0edae9cf56f88dcb45d869ed843352f0
   closeFile10 :: Data.Text.Internal.Text
   {- Unfolding: (Data.Text.Show.unpackCString# "FileMappingDb"#) -}
@@ -2995,7 +2994,7 @@ cb9f383ff61e38074e68bae565e6d848
 227d1cd784e0d4ac3a9f00c3355b825e
   closeFile14 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "POST close"#) -}
-37bdb3cac37aa26a361bc2a19f1997b4
+085004c1bfd2cb50464e7eb4fad99bd1
   closeFile2 ::
     CommonServer.File
     -> CommonServer.Identity
@@ -3140,7 +3139,7 @@ ffb4f670844abab5b536ae921904b502
 2d808293203ec0287b1c4a1208270091
   closeFile8 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "DirectoryServer"#) -}
-104dc300c51549ab13533c67f6f81897
+43d8f5554d8ba9abaab5ec69fb40f0fe
   closeFile9 ::
     GHC.Base.String
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -3321,12 +3320,12 @@ f9098a23f93300f9d036a7df03519cf7
 4e5d269696469821518ee89343cd2b3d
   deleteDatabases7 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Delete"#) -}
-389389690aabe9c42cf9beaa7aa4d45f
+97b249d62f0d70391b9f157ed50ed2ee
   directoryApp :: Network.Wai.Application
   {- Arity: 2,
      Unfolding: (Servant.Server.Internal.RoutingApplication.toApplication
                    DirectoryServer.directoryApp1) -}
-2cfc5ab99beeec0b4ab3eab27e6c3823
+23c88086ee2f11556111609dcf0eb458
   directoryApp1 ::
     Network.Wai.Internal.Request
     -> (Servant.Server.Internal.RoutingApplication.RouteResult
@@ -3346,7 +3345,7 @@ f9098a23f93300f9d036a7df03519cf7
                    GHC.Tuple.()
                    eta
                    eta1) -}
-d447c2de09e9fe30cffd86697c04c526
+e7f9066e05975b5bee748426d4bb9fcd
   directoryApp10 ::
     CommonServer.Identity
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -3355,31 +3354,39 @@ d447c2de09e9fe30cffd86697c04c526
             Servant.Server.Internal.ServantErr.ServantErr
             CommonServer.Response #)
   {- Arity: 2, Strictness: <L,U(U,U,U)><S,U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ (i :: CommonServer.Identity)
+     Unfolding: (\ (i :: CommonServer.Identity)
                    (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
                  case CommonServer.logConnection1
                         (GHC.Types.[] @ GHC.Types.Char)
                         DirectoryServer.closeFile8
-                        DirectoryServer.directoryApp16
+                        DirectoryServer.directoryApp17
                         s of ds1 { (#,#) ipv ipv1 ->
-                 case DirectoryServer.directoryApp12
+                 case DirectoryServer.directoryApp13
                         i
                         ipv of ds2 { (#,#) ipv2 ipv3 ->
-                 (# ipv2,
-                    Data.Either.Right
-                      @ Servant.Server.Internal.ServantErr.ServantErr
-                      @ CommonServer.Response
-                      DirectoryServer.directoryApp11 #) } }) -}
-ca4efe19de7b593a7747cccb96d8b758
-  directoryApp11 :: CommonServer.Response
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        CommonServer.logHeading_t
+                        GHC.Types.True
+                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 (# ipv4, DirectoryServer.directoryApp11 #) } } }) -}
+cd6a4f520fdb8cea7b9dd44b64a0fadf
+  directoryApp11 ::
+    Data.Either.Either
+      Servant.Server.Internal.ServantErr.ServantErr CommonServer.Response
+  {- Unfolding: (Data.Either.Right
+                   @ Servant.Server.Internal.ServantErr.ServantErr
+                   @ CommonServer.Response
+                   DirectoryServer.directoryApp12) -}
+b5678b835d4fc49406216683f2b9e252
+  directoryApp12 :: CommonServer.Response
   {- Strictness: m,
      Unfolding: (CommonServer.Response
                    CommonServer.DirectoryJoinSuccess
                    CommonServer.directoryServerIdentity
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-5d504347a01e0afc5d5d3f0b690d221c
-  directoryApp12 ::
+24ec1e0d36a5ca833cf8884870afb9d2
+  directoryApp13 ::
     CommonServer.Identity
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -3396,8 +3403,8 @@ ca4efe19de7b593a7747cccb96d8b758
                  } in
                  case CommonServer.logDatabase1
                         DirectoryServer.closeFile8
+                        DirectoryServer.directoryApp16
                         DirectoryServer.directoryApp15
-                        DirectoryServer.directoryApp14
                         key
                         eta of ds1 { (#,#) ipv ipv1 ->
                  case Database.MongoDB.Connection.globalConnectTimeout
@@ -3414,7 +3421,7 @@ ca4efe19de7b593a7747cccb96d8b758
                         MongoDbConnector.connectToDatabase3
                         Database.MongoDB.Connection.defaultPort
                         ipv2 of ds3 { (#,#) ipv4 ipv5 ->
-                 case ((DirectoryServer.directoryApp13
+                 case ((DirectoryServer.directoryApp14
                           DirectoryServer.deleteDatabases2
                           (GHC.Types.:
                              @ (Database.MongoDB.Query.Selector, Data.Bson.Document,
@@ -3630,8 +3637,8 @@ ca4efe19de7b593a7747cccb96d8b758
                       (GHC.Types.N:IO[0] <Database.MongoDB.Query.UpdateResult>_R)
                         ipv4 of ds4 { (#,#) ipv6 ipv7 ->
                  (# ipv6, GHC.Tuple.() #) } } } } } }) -}
-bf4ead873854abab1af01fcf924f65bf
-  directoryApp13 ::
+6e6f0f4afc45b16aa1233cb793d0bda8
+  directoryApp14 ::
     Database.MongoDB.Query.Collection
     -> [(Database.MongoDB.Query.Selector, Data.Bson.Document,
          [Database.MongoDB.Internal.Protocol.UpdateOption])]
@@ -3641,17 +3648,17 @@ bf4ead873854abab1af01fcf924f65bf
                    @ GHC.Types.IO
                    Control.Monad.IO.Class.$fMonadIOIO
                    GHC.Types.True) -}
-9a71b5df1ef93fbccee5200ce38a90e4
-  directoryApp14 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Upsert"#) -}
-9a088a3c9f42cbbaf7f275e9bcdffb8b
+8ba3c9077e3f46ee9c9b62b3409de398
   directoryApp15 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "FileServerDb"#) -}
-009db05e6592eb5e7432b9d3aae8e266
+  {- Unfolding: (GHC.CString.unpackCString# "Upsert"#) -}
+661f304518b81a2dedf7360d2ba5bd74
   directoryApp16 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "FileServerDb"#) -}
+8e9f6d4c3b1d3ad269cfc428180a85e6
+  directoryApp17 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "POST join"#) -}
-53ac69481f9376f990547194efec5dde
-  directoryApp17 ::
+b82cd8cd346241d4fcaba0027362de66
+  directoryApp18 ::
     Data.Proxy.Proxy
       (Servant.API.Verbs.Verb
          'Network.HTTP.Types.Method.POST
@@ -3692,7 +3699,7 @@ bf4ead873854abab1af01fcf924f65bf
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
                              <Network.HTTP.Types.Method.StdMethod>_N
                              <'Network.HTTP.Types.Method.POST>_N))
-                   DirectoryServer.directoryApp18
+                   DirectoryServer.directoryApp19
                      `cast`
                    (Trans
                         (Sym (GHC.TypeLits.N:SNat[0] <200>_P))
@@ -3705,11 +3712,20 @@ bf4ead873854abab1af01fcf924f65bf
                            200
                            '[Servant.API.ContentTypes.JSON]
                            CommonServer.Response)) }) -}
-ca74b5890a7234b362c61e5cb9769153
-  directoryApp18 :: GHC.Integer.Type.Integer
+6486fd1c68734425227d2e31cda6a5ab
+  directoryApp19 :: GHC.Integer.Type.Integer
   {- HasNoCafRefs, Unfolding: (200) -}
-8dfcd9f278db520e0ad771754e370942
-  directoryApp19 ::
+ed982d413fafab5b8984278a7711f0a8
+  directoryApp2 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.choice
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   DirectoryServer.directoryApp32
+                   DirectoryServer.directoryApp3) -}
+4e6b653add20a34ddd7ffa43f7359e2f
+  directoryApp20 ::
     Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
     -> Data.ByteString.Lazy.Internal.ByteString
     -> Data.ByteString.Lazy.Internal.ByteString
@@ -3726,17 +3742,8 @@ ca74b5890a7234b362c61e5cb9769153
                    DirectoryServer.$s$fAllMimeUnrender:a
                    w2
                    w3) -}
-37a429044a097a88cec7089184fef7c8
-  directoryApp2 ::
-    Servant.Server.Internal.Router.Router'
-      () Servant.Server.Internal.RoutingApplication.RoutingApplication
-  {- Unfolding: (Servant.Server.Internal.Router.choice
-                   @ ()
-                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   DirectoryServer.directoryApp31
-                   DirectoryServer.directoryApp3) -}
-0e134818d759d0a0fe96344fa89f570a
-  directoryApp20 ::
+8210429946a58be8020625e6d0af8ed3
+  directoryApp21 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           Data.Text.Internal.Text #)
@@ -3750,25 +3757,25 @@ ca74b5890a7234b362c61e5cb9769153
                  Servant.Server.Internal.$wouter
                    (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
                    Servant.Server.Internal.$fHasServerTYPE:>context20
-                   DirectoryServer.directoryApp21
+                   DirectoryServer.directoryApp22
                    0#
                    ipv }) -}
-2f6ecfbbe47f8d03cf8847f3e72f0a0d
-  directoryApp21 :: [GHC.Types.Char]
+1938af69c1e3d6416d7cd109802beca2
+  directoryApp22 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "join"#) -}
-2d95ce82954c1e3c6fee2e78882b9e62
-  directoryApp22 ::
+436cd9fa74ea4a666054e0426eab5cd6
+  directoryApp23 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
   {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   DirectoryServer.directoryApp23
+                   DirectoryServer.directoryApp24
                    (GHC.Types.[]
                       @ (()
                          -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-a2824303f0237266285d385496e62208
-  directoryApp23 ::
+5dbb6d12209fd89f8f5f22dc6ac24c0f
+  directoryApp24 ::
     Data.Map.Base.Map
       Data.Text.Internal.Text
       (Servant.Server.Internal.Router.Router'
@@ -3776,7 +3783,7 @@ a2824303f0237266285d385496e62208
   {- Unfolding: (case GHC.Magic.runRW#
                         @ 'GHC.Types.PtrRepLifted
                         @ Data.Text.Internal.Text
-                        DirectoryServer.directoryApp29 of ds1 { (#,#) ipv ipv1 ->
+                        DirectoryServer.directoryApp30 of ds1 { (#,#) ipv ipv1 ->
                  case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
                  Data.Map.Base.Bin
                    @ Data.Text.Internal.Text
@@ -3784,7 +3791,7 @@ a2824303f0237266285d385496e62208
                         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
                    1#
                    dt
-                   DirectoryServer.directoryApp24
+                   DirectoryServer.directoryApp25
                    (Data.Map.Base.Tip
                       @ Data.Text.Internal.Text
                       @ (Servant.Server.Internal.Router.Router'
@@ -3794,8 +3801,8 @@ a2824303f0237266285d385496e62208
                       @ (Servant.Server.Internal.Router.Router'
                            ()
                            Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-73528eb668207c872353d7b7d3460ccf
-  directoryApp24 :: Servant.Server.Internal.Router.Router ()
+a576dc7fdab7f6e7165e7c703b8fdf53
+  directoryApp25 :: Servant.Server.Internal.Router.Router ()
   {- Unfolding: (Servant.Server.Internal.$w$croute2
                    @ *
                    @ '[Servant.API.ContentTypes.JSON]
@@ -3806,11 +3813,11 @@ a2824303f0237266285d385496e62208
                         '[Servant.API.ContentTypes.JSON]
                         CommonServer.Response)
                    @ '[]
-                   DirectoryServer.directoryApp28
+                   DirectoryServer.directoryApp29
                      `cast`
                    (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
                              <'[Servant.API.ContentTypes.JSON]>_N <CommonServer.File>_N))
-                   DirectoryServer.directoryApp17
+                   DirectoryServer.directoryApp18
                      `cast`
                    (Sym (Servant.Server.Internal.N:HasServer[0]
                              <*>_N
@@ -3831,7 +3838,7 @@ a2824303f0237266285d385496e62208
                                               '[Servant.API.ContentTypes.JSON]
                                               CommonServer.Response))
                    Servant.Server.Internal.Context.$WEmptyContext
-                   DirectoryServer.directoryApp25
+                   DirectoryServer.directoryApp26
                      `cast`
                    (Servant.Server.Internal.RoutingApplication.Delayed
                       <()>_R
@@ -3846,8 +3853,8 @@ a2824303f0237266285d385496e62208
                                 <Control.Monad.Trans.Except.ExceptT
                                    Servant.Server.Internal.ServantErr.ServantErr
                                    GHC.Types.IO>_N)))_R) -}
-c7613173925f288525f5af5321c138cb
-  directoryApp25 ::
+3f651fbe23bc03b17fbd8288e7a7e6b4
+  directoryApp26 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
       (Servant.Server.Internal.Server
@@ -3906,9 +3913,9 @@ c7613173925f288525f5af5321c138cb
                                           ()>_R))
                         (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                   <()>_R)))
-                   DirectoryServer.directoryApp26) -}
-878b7141ce7e2fa37405300bae1139eb
-  directoryApp26 ::
+                   DirectoryServer.directoryApp27) -}
+8a856c0e7efd475b39cc4495e349e1a8
+  directoryApp27 ::
     ()
     -> ()
     -> ()
@@ -3926,9 +3933,9 @@ c7613173925f288525f5af5321c138cb
                    (a1 :: ())
                    (b1 :: ())
                    (req :: Network.Wai.Internal.Request) ->
-                 DirectoryServer.directoryApp27) -}
-8808e045969b427e8eb7249e6a724cac
-  directoryApp27 ::
+                 DirectoryServer.directoryApp28) -}
+bb248fe8a5f8226739a52195ad3694e0
+  directoryApp28 ::
     Servant.Server.Internal.RoutingApplication.RouteResult
       (Servant.Server.Internal.Server
          ("close"
@@ -3992,8 +3999,8 @@ c7613173925f288525f5af5321c138cb
                                             <Control.Monad.Trans.Except.ExceptT
                                                Servant.Server.Internal.ServantErr.ServantErr
                                                GHC.Types.IO>_N)))))) -}
-9cb2bbdf233fa2718177ccb395b95881
-  directoryApp28 ::
+0277ec1ae1ccacd9aac9e5335020d10b
+  directoryApp29 ::
     Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
     -> Data.ByteString.Lazy.Internal.ByteString
     -> Data.ByteString.Lazy.Internal.ByteString
@@ -4010,8 +4017,17 @@ c7613173925f288525f5af5321c138cb
                    DirectoryServer.$s$fAllMimeUnrender:a1
                    w2
                    w3) -}
-e48a3492d234e81da4cf7d9ae42437f9
-  directoryApp29 ::
+7c54ce08997c0d48472785dc076a4909
+  directoryApp3 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.choice
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   DirectoryServer.directoryApp23
+                   DirectoryServer.directoryApp4) -}
+dae5b97b7b15ef2fb43c9e1fdbe23ac3
+  directoryApp30 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           Data.Text.Internal.Text #)
@@ -4025,34 +4041,25 @@ e48a3492d234e81da4cf7d9ae42437f9
                  Servant.Server.Internal.$wouter
                    (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
                    Servant.Server.Internal.$fHasServerTYPE:>context20
-                   DirectoryServer.directoryApp30
+                   DirectoryServer.directoryApp31
                    0#
                    ipv }) -}
-05dbb7dde095dbcaaeefe09d9f1d6ba1
-  directoryApp3 ::
-    Servant.Server.Internal.Router.Router'
-      () Servant.Server.Internal.RoutingApplication.RoutingApplication
-  {- Unfolding: (Servant.Server.Internal.Router.choice
-                   @ ()
-                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   DirectoryServer.directoryApp22
-                   DirectoryServer.directoryApp4) -}
-ed54f28afa1e185e18c002d8a38358ce
-  directoryApp30 :: [GHC.Types.Char]
+72b65b7db6115e9a44e9959cbebde7f6
+  directoryApp31 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "close"#) -}
-3ffa70514e2f3d38dd34967016c3a3e6
-  directoryApp31 ::
+562426b1d7c8e20bcaf8921e747c77e0
+  directoryApp32 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
   {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   DirectoryServer.directoryApp32
+                   DirectoryServer.directoryApp33
                    (GHC.Types.[]
                       @ (()
                          -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-3bd6ad3cf6f2722f743417f37a2c9e88
-  directoryApp32 ::
+a1018d7880f40fa0519c0fcdfc549bcf
+  directoryApp33 ::
     Data.Map.Base.Map
       Data.Text.Internal.Text
       (Servant.Server.Internal.Router.Router'
@@ -4060,7 +4067,7 @@ ed54f28afa1e185e18c002d8a38358ce
   {- Unfolding: (case GHC.Magic.runRW#
                         @ 'GHC.Types.PtrRepLifted
                         @ Data.Text.Internal.Text
-                        DirectoryServer.directoryApp46 of ds1 { (#,#) ipv ipv1 ->
+                        DirectoryServer.directoryApp47 of ds1 { (#,#) ipv ipv1 ->
                  case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
                  Data.Map.Base.Bin
                    @ Data.Text.Internal.Text
@@ -4068,7 +4075,7 @@ ed54f28afa1e185e18c002d8a38358ce
                         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
                    1#
                    dt
-                   DirectoryServer.directoryApp33
+                   DirectoryServer.directoryApp34
                    (Data.Map.Base.Tip
                       @ Data.Text.Internal.Text
                       @ (Servant.Server.Internal.Router.Router'
@@ -4078,21 +4085,21 @@ ed54f28afa1e185e18c002d8a38358ce
                       @ (Servant.Server.Internal.Router.Router'
                            ()
                            Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-7df0c9f3ba79091829cbbfa8f8748672
-  directoryApp33 ::
+c260d6bfc7b0d50778c1865324661624
+  directoryApp34 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
   {- Unfolding: (Servant.Server.Internal.Router.CaptureRouter
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   DirectoryServer.directoryApp34) -}
-e66d57188deecd6f4dab5de457479996
-  directoryApp34 ::
-    Servant.Server.Internal.Router.Router (Data.Text.Internal.Text, ())
-  {- Unfolding: (DirectoryServer.directoryApp45
                    DirectoryServer.directoryApp35) -}
-960a05880d6795b2c597d8bd4a4af479
+93072c14fcaf827c1dd2e550b3175934
   directoryApp35 ::
+    Servant.Server.Internal.Router.Router (Data.Text.Internal.Text, ())
+  {- Unfolding: (DirectoryServer.directoryApp46
+                   DirectoryServer.directoryApp36) -}
+60d7a1693f30fdfd4618f0ce3f816c82
+  directoryApp36 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       (Data.Text.Internal.Text, ())
       (Servant.Server.Internal.Server
@@ -4111,7 +4118,7 @@ e66d57188deecd6f4dab5de457479996
                            '[Servant.API.ContentTypes.JSON]
                            CommonServer.File))
                    @ Data.Text.Internal.Text
-                   DirectoryServer.directoryApp37
+                   DirectoryServer.directoryApp38
                      `cast`
                    (Servant.Server.Internal.RoutingApplication.Delayed
                       <()>_R
@@ -4138,9 +4145,9 @@ e66d57188deecd6f4dab5de457479996
                                      <Control.Monad.Trans.Except.ExceptT
                                         Servant.Server.Internal.ServantErr.ServantErr
                                         GHC.Types.IO>_N))))_R
-                   DirectoryServer.directoryApp36) -}
-ef5b8e7b7542621d3728eedcfe62fc77
-  directoryApp36 ::
+                   DirectoryServer.directoryApp37) -}
+60a17eb318e430f8e6dc7259d1463194
+  directoryApp37 ::
     Data.Text.Internal.Text
     -> Servant.Server.Internal.RoutingApplication.DelayedIO
          [GHC.Types.Char]
@@ -4159,8 +4166,8 @@ ef5b8e7b7542621d3728eedcfe62fc77
                                         [GHC.Types.Char]>_R))
                       (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                 <[GHC.Types.Char]>_R))) }) -}
-e972584697a6462d7c7b4cff6fd1aa7d
-  directoryApp37 ::
+719576409d9806f9af070655b1ade6da
+  directoryApp38 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
       (Servant.Server.Internal.Server
@@ -4219,9 +4226,9 @@ e972584697a6462d7c7b4cff6fd1aa7d
                                           ()>_R))
                         (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                   <()>_R)))
-                   DirectoryServer.directoryApp38) -}
-262be471be078ef2698f095e4cd76636
-  directoryApp38 ::
+                   DirectoryServer.directoryApp39) -}
+031a31720481769033037a37beceba38
+  directoryApp39 ::
     ()
     -> ()
     -> ()
@@ -4239,9 +4246,20 @@ e972584697a6462d7c7b4cff6fd1aa7d
                    (a1 :: ())
                    (b1 :: ())
                    (req :: Network.Wai.Internal.Request) ->
-                 DirectoryServer.directoryApp39) -}
-b50e8394d1b74e4b815e1efb92290df6
-  directoryApp39 ::
+                 DirectoryServer.directoryApp40) -}
+2af126acec9a69d927bbea6713330c3a
+  directoryApp4 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   DirectoryServer.directoryApp5
+                   (GHC.Types.[]
+                      @ (()
+                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
+aaca0a552e0a001019c66318b001fc05
+  directoryApp40 ::
     Servant.Server.Internal.RoutingApplication.RouteResult
       (Servant.Server.Internal.Server
          ("open"
@@ -4258,7 +4276,7 @@ b50e8394d1b74e4b815e1efb92290df6
                                              Servant.API.Sub.:> Servant.API.Verbs.Get
                                                                   '[Servant.API.ContentTypes.JSON]
                                                                   CommonServer.File)))
-                   DirectoryServer.directoryApp40
+                   DirectoryServer.directoryApp41
                      `cast`
                    (Trans
                         (<[GHC.Types.Char]>_R
@@ -4304,19 +4322,8 @@ b50e8394d1b74e4b815e1efb92290df6
                                             <Control.Monad.Trans.Except.ExceptT
                                                Servant.Server.Internal.ServantErr.ServantErr
                                                GHC.Types.IO>_N)))))) -}
-2cca250e2bd113132b3d47639ca3140f
-  directoryApp4 ::
-    Servant.Server.Internal.Router.Router'
-      () Servant.Server.Internal.RoutingApplication.RoutingApplication
-  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
-                   @ ()
-                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   DirectoryServer.directoryApp5
-                   (GHC.Types.[]
-                      @ (()
-                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-edcb5d1ec64f237c4ae9a5a0b711e49d
-  directoryApp40 ::
+d2912ad8b436ec8763016ce0239a2f75
+  directoryApp41 ::
     GHC.Base.String
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
@@ -4328,20 +4335,25 @@ edcb5d1ec64f237c4ae9a5a0b711e49d
                  case CommonServer.logConnection1
                         (GHC.Types.[] @ GHC.Types.Char)
                         DirectoryServer.closeFile8
-                        DirectoryServer.directoryApp44
+                        DirectoryServer.directoryApp45
                         s of ds1 { (#,#) ipv ipv1 ->
                  case DirectoryServer.closeFile9 fn ipv of ds2 { (#,#) ipv2 ipv3 ->
-                 case DirectoryServer.directoryApp41
+                 case DirectoryServer.directoryApp42
                         fn
                         (case ipv3 of wild { DirectoryServer.FileMapping ds ds3 -> ds3 })
                         ipv2 of ds3 { (#,#) ipv4 ipv5 ->
-                 (# ipv4,
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        CommonServer.logHeading_t
+                        GHC.Types.True
+                        ipv4 of ds4 { (#,#) ipv6 ipv7 ->
+                 (# ipv6,
                     Data.Either.Right
                       @ Servant.Server.Internal.ServantErr.ServantErr
                       @ CommonServer.File
-                      ipv5 #) } } }) -}
-0d8bef35dce2e96c27b9ffa0adb5fa26
-  directoryApp41 ::
+                      ipv5 #) } } } }) -}
+11258fe97c6adec372c508096d95eec0
+  directoryApp42 ::
     GHC.Base.String
     -> CommonServer.Identity
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -4353,7 +4365,7 @@ edcb5d1ec64f237c4ae9a5a0b711e49d
                  case CommonServer.logConnection1
                         DirectoryServer.closeFile8
                         DirectoryServer.closeFile7
-                        DirectoryServer.directoryApp43
+                        DirectoryServer.directoryApp44
                         s of ds1 { (#,#) ipv ipv1 ->
                  case Network.HTTP.Client.Manager.$wnewManager
                         Network.HTTP.Client.Manager.defaultManagerSettings18
@@ -4482,22 +4494,22 @@ edcb5d1ec64f237c4ae9a5a0b711e49d
                                    Servant.Common.Req.ServantError CommonServer.File>_R))
                         ipv2 of ds3 { (#,#) ipv4 ipv5 ->
                  case ipv5 of wild {
-                   Data.Either.Left err -> (# ipv4, DirectoryServer.directoryApp42 #)
+                   Data.Either.Left err -> (# ipv4, DirectoryServer.directoryApp43 #)
                    Data.Either.Right response' -> (# ipv4, response' #) } } } }) -}
-7d6876956c5462cccb48c96f9e339c2f
-  directoryApp42 :: CommonServer.File
+c977bd6bf8727a437c3a417f45b030a8
+  directoryApp43 :: CommonServer.File
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (CommonServer.File
                    (GHC.Types.[] @ GHC.Types.Char)
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-d9ce376a1c867ae7d1f4b2f99b1c1031
-  directoryApp43 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "GET download"#) -}
-49d6e0c3099f5b10e800711a94d9ffe8
+6878702865d1c809c253f37a936bbb79
   directoryApp44 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "GET download"#) -}
+26513fbc2c8f211a452a74585e9f8170
+  directoryApp45 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "GET open"#) -}
-3b35f4692ea815656b1395087f531ad1
-  directoryApp45 ::
+6aecd41c0ba6421c914f8decdfb9e050
+  directoryApp46 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       (Data.Text.Internal.Text, ())
       (Servant.Server.Internal.Server
@@ -4515,13 +4527,13 @@ d9ce376a1c867ae7d1f4b2f99b1c1031
                    @ 'Network.HTTP.Types.Method.GET
                    @ 200
                    @ '[]
-                   DirectoryServer.$s$fAllCTRender:a4
+                   DirectoryServer.$s$fAllCTRender:a5
                    Servant.API.Verbs.$fReflectMethodStdMethodGET_$creflectMethod
                      `cast`
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
                              <Network.HTTP.Types.Method.StdMethod>_N
                              <'Network.HTTP.Types.Method.GET>_N))
-                   DirectoryServer.directoryApp18
+                   DirectoryServer.directoryApp19
                      `cast`
                    (Trans
                         (Sym (GHC.TypeLits.N:SNat[0] <200>_P))
@@ -4534,8 +4546,8 @@ d9ce376a1c867ae7d1f4b2f99b1c1031
                            200
                            '[Servant.API.ContentTypes.JSON]
                            CommonServer.File))) -}
-3a71daee5f728c56ac5715313425c05c
-  directoryApp46 ::
+38e4f0b3e0bcf2346bc51764569c93b1
+  directoryApp47 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           Data.Text.Internal.Text #)
@@ -4549,51 +4561,24 @@ d9ce376a1c867ae7d1f4b2f99b1c1031
                  Servant.Server.Internal.$wouter
                    (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
                    Servant.Server.Internal.$fHasServerTYPE:>context20
-                   DirectoryServer.directoryApp47
+                   DirectoryServer.directoryApp48
                    0#
                    ipv }) -}
-23c53798f669702c17dc1c95acf46dc2
-  directoryApp47 :: [GHC.Types.Char]
+c6522dac33bd6a71816ca983056df36d
+  directoryApp48 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "open"#) -}
-62f257fbe4522e28b97358de6ddaf52a
-  directoryApp48 ::
+7420921a89403a6cb74d5986a3a84e99
+  directoryApp49 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
   {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   DirectoryServer.directoryApp49
+                   DirectoryServer.directoryApp50
                    (GHC.Types.[]
                       @ (()
                          -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-9b76d79ccbe9e9e1425815e5113c624b
-  directoryApp49 ::
-    Data.Map.Base.Map
-      Data.Text.Internal.Text
-      (Servant.Server.Internal.Router.Router'
-         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
-  {- Unfolding: (case GHC.Magic.runRW#
-                        @ 'GHC.Types.PtrRepLifted
-                        @ Data.Text.Internal.Text
-                        DirectoryServer.directoryApp63 of ds1 { (#,#) ipv ipv1 ->
-                 case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
-                 Data.Map.Base.Bin
-                   @ Data.Text.Internal.Text
-                   @ (Servant.Server.Internal.Router.Router'
-                        () Servant.Server.Internal.RoutingApplication.RoutingApplication)
-                   1#
-                   dt
-                   DirectoryServer.directoryApp50
-                   (Data.Map.Base.Tip
-                      @ Data.Text.Internal.Text
-                      @ (Servant.Server.Internal.Router.Router'
-                           () Servant.Server.Internal.RoutingApplication.RoutingApplication))
-                   (Data.Map.Base.Tip
-                      @ Data.Text.Internal.Text
-                      @ (Servant.Server.Internal.Router.Router'
-                           ()
-                           Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-db85b183b1ef659ee1e7588ec62dacc7
+0f7cb9998c38be56d91b58e9f09c2343
   directoryApp5 ::
     Data.Map.Base.Map
       Data.Text.Internal.Text
@@ -4602,7 +4587,7 @@ db85b183b1ef659ee1e7588ec62dacc7
   {- Unfolding: (case GHC.Magic.runRW#
                         @ 'GHC.Types.PtrRepLifted
                         @ Data.Text.Internal.Text
-                        DirectoryServer.directoryApp20 of ds1 { (#,#) ipv ipv1 ->
+                        DirectoryServer.directoryApp21 of ds1 { (#,#) ipv ipv1 ->
                  case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
                  Data.Map.Base.Bin
                    @ Data.Text.Internal.Text
@@ -4620,10 +4605,37 @@ db85b183b1ef659ee1e7588ec62dacc7
                       @ (Servant.Server.Internal.Router.Router'
                            ()
                            Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-29c32b9a3a462cb75889bed8f4da3a22
-  directoryApp50 :: Servant.Server.Internal.Router.Router ()
-  {- Unfolding: (DirectoryServer.directoryApp62
+e61d4396d91de03e5f88e9b2ea27ae50
+  directoryApp50 ::
+    Data.Map.Base.Map
+      Data.Text.Internal.Text
+      (Servant.Server.Internal.Router.Router'
+         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+  {- Unfolding: (case GHC.Magic.runRW#
+                        @ 'GHC.Types.PtrRepLifted
+                        @ Data.Text.Internal.Text
+                        DirectoryServer.directoryApp64 of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                 Data.Map.Base.Bin
+                   @ Data.Text.Internal.Text
+                   @ (Servant.Server.Internal.Router.Router'
+                        () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+                   1#
+                   dt
                    DirectoryServer.directoryApp51
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           () Servant.Server.Internal.RoutingApplication.RoutingApplication))
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           ()
+                           Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
+256d57f9cd1f355829274bd1f9f9691d
+  directoryApp51 :: Servant.Server.Internal.Router.Router ()
+  {- Unfolding: (DirectoryServer.directoryApp63
+                   DirectoryServer.directoryApp52
                      `cast`
                    (Servant.Server.Internal.RoutingApplication.Delayed
                       <()>_R
@@ -4638,8 +4650,8 @@ db85b183b1ef659ee1e7588ec62dacc7
                                 <Control.Monad.Trans.Except.ExceptT
                                    Servant.Server.Internal.ServantErr.ServantErr
                                    GHC.Types.IO>_N)))_R) -}
-ef6ee904b7690fdbdb595370ad779254
-  directoryApp51 ::
+e8880586851008e9e76ea650d322e5ce
+  directoryApp52 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
       (Servant.Server.Internal.Server
@@ -4692,9 +4704,9 @@ ef6ee904b7690fdbdb595370ad779254
                                           ()>_R))
                         (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                   <()>_R)))
-                   DirectoryServer.directoryApp52) -}
-4043db63967df96c67c53e11bbfad77a
-  directoryApp52 ::
+                   DirectoryServer.directoryApp53) -}
+e1f3c060418f9d3c0ad4a475eaa5e01a
+  directoryApp53 ::
     ()
     -> ()
     -> ()
@@ -4709,9 +4721,9 @@ ef6ee904b7690fdbdb595370ad779254
                    (a1 :: ())
                    (b1 :: ())
                    (req :: Network.Wai.Internal.Request) ->
-                 DirectoryServer.directoryApp53) -}
-0b6ea3a1bbc3181a0ccc942836885577
-  directoryApp53 ::
+                 DirectoryServer.directoryApp54) -}
+b6bff36fbc1a68abf7e49569fa484638
+  directoryApp54 ::
     Servant.Server.Internal.RoutingApplication.RouteResult
       (Servant.Server.Internal.Server
          ("files"
@@ -4722,7 +4734,7 @@ ef6ee904b7690fdbdb595370ad779254
                         ("files"
                          Servant.API.Sub.:> Servant.API.Verbs.Get
                                               '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath]))
-                   DirectoryServer.directoryApp54
+                   DirectoryServer.directoryApp55
                      `cast`
                    (Trans
                         (Sym (GHC.Types.N:IO[0]
@@ -4755,8 +4767,8 @@ ef6ee904b7690fdbdb595370ad779254
                                                  <Control.Monad.Trans.Except.ExceptT
                                                     Servant.Server.Internal.ServantErr.ServantErr
                                                     GHC.Types.IO>_N))))))) -}
-9f67606cda53681075446c36dbe6e27a
-  directoryApp54 ::
+5d5a974fe886c0476fe8fda502cd5ef7
+  directoryApp55 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           Data.Either.Either
@@ -4766,26 +4778,26 @@ ef6ee904b7690fdbdb595370ad779254
                  case CommonServer.logConnection1
                         (GHC.Types.[] @ GHC.Types.Char)
                         DirectoryServer.closeFile8
-                        DirectoryServer.directoryApp61
+                        DirectoryServer.directoryApp62
                         s of ds1 { (#,#) ipv ipv1 ->
                  case CommonServer.logDatabase1
                         DirectoryServer.closeFile8
-                        DirectoryServer.directoryApp15
+                        DirectoryServer.directoryApp16
                         DirectoryServer.closeFile12
-                        DirectoryServer.directoryApp60
+                        DirectoryServer.directoryApp61
                         ipv of ds2 { (#,#) ipv2 ipv3 ->
-                 case DirectoryServer.directoryApp58
+                 case DirectoryServer.directoryApp59
                         ipv2 of ds3 { (#,#) ipv4 ipv5 ->
-                 case DirectoryServer.directoryApp57
+                 case DirectoryServer.directoryApp58
                         ipv5
                         ipv4 of ds4 { (#,#) ipv6 ipv7 ->
                  case CommonServer.logDatabase1
                         DirectoryServer.closeFile8
                         DirectoryServer.closeFile13
                         DirectoryServer.closeFile12
-                        DirectoryServer.directoryApp60
+                        DirectoryServer.directoryApp61
                         ipv6 of ds5 { (#,#) ipv8 ipv9 ->
-                 case DirectoryServer.directoryApp55
+                 case DirectoryServer.directoryApp56
                         ipv8 of ds6 { (#,#) ipv10 ipv11 ->
                  (# ipv10,
                     Data.Either.Right
@@ -4802,8 +4814,8 @@ ef6ee904b7690fdbdb595370ad779254
                                @ [GHC.Types.Char]
                                DirectoryServer.fileName
                                ipv11))) #) } } } } } }) -}
-ce0fd7ae0ee106c92876064a571f2315
-  directoryApp55 ::
+81a6f41b73822c63c8e9c0c14a11646e
+  directoryApp56 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           [DirectoryServer.FileMapping] #)
@@ -4835,7 +4847,7 @@ ce0fd7ae0ee106c92876064a571f2315
                          Control.Monad.IO.Class.$fMonadIOIO
                          Control.Monad.Trans.Control.$fMonadBaseControlIOIO
                          (GHC.Types.[] @ Database.MongoDB.Internal.Protocol.QueryOption)
-                         DirectoryServer.directoryApp56
+                         DirectoryServer.directoryApp57
                          (GHC.Types.[] @ Data.Bson.Field)
                          Database.MongoDB.Query.$fSelectQuery1
                          Database.MongoDB.Query.$fSelectQuery1
@@ -4866,19 +4878,19 @@ ce0fd7ae0ee106c92876064a571f2315
                       @ DirectoryServer.FileMapping
                       DirectoryServer.$fFromBSONFileMapping_$cfromBSON
                       ipv7 #) } } } } } }) -}
-f3ad27233f344084d1fc1d44d413a31b
-  directoryApp56 :: Database.MongoDB.Query.Selection
+4f2bfb9b052937412a7310c93ba385e9
+  directoryApp57 :: Database.MongoDB.Query.Selection
   {- Unfolding: (Database.MongoDB.Query.Select
                    (GHC.Types.[] @ Data.Bson.Field)
                    DirectoryServer.closeFile10) -}
-bfe64decb0cf6214cfd3996171713413
-  directoryApp57 ::
+c6238a7b6d63604c625a0d81498d1c5c
+  directoryApp58 ::
     [CommonServer.Identity]
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 2, Strictness: <S,1*U><S,U> -}
-2659ee1ab30a12589a7d35d786e08674
-  directoryApp58 ::
+19451093ffc64ac076cbee6813b89aa5
+  directoryApp59 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           [CommonServer.Identity] #)
@@ -4910,7 +4922,7 @@ bfe64decb0cf6214cfd3996171713413
                          Control.Monad.IO.Class.$fMonadIOIO
                          Control.Monad.Trans.Control.$fMonadBaseControlIOIO
                          (GHC.Types.[] @ Database.MongoDB.Internal.Protocol.QueryOption)
-                         DirectoryServer.directoryApp59
+                         DirectoryServer.directoryApp60
                          (GHC.Types.[] @ Data.Bson.Field)
                          Database.MongoDB.Query.$fSelectQuery1
                          Database.MongoDB.Query.$fSelectQuery1
@@ -4941,12 +4953,7 @@ bfe64decb0cf6214cfd3996171713413
                       @ CommonServer.Identity
                       CommonServer.$fFromBSONIdentity_$cfromBSON
                       ipv7 #) } } } } } }) -}
-53b525b70f882e19951c5cc2606bd48c
-  directoryApp59 :: Database.MongoDB.Query.Selection
-  {- Unfolding: (Database.MongoDB.Query.Select
-                   (GHC.Types.[] @ Data.Bson.Field)
-                   DirectoryServer.deleteDatabases2) -}
-20b771c6aa743d44bd80310fd1086416
+f830ec350ef78d60f656d1c9396bc582
   directoryApp6 :: Servant.Server.Internal.Router.Router ()
   {- Unfolding: (Servant.Server.Internal.$w$croute2
                    @ *
@@ -4958,11 +4965,11 @@ bfe64decb0cf6214cfd3996171713413
                         '[Servant.API.ContentTypes.JSON]
                         CommonServer.Response)
                    @ '[]
-                   DirectoryServer.directoryApp19
+                   DirectoryServer.directoryApp20
                      `cast`
                    (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
                              <'[Servant.API.ContentTypes.JSON]>_N <CommonServer.Identity>_N))
-                   DirectoryServer.directoryApp17
+                   DirectoryServer.directoryApp18
                      `cast`
                    (Sym (Servant.Server.Internal.N:HasServer[0]
                              <*>_N
@@ -4998,14 +5005,19 @@ bfe64decb0cf6214cfd3996171713413
                                 <Control.Monad.Trans.Except.ExceptT
                                    Servant.Server.Internal.ServantErr.ServantErr
                                    GHC.Types.IO>_N)))_R) -}
-6b6e17ad12b43700b7c5a437234e5cb3
-  directoryApp60 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "ALL"#) -}
-2a40788cfff206c9e85efbeeb712b203
+cffc8a1729fad37306a291556f92bc79
+  directoryApp60 :: Database.MongoDB.Query.Selection
+  {- Unfolding: (Database.MongoDB.Query.Select
+                   (GHC.Types.[] @ Data.Bson.Field)
+                   DirectoryServer.deleteDatabases2) -}
+c6436e4b48084db9292c35729a4783cf
   directoryApp61 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "ALL"#) -}
+33f45f5ff333aa3ff434421f13727d54
+  directoryApp62 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "GET files"#) -}
-f85125860071817d0f88d9995a66f431
-  directoryApp62 ::
+b59292f5d83bf0882138ca9f0819efac
+  directoryApp63 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
       (Servant.Server.Internal.Server
@@ -5022,13 +5034,13 @@ f85125860071817d0f88d9995a66f431
                    @ 'Network.HTTP.Types.Method.GET
                    @ 200
                    @ '[]
-                   DirectoryServer.$s$fAllCTRender:a6
+                   DirectoryServer.$s$fAllCTRender:a4
                    Servant.API.Verbs.$fReflectMethodStdMethodGET_$creflectMethod
                      `cast`
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
                              <Network.HTTP.Types.Method.StdMethod>_N
                              <'Network.HTTP.Types.Method.GET>_N))
-                   DirectoryServer.directoryApp18
+                   DirectoryServer.directoryApp19
                      `cast`
                    (Trans
                         (Sym (GHC.TypeLits.N:SNat[0] <200>_P))
@@ -5041,8 +5053,8 @@ f85125860071817d0f88d9995a66f431
                            200
                            '[Servant.API.ContentTypes.JSON]
                            [GHC.IO.FilePath]))) -}
-873156a9cb6099d3a4e6e8cdd22c1312
-  directoryApp63 ::
+42a23d43513d47777430263d17567036
+  directoryApp64 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           Data.Text.Internal.Text #)
@@ -5056,13 +5068,13 @@ f85125860071817d0f88d9995a66f431
                  Servant.Server.Internal.$wouter
                    (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
                    Servant.Server.Internal.$fHasServerTYPE:>context20
-                   DirectoryServer.directoryApp64
+                   DirectoryServer.directoryApp65
                    0#
                    ipv }) -}
-e9fd699bed227805782726653feecedc
-  directoryApp64 :: [GHC.Types.Char]
+063088cd104ba7178f7399656a4958e5
+  directoryApp65 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "files"#) -}
-b5749b7edbc662197c97f6142792271e
+95469e0f86c9cfba696bd5700b983536
   directoryApp7 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
@@ -5124,7 +5136,7 @@ b5749b7edbc662197c97f6142792271e
                         (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                   <()>_R)))
                    DirectoryServer.directoryApp8) -}
-40455fd2786141a98aaa9ca4d9c7fa30
+596e1d717502bf1032693e2b8ef81991
   directoryApp8 ::
     ()
     -> ()
@@ -5144,7 +5156,7 @@ b5749b7edbc662197c97f6142792271e
                    (b1 :: ())
                    (req :: Network.Wai.Internal.Request) ->
                  DirectoryServer.directoryApp9) -}
-8895a220a4a89f1feae2f1b12edc0354
+3c6daa131f2c16123b726cff24c11357
   directoryApp9 ::
     Servant.Server.Internal.RoutingApplication.RouteResult
       (Servant.Server.Internal.Server
@@ -5211,14 +5223,14 @@ b5749b7edbc662197c97f6142792271e
                                             <Control.Monad.Trans.Except.ExceptT
                                                Servant.Server.Internal.ServantErr.ServantErr
                                                GHC.Types.IO>_N)))))) -}
-9251b7b4d60f7dc4fb1ef17815875352
+9e226fe2233e7f09b20a53581148a6fe
   directoryApp_r :: Servant.Server.Internal.Router.Router ()
   {- Unfolding: (Servant.Server.Internal.Router.choice
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   DirectoryServer.directoryApp48
+                   DirectoryServer.directoryApp49
                    DirectoryServer.directoryApp2) -}
-88d39bde16f5084308041bd04228f7d8
+1f81431d6d2d384321bb4d110d4bb305
   directoryServer ::
     Servant.Server.Internal.Server CommonServerApi.DirectoryApi
   {- Strictness: m,
@@ -5428,7 +5440,7 @@ b5749b7edbc662197c97f6142792271e
                                     <Control.Monad.Trans.Except.ExceptT
                                        Servant.Server.Internal.ServantErr.ServantErr
                                        GHC.Types.IO>_N)))) -}
-c49f91a5f1e4e53f33482d64a0210c3d
+a11bbc93cd252ec14c063b767c769224
   directoryServer1 ::
     CommonServerApi.ApiHandler [GHC.IO.FilePath]
     Servant.API.Alternative.:<|> ((GHC.Base.String
@@ -5450,7 +5462,7 @@ c49f91a5f1e4e53f33482d64a0210c3d
                                                     Servant.API.Alternative.:<|> (CommonServer.Identity
                                                                                   -> CommonServerApi.ApiHandler
                                                                                        CommonServer.Response)))
-                   DirectoryServer.directoryApp54
+                   DirectoryServer.directoryApp55
                      `cast`
                    (Trans
                         (Sym (GHC.Types.N:IO[0]
@@ -5462,7 +5474,7 @@ c49f91a5f1e4e53f33482d64a0210c3d
                                   <GHC.Types.IO>_R
                                   <[GHC.IO.FilePath]>_N)))
                    DirectoryServer.directoryServer2) -}
-a4951591826cbdac127fcef57b7318b4
+51ee487e6439acbdf6986f1e4df1aba5
   directoryServer2 ::
     (GHC.Base.String -> CommonServerApi.ApiHandler CommonServer.File)
     Servant.API.Alternative.:<|> ((CommonServer.File
@@ -5478,7 +5490,7 @@ a4951591826cbdac127fcef57b7318b4
                       Servant.API.Alternative.:<|> (CommonServer.Identity
                                                     -> CommonServerApi.ApiHandler
                                                          CommonServer.Response))
-                   DirectoryServer.directoryApp40
+                   DirectoryServer.directoryApp41
                      `cast`
                    (<GHC.Base.String>_R
                     ->_R Trans
@@ -5491,7 +5503,7 @@ a4951591826cbdac127fcef57b7318b4
                                        <GHC.Types.IO>_R
                                        <CommonServer.File>_N)))
                    DirectoryServer.directoryServer3) -}
-c6537067d8fc4ac7dc30871faf4b4084
+e9674097eed800dda95152e34b047ab0
   directoryServer3 ::
     (CommonServer.File
      -> CommonServerApi.ApiHandler CommonServer.Response)
@@ -5527,25 +5539,25 @@ c6537067d8fc4ac7dc30871faf4b4084
                                        <Servant.Server.Internal.ServantErr.ServantErr>_N
                                        <GHC.Types.IO>_R
                                        <CommonServer.Response>_N)))) -}
-cd8f2d7ea814b3aaa8f79fcd2947f07e
+4ec42ded97fa5dcb674c1be420b7e7ea
   downloadFromFileServer ::
     GHC.Base.String
     -> CommonServer.Identity -> GHC.Types.IO CommonServer.File
   {- Arity: 3, Strictness: <L,U><L,U(1*U,1*U,A)><S,U>,
      Unfolding: InlineRule (0, True, True)
-                DirectoryServer.directoryApp41
+                DirectoryServer.directoryApp42
                   `cast`
                 (<GHC.Base.String>_R
                  ->_R <CommonServer.Identity>_R
                  ->_R Sym (GHC.Types.N:IO[0] <CommonServer.File>_R)) -}
-fc10255c1f71561dce9f67e80138922f
+1aa79e3564f3b3100bc436d962a9fcac
   fileName :: DirectoryServer.FileMapping -> GHC.IO.FilePath
   RecSel Left DirectoryServer.FileMapping
   {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: DirectoryServer.FileMapping) ->
                  case ds of wild { DirectoryServer.FileMapping ds1 ds2 -> ds1 }) -}
-0ab56774b49b2aff95103be9e0012ebe
+0b428962b2d3beb67c6c7a0e874d7019
   findFileMapping ::
     GHC.Base.String -> GHC.Types.IO DirectoryServer.FileMapping
   {- Arity: 2, Strictness: <L,U><S,U>,
@@ -5554,14 +5566,14 @@ fc10255c1f71561dce9f67e80138922f
                   `cast`
                 (<GHC.Base.String>_R
                  ->_R Sym (GHC.Types.N:IO[0] <DirectoryServer.FileMapping>_R)) -}
-2c9bb08586543058383e05fc649eb76e
+0a697a3d45aba372ee867afa0dafbe7a
   getAllFileMappings :: GHC.Types.IO [DirectoryServer.FileMapping]
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.getAllFileMappings1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <[DirectoryServer.FileMapping]>_R)) -}
-b5bc7a7ee601bb1abbe18a405bb9ecb0
+12512882beeb94230ff51ee387d0ad6f
   getAllFileMappings1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
@@ -5573,17 +5585,17 @@ b5bc7a7ee601bb1abbe18a405bb9ecb0
                         DirectoryServer.closeFile8
                         DirectoryServer.closeFile13
                         DirectoryServer.closeFile12
-                        DirectoryServer.directoryApp60
+                        DirectoryServer.directoryApp61
                         s of ds1 { (#,#) ipv ipv1 ->
-                 DirectoryServer.directoryApp55 ipv }) -}
-8ce1a65e814b3df04a59d8b64c5d487b
+                 DirectoryServer.directoryApp56 ipv }) -}
+4f7c0bc2ccc133a3d59f79aa25e012a4
   getAllFileServers :: GHC.Types.IO [CommonServer.Identity]
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.getAllFileServers1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <[CommonServer.Identity]>_R)) -}
-f08f74d029c6d4edbf982c66ff3ee528
+e5b83c39835805db1b30312ae1eb7377
   getAllFileServers1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
@@ -5593,16 +5605,16 @@ f08f74d029c6d4edbf982c66ff3ee528
                 (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
                  case CommonServer.logDatabase1
                         DirectoryServer.closeFile8
-                        DirectoryServer.directoryApp15
+                        DirectoryServer.directoryApp16
                         DirectoryServer.closeFile12
-                        DirectoryServer.directoryApp60
+                        DirectoryServer.directoryApp61
                         s of ds1 { (#,#) ipv ipv1 ->
-                 DirectoryServer.directoryApp58 ipv }) -}
-c0873021c597991bb9f7c038bd42c4fc
+                 DirectoryServer.directoryApp59 ipv }) -}
+10d65d1a84582ffd045c6b334539d2df
   getFiles :: CommonServerApi.ApiHandler [GHC.IO.FilePath]
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
-                DirectoryServer.directoryApp54
+                DirectoryServer.directoryApp55
                   `cast`
                 (Trans
                      (Sym (GHC.Types.N:IO[0]
@@ -5613,14 +5625,14 @@ c0873021c597991bb9f7c038bd42c4fc
                                <Servant.Server.Internal.ServantErr.ServantErr>_N
                                <GHC.Types.IO>_R
                                <[GHC.IO.FilePath]>_N))) -}
-91de257c17da164657965397d284b27b
+48b719b374e68be4b2de06efcf679f9e
   getFilesFromFileServer :: CommonServer.Identity -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <L,U(U,U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.getFilesFromFileServer1
                   `cast`
                 (<CommonServer.Identity>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-3f160c19102f80e860ed9a1588a42543
+6e8a6cdb24280a0bfd5d7a53f035cc98
   getFilesFromFileServer1 ::
     CommonServer.Identity
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -5631,7 +5643,7 @@ c0873021c597991bb9f7c038bd42c4fc
                  case CommonServer.logConnection1
                         DirectoryServer.closeFile8
                         DirectoryServer.closeFile7
-                        DirectoryServer.directoryApp61
+                        DirectoryServer.directoryApp62
                         s of ds1 { (#,#) ipv ipv1 ->
                  case Network.HTTP.Client.Manager.$wnewManager
                         Network.HTTP.Client.Manager.defaultManagerSettings18
@@ -5761,7 +5773,7 @@ c0873021c597991bb9f7c038bd42c4fc
 173676f433deec76961618ef16adbc04
   getFilesFromFileServer2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Done"#) -}
-18137deca2f4372347c969884a7e8e23
+35f3e38420ab7f15b3ba97c62b8f2b10
   getFilesFromFileServer3 ::
     CommonServer.Identity
     -> [DirectoryServer.FileMapping]
@@ -5777,7 +5789,7 @@ c0873021c597991bb9f7c038bd42c4fc
                  case CommonServer.logDatabase1
                         DirectoryServer.closeFile8
                         DirectoryServer.closeFile13
-                        DirectoryServer.directoryApp14
+                        DirectoryServer.directoryApp15
                         filename
                         s of ds1 { (#,#) ipv ipv1 ->
                  case Database.MongoDB.Connection.globalConnectTimeout
@@ -5794,7 +5806,7 @@ c0873021c597991bb9f7c038bd42c4fc
                         MongoDbConnector.connectToDatabase3
                         Database.MongoDB.Connection.defaultPort
                         ipv2 of ds3 { (#,#) ipv4 ipv5 ->
-                 case ((DirectoryServer.directoryApp13
+                 case ((DirectoryServer.directoryApp14
                           DirectoryServer.closeFile10
                           (GHC.Types.:
                              @ (Database.MongoDB.Query.Selector, Data.Bson.Document,
@@ -5947,14 +5959,14 @@ c0873021c597991bb9f7c038bd42c4fc
 65625b42f281e2fe7dd02c2f9505125c
   getFilesFromFileServer5 :: GHC.Types.Int
   {- Strictness: x -}
-7e50ec42bc7499074dcacdb349ddbebe
+7bb95d6aa52054260059645898455edd
   identity :: DirectoryServer.FileMapping -> CommonServer.Identity
   RecSel Left DirectoryServer.FileMapping
   {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U(U,U,U))>m,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: DirectoryServer.FileMapping) ->
                  case ds of wild { DirectoryServer.FileMapping ds1 ds2 -> ds2 }) -}
-9155ca242555ee8e72ada86035e2847c
+6cad8b87ef41944f091a31cd75105f14
   joinServer ::
     CommonServer.Identity
     -> CommonServerApi.ApiHandler CommonServer.Response
@@ -5972,14 +5984,14 @@ c0873021c597991bb9f7c038bd42c4fc
                                     <Servant.Server.Internal.ServantErr.ServantErr>_N
                                     <GHC.Types.IO>_R
                                     <CommonServer.Response>_N))) -}
-147076760eec983aabc37ceee6a7fe87
+b879a35cd642707ed48d458e34890be6
   mkDirectoryServer :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.mkDirectoryServer1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-0fcaa5c3f8a027aa8d738084c7d6132b
+e63623b60f22bb909dd2da50019d1dfe
   mkDirectoryServer1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -6105,12 +6117,12 @@ a94339513893813adafa18a8689cbdf6
   mkDirectoryServer9 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    "res/DirectoryServer"#) -}
-be3515d1e5261caf62555af073fb14ac
+a48e15a21786260e26897ebcf319f6c3
   openFile ::
     GHC.Base.String -> CommonServerApi.ApiHandler CommonServer.File
   {- Arity: 2, Strictness: <L,U><S,U>,
      Unfolding: InlineRule (0, True, True)
-                DirectoryServer.directoryApp40
+                DirectoryServer.directoryApp41
                   `cast`
                 (<GHC.Base.String>_R
                  ->_R Trans
@@ -6122,12 +6134,12 @@ be3515d1e5261caf62555af073fb14ac
                                     <Servant.Server.Internal.ServantErr.ServantErr>_N
                                     <GHC.Types.IO>_R
                                     <CommonServer.File>_N))) -}
-225f4c709b1bf59a85e42a4421d90546
+3cb46d02dc20218c392045d747bde2ab
   resources :: CommonServer.Resources
   {- Strictness: m,
      Unfolding: (CommonServer.Resources
                    DirectoryServer.mkDirectoryServer9) -}
-79213d097128c0ddbbb6abb6f42b6736
+f9d65d99828b6df2bf6fdb999bc8996c
   uploadToFileServer ::
     CommonServer.File
     -> CommonServer.Identity -> GHC.Types.IO CommonServer.Response
@@ -6138,7 +6150,7 @@ be3515d1e5261caf62555af073fb14ac
                 (<CommonServer.File>_R
                  ->_R <CommonServer.Identity>_R
                  ->_R Sym (GHC.Types.N:IO[0] <CommonServer.Response>_R)) -}
-4d430cdf0e49ba1ebea8ca50981019c9
+0484174b2102149bc70bcd9c7dc29f41
   upsertFileMapping ::
     CommonServer.Identity
     -> [DirectoryServer.FileMapping]
@@ -6152,11 +6164,11 @@ be3515d1e5261caf62555af073fb14ac
                  ->_R <[DirectoryServer.FileMapping]>_R
                  ->_R <GHC.Base.String>_R
                  ->_R Sym (GHC.Types.N:IO[0] <[DirectoryServer.FileMapping]>_R)) -}
-560819cea8d4369b0d58cdd92902b94a
+8d31b6e8fb01fead269caf341a15815f
   upsertFileServer :: CommonServer.Identity -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <L,U(U,U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
-                DirectoryServer.directoryApp12
+                DirectoryServer.directoryApp13
                   `cast`
                 (<CommonServer.Identity>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
 instance GHC.Classes.Eq [DirectoryServer.FileMapping]
@@ -6188,7 +6200,7 @@ family instance GHC.Generics.Rep [DirectoryServer.FileMapping]
                                            $dAccept
                                            $dAllMime
                                            $dAllMimeRender
-  = DirectoryServer.$s$fAllCTRender:a4
+  = DirectoryServer.$s$fAllCTRender:a5
 "SPEC/DirectoryServer $fAllCTRender:a @ JSON @ '[] @ Response" [ALWAYS] forall ($dAccept :: Servant.API.ContentTypes.Accept
                                                                                               Servant.API.ContentTypes.JSON)
                                                                                ($dAllMime :: Servant.API.ContentTypes.AllMime
@@ -6216,14 +6228,14 @@ family instance GHC.Generics.Rep [DirectoryServer.FileMapping]
                                            $dAccept
                                            $dAllMime
                                            $dAllMimeRender
-  = DirectoryServer.$s$fAllCTRender:a6
+  = DirectoryServer.$s$fAllCTRender:a4
 "SPEC/DirectoryServer $fAllMimeRender:a0 @ JSON @ File" [ALWAYS] forall ($dMimeRender :: Servant.API.ContentTypes.MimeRender
                                                                                            Servant.API.ContentTypes.JSON
                                                                                            CommonServer.File)
   Servant.API.ContentTypes.$fAllMimeRender:a0 @ Servant.API.ContentTypes.JSON
                                               @ CommonServer.File
                                               $dMimeRender
-  = DirectoryServer.$s$fAllCTRender:a_$s$fAllMimeRender:a1
+  = DirectoryServer.$s$fAllCTRender:a_$s$fAllMimeRender:a2
 "SPEC/DirectoryServer $fAllMimeRender:a0 @ JSON @ Response" [ALWAYS] forall ($dMimeRender :: Servant.API.ContentTypes.MimeRender
                                                                                                Servant.API.ContentTypes.JSON
                                                                                                CommonServer.Response)
@@ -6237,7 +6249,7 @@ family instance GHC.Generics.Rep [DirectoryServer.FileMapping]
   Servant.API.ContentTypes.$fAllMimeRender:a0 @ Servant.API.ContentTypes.JSON
                                               @ [GHC.IO.FilePath]
                                               $dMimeRender
-  = DirectoryServer.$s$fAllCTRender:a_$s$fAllMimeRender:a2
+  = DirectoryServer.$s$fAllCTRender:a_$s$fAllMimeRender:a1
 "SPEC/DirectoryServer $fAllMimeRender:a0_$callMimeRender @ JSON @ [FilePath]" [ALWAYS] forall ($dMimeRender :: Servant.API.ContentTypes.MimeRender
                                                                                                                  Servant.API.ContentTypes.JSON
                                                                                                                  [GHC.IO.FilePath])
@@ -6286,7 +6298,7 @@ family instance GHC.Generics.Rep [DirectoryServer.FileMapping]
                                                                                    CommonServer.File)
   Servant.API.ContentTypes.$fMimeRenderTYPEJSONa @ CommonServer.File
                                                  $dToJSON
-  = DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa1
+  = DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa2
 "SPEC/DirectoryServer $fMimeRenderTYPEJSONa @ Response" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
                                                                                        CommonServer.Response)
   Servant.API.ContentTypes.$fMimeRenderTYPEJSONa @ CommonServer.Response
@@ -6296,12 +6308,12 @@ family instance GHC.Generics.Rep [DirectoryServer.FileMapping]
                                                                                          [GHC.IO.FilePath])
   Servant.API.ContentTypes.$fMimeRenderTYPEJSONa @ [GHC.IO.FilePath]
                                                  $dToJSON
-  = DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa2
+  = DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa1
 "SPEC/DirectoryServer $fMimeRenderTYPEJSONa_$cmimeRender @ File" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
                                                                                                 CommonServer.File)
   Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cmimeRender @ CommonServer.File
                                                               $dToJSON
-  = DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender1
+  = DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender2
 "SPEC/DirectoryServer $fMimeRenderTYPEJSONa_$cmimeRender @ Response" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
                                                                                                     CommonServer.Response)
   Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cmimeRender @ CommonServer.Response
@@ -6311,7 +6323,7 @@ family instance GHC.Generics.Rep [DirectoryServer.FileMapping]
                                                                                                       [GHC.IO.FilePath])
   Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cmimeRender @ [GHC.IO.FilePath]
                                                               $dToJSON
-  = DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender2
+  = DirectoryServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender1
 "SPEC/DirectoryServer $fMimeUnrenderTYPEJSONa @ File" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
                                                                                        CommonServer.File)
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ CommonServer.File

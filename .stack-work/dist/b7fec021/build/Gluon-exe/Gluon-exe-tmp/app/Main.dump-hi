@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2017-02-04 19:04:59.7246661 UTC
+2017-02-04 20:38:03.8414604 UTC
 
 interface main@main:Main 8001
-  interface hash: 7e22e24e9724840576fb0495c0e3e705
-  ABI hash: 884ed9211f84ce488ba0ce6576ae9a2d
+  interface hash: 8d53579f5b49dae1000b5f1508eff9f3
+  ABI hash: 1cde8a0a0e8f32891e820ba8a678e00e
   export-list hash: f38f05f8a81ea5e784184817728f2ac1
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: a6cd0d3f810fac92f4cf3833737ade65
@@ -189,9 +189,9 @@ family instance modules: Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:Comm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer 1390bea2776880b39742b8a65ca6caeb
-import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:DirectoryServer 8fe3b67e72b05cdbc58c66eb139b29ce
-import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:FileServer 635f3a7aef527ac7a0af382bc92048d6
+import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer 141ca0d9fa7a20a9c1304af924a1f47d
+import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:DirectoryServer d3faa70b80e346095d71cc4c1eefec52
+import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:FileServer 0f5d6e779acb5cc4c458f614279fc71a
 import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
 import  -/  base-4.9.0.0:GHC.List 47d436dfb7454bb1883fb4d943e3f389
 import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
@@ -216,12 +216,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
 469c021cbbade7a5eb28897642d1fe0a
   fileServerCompare :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "FileServer"#) -}
-b567b5c93722b375e8ecb20a6f458167
+166147907d7d29513079b7b5bd8acf94
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-836cb8d8f9053feda073d0a929f6fc56
+047c07544f8a696d2e3bd7c7193c7177
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -247,7 +247,7 @@ b567b5c93722b375e8ecb20a6f458167
                            of {}
                         : ds2 xs
                         -> Main.main2 (GHC.List.head @ GHC.Base.String xs) ipv } } }) -}
-88e200615655545f6f5b0a5c411d6a60
+9410d2125430b21fec49a1c934a5bd25
   main2 ::
     GHC.Base.String
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -267,7 +267,7 @@ b567b5c93722b375e8ecb20a6f458167
 709a8f61e410f203f5e01d6146c2f0f8
   main3 :: GHC.Types.IO ()
   {- Strictness: x -}
-cf8e51e0749c9a3f23c92deb0cc0ceef
+22cff7393f3f4509c119f0a4da3fa84c
   main4 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -275,7 +275,7 @@ cf8e51e0749c9a3f23c92deb0cc0ceef
      Unfolding: (GHC.TopHandler.runMainIO1
                    @ ()
                    Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
-288cb978f14ebd27549ea64060f9ae5d
+770692d7c7b64650a9e16010002421ae
   runSelectedApp :: GHC.Base.String -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <S,U><S,U>,
      Unfolding: InlineRule (0, True, True)

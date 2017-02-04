@@ -1,12 +1,12 @@
 
 ==================== FINAL INTERFACE ====================
-2017-02-04 19:03:56.5200365 UTC
+2017-02-04 20:38:00.6278712 UTC
 
 interface Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServerApi 8001
-  interface hash: f564c74abe9f55b8803e84e676472b7e
-  ABI hash: cb71e7b0712d41d6db02a826351aff41
-  export-list hash: 592e414b36dc7aba8d7592646b6d781a
-  orphan hash: 0d431b0805ec2de71b7dfad1c0a96702
+  interface hash: e9634e517bbe1f644a8913111c93d293
+  ABI hash: 9f1581ed8c3a35e2237619b19331de05
+  export-list hash: 3f99e28829bb1643817387461dcf1292
+  orphan hash: 68af9e6529bd829a5b6bc8479019beb3
   flag hash: 97fa82c938a3c27d43c5a6f071765800
   sig of: Nothing
   used TH splices: False
@@ -181,13 +181,14 @@ family instance modules: Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  CommonServer 1390bea2776880b39742b8a65ca6caeb
-  exports: 88e76211602e81ee3f5556b8100893d7
-  EncryptedClient 7865d6b0cc77dccff4ba2748f2755128
-  File fd15d43d8aee6ccee7fa2753cca47f58
-  Identity 4e09ce37058336db3df8a399c5ebdb24
-  Response 4e09ce37058336db3df8a399c5ebdb24
-  Session 213d3a350b94bc459e87633178585deb
+import  -/  CommonServer 141ca0d9fa7a20a9c1304af924a1f47d
+  exports: 6b1a3add680aac99001f129c81c43f21
+  Client 11413a007a2d80de0728a6e81d91df46
+  EncryptedClient b6185cd7dccaf06d781a2bbe955ad9c5
+  File 386eccfae747c0d0f77d878f6355480b
+  Identity c4351ce1cc7cad656a110a13ff907ed0
+  Response c4351ce1cc7cad656a110a13ff907ed0
+  Session 71489ef00317cc867ef6df1f499acef2
 import  -/  aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson b323887803b1d3b16a4828adfc247669
 import  -/  base-4.9.0.0:Data.Proxy cd322f0ddd49030d3ff2e9f13621539a
 import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
@@ -288,39 +289,8 @@ import  -/  warp-3.2.9@warp-3.2.9-3hyX88L3Ey11UVH92i8P4R:Network.Wai.Handler.War
 9f9130b1b253bc8cd251d2ef625c1596
   $s$fMimeUnrenderTYPEJSONa5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "[a]"#) -}
-9864ef49e0331a765d96d6c39f4cfaf1
+d718bfed6235217ae3d8120702aefcaa
   $s$fMimeUnrenderTYPEJSONa6 ::
-    Servant.API.ContentTypes.MimeUnrender
-      Servant.API.ContentTypes.JSON CommonServer.Response
-  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun:.
-                  @ *
-                  @ Servant.API.ContentTypes.JSON
-                  @ CommonServer.Response
-                  (Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cp1MimeUnrender
-                     @ CommonServer.Response
-                     CommonServer.$fFromJSONResponse_$cparseJSON
-                       `cast`
-                     (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
-                               <CommonServer.Response>_N)))
-                  CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1 -}
-2dc1c44f8812b44ec995ef24d75b746c
-  $s$fMimeUnrenderTYPEJSONa7 ::
-    Servant.API.ContentTypes.MimeUnrender
-      Servant.API.ContentTypes.JSON CommonServer.File
-  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun:.
-                  @ *
-                  @ Servant.API.ContentTypes.JSON
-                  @ CommonServer.File
-                  (Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cp1MimeUnrender
-                     @ CommonServer.File
-                     CommonServer.$fFromJSONFile_$cparseJSON
-                       `cast`
-                     (Sym (Data.Aeson.Types.Class.N:FromJSON[0] <CommonServer.File>_N)))
-                  CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender2 -}
-0fcdca3164f76ed34d4133e4f7b0719d
-  $s$fMimeUnrenderTYPEJSONa8 ::
     Servant.API.ContentTypes.MimeUnrender
       Servant.API.ContentTypes.JSON CommonServer.Session
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -334,6 +304,37 @@ import  -/  warp-3.2.9@warp-3.2.9-3hyX88L3Ey11UVH92i8P4R:Network.Wai.Handler.War
                        `cast`
                      (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
                                <CommonServer.Session>_N)))
+                  CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1 -}
+2ecec391db98a9886ffac13101bc23f8
+  $s$fMimeUnrenderTYPEJSONa7 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonServer.Response
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonServer.Response
+                  (Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cp1MimeUnrender
+                     @ CommonServer.Response
+                     CommonServer.$fFromJSONResponse_$cparseJSON
+                       `cast`
+                     (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                               <CommonServer.Response>_N)))
+                  CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender2 -}
+d99436bbee95e29ac9be25c0a278426b
+  $s$fMimeUnrenderTYPEJSONa8 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonServer.File
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonServer.File
+                  (Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cp1MimeUnrender
+                     @ CommonServer.File
+                     CommonServer.$fFromJSONFile_$cparseJSON
+                       `cast`
+                     (Sym (Data.Aeson.Types.Class.N:FromJSON[0] <CommonServer.File>_N)))
                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender3 -}
 337ae1424d7af27743d45b0cd74f0d32
   $s$fMimeUnrenderTYPEJSONa_$dFromJSON ::
@@ -357,8 +358,24 @@ import  -/  warp-3.2.9@warp-3.2.9-3hyX88L3Ey11UVH92i8P4R:Network.Wai.Handler.War
                    @ [GHC.IO.FilePath]
                    CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$dFromJSON
                    eta) -}
-e39627eb20e87d976591c904cb266d5c
+110a4227540d2486ce53c2722c1cc744
   $s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1 ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.Either.Either GHC.Base.String CommonServer.Session
+  {- Arity: 2, Strictness: <L,A><S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: Data.ByteString.Lazy.Internal.ByteString) ->
+                 Servant.API.ContentTypes.eitherDecodeLenient
+                   @ CommonServer.Session
+                   CommonServer.$fFromJSONSession_$cparseJSON
+                     `cast`
+                   (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                             <CommonServer.Session>_N))
+                   eta) -}
+e43a10247f6a863dd97f3123880bd1c0
+  $s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender2 ::
     Data.Proxy.Proxy Servant.API.ContentTypes.JSON
     -> Data.ByteString.Lazy.Internal.ByteString
     -> Data.Either.Either GHC.Base.String CommonServer.Response
@@ -373,8 +390,8 @@ e39627eb20e87d976591c904cb266d5c
                    (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
                              <CommonServer.Response>_N))
                    eta) -}
-7aa3686f4031ae8ba0ae665d5189a383
-  $s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender2 ::
+b05b3e736a98ebf0752315e25843a7fe
+  $s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender3 ::
     Data.Proxy.Proxy Servant.API.ContentTypes.JSON
     -> Data.ByteString.Lazy.Internal.ByteString
     -> Data.Either.Either GHC.Base.String CommonServer.File
@@ -387,22 +404,6 @@ e39627eb20e87d976591c904cb266d5c
                    CommonServer.$fFromJSONFile_$cparseJSON
                      `cast`
                    (Sym (Data.Aeson.Types.Class.N:FromJSON[0] <CommonServer.File>_N))
-                   eta) -}
-24b771685fb8831e3fb60d755f224eaf
-  $s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender3 ::
-    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
-    -> Data.ByteString.Lazy.Internal.ByteString
-    -> Data.Either.Either GHC.Base.String CommonServer.Session
-  {- Arity: 2, Strictness: <L,A><S,1*U>,
-     Unfolding: InlineRule (1, True, True)
-                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
-                   (eta :: Data.ByteString.Lazy.Internal.ByteString) ->
-                 Servant.API.ContentTypes.eitherDecodeLenient
-                   @ CommonServer.Session
-                   CommonServer.$fFromJSONSession_$cparseJSON
-                     `cast`
-                   (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
-                             <CommonServer.Session>_N))
                    eta) -}
 a57ed39645783657801130c5262fdf66
   $s$fMimeUnrenderTYPEJSONa_f1 ::
@@ -562,7 +563,7 @@ ef3f08ae624a5f03fb8c70b1c2d48bae
 98ac9f93c63d734a1680ee6699875950
   $sclient3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "upload"#) -}
-ade3d57c98ca03babe7cfdc08cccbee1
+04c594b6cefe0cf42493a912bca14f2e
   $sclient4 ::
     Data.Proxy.Proxy
       (Servant.API.Verbs.Verb
@@ -595,7 +596,7 @@ ade3d57c98ca03babe7cfdc08cccbee1
                    @ '[Servant.API.ContentTypes.JSON]
                    @ '[]
                    @ 200
-                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa7
+                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa8
                    Servant.API.Verbs.$fReflectMethodStdMethodGET_$creflectMethod
                      `cast`
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
@@ -655,7 +656,7 @@ fbd2ec7e11f7b0aeac89c8edd007ee45
     Control.Monad.Trans.Except.ExceptT
       Servant.Server.Internal.ServantErr.ServantErr GHC.Types.IO
     :: * -> *
-72875adbeba7c1817a1e20efe2d1a3ab
+4e436de642266d6f9f61d445f1f6c807
   type DirectoryApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -680,7 +681,7 @@ fbd2ec7e11f7b0aeac89c8edd007ee45
                                                                                                                   Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                                                        '[Servant.API.ContentTypes.JSON]
                                                                                                                                        CommonServer.Response))))
-830e4368590a189be85d1f16ecec25ab
+896062371b6ab03a0af3602a744917a9
   type FileApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -698,7 +699,7 @@ fbd2ec7e11f7b0aeac89c8edd007ee45
                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                          '[Servant.API.ContentTypes.JSON]
                                                                                                          CommonServer.Response)))
-b80276d5f6a46777d33d0ff55827435e
+6bd992cbd2501f6d8eb9c84f612c0fb4
   type ProxyApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -723,7 +724,7 @@ b80276d5f6a46777d33d0ff55827435e
                                                                                                                   Servant.API.Sub.:> Servant.API.Verbs.Get
                                                                                                                                        '[Servant.API.ContentTypes.JSON]
                                                                                                                                        CommonServer.Response))))
-8aeaf22633aacb61d7fbb98f0ee3121c
+087f39431be5eb7ee26904e4eec7e98b
   type SecurityApi =
     ("login"
      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
@@ -734,11 +735,11 @@ b80276d5f6a46777d33d0ff55827435e
     Servant.API.Alternative.:<|> ("register"
                                   Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
                                                         '[Servant.API.ContentTypes.JSON]
-                                                        CommonServer.EncryptedClient
+                                                        CommonServer.Client
                                                       Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                            '[Servant.API.ContentTypes.JSON]
                                                                            CommonServer.Response))
-ee5f970788c5ae2a149ced322790a09b
+da58768203608776e06d7aa56fe68dbe
   type TransactionApi =
     ("beginT"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -751,12 +752,12 @@ ee5f970788c5ae2a149ced322790a09b
                                                                 Servant.API.Sub.:> Servant.API.Verbs.Get
                                                                                      '[Servant.API.ContentTypes.JSON]
                                                                                      CommonServer.Response))
-d8607ea6bd4b25e0b3c20d8a339d8149
+d8307f81a94263e62ef1b5bdc9b7b28d
   directoryApi :: Data.Proxy.Proxy CommonServerApi.DirectoryApi
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
                 (Data.Proxy.Proxy @ * @ CommonServerApi.DirectoryApi) -}
-710ebdae9105dd65c20d758ed2e8c4a0
+adf06d981c062951988f95f60287136c
   directoryClientClose ::
     CommonServer.File
     -> Servant.Common.Req.ClientM CommonServer.Response
@@ -771,7 +772,7 @@ d8607ea6bd4b25e0b3c20d8a339d8149
                                <'Network.HTTP.Types.Method.POST>_N
                                <'[Servant.API.ContentTypes.JSON]>_N
                                <200>_N)) -}
-2bab3e0daf7b1a6206fbc0760d1be3ea
+ead00aed41e0fc76f2d9ac1e8d37dfad
   directoryClientClose1 ::
     CommonServer.File
     -> Servant.Client.Client
@@ -790,7 +791,7 @@ d8607ea6bd4b25e0b3c20d8a339d8149
                    @ '[Servant.API.ContentTypes.JSON]
                    @ '[]
                    @ 200
-                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa6
+                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa7
                    Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
                      `cast`
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
@@ -939,7 +940,7 @@ b72e76b86b7743304e413994a36e0d22
                    (Data.Proxy.Proxy @ GHC.Types.* @ Servant.API.ContentTypes.JSON)
                    Network.HTTP.Types.Method.methodGet
                    CommonServerApi.directoryClientFiles2) -}
-9adc364019f3573366d41399ed810fc9
+b69f361220d7146912d54874ae786cec
   directoryClientJoin ::
     CommonServer.Identity
     -> Servant.Common.Req.ClientM CommonServer.Response
@@ -954,7 +955,7 @@ b72e76b86b7743304e413994a36e0d22
                                <'Network.HTTP.Types.Method.POST>_N
                                <'[Servant.API.ContentTypes.JSON]>_N
                                <200>_N)) -}
-f438974674d54bf1c8c1aa89a78dae05
+744f77202ced056d75d8b73552be06b5
   directoryClientJoin1 ::
     CommonServer.Identity
     -> Servant.Client.Client
@@ -973,7 +974,7 @@ f438974674d54bf1c8c1aa89a78dae05
                    @ '[Servant.API.ContentTypes.JSON]
                    @ '[]
                    @ 200
-                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa6
+                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa7
                    Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
                      `cast`
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
@@ -1014,7 +1015,7 @@ f438974674d54bf1c8c1aa89a78dae05
                    @ GHC.Types.Char
                    (GHC.Types.[] @ GHC.Types.Char)
                    CommonServerApi.$sclient11) -}
-3d23677a487b80073d2493b3c046bb4d
+1beda463a3982649f892cd27fd0266c6
   directoryClientOpen ::
     GHC.Base.String -> Servant.Common.Req.ClientM CommonServer.File
   {- Arity: 1, Strictness: <L,U>,
@@ -1028,7 +1029,7 @@ f438974674d54bf1c8c1aa89a78dae05
                                <'Network.HTTP.Types.Method.GET>_N
                                <'[Servant.API.ContentTypes.JSON]>_N
                                <200>_N)) -}
-d771a8522664d2928372f12342a28b0a
+fdf89d9324966b95daf259c06349c2aa
   directoryClientOpen1 ::
     [GHC.Types.Char]
     -> Servant.Client.Client
@@ -1088,12 +1089,12 @@ d771a8522664d2928372f12342a28b0a
                    @ GHC.Types.Char
                    (GHC.Types.[] @ GHC.Types.Char)
                    CommonServerApi.$sclient15) -}
-d20e1208b9c308205ac3b4dc8e2e38b0
+02967c7dd99df23f7450547b4137ad6f
   fileApi :: Data.Proxy.Proxy CommonServerApi.FileApi
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
                 (Data.Proxy.Proxy @ * @ CommonServerApi.FileApi) -}
-d128ce7f8fd267f5ae720f6b2db10407
+e476d00580dbe90232db7a7aa48a7904
   fileClientDownload ::
     GHC.Base.String -> Servant.Common.Req.ClientM CommonServer.File
   {- Arity: 1, Strictness: <L,U>,
@@ -1107,7 +1108,7 @@ d128ce7f8fd267f5ae720f6b2db10407
                                <'Network.HTTP.Types.Method.GET>_N
                                <'[Servant.API.ContentTypes.JSON]>_N
                                <200>_N)) -}
-0343bffe851aadb4ed70c129b15d68f9
+d3b43b713ba5ce297e6317f2caee872f
   fileClientDownload1 ::
     [GHC.Types.Char]
     -> Servant.Client.Client
@@ -1191,7 +1192,7 @@ bf5bc82fbd9ee075793b26e3a5fc2ae7
                                        Servant.Common.Req.ServantError GHC.Types.IO>_R
                                     <[GHC.IO.FilePath]>_N))
                           (Sym (Servant.Common.Req.N:ClientM[0]) <[GHC.IO.FilePath]>_N))) -}
-ce80cd7720e4d1d189eeb934f1c236f1
+180c8d7b56149bcbd5a84371e24dc429
   fileClientUpload ::
     CommonServer.File
     -> Servant.Common.Req.ClientM CommonServer.Response
@@ -1206,7 +1207,7 @@ ce80cd7720e4d1d189eeb934f1c236f1
                                <'Network.HTTP.Types.Method.POST>_N
                                <'[Servant.API.ContentTypes.JSON]>_N
                                <200>_N)) -}
-1963fc57c876763de6029788da6830f2
+ef53969d701c6743ba79717208bb693d
   fileClientUpload1 ::
     CommonServer.File
     -> Servant.Client.Client
@@ -1225,7 +1226,7 @@ ce80cd7720e4d1d189eeb934f1c236f1
                    @ '[Servant.API.ContentTypes.JSON]
                    @ '[]
                    @ 200
-                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa6
+                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa7
                    Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
                      `cast`
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
@@ -1266,17 +1267,17 @@ ce80cd7720e4d1d189eeb934f1c236f1
                    @ GHC.Types.Char
                    (GHC.Types.[] @ GHC.Types.Char)
                    CommonServerApi.$sclient2) -}
-4dcfeac6b4fe6f4420017afdab98a034
+d9d5f2208f82f6e481580f4d7d1af153
   proxyApi :: Data.Proxy.Proxy CommonServerApi.ProxyApi
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
                 (Data.Proxy.Proxy @ * @ CommonServerApi.ProxyApi) -}
-f14e04ccb926d4e14a13b0f8756a51e4
+5fb8e444d1ee647a7f4d509c1bdcc944
   securityApi :: Data.Proxy.Proxy CommonServerApi.SecurityApi
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
                 (Data.Proxy.Proxy @ * @ CommonServerApi.SecurityApi) -}
-83a7e427a054c9f42dad4ac10f9d4cb4
+707f98fbf73a9c7afb89816e4e820f11
   securityClientLogin ::
     CommonServer.EncryptedClient
     -> Servant.Common.Req.ClientM CommonServer.Session
@@ -1291,7 +1292,7 @@ f14e04ccb926d4e14a13b0f8756a51e4
                                <'Network.HTTP.Types.Method.POST>_N
                                <'[Servant.API.ContentTypes.JSON]>_N
                                <200>_N)) -}
-82f9e73eadbcd702f8780731e10f4da3
+1b6e0fde3e5a272af2c3913d9bb27d50
   securityClientLogin1 ::
     CommonServer.EncryptedClient
     -> Servant.Client.Client
@@ -1310,7 +1311,7 @@ f14e04ccb926d4e14a13b0f8756a51e4
                    @ '[Servant.API.ContentTypes.JSON]
                    @ '[]
                    @ 200
-                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa8
+                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa6
                    Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
                      `cast`
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
@@ -1351,24 +1352,24 @@ f14e04ccb926d4e14a13b0f8756a51e4
                    @ GHC.Types.Char
                    (GHC.Types.[] @ GHC.Types.Char)
                    CommonServerApi.$sclient21) -}
-cae629decf53eb507a089e64106f2453
+f3f6a229ff14b212e1e62483355bda4e
   securityClientRegister ::
-    CommonServer.EncryptedClient
+    CommonServer.Client
     -> Servant.Common.Req.ClientM CommonServer.Response
   {- Arity: 1, Strictness: <L,1*U(1*U,1*U)>,
      Unfolding: InlineRule (0, True, True)
                 CommonServerApi.securityClientRegister1
                   `cast`
-                (<CommonServer.EncryptedClient>_R
+                (<CommonServer.Client>_R
                  ->_R Sub (Servant.Client.D:R:ClientTYPEVerb2[0]
                                <Network.HTTP.Types.Method.StdMethod>_N
                                <CommonServer.Response>_N
                                <'Network.HTTP.Types.Method.POST>_N
                                <'[Servant.API.ContentTypes.JSON]>_N
                                <200>_N)) -}
-55e8314618a194ce98a78768fed1e07c
+ec9cfd0ae6aeafcb423fc78ff2c3cd68
   securityClientRegister1 ::
-    CommonServer.EncryptedClient
+    CommonServer.Client
     -> Servant.Client.Client
          (Servant.API.Verbs.Verb
             'Network.HTTP.Types.Method.POST
@@ -1376,7 +1377,7 @@ cae629decf53eb507a089e64106f2453
             '[Servant.API.ContentTypes.JSON]
             CommonServer.Response)
   {- Arity: 1, Strictness: <L,1*U(1*U,1*U)>,
-     Unfolding: (\ (body :: CommonServer.EncryptedClient) ->
+     Unfolding: (\ (body :: CommonServer.Client) ->
                  Servant.Client.$w$cclientWithRoute8
                    @ Network.HTTP.Types.Method.StdMethod
                    @ Servant.API.ContentTypes.JSON
@@ -1385,7 +1386,7 @@ cae629decf53eb507a089e64106f2453
                    @ '[Servant.API.ContentTypes.JSON]
                    @ '[]
                    @ 200
-                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa6
+                   CommonServerApi.$s$fMimeUnrenderTYPEJSONa7
                    Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
                      `cast`
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
@@ -1412,7 +1413,7 @@ cae629decf53eb507a089e64106f2453
                             Network.HTTP.Media.MediaType.Internal.MediaType)
                          (Data.ByteString.Builder.toLazyByteString
                             (Data.Aeson.Encode.Builder.encodeToBuilder
-                               (CommonServer.$fToJSONEncryptedClient1 body)
+                               (CommonServer.$fToJSONClient1 body)
                                  `cast`
                                (Data.Aeson.Types.Generic.N:Tagged[0]
                                     <Data.Aeson.Types.Generic.True>_P
@@ -1426,7 +1427,7 @@ f2492904ec7a215b97216a9f3b4edf9f
                    @ GHC.Types.Char
                    (GHC.Types.[] @ GHC.Types.Char)
                    CommonServerApi.$sclient19) -}
-64942a17c27684edbe2901c9ad5cd2ac
+ec05e5ac9d12c0eb29275e3bf9def2cd
   transactionApi :: Data.Proxy.Proxy CommonServerApi.TransactionApi
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
@@ -1435,17 +1436,17 @@ f2492904ec7a215b97216a9f3b4edf9f
                                                                                        CommonServer.File)
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ CommonServer.File
                                                    $dFromJSON
-  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa7
+  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa8
 "SPEC/CommonServerApi $fMimeUnrenderTYPEJSONa @ Response" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
                                                                                            CommonServer.Response)
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ CommonServer.Response
                                                    $dFromJSON
-  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa6
+  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa7
 "SPEC/CommonServerApi $fMimeUnrenderTYPEJSONa @ Session" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
                                                                                           CommonServer.Session)
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ CommonServer.Session
                                                    $dFromJSON
-  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa8
+  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa6
 "SPEC/CommonServerApi $fMimeUnrenderTYPEJSONa @ [FilePath]" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
                                                                                              [GHC.IO.FilePath])
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ [GHC.IO.FilePath]
@@ -1455,17 +1456,17 @@ f2492904ec7a215b97216a9f3b4edf9f
                                                                                                       CommonServer.File)
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ CommonServer.File
                                                                   $dFromJSON
-  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender2
+  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender3
 "SPEC/CommonServerApi $fMimeUnrenderTYPEJSONa_$cmimeUnrender @ Response" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
                                                                                                           CommonServer.Response)
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ CommonServer.Response
                                                                   $dFromJSON
-  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1
+  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender2
 "SPEC/CommonServerApi $fMimeUnrenderTYPEJSONa_$cmimeUnrender @ Session" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
                                                                                                          CommonServer.Session)
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ CommonServer.Session
                                                                   $dFromJSON
-  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender3
+  = CommonServerApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1
 "SPEC/CommonServerApi $fMimeUnrenderTYPEJSONa_$cmimeUnrender @ [FilePath]" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
                                                                                                             [GHC.IO.FilePath])
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ [GHC.IO.FilePath]
