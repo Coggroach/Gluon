@@ -83,11 +83,12 @@ securityClientLogin :<|> securityClientRegister :<|> securityClientContains = Se
 --  Proxy Api
 ------------------------------
 type ProxyApi =
-    "login" :> ReqBody '[JSON] CommonServer.EncryptedClient :> Post '[JSON] CommonServer.Session :<|>
-    "register" :> ReqBody '[JSON] CommonServer.Client :> Post '[JSON] CommonServer.Response :<|>
-    "files" :> Get '[JSON] [String] :<|>
-    "open" :> Capture "fileName" String :> Get '[JSON] CommonServer.File :<|>
-    "close" :> ReqBody '[JSON] CommonServer.File :> Post '[JSON] CommonServer.Response    
+    "login" :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.Response :<|>
+    "files" :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] [String] :<|>
+    "open"  :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.File :<|>
+    "close" :> ReqBody '[JSON] CommonServer.ClientFileRequest :> Post '[JSON] CommonServer.Response :<|>
+    "begin" :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.Response :<|>
+    "end"   :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.Response
 
 proxyApi :: Proxy ProxyApi
 proxyApi = Proxy
@@ -99,8 +100,8 @@ type TransactionApi =
     "beginT" :> ReqBody '[JSON] Ticket :> Post '[JSON] CommonServer.Response :<|>
     "downloadT" :> ReqBody '[JSON] CommonServer.SessionString :> Post '[JSON] CommonServer.File :<|>
     "uploadT" :> ReqBody '[JSON] CommonServer.SessionFile :> Post '[JSON] CommonServer.Response
-    "endT" :> Get '[JSON] CommonServer.Response :<|>
-    "statusT" :> Get '[JSON] CommonServer.Response
+    "endT" :> ReqBody '[JSON] Ticket :> Post '[JSON] CommonServer.Response :<|>
+    "statusT" :> ReqBody '[JSON] Ticket :> Post :> Get '[JSON] CommonServer.Response
 
 transactionApi :: Proxy TransactionApi
 transactionApi = Proxy

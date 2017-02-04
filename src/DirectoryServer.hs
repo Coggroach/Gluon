@@ -79,15 +79,15 @@ deleteDatabases = liftIO $ do
         Database.MongoDB.delete (select [] "FileServerDb")
 
 upsertFileMapping :: CommonServer.Identity -> [FileMapping] -> String -> IO [FileMapping]
-upsertFileMapping id array filename = do    
+upsertFileMapping id array filename = liftIO $ do
     logDatabase "DirectoryServer" "FileMappingDb" "Upsert" filename
     let filemapping = FileMapping filename id
-    connectToDatabase $ upsert (select ["_id" =: filename] "FileMappingDb") $ toBSON filemapping
+    connectToDatabase $ Database.MongoDB.upsert (Database.MongoDB.select ["_id" =: filename] "FileMappingDb") $ toBSON filemapping
     return $ FileMapping filename id : array
 
 upsertFileServer :: CommonServer.Identity -> IO()
 upsertFileServer i = liftIO $ do
-    let key = getIdentitySafeString i    
+    let key = getIdentitySafeString i
     logDatabase "DirectoryServer" "FileServerDb" "Upsert" key
     connectToDatabase $ Database.MongoDB.upsert (Database.MongoDB.select ["_id" =: key] "FileServerDb") $ toBSON i
 
@@ -103,7 +103,7 @@ getFilesFromFileServer i = liftIO $ do
             logAction "DirectoryServer" "Done" ""
 
 findFileMapping :: String -> IO FileMapping
-findFileMapping key = do
+findFileMapping key = liftIO $ do
     logDatabase "DirectoryServer" "FileMappingDb" "Find" key
     filemapping <- connectToDatabase $ do
         docs <- Database.MongoDB.find (Database.MongoDB.select ["_id" =: key] "FileMappingDb") >>= drainCursor
@@ -111,14 +111,14 @@ findFileMapping key = do
     return $ head filemapping
 
 getAllFileServers :: IO [CommonServer.Identity]
-getAllFileServers = do
+getAllFileServers = liftIO $ do
     logDatabase "DirectoryServer" "FileServerDb" "Find" "ALL"
     connectToDatabase $ do
         docs <- Database.MongoDB.find (Database.MongoDB.select [] "FileServerDb") >>= drainCursor
         return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe CommonServer.Identity) docs
 
 getAllFileMappings :: IO [FileMapping]
-getAllFileMappings = do
+getAllFileMappings = liftIO $ do
     logDatabase "DirectoryServer" "FileMappingDb" "Find" "ALL"
     connectToDatabase $ do
         docs <- Database.MongoDB.find (Database.MongoDB.select [] "FileMappingDb") >>= drainCursor

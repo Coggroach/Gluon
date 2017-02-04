@@ -62,7 +62,7 @@ data Resources = Resources {
 } deriving (Eq, Show, Generic, ToJSON, FromJSON)
 
 ------------------------------
---  Client Data
+--  Client
 ------------------------------
 data Client = Client {
     username :: String,
@@ -71,8 +71,18 @@ data Client = Client {
 
 data EncryptedClient = EncryptedClient {
     unecryptedUsername :: String,
-    encryptedData :: String    
+    encryptedData :: String
 } deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
+
+data ClientRequest = ClientRequest {
+    encryptedClient :: EncryptedClient,
+    request :: String
+}
+
+data ClientFileRequest = ClientFileRequest {
+    encryptedClient :: EncryptedClient,
+    encryptedFile :: File
+}
 
 ------------------------------
 --  Security 
@@ -95,11 +105,11 @@ data SessionString = SessionString {
 
 data SessionFile = SessionFile {
     ticket :: Ticket, 
-    encrypyedFile :: File
+    encryptedFile :: File
 } deriving (Eq, Show, Generic, FromJSON, ToJSON)
 
 ------------------------------
---  Response Packet 
+--  Responses
 ------------------------------
 data Response = Response { 
     responseCode :: ResponseCode, 
@@ -107,15 +117,14 @@ data Response = Response {
     payload :: String
 } deriving (Generic, ToJSON, FromJSON, ToBSON, FromBSON)
 
-------------------------------
---  Response Codes 
-------------------------------
 data ResponseCode = 
     FileUploadComplete |
     FileUploadError |
     DirectoryJoinSuccess |
     SecurityClientRegistered |
-    SecurityClientNotRegistered 
+    SecurityClientNotRegistered |
+    SecurityError |
+    SecurityClientLoggedIn
     deriving(Eq, Show, Generic, Read, ToJSON, FromJSON, ToBSON, FromBSON)
 
 ------------------------------
@@ -149,6 +158,10 @@ getIdentitySafeString i = address i ++ "_" ++ port i
 
 getIdentityTypeString :: Identity -> String
 getIdentityTypeString i = show (serverType i) ++ "_" ++ port i
+
+------------------------------
+--  Logging Functions 
+------------------------------
 
 logHeading :: String -> IO()
 logHeading s = do

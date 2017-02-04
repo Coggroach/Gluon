@@ -44,3 +44,98 @@ resources = Resources "res/ProxyServer";
 ------------------------------
 --  Server Functions
 ------------------------------
+proxyServer :: Server ProxyApi
+proxyServer =
+    loginClient :<|>
+    getFiles :<|>
+    openFile :<|>
+    closeFile :<|>
+    beginTransaction :<|>
+    endTransaction
+
+proxyApp :: Application
+proxyApp = server proxyApi proxyServer
+
+mkProxyServer :: IO()
+mkProxyServer = do
+    createDirectoryIfMissing True (path resources)
+    setCurrentDirectory (path resources)
+    logHeading "ProxyServer"
+    logAction "ProxyServer" "Start" $ show (getIdentityString proxyServerIdentity)
+    deleteDatabases
+    run (getIdentityport proxyServerIdentity) proxyApp
+
+------------------------------
+--  Helper Functions
+------------------------------
+containsFromSecurityServer :: String -> IO CommonServer.Response
+containsFromSecurityServer s = do
+    logConnection "ProxyServer" "SecurityServer" "POST contains"
+    manager <- newManager defaultManagerSettings
+    response <- runClientM (securityClientContains s) (ClientEnv manager (BaseUrl Http (address securityServerIdentity) (read(port securityServerIdentity)::Int) ""))
+    case response of
+        Left err -> return (CommonServer.Response CommonServer.SecurityError proxyServerIdentity "")
+        Right response' -> return response'
+
+loginToSecurityServer :: CommonServer.EncryptedClient -> IO ()
+loginToSecurityServer ec = do
+    logConnection "ProxyServer" "SecurityServer" "POST login"
+    manager <- newManager defaultManagerSettings
+    response <- runClientM (securityClientLogin ec) (ClientEnv manager (BaseUrl Http (address securityServerIdentity) (read(port securityServerIdentity)::Int) ""))
+    case response of
+        Left err -> logError "ProxyServer" "Problem connecting to SecurityServer"        
+        Right response' -> upsertClientSession (unecryptedUsername ec) response'
+
+registerToSecurityServer :: CommonServer.Client -> IO ()
+registerToSecurityServer c = do
+    logConnection "ProxyServer" "SecurityServer" "POST register"
+    manager <- newManager defaultManagerSettings
+    response <- runClientM (securityClientRegister c) (ClientEnv manager (BaseUrl Http (address securityServerIdentity) (read(port securityServerIdentity)::Int) ""))
+    case response of
+        Left err -> logError "ProxyServer" "Problem connecting to SecurityServer"        
+        Right response' -> logAction "ProxyServer" "Login" "Registered to SecurityServer"
+
+findClientSession :: String -> IO CommonServer.Session
+findClientSession name = liftIO $ do
+    logDatabase "ProxyServer" "ClientSessionDb" "Find" name
+    connectToDatabase $ do
+        docs <- find (select ["_id" =: name] "ClientSessionDb") >>= drainCursor
+        return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe CommonServer.Session) docs
+
+upsertClientSession :: String -> CommonServer.Session -> IO ()
+upsertClientSession name session = liftIO $ do
+    logDatabase "ProxyServer" "ClientSessionDb" "Upsert" name
+    connectToDatabase $ upsert (select ["_id" =: name] "ClientSessionDb") $ toBSON session
+
+deleteDatabases :: IO ()
+deleteDatabases = liftIO $ do
+    logAction "ProxyServer" "Delete" "ClientSessionDb"
+    connectToDatabase $ Database.MongoDB.delete (select [] "ClientSessionDb")
+
+createEncryptedUserNameWithPassword :: String -> String -> String
+createEncryptedUserNameWithPassword u p = encryptDecrypt p u
+
+------------------------------
+--  Serving Functions
+------------------------------
+loginClient :: CommonServer.ClientRequest -> ApiHandler CommonServer.Response
+loginClient (CommonServer.ClientRequest ec req) = do
+    logConnection "" "ProxyServer" "POST login"
+    let clientName = unecryptedUsername ec
+    let clientPassword = encryptedData ec
+    response <- containsFromSecurityServer clientName
+    let doesSecurityContain = responseCode response
+    case doesSecurityContain of
+        CommonServer.SecurityError -> do
+            logError "ProxyServer" "Problem connecting to SecurityServer"
+            logTrailing
+            return response
+        CommonServer.SecurityClientRegistered -> do
+            loginToSecurityServer ec
+            logTrailing
+            return (CommonServer.Response CommonServer.SecurityClientLoggedIn securityServerIdentity "")
+        CommonServer.SecurityClientNotRegistered -> do
+            registerToSecurityServer (CommonServer.Client clientName clientPassword)
+            loginToSecurityServer (CommonServer.EncryptedClient clientName (createEncryptedUserNameWithPassword clientName clientPassword))
+            logTrailing
+            return (CommonServer.Response CommonServer.SecurityClientLoggedIn securityServerIdentity "")
