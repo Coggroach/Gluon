@@ -15,7 +15,7 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     DirectoryServer, FileServer, CommonServer, CommonServerApi, MongoDbConnector
+  exposed-modules:     DirectoryServer, FileServer, CommonServer, CommonServerApi, MongoDbConnector, SecurityServer
   build-depends:       base >= 4.7 && < 5
                      , servant == 0.9.*
                      , servant-server
