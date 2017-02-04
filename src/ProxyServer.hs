@@ -34,3 +34,13 @@ import           Data.Time.Clock              (UTCTime, getCurrentTime)
 import           Data.Time.Format             (defaultTimeLocale, formatTime)
 import           Database.MongoDB
 import           MongoDbConnector
+
+------------------------------
+--  Variables
+------------------------------
+resources :: Resources
+resources = Resources "res/ProxyServer";
+
+------------------------------
+--  Server Functions
+------------------------------

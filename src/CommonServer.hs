@@ -88,6 +88,16 @@ data Session = Session {
     encryptedTicketTimeout :: String
 } deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
 
+data SessionString = SessionString {
+    ticket :: Ticket,
+    encryptedString :: String
+} deriving (Eq, Show, Generic, FromJSON, ToJSON)
+
+data SessionFile = SessionFile {
+    ticket :: Ticket, 
+    encrypyedFile :: File
+} deriving (Eq, Show, Generic, FromJSON, ToJSON)
+
 ------------------------------
 --  Response Packet 
 ------------------------------
@@ -104,7 +114,8 @@ data ResponseCode =
     FileUploadComplete |
     FileUploadError |
     DirectoryJoinSuccess |
-    SecurityClientRegistered
+    SecurityClientRegistered |
+    SecurityClientNotRegistered 
     deriving(Eq, Show, Generic, Read, ToJSON, FromJSON, ToBSON, FromBSON)
 
 ------------------------------

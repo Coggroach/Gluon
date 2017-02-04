@@ -67,24 +67,27 @@ directoryClientFiles :<|> directoryClientOpen:<|> directoryClientClose :<|> dire
 ------------------------------
 type SecurityApi =
     "login" :> ReqBody '[JSON] CommonServer.EncryptedClient :> Post '[JSON] CommonServer.Session :<|>
-    "register" :> ReqBody '[JSON] CommonServer.Client :> Post '[JSON] CommonServer.Response
+    "register" :> ReqBody '[JSON] CommonServer.Client :> Post '[JSON] CommonServer.Response :<|>
+    "contains" :> Capture "clientName" String :> Get '[JSON] CommonServer.Response 
 
 securityApi :: Proxy SecurityApi
 securityApi = Proxy
 
 securityClientLogin :: CommonServer.EncryptedClient -> ClientM CommonServer.Session
 securityClientRegister :: CommonServer.Client -> ClientM CommonServer.Response
+securityClientContains :: String -> ClientM CommonServer.Response
 
-securityClientLogin :<|> securityClientRegister = Servant.Client.client securityApi
+securityClientLogin :<|> securityClientRegister :<|> securityClientContains = Servant.Client.client securityApi
     
 ------------------------------
 --  Proxy Api
 ------------------------------
 type ProxyApi =
+    "login" :> ReqBody '[JSON] CommonServer.EncryptedClient :> Post '[JSON] CommonServer.Session :<|>
+    "register" :> ReqBody '[JSON] CommonServer.Client :> Post '[JSON] CommonServer.Response :<|>
     "files" :> Get '[JSON] [String] :<|>
     "open" :> Capture "fileName" String :> Get '[JSON] CommonServer.File :<|>
-    "close" :> ReqBody '[JSON] CommonServer.File :> Post '[JSON] CommonServer.Response :<|>
-    "close" :> Capture "fileName" String :> Get '[JSON] CommonServer.Response
+    "close" :> ReqBody '[JSON] CommonServer.File :> Post '[JSON] CommonServer.Response    
 
 proxyApi :: Proxy ProxyApi
 proxyApi = Proxy
@@ -93,7 +96,9 @@ proxyApi = Proxy
 --  TransactionServer Api
 ------------------------------
 type TransactionApi =
-    "beginT" :> Get '[JSON] CommonServer.Response :<|>
+    "beginT" :> ReqBody '[JSON] Ticket :> Post '[JSON] CommonServer.Response :<|>
+    "downloadT" :> ReqBody '[JSON] CommonServer.SessionString :> Post '[JSON] CommonServer.File :<|>
+    "uploadT" :> ReqBody '[JSON] CommonServer.SessionFile :> Post '[JSON] CommonServer.Response
     "endT" :> Get '[JSON] CommonServer.Response :<|>
     "statusT" :> Get '[JSON] CommonServer.Response
 

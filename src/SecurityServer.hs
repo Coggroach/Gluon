@@ -47,7 +47,8 @@ resources = Resources "res/SecurityServer";
 securityServer :: Server SecurityApi
 securityServer =
     login :<|>
-    register
+    register :<|>
+    contains
 
 securityApp :: Application
 securityApp = serve securityApi securityServer
@@ -127,5 +128,14 @@ register c = liftIO $ do
     logTrailing
     return (CommonServer.Response CommonServer.SecurityClientRegistered securityServerIdentity "")
 
+contains :: String -> ApiHandler CommonServer.Response
+contains c = liftIO $ do
+    logConnection "" "securityServer" "GET contains"
+    client <- findClient c
+    logTrailing
+    case client of 
+        Nothing -> return (CommonServer.Response CommonServer.SecurityClientNotRegistered securityServerIdentity "")
+        Just c -> return (CommonServer.Response CommonServer.SecurityClientRegistered securityServerIdentity "")
+            
 
 
