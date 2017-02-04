@@ -43,13 +43,14 @@ mkFileServer = do
     let dir = path resources
     createDirectoryIfMissing True dir
     setCurrentDirectory dir
-    putStrLn "Connecting to DirectoryServer..."
+    logHeading "FileServer"    
+    logConnection "FileServer" "DirectoryServer" "POST join"
     manager <- newManager defaultManagerSettings
     response <- runClientM (directoryClientJoin fileServerIdentity) (ClientEnv manager (BaseUrl Http (address directoryServerIdentity) (getIdentityPort directoryServerIdentity) ""))    
     case response of
-        Left err -> putStrLn $ "Error: " ++ show err
-        Right response -> putStrLn "Success: connected to DirectoryServer"
-    putStrLn $ "Starting FileServer: " ++ getIdentityString fileServerIdentity
+        Left err -> logError "FileServer" $ show err
+        Right response -> logAction "FileServer" "Done" ""
+    logAction "FileServer" "Start" $ show (getIdentityString directoryServerIdentity)
     run (getIdentityPort fileServerIdentity) fileApp 
 
 ------------------------------
@@ -57,15 +58,18 @@ mkFileServer = do
 ------------------------------
 getFiles :: ApiHandler [FilePath]
 getFiles = liftIO $ do
+    logConnection "" "FileServer" "GET files"
     dir <- getCurrentDirectory
     listDirectory dir
 
 downloadFile :: String -> ApiHandler File
-downloadFile fn = do    
+downloadFile fn = liftIO $ do
+    logConnection "" "FileServer" "GET download"
     content <- liftIO (readFile fn)
     return (File fn content)
 
 uploadFile :: File -> ApiHandler CommonServer.Response
-uploadFile (File f c) = do    
+uploadFile (File f c) = liftIO $ do
+    logConnection "" "FileServer" "POST upload"
     liftIO (writeFile f c)
     return (CommonServer.Response CommonServer.FileUploadComplete fileServerIdentity "")

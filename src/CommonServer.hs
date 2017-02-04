@@ -9,10 +9,14 @@
 {-# LANGUAGE TypeSynonymInstances #-}
 
 module CommonServer where
+
 import Data.Aeson
+import Data.Aeson.TH
 import Data.Bson.Generic
+import Data.Time
+import Data.Char
+import Data.Bits
 import GHC.Generics
-import System.IO.Unsafe
 
 deriving instance FromBSON String
 deriving instance ToBSON   String
@@ -63,17 +67,26 @@ data Resources = Resources {
 data Client = Client {
     username :: String,
     password :: String
-} deriving (Eq, Show, Generic, ToJSON, FromJSON)
+} deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
+
+data EncryptedClient = EncryptedClient {
+    unecryptedUsername :: String,
+    encryptedData :: String    
+} deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
 
 ------------------------------
---  Security Token
+--  Security 
 ------------------------------
-data Token = Token {
-    sessionId :: String,
-    sessionKey :: String,
+data Ticket = Ticket {
     ticket :: String,
-    client :: Identity
-} deriving (Generic, ToJSON, FromJSON)
+    encryptedTimeout :: String
+} deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
+
+data Session = Session {
+    encryptedTicket :: String,
+    encryptedSessionKey :: String,
+    encryptedTicketTimeout :: String
+} deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
 
 ------------------------------
 --  Response Packet 
@@ -103,6 +116,12 @@ fileServerIdentity = Identity "127.0.0.1" "8082" FileServer
 directoryServerIdentity :: Identity
 directoryServerIdentity = Identity "127.0.0.1" "8081" DirectoryServer
 
+securityServerIdentity :: Identity
+securityServerIdentity = Identity "127.0.0.1" "8080" SecurityServer
+
+proxyServerIdentity :: Identity
+proxyServerIdentity = Identity "127.0.0.1" "8079" ProxyServer
+
 ------------------------------
 --  Common Functions 
 ------------------------------
@@ -115,3 +134,47 @@ getIdentityString i = address i ++ ":" ++ port i
 
 getIdentitySafeString :: Identity -> String
 getIdentitySafeString i = address i ++ "_" ++ port i
+
+getIdentityTypeString :: Identity -> String
+getIdentityTypeString i = show (serverType i) ++ "_" ++ port i
+
+logHeading :: String -> IO()
+logHeading s = do
+    let t = "======================"
+    putStrLn t
+    putStrLn s
+    putStrLn t
+
+logAction :: String -> String -> String -> IO()
+logAction s a m = putStrLn $ "[" ++ s ++ "]" ++ "[" ++ a ++ "]: " ++ m
+
+logError :: String -> String -> IO()
+logError s m =  putStrLn $ "[" ++ s ++ "]" ++ "[Error]: " ++ m
+
+logDatabase :: String -> String -> String -> String -> IO()
+logDatabase s d a m = putStrLn $ "[" ++ s ++ "]" ++ "[" ++ d ++ ":" ++ a ++ "]: " ++ m
+
+logConnection :: String -> String -> String -> IO()
+logConnection c s m = putStrLn $ "[" ++ c ++ "=>" ++ s ++ "]:" ++ m
+
+------------------------------
+--  Encryption Functions 
+------------------------------
+
+encryptDecrypt :: String -> String -> String
+encryptDecrypt key = zipWith (\a b -> chr $ xor (ord a) (ord b)) (cycle key)
+
+encryptTime :: String  -> UTCTime  -> String
+encryptTime key time = encryptDecrypt key (show time :: String)
+
+decryptTime :: String  -> String  -> UTCTime
+decryptTime key text = (read $ encryptDecrypt key text) :: UTCTime
+
+encryptPort :: String  -> Int  -> String
+encryptPort key port = encryptDecrypt key (show port :: String)
+
+decryptPort :: String  -> String  -> Int
+decryptPort key text = (read $ encryptDecrypt key text) :: Int
+
+encryptDecryptArray :: String -> [String] -> [String]
+encryptDecryptArray key = map (encryptDecrypt key)

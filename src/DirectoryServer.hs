@@ -62,8 +62,9 @@ directoryApp = serve directoryApi directoryServer
 mkDirectoryServer :: IO()
 mkDirectoryServer = do
     createDirectoryIfMissing True (path resources)
-    setCurrentDirectory (path resources)    
-    putStrLn $ "Starting DirectoryServer: " ++ getIdentityString directoryServerIdentity
+    setCurrentDirectory (path resources)
+    logHeading "DirectoryServer"
+    logAction "DirectoryServer" "Start" $ show (getIdentityString directoryServerIdentity)
     deleteDatabases
     run (getIdentityPort directoryServerIdentity) directoryApp
 
@@ -72,38 +73,38 @@ mkDirectoryServer = do
 ------------------------------
 deleteDatabases :: IO ()
 deleteDatabases = liftIO $ do
-    putStrLn "Clearing: FileMappingDb, FileServerDb"
+    logAction "DirectoryServer" "Delete" "FileMappingDb, FileServerDb"
     connectToDatabase $ do
         Database.MongoDB.delete (select [] "FileMappingDb")
         Database.MongoDB.delete (select [] "FileServerDb")
 
 upsertFileMapping :: CommonServer.Identity -> [FileMapping] -> String -> IO [FileMapping]
-upsertFileMapping id array filename = do
-    putStrLn $ "Storing FileMapping: " ++ filename
+upsertFileMapping id array filename = do    
+    logDatabase "DirectoryServer" "FileMappingDb" "Upsert" filename
     let filemapping = FileMapping filename id
     connectToDatabase $ upsert (select ["_id" =: filename] "FileMappingDb") $ toBSON filemapping
     return $ FileMapping filename id : array
 
 upsertFileServer :: CommonServer.Identity -> IO()
 upsertFileServer i = liftIO $ do
-    let key = getIdentitySafeString i
-    putStrLn $ "Storing FileServer: " ++ key
+    let key = getIdentitySafeString i    
+    logDatabase "DirectoryServer" "FileServerDb" "Upsert" key
     connectToDatabase $ Database.MongoDB.upsert (Database.MongoDB.select ["_id" =: key] "FileServerDb") $ toBSON i
-    putStrLn "Success"
 
 getFilesFromFileServer :: CommonServer.Identity -> IO()
 getFilesFromFileServer i = liftIO $ do
+    logConnection "DirectoryServer" "FileServer" "GET files"
     manager <- newManager defaultManagerSettings
     response <- runClientM fileClientFiles (ClientEnv manager (BaseUrl Http (address i) (read(port i)::Int) ""))
     case response of
-        Left err -> putStrLn $ "Error: " ++ show err
+        Left err -> logError "DirectoryServer" $ show err
         Right response' -> do
             mapM_ (upsertFileMapping i []) response'
-            return ()
+            logAction "DirectoryServer" "Done" ""
 
 findFileMapping :: String -> IO FileMapping
 findFileMapping key = do
-    putStrLn $ "Searching with Key: " ++ key
+    logDatabase "DirectoryServer" "FileMappingDb" "Find" key
     filemapping <- connectToDatabase $ do
         docs <- Database.MongoDB.find (Database.MongoDB.select ["_id" =: key] "FileMappingDb") >>= drainCursor
         return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe FileMapping) docs
@@ -111,20 +112,21 @@ findFileMapping key = do
 
 getAllFileServers :: IO [CommonServer.Identity]
 getAllFileServers = do
-    putStrLn "Fetching FileServer List."
+    logDatabase "DirectoryServer" "FileServerDb" "Find" "ALL"
     connectToDatabase $ do
         docs <- Database.MongoDB.find (Database.MongoDB.select [] "FileServerDb") >>= drainCursor
         return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe CommonServer.Identity) docs
 
 getAllFileMappings :: IO [FileMapping]
 getAllFileMappings = do
-    putStrLn "Fetching FileMapping List."
+    logDatabase "DirectoryServer" "FileMappingDb" "Find" "ALL"
     connectToDatabase $ do
         docs <- Database.MongoDB.find (Database.MongoDB.select [] "FileMappingDb") >>= drainCursor
         return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe FileMapping) docs
 
 downloadFromFileServer :: String -> CommonServer.Identity -> IO CommonServer.File
 downloadFromFileServer fn i = do
+    logConnection "DirectoryServer" "FileServer" "GET download"
     manager <- newManager defaultManagerSettings
     response <- runClientM (fileClientDownload fn) (ClientEnv manager (BaseUrl Http (address i) (read(port i)::Int) ""))
     case response of
@@ -133,6 +135,7 @@ downloadFromFileServer fn i = do
 
 uploadToFileServer :: CommonServer.File -> CommonServer.Identity -> IO CommonServer.Response
 uploadToFileServer f i = do
+    logConnection "DirectoryServer" "FileServer" "POST upload"
     manager <- newManager defaultManagerSettings
     response <- runClientM (fileClientUpload f) (ClientEnv manager (BaseUrl Http (address i) (read(port i)::Int) ""))
     case response of
@@ -144,7 +147,7 @@ uploadToFileServer f i = do
 ------------------------------
 getFiles :: ApiHandler [FilePath]
 getFiles = liftIO $ do
-    putStrLn "Fetching File List"
+    logConnection "" "DirectoryServer" "GET files"
     fileServers <- getAllFileServers
     mapM_ getFilesFromFileServer fileServers
     fileMappings <- getAllFileMappings
@@ -153,18 +156,20 @@ getFiles = liftIO $ do
 
 openFile :: String -> ApiHandler CommonServer.File
 openFile fn = liftIO $ do
-    putStrLn $ "Opening File: " ++ fn
+    logConnection "" "DirectoryServer" "GET open"
     fileMapping <- findFileMapping fn
     downloadFromFileServer fn $ identity fileMapping
 
 closeFile :: CommonServer.File -> ApiHandler CommonServer.Response
 closeFile f = liftIO $ do
     putStrLn $ "Closing File: " ++ CommonServer.fileName f
+    logConnection "" "DirectoryServer" "POST close"
     fileMapping <- findFileMapping (CommonServer.fileName f)
     uploadToFileServer f (identity fileMapping)
 
 joinServer :: CommonServer.Identity -> ApiHandler CommonServer.Response
 joinServer i = liftIO $ do
+    logConnection "" "DirectoryServer" "POST join"
     upsertFileServer i
     return (CommonServer.Response CommonServer.DirectoryJoinSuccess directoryServerIdentity "")
 

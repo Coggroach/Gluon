@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-02-04 17:11:41.8974762 UTC
+2017-02-04 19:02:50.4600006 UTC
 
 interface Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:MongoDbConnector 8001
-  interface hash: 9742030a79e918c461a88243d4513f9a
-  ABI hash: 85995cc0723c3b9dda33a10913c49de9
-  export-list hash: 2d89c359f0badecac42b414a3f061122
+  interface hash: d1ed0ffb01e74a6ddec68dbffcbf34eb
+  ABI hash: e6043e92a69386ef6dbd0263147cfeef
+  export-list hash: 195ced448d1d936e2baf506ab3de4d5a
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 746dba3a46960b377f64c0f9e44cd9b9
   sig of: Nothing
@@ -13,13 +13,7 @@ interface Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:MongoDbConnector 8001
   where
 exports:
   MongoDbConnector.connectToDatabase
-  MongoDbConnector.defEnv
   MongoDbConnector.drainCursor
-  MongoDbConnector.logLevel
-  MongoDbConnector.mongoDbDatabase
-  MongoDbConnector.mongoDbIp
-  MongoDbConnector.mongoDbPort
-  MongoDbConnector.withMongoDbConnection
 module dependencies:
 package dependencies: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov
                       Win32-2.3.1.1@Win32-2.3.1.1 array-0.5.1.1@array-0.5.1.1
@@ -112,17 +106,13 @@ import  -/  base-4.9.0.0:Control.Monad b6b2f076948b5e8acd6d95beb4d22bfc
 import  -/  base-4.9.0.0:Control.Monad.IO.Class 6093ce5ace985d5ea81901bb51e28805
 import  -/  base-4.9.0.0:Data.Foldable 3cbed01c922be29649c33015287c82ca
 import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
-import  -/  base-4.9.0.0:GHC.Show 0b5845243cb2ec62b57dd6963d276ec6
 import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
 import  -/  base-4.9.0.0:System.Environment b460b4a8ded59bf876fca87a5a3550f2
-import  -/  base-4.9.0.0:Text.Read 575a1becf4a56881b7def2de5a4c3776
 import  -/  bson-0.3.2.3@bson-0.3.2.3-EE4NjCypFvQ16toPJxQaT3:Data.Bson 9dcb4fcd7c61220f1f6ae15ef9a1c054
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 import  -/  hslogger-1.2.10@hslogger-1.2.10-sT57JmCNO02KPQ07k0Jv6:System.Log.Logger 9750954b51f6cb928dbf2952a7e908d4
-import  -/  integer-gmp-1.0.0.1:GHC.Integer.Type bc99d7d6ca3e6f7b722927a29e227674
 import  -/  mongoDB-2.1.1.1@mongoDB-2.1.1.1-8pQlEjBJ8J0LRyS8YhkcGi:Database.MongoDB 1e4125e4412f09f4fc240a6f540ad3a8
 import  -/  mongoDB-2.1.1.1@mongoDB-2.1.1.1-8pQlEjBJ8J0LRyS8YhkcGi:Database.MongoDB.Connection f8e93dd587becd56646ff60d54ef03e1
-import  -/  mongoDB-2.1.1.1@mongoDB-2.1.1.1-8pQlEjBJ8J0LRyS8YhkcGi:Database.MongoDB.Internal.Protocol 00070c87ea0f4be8d360d2513a48200a
 import  -/  mongoDB-2.1.1.1@mongoDB-2.1.1.1-8pQlEjBJ8J0LRyS8YhkcGi:Database.MongoDB.Query b4ba7e1d7397a420856343870367af87
 import  -/  resourcet-1.1.8.1@resourcet-1.1.8.1-1XWaZ7RmVde330DM5PRI3Z:Control.Monad.Trans.Resource 43ad99d9dc3f44283ad3f4dab0f4ed29
 import  -/  text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text 8dbacab9fc008bc20f8ced1c7c1f4b82
@@ -197,59 +187,6 @@ c4cd10620f682c9764284056a139e84b
 f28d21622caa0c3f29eae1f054016052
   connectToDatabase3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "127.0.0.1"#) -}
-4469742bf350cfc6c7d14a939205fd34
-  defEnv ::
-    GHC.Show.Show a =>
-    GHC.Base.String
-    -> (GHC.Base.String -> a) -> a -> GHC.Types.Bool -> GHC.Types.IO a
-  {- Arity: 6, Strictness: <L,A><L,1*U><L,1*C1(U)><L,U><L,A><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                MongoDbConnector.defEnv3
-                  `cast`
-                (forall (a :: <*>_N).
-                 <GHC.Show.Show a>_R
-                 ->_R <GHC.Base.String>_R
-                 ->_R <GHC.Base.String -> a>_R
-                 ->_R <a>_R
-                 ->_R <GHC.Types.Bool>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <a>_R)) -}
-3425f0e1ae34e30cf7868e656129a102
-  defEnv3 ::
-    GHC.Show.Show a =>
-    GHC.Base.String
-    -> (GHC.Base.String -> a)
-    -> a
-    -> GHC.Types.Bool
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, a #)
-  {- Arity: 6, Strictness: <L,A><L,1*U><L,1*C1(U)><L,U><L,A><S,U>,
-     Unfolding: InlineRule (6, True, False)
-                (\ @ a
-                   ($dShow :: GHC.Show.Show a)
-                   (env :: GHC.Base.String)
-                   (fn :: GHC.Base.String -> a)
-                   (def :: a)
-                   (doWarn :: GHC.Types.Bool)
-                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case (Foreign.Marshal.Array.withArrayLen0
-                         @ Foreign.C.Types.CWchar
-                         @ (GHC.Base.Maybe [GHC.Types.Char])
-                         Foreign.C.Types.$fStorableCWchar
-                         Foreign.C.String.newCWString2
-                           `cast`
-                         (Sym (Foreign.C.Types.N:CWchar[0]))
-                         (Foreign.C.String.withCWString_go env)
-                         System.Environment.getEnv4
-                           `cast`
-                         (<GHC.Types.Int>_R
-                          ->_R <Foreign.C.String.CWString>_R
-                          ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.Maybe [GHC.Types.Char]>_R)))
-                        `cast`
-                      (GHC.Types.N:IO[0] <GHC.Base.Maybe GHC.Base.String>_R)
-                        s of ds1 { (#,#) ipv ipv1 ->
-                 case ipv1 of wild {
-                   GHC.Base.Nothing -> (# ipv, def #)
-                   GHC.Base.Just s1 -> (# ipv, fn s1 #) } }) -}
 7895b3e0ad324d7adee083b6255f57cf
   drainCursor ::
     Database.MongoDB.Query.Cursor
@@ -269,216 +206,6 @@ e3f4ea5030a4f481c68fae55d2cb8332
          GHC.Types.IO
          [Data.Bson.Document]
   {- Arity: 2, Strictness: <L,U><L,U> -}
-4218dc0dde003628ab22adc7cb33ed6d
-  logLevel :: GHC.Types.IO GHC.Base.String
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: InlineRule (0, True, True)
-                MongoDbConnector.logLevel1
-                  `cast`
-                (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R)) -}
-29313c3f1b617c74cd064b2f333dce85
-  logLevel1 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case (Foreign.Marshal.Array.withArrayLen0
-                         @ Foreign.C.Types.CWchar
-                         @ (GHC.Base.Maybe [GHC.Types.Char])
-                         Foreign.C.Types.$fStorableCWchar
-                         Foreign.C.String.newCWString2
-                           `cast`
-                         (Sym (Foreign.C.Types.N:CWchar[0]))
-                         MongoDbConnector.logLevel3
-                         System.Environment.getEnv4
-                           `cast`
-                         (<GHC.Types.Int>_R
-                          ->_R <Foreign.C.String.CWString>_R
-                          ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.Maybe [GHC.Types.Char]>_R)))
-                        `cast`
-                      (GHC.Types.N:IO[0] <GHC.Base.Maybe GHC.Base.String>_R)
-                        s of ds1 { (#,#) ipv ipv1 ->
-                 case ipv1 of wild {
-                   GHC.Base.Nothing -> (# ipv, MongoDbConnector.logLevel2 #)
-                   GHC.Base.Just s1 -> (# ipv, s1 #) } }) -}
-d5129b39904ecf8b3c6dd970ab22aa5e
-  logLevel2 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "DEBUG"#) -}
-ac936978c1c4838407e57b09bf687435
-  logLevel3 :: [Foreign.C.Types.CWchar]
-  {- Unfolding: (Foreign.C.String.withCWString_go
-                   MongoDbConnector.logLevel4) -}
-7758f7c5024060f69de422f37a8999e2
-  logLevel4 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "LOG_LEVEL"#) -}
-280dd8bacb151e4c98a6668974e24208
-  mongoDbDatabase :: GHC.Types.IO GHC.Base.String
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: InlineRule (0, True, True)
-                MongoDbConnector.mongoDbDatabase1
-                  `cast`
-                (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R)) -}
-1f4d19e7e1dfbd5916cb5c3ad8c5285d
-  mongoDbDatabase1 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case (Foreign.Marshal.Array.withArrayLen0
-                         @ Foreign.C.Types.CWchar
-                         @ (GHC.Base.Maybe [GHC.Types.Char])
-                         Foreign.C.Types.$fStorableCWchar
-                         Foreign.C.String.newCWString2
-                           `cast`
-                         (Sym (Foreign.C.Types.N:CWchar[0]))
-                         MongoDbConnector.mongoDbDatabase3
-                         System.Environment.getEnv4
-                           `cast`
-                         (<GHC.Types.Int>_R
-                          ->_R <Foreign.C.String.CWString>_R
-                          ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.Maybe [GHC.Types.Char]>_R)))
-                        `cast`
-                      (GHC.Types.N:IO[0] <GHC.Base.Maybe GHC.Base.String>_R)
-                        s of ds1 { (#,#) ipv ipv1 ->
-                 case ipv1 of wild {
-                   GHC.Base.Nothing -> (# ipv, MongoDbConnector.mongoDbDatabase2 #)
-                   GHC.Base.Just s1 -> (# ipv, s1 #) } }) -}
-d0fe42d8f99a9ec43ec0a80512bde162
-  mongoDbDatabase2 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "USEHASKELLDB"#) -}
-c78f4d9a387900c4b59fa83664df7618
-  mongoDbDatabase3 :: [Foreign.C.Types.CWchar]
-  {- Unfolding: (Foreign.C.String.withCWString_go
-                   MongoDbConnector.mongoDbDatabase4) -}
-6b2342c99e2b80f11e99ef5e6293b0bc
-  mongoDbDatabase4 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "MONGODB_DATABASE"#) -}
-17390560b8b660cc7d08a42e662e2ca0
-  mongoDbIp :: GHC.Types.IO GHC.Base.String
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: InlineRule (0, True, True)
-                MongoDbConnector.mongoDbIp1
-                  `cast`
-                (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R)) -}
-c3526fdade0851f8082df7e6157bac81
-  mongoDbIp1 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case (Foreign.Marshal.Array.withArrayLen0
-                         @ Foreign.C.Types.CWchar
-                         @ (GHC.Base.Maybe [GHC.Types.Char])
-                         Foreign.C.Types.$fStorableCWchar
-                         Foreign.C.String.newCWString2
-                           `cast`
-                         (Sym (Foreign.C.Types.N:CWchar[0]))
-                         MongoDbConnector.mongoDbIp2
-                         System.Environment.getEnv4
-                           `cast`
-                         (<GHC.Types.Int>_R
-                          ->_R <Foreign.C.String.CWString>_R
-                          ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.Maybe [GHC.Types.Char]>_R)))
-                        `cast`
-                      (GHC.Types.N:IO[0] <GHC.Base.Maybe GHC.Base.String>_R)
-                        s of ds1 { (#,#) ipv ipv1 ->
-                 case ipv1 of wild {
-                   GHC.Base.Nothing -> (# ipv, MongoDbConnector.connectToDatabase3 #)
-                   GHC.Base.Just s1 -> (# ipv, s1 #) } }) -}
-5a4e6cdc8f9a946242c66a9064027dcc
-  mongoDbIp2 :: [Foreign.C.Types.CWchar]
-  {- Unfolding: (Foreign.C.String.withCWString_go
-                   MongoDbConnector.mongoDbIp3) -}
-e261c4a7a8ca4d219433bc3390ff1bb2
-  mongoDbIp3 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "MONGODB_IP"#) -}
-83b1d0179d5628557fdc064e88d11352
-  mongoDbPort :: GHC.Types.IO GHC.Integer.Type.Integer
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: InlineRule (0, True, True)
-                MongoDbConnector.mongoDbPort1
-                  `cast`
-                (Sym (GHC.Types.N:IO[0] <GHC.Integer.Type.Integer>_R)) -}
-ed3c223b2b2650ca095669af61938a33
-  mongoDbPort1 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          GHC.Integer.Type.Integer #)
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case (Foreign.Marshal.Array.withArrayLen0
-                         @ Foreign.C.Types.CWchar
-                         @ (GHC.Base.Maybe [GHC.Types.Char])
-                         Foreign.C.Types.$fStorableCWchar
-                         Foreign.C.String.newCWString2
-                           `cast`
-                         (Sym (Foreign.C.Types.N:CWchar[0]))
-                         MongoDbConnector.mongoDbPort6
-                         System.Environment.getEnv4
-                           `cast`
-                         (<GHC.Types.Int>_R
-                          ->_R <Foreign.C.String.CWString>_R
-                          ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.Maybe [GHC.Types.Char]>_R)))
-                        `cast`
-                      (GHC.Types.N:IO[0] <GHC.Base.Maybe GHC.Base.String>_R)
-                        s of ds1 { (#,#) ipv ipv1 ->
-                 case ipv1 of wild {
-                   GHC.Base.Nothing -> (# ipv, MongoDbConnector.mongoDbPort5 #)
-                   GHC.Base.Just s1
-                   -> (# ipv,
-                         case Text.Read.readEither6
-                                @ GHC.Integer.Type.Integer
-                                (Text.ParserCombinators.ReadP.run
-                                   @ GHC.Integer.Type.Integer
-                                   MongoDbConnector.mongoDbPort4
-                                   s1) of wild1 {
-                           [] -> MongoDbConnector.mongoDbPort3
-                           : x ds
-                           -> case ds of wild2 {
-                                [] -> x : ipv2 ipv3 -> MongoDbConnector.mongoDbPort2 } } #) } }) -}
-f353202611e4c3635b7e9a27f3e25dbd
-  mongoDbPort2 :: GHC.Integer.Type.Integer
-  {- Strictness: x -}
-8045f105ba4b5a0491c968fb3921901c
-  mongoDbPort3 :: GHC.Integer.Type.Integer
-  {- Strictness: x -}
-38dedc4223ada8dfa348f2fa9bd98707
-  mongoDbPort4 ::
-    Text.ParserCombinators.ReadP.P GHC.Integer.Type.Integer
-  {- Unfolding: ((GHC.Read.$fReadInteger3
-                    GHC.Read.$fReadInteger_$sconvertInt
-                    Text.ParserCombinators.ReadPrec.minPrec)
-                   `cast`
-                 (Text.ParserCombinators.ReadP.N:ReadP[0]
-                      <GHC.Integer.Type.Integer>_R)
-                   @ GHC.Integer.Type.Integer
-                   (Text.Read.readEither5 @ GHC.Integer.Type.Integer)) -}
-89f787e52546925e8de88a77b233a08a
-  mongoDbPort5 :: GHC.Integer.Type.Integer
-  {- HasNoCafRefs, Unfolding: (27017) -}
-b7716251818caa89b6d5872488ec904b
-  mongoDbPort6 :: [Foreign.C.Types.CWchar]
-  {- Unfolding: (Foreign.C.String.withCWString_go
-                   MongoDbConnector.mongoDbPort7) -}
-48fbe19663361aa6a841b93edbfc9e80
-  mongoDbPort7 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "MONGODB_PORT"#) -}
-e171e7d0d404a9eed6085096c3049c37
-  withMongoDbConnection ::
-    Database.MongoDB.Query.Action GHC.Types.IO a -> GHC.Types.IO a
-  {- Arity: 2, Strictness: <L,1*C1(U)><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                MongoDbConnector.withMongoDbConnection1
-                  `cast`
-                (forall (a :: <*>_N).
-                 <Database.MongoDB.Query.Action GHC.Types.IO a>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <a>_R)) -}
-009c4ae2f1d2dc4c33bddb811d2aef28
-  withMongoDbConnection1 ::
-    Database.MongoDB.Query.Action GHC.Types.IO a
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, a #)
-  {- Arity: 2, Strictness: <L,1*C1(U)><S,U> -}
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

@@ -66,11 +66,16 @@ directoryClientFiles :<|> directoryClientOpen:<|> directoryClientClose :<|> dire
 --  SecurityServer Api
 ------------------------------
 type SecurityApi =
-    "login" :> ReqBody '[JSON] CommonServer.Client :> Post '[JSON] CommonServer.Token :<|>
-    "session" :> Capture "id" String :> Get '[JSON] CommonServer.Token
+    "login" :> ReqBody '[JSON] CommonServer.EncryptedClient :> Post '[JSON] CommonServer.Session :<|>
+    "register" :> ReqBody '[JSON] CommonServer.EncryptedClient :> Post '[JSON] CommonServer.Response
 
 securityApi :: Proxy SecurityApi
 securityApi = Proxy
+
+securityClientLogin :: CommonServer.EncryptedClient -> ClientM CommonServer.Session
+securityClientRegister :: CommonServer.EncryptedClient -> ClientM CommonServer.Response
+
+securityClientLogin :<|> securityClientRegister = Servant.Client.client securityApi
     
 ------------------------------
 --  Proxy Api
