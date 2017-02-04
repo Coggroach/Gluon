@@ -50,7 +50,7 @@ mkFileServer = do
     case response of
         Left err -> logError "FileServer" $ show err
         Right response -> logAction "FileServer" "Done" ""
-    logAction "FileServer" "Start" $ show (getIdentityString directoryServerIdentity)
+    logAction "FileServer" "Start" $ show (getIdentityString fileServerIdentity)
     run (getIdentityPort fileServerIdentity) fileApp 
 
 ------------------------------
@@ -60,16 +60,19 @@ getFiles :: ApiHandler [FilePath]
 getFiles = liftIO $ do
     logConnection "" "FileServer" "GET files"
     dir <- getCurrentDirectory
+    logTrailing
     listDirectory dir
 
 downloadFile :: String -> ApiHandler File
 downloadFile fn = liftIO $ do
     logConnection "" "FileServer" "GET download"
     content <- liftIO (readFile fn)
+    logTrailing
     return (File fn content)
 
 uploadFile :: File -> ApiHandler CommonServer.Response
 uploadFile (File f c) = liftIO $ do
     logConnection "" "FileServer" "POST upload"
     liftIO (writeFile f c)
+    logTrailing
     return (CommonServer.Response CommonServer.FileUploadComplete fileServerIdentity "")

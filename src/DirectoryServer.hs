@@ -157,20 +157,24 @@ getFiles = liftIO $ do
 openFile :: String -> ApiHandler CommonServer.File
 openFile fn = liftIO $ do
     logConnection "" "DirectoryServer" "GET open"
-    fileMapping <- findFileMapping fn
-    downloadFromFileServer fn $ identity fileMapping
+    fileMapping <- findFileMapping fn    
+    file <- downloadFromFileServer fn $ identity fileMapping
+    logTrailing
+    return file
 
 closeFile :: CommonServer.File -> ApiHandler CommonServer.Response
 closeFile f = liftIO $ do
-    putStrLn $ "Closing File: " ++ CommonServer.fileName f
     logConnection "" "DirectoryServer" "POST close"
-    fileMapping <- findFileMapping (CommonServer.fileName f)
-    uploadToFileServer f (identity fileMapping)
+    fileMapping <- findFileMapping (CommonServer.fileName f)    
+    response <- uploadToFileServer f (identity fileMapping)
+    logTrailing
+    return response
 
 joinServer :: CommonServer.Identity -> ApiHandler CommonServer.Response
 joinServer i = liftIO $ do
     logConnection "" "DirectoryServer" "POST join"
     upsertFileServer i
+    logTrailing
     return (CommonServer.Response CommonServer.DirectoryJoinSuccess directoryServerIdentity "")
 
 

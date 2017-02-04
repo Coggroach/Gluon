@@ -145,6 +145,9 @@ logHeading s = do
     putStrLn s
     putStrLn t
 
+logTrailing :: IO ()
+logTrailing = putStrLn "======================"
+
 logAction :: String -> String -> String -> IO()
 logAction s a m = putStrLn $ "[" ++ s ++ "]" ++ "[" ++ a ++ "]: " ++ m
 
@@ -155,7 +158,7 @@ logDatabase :: String -> String -> String -> String -> IO()
 logDatabase s d a m = putStrLn $ "[" ++ s ++ "]" ++ "[" ++ d ++ ":" ++ a ++ "]: " ++ m
 
 logConnection :: String -> String -> String -> IO()
-logConnection c s m = putStrLn $ "[" ++ c ++ "=>" ++ s ++ "]:" ++ m
+logConnection c s m = putStrLn $ "[" ++ c ++ "==>>" ++ s ++ "]:" ++ m
 
 ------------------------------
 --  Encryption Functions 
