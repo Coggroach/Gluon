@@ -59,22 +59,22 @@ mkSecurityServer = do
     setCurrentDirectory (path resources)
     logHeading "SecurityServer"
     logAction "SecurityServer" "Start" $ show (getIdentityString securityServerIdentity)
-    run (getIdentityport securityServerIdentity) securityApp
+    run (getIdentityPort securityServerIdentity) securityApp
 
 ------------------------------
 --  Helper Functions
 ------------------------------
 
-findClient :: String -> IO Maybe Client
+findClient :: String -> IO (Maybe CommonServer.Client)
 findClient s = do
     logDatabase "SecurityServer" "ClientDb" "Find" s
     client <- connectToDatabase $ do
         docs <- Database.MongoDB.find (Database.MongoDB.select ["_id" =: s] "ClientDb") >>= drainCursor
-        return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe Client) docs
-    if null client then        
+        return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe CommonServer.Client) docs
+    if Data.List.null client then 
         return Nothing
     else
-        return $ head client
+        return Just $ head client
 
 upsertClient :: CommonServer.Client -> IO ()
 upsertClient c = liftIO $ do
@@ -84,20 +84,21 @@ upsertClient c = liftIO $ do
 generateSessionKey :: IO String
 generateSessionKey = fmap (take 12 . randomRs ('!', 'z')) newStdGen
 
-getTimeoutTime :: Int
-getTimeoutTime = next (1500, 2100)
+getTimeoutTime :: IO Int
+getTimeoutTime = System.Random.randomRIO (1500, 2100)
 
-generateSession :: String -> IO CommonServer.Session
-generateSession p = do
+generateSession :: String -> CommonServer.Session
+generateSession p = liftIO $ do
     sessionKey <- generateSessionKey
     let encryptedSessionKey = encryptDecrypt p sessionKey
-    let encryptedTicket = encryptDecrypt sharedSecret
+    let encryptedTicket = encryptDecrypt sharedSecret sessionKey
     currentTime <- getCurrentTime
-    let encryptedTicketTimeout = addUTCTime getTimeoutTime currentTime
-    return (Session encryptedTicket encryptedSessionKey encryptedTicketTimeout)
+    timeout <- getTimeoutTime
+    let encryptedTicketTimeout = encryptTime sharedSecret $ addUTCTime (timeout :: NominalDiffTime) currentTime
+    return (CommonServer.Session encryptedTicket encryptedSessionKey encryptedTicketTimeout)
 
-getFailedSession :: String -> IO CommonServer.Session
-getFailedSession s = Session "Failed" s "Failed"
+getFailedSession :: String -> CommonServer.Session
+getFailedSession s = CommonServer.Session "Failed" s "Failed"
 
 ------------------------------
 --  Serving Functions
@@ -109,17 +110,17 @@ login (CommonServer.EncryptedClient name encryptedData) = liftIO $ do
     case client of
         Nothing -> do
             logError "SecurityServer" "Client not Found."
-            return getFailedSession "Client not Found"
+            return $ getFailedSession "Client not Found"
         Just c -> do
             let decrypted = encryptDecrypt (password c) encryptedData
-            if decrypted != name then do
-                logError "SecurityServer" "Login Failed"
-                logTrailing
-                return getFailedSession "Login has Incorrect Encryption Data"
-            else do
+            if decrypted == name then do
                 logAction "SecurityServer" "Login" "Session Created"
                 logTrailing
-                return generateSession (password c)
+                return $ generateSession (password c)
+            else do                
+                logError "SecurityServer" "Login Failed"
+                logTrailing
+                return $ getFailedSession "Login has Incorrect Encryption Data"
 
 register :: CommonServer.Client -> ApiHandler CommonServer.Response
 register c = liftIO $ do

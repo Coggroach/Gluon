@@ -75,20 +75,20 @@ data EncryptedClient = EncryptedClient {
 } deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
 
 data ClientRequest = ClientRequest {
-    encryptedClient :: EncryptedClient,
+    requestEncryptedClient :: EncryptedClient,
     request :: String
 }
 
 data ClientFileRequest = ClientFileRequest {
-    encryptedClient :: EncryptedClient,
-    encryptedFile :: File
+    fileRequestEncryptedClient :: EncryptedClient,
+    fileRequestEncryptedFile :: File
 }
 
 ------------------------------
 --  Security 
 ------------------------------
 data Ticket = Ticket {
-    ticket :: String,
+    ticketId :: String,
     encryptedTimeout :: String
 } deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
 
@@ -99,13 +99,13 @@ data Session = Session {
 } deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
 
 data SessionString = SessionString {
-    ticket :: Ticket,
+    sessionStringTicket :: Ticket,
     encryptedString :: String
 } deriving (Eq, Show, Generic, FromJSON, ToJSON)
 
 data SessionFile = SessionFile {
-    ticket :: Ticket, 
-    encryptedFile :: File
+    sessionFileTicket :: Ticket, 
+    sessionEncryptedFile :: File
 } deriving (Eq, Show, Generic, FromJSON, ToJSON)
 
 ------------------------------

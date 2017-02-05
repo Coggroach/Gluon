@@ -99,7 +99,7 @@ proxyApi = Proxy
 type TransactionApi =
     "beginT" :> ReqBody '[JSON] Ticket :> Post '[JSON] CommonServer.Response :<|>
     "downloadT" :> ReqBody '[JSON] CommonServer.SessionString :> Post '[JSON] CommonServer.File :<|>
-    "uploadT" :> ReqBody '[JSON] CommonServer.SessionFile :> Post '[JSON] CommonServer.Response
+    "uploadT" :> ReqBody '[JSON] CommonServer.SessionFile :> Post '[JSON] CommonServer.Response :<|>
     "endT" :> ReqBody '[JSON] Ticket :> Post '[JSON] CommonServer.Response :<|>
     "statusT" :> ReqBody '[JSON] Ticket :> Post :> Get '[JSON] CommonServer.Response
 
