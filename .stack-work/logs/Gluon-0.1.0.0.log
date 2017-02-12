@@ -1,46 +1,9 @@
 Preprocessing library Gluon-0.1.0.0...
-[5 of 6] Compiling SecurityServer   ( src\SecurityServer.hs, .stack-work\dist\b7fec021\build\SecurityServer.o )
-
-src\SecurityServer.hs:77:9: error:
-    * Couldn't match type `a0 -> Maybe a0'
-                     with `IO (Maybe CommonServer.Client)'
-      Expected type: CommonServer.Client
-                     -> IO (Maybe CommonServer.Client)
-        Actual type: CommonServer.Client -> a0 -> Maybe a0
-    * The first argument of ($) takes one argument,
-      but its type `CommonServer.Client -> a0 -> Maybe a0' has only two
-      In the expression: return Just $ head client
-      In a stmt of a 'do' block:
-        if Data.List.null client then
-            return Nothing
-        else
-            return Just $ head client
-
-src\SecurityServer.hs:91:21: error:
-    * Couldn't match expected type `Session'
-                  with actual type `m0 Session'
-    * In the expression:
-        liftIO
-        $ do { sessionKey <- generateSessionKey;
-               let encryptedSessionKey = encryptDecrypt p sessionKey;
-               let encryptedTicket = encryptDecrypt sharedSecret sessionKey;
-               currentTime <- getCurrentTime;
-               .... }
-      In an equation for `generateSession':
-          generateSession p
-            = liftIO
-              $ do { sessionKey <- generateSessionKey;
-                     let encryptedSessionKey = ...;
-                     let encryptedTicket = ...;
-                     .... }
-
-src\SecurityServer.hs:97:73: error:
-    * Couldn't match expected type `NominalDiffTime'
-                  with actual type `Int'
-    * In the first argument of `addUTCTime', namely
-        `(timeout :: NominalDiffTime)'
-      In the second argument of `($)', namely
-        `addUTCTime (timeout :: NominalDiffTime) currentTime'
-      In the expression:
-        encryptTime sharedSecret
-        $ addUTCTime (timeout :: NominalDiffTime) currentTime
+Preprocessing executable 'Gluon-exe' for Gluon-0.1.0.0...
+[1 of 1] Compiling Main             ( app\Main.hs, .stack-work\dist\b7fec021\build\Gluon-exe\Gluon-exe-tmp\Main.o )
+Linking .stack-work\dist\b7fec021\build\Gluon-exe\Gluon-exe.exe ...
+Installing library in
+E:\Development\Haskell\Projects\Gluon\.stack-work\install\1bb99e24\lib\x86_64-windows-ghc-8.0.1\Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV
+Installing executable(s) in
+E:\Development\Haskell\Projects\Gluon\.stack-work\install\1bb99e24\bin
+Registering Gluon-0.1.0.0...

@@ -13,7 +13,7 @@ directoryServerCompare :: String
 directoryServerCompare = "DirectoryServer"
 
 securityServerCompare :: String
-SecurityServer = "SecurityServer"
+securityServerCompare = "SecurityServer"
 
 runSelectedApp :: String -> IO()
 runSelectedApp s = case () of

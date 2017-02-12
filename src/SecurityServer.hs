@@ -64,17 +64,12 @@ mkSecurityServer = do
 ------------------------------
 --  Helper Functions
 ------------------------------
-
-findClient :: String -> IO (Maybe CommonServer.Client)
-findClient s = do
+findClient :: String -> IO [CommonServer.Client]
+findClient s = liftIO $ do
     logDatabase "SecurityServer" "ClientDb" "Find" s
-    client <- connectToDatabase $ do
+    connectToDatabase $ do
         docs <- Database.MongoDB.find (Database.MongoDB.select ["_id" =: s] "ClientDb") >>= drainCursor
         return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe CommonServer.Client) docs
-    if Data.List.null client then 
-        return Nothing
-    else
-        return Just $ head client
 
 upsertClient :: CommonServer.Client -> IO ()
 upsertClient c = liftIO $ do
@@ -84,17 +79,13 @@ upsertClient c = liftIO $ do
 generateSessionKey :: IO String
 generateSessionKey = fmap (take 12 . randomRs ('!', 'z')) newStdGen
 
-getTimeoutTime :: IO Int
-getTimeoutTime = System.Random.randomRIO (1500, 2100)
-
-generateSession :: String -> CommonServer.Session
-generateSession p = liftIO $ do
+generateSession :: String -> IO CommonServer.Session
+generateSession p = do
     sessionKey <- generateSessionKey
     let encryptedSessionKey = encryptDecrypt p sessionKey
     let encryptedTicket = encryptDecrypt sharedSecret sessionKey
     currentTime <- getCurrentTime
-    timeout <- getTimeoutTime
-    let encryptedTicketTimeout = encryptTime sharedSecret $ addUTCTime (timeout :: NominalDiffTime) currentTime
+    let encryptedTicketTimeout = encryptTime sharedSecret $ addUTCTime 1800 currentTime
     return (CommonServer.Session encryptedTicket encryptedSessionKey encryptedTicketTimeout)
 
 getFailedSession :: String -> CommonServer.Session
@@ -107,17 +98,18 @@ login :: CommonServer.EncryptedClient -> ApiHandler CommonServer.Session
 login (CommonServer.EncryptedClient name encryptedData) = liftIO $ do
     logConnection "" "SecurityServer" "POST login"
     client <- findClient name
-    case client of
-        Nothing -> do
+    case length client of
+        0 -> do
             logError "SecurityServer" "Client not Found."
             return $ getFailedSession "Client not Found"
-        Just c -> do
+        _ -> do
+            let c = head client
             let decrypted = encryptDecrypt (password c) encryptedData
             if decrypted == name then do
                 logAction "SecurityServer" "Login" "Session Created"
                 logTrailing
-                return $ generateSession (password c)
-            else do                
+                generateSession (password c)
+            else do
                 logError "SecurityServer" "Login Failed"
                 logTrailing
                 return $ getFailedSession "Login has Incorrect Encryption Data"
@@ -134,9 +126,9 @@ contains c = liftIO $ do
     logConnection "" "securityServer" "GET contains"
     client <- findClient c
     logTrailing
-    case client of 
-        Nothing -> return (CommonServer.Response CommonServer.SecurityClientNotRegistered securityServerIdentity "")
-        Just c -> return (CommonServer.Response CommonServer.SecurityClientRegistered securityServerIdentity "")
+    case length client of 
+        0 -> return (CommonServer.Response CommonServer.SecurityClientNotRegistered securityServerIdentity "")
+        _ -> return (CommonServer.Response CommonServer.SecurityClientRegistered securityServerIdentity "")
             
 
 
