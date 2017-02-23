@@ -139,3 +139,13 @@ loginClient (CommonServer.ClientRequest ec req) = do
             loginToSecurityServer (CommonServer.EncryptedClient clientName (createEncryptedUserNameWithPassword clientName clientPassword))
             logTrailing
             return (CommonServer.Response CommonServer.SecurityClientLoggedIn securityServerIdentity "")
+
+-- files
+
+-- open
+
+--close
+
+--begin
+
+--end
