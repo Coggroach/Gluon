@@ -168,13 +168,18 @@ getFiles t = liftIO $ do
         let fileNames' = Data.List.nub $ Data.List.sort fileNames
         return (encryptDecryptArray (getSessionKeyFromTicket t) fileNames')
 
-openFile :: String -> ApiHandler CommonServer.File
-openFile fn = liftIO $ do
-    logConnection "" "DirectoryServer" "GET open"
-    fileMapping <- findFileMapping fn    
-    file <- downloadFromFileServer fn $ identity fileMapping
-    logTrailing
-    return file
+openFile :: CommonServer.Ticket -> String -> ApiHandler CommonServer.File
+openFile t fn = liftIO $ do
+    flag <- isNotValidTicket t
+    if flag then do
+        logError "DirectoryServer" "Session Timed out"
+        return (File fn (encryptDecrypt (getSessionKeyFromTicket t) "Timeout"))
+    else do
+        logConnection "" "DirectoryServer" "GET open"
+        fileMapping <- findFileMapping fn    
+        file <- downloadFromFileServer fn $ identity fileMapping
+        logTrailing
+        return file
 
 closeFile :: CommonServer.File -> ApiHandler CommonServer.Response
 closeFile f = liftIO $ do

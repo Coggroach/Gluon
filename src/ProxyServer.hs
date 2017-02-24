@@ -117,7 +117,7 @@ createEncryptedUserNameWithPassword u p = encryptDecrypt p u
 
 getFilesFromDirectoryServer :: CommonServer.Ticket -> IO [FilePath]
 getFilesFromDirectoryServer t = do
-    logConnection "ProxyServer" "DirectoryServer" "POST register"
+    logConnection "ProxyServer" "DirectoryServer" "POST files"
     manager <- newManager defaultManagerSettings
     response <- runClientM (directoryClientFiles t) (ClientEnv manager (BaseUrl Http (address directoryServerIdentity) (getIdentityPort directoryServerIdentity) ""))
     case response of
@@ -125,8 +125,22 @@ getFilesFromDirectoryServer t = do
             logError "ProxyServer" "Problem connecting to DirectoryServer"
             return (CommonServer.Response CommonServer.DirectoryError proxyServerIdentity "")
         Right response' -> do
-            logAction "ProxyServer" "Login" "Got FileList from DirectoryServer"
+            logAction "ProxyServer" "Fetch" "Got FileList from DirectoryServer"
             return response'
+
+getFileFromDirectoryServer :: CommonServer.Ticket -> String -> CommonServer.File
+getFileFromDirectoryServer t fn = do
+    logConnection "ProxyServer" "DirectoryServer" "POST open"
+    manager <- newManager defaultManagerSettings
+    response <- runClientM (directoryClientOpen t fn) (ClientEnv manager (BaseUrl Http (address directoryServerIdentity) (getIdentityPort directoryServerIdentity) ""))
+    case response of
+        Left err -> do
+            logError "ProxyServer" "Problem connecting to DirectoryServer"
+            return (CommonServer.Response CommonServer.DirectoryError proxyServerIdentity "")
+        Right response' -> do
+            logAction "ProxyServer" "Fetch" "Got File from DirectoryServer"
+            return response'
+
 
 ------------------------------
 --  Serving Functions
@@ -156,12 +170,16 @@ loginClient (CommonServer.ClientRequest ec req) = do
 getFiles :: CommonServer.ClientRequest -> ApiHandler [FilePath]
 getFiles (CommonServer.ClientRequest ec req) = do
     logConnection "" "ProxyServer" "POST files"
-    let clientName = unecryptedUsername ec
-    let session = findClientSession clientName
+    let session = findClientSession $ unecryptedUsername ec
     let ticket = getTicketFromSession session
     return getFilesFromDirectoryServer ticket
 
--- open
+openFile :: CommonServer.ClientRequest -> ApiHandler CommonServer.File
+openFile (CommonServer.ClientRequest ec req) = do
+    logConnection "" "ProxyServer" "POST open"
+    let session = findClientSession $ unecryptedUsername ec
+    let ticket = getTicketFromSession session
+    return getFileFromDirectoryServer ticket
 
 --close
 

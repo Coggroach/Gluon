@@ -45,7 +45,7 @@ fileClientFiles :<|> fileClientDownload :<|> fileClientUpload = Servant.Client.c
 ------------------------------
 type DirectoryApi = 
     "files" :> ReqBody '[JSON] CommonServer.Ticket :> Post '[JSON] [FilePath] :<|>
-    "open" :> Capture "fileName" String :> Get '[JSON] CommonServer.File :<|>
+    "open" :> ReqBody '[JSON] CommonServer.Ticket :> ReqBody '[JSON] String :> Post '[JSON] CommonServer.File :<|>
     "close" :> ReqBody '[JSON] CommonServer.File :> Post '[JSON] CommonServer.Response :<|>
     "join" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response  
  --   "beginTrans" :> Get '[JSON] CommonServer.Response :<|>
@@ -56,7 +56,7 @@ directoryApi :: Proxy DirectoryApi
 directoryApi = Proxy
 
 directoryClientFiles :: CommonServer.Ticket -> ClientM [FilePath]
-directoryClientOpen :: String -> ClientM  CommonServer.File
+directoryClientOpen :: CommonServer.Ticket -> String -> ClientM  CommonServer.File
 directoryClientClose :: CommonServer.File -> ClientM CommonServer.Response
 directoryClientJoin :: CommonServer.Identity -> ClientM CommonServer.Response
 
