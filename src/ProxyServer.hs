@@ -184,6 +184,7 @@ getFiles (CommonServer.ClientRequest ec req) = do
     logConnection "" "ProxyServer" "POST files"
     let session = findClientSession $ unecryptedUsername ec
     let ticket = getTicketFromSession session
+    logTrailing
     return (getFilesFromDirectoryServer ticket)
 
 openFile :: CommonServer.ClientRequest -> ApiHandler CommonServer.File
@@ -191,6 +192,7 @@ openFile (CommonServer.ClientRequest ec req) = do
     logConnection "" "ProxyServer" "POST open"
     let session = findClientSession $ unecryptedUsername ec
     let ticket = getTicketFromSession session
+    logTrailing
     return (getFileFromDirectoryServer ticket req)
 
 closeFile :: CommonServer.ClientFileRequest -> ApiHandler CommonServer.Response
@@ -198,6 +200,7 @@ closeFile (CommonServer.ClientFileRequest ec req) = do
     logConnection "" "ProxyServer" "POST close"
     let session = findClientSession $ unecryptedUsername ec
     let ticket = getTicketFromSession session
+    logTrailing
     return (uploadFileToDirectoryServer ticket req)
 
 --begin

@@ -91,11 +91,11 @@ upsertFileServer i = liftIO $ do
     logDatabase "DirectoryServer" "FileServerDb" "Upsert" key
     connectToDatabase $ Database.MongoDB.upsert (Database.MongoDB.select ["_id" =: key] "FileServerDb") $ toBSON i
 
-getFilesFromFileServer :: CommonServer.Identity -> IO()
-getFilesFromFileServer i = liftIO $ do
+getFilesFromFileServer :: CommonServer.Ticket -> CommonServer.Identity -> IO()
+getFilesFromFileServer t i = liftIO $ do
     logConnection "DirectoryServer" "FileServer" "GET files"
     manager <- newManager defaultManagerSettings
-    response <- runClientM fileClientFiles (ClientEnv manager (BaseUrl Http (address i) (read(port i)::Int) ""))
+    response <- runClientM (fileClientFiles t) (ClientEnv manager (BaseUrl Http (address i) (read(port i)::Int) ""))
     case response of
         Left err -> logError "DirectoryServer" $ show err
         Right response' -> do
@@ -124,20 +124,20 @@ getAllFileMappings = liftIO $ do
         docs <- Database.MongoDB.find (Database.MongoDB.select [] "FileMappingDb") >>= drainCursor
         return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe FileMapping) docs
 
-downloadFromFileServer :: String -> CommonServer.Identity -> IO CommonServer.File
-downloadFromFileServer fn i = do
+downloadFromFileServer :: CommonServer.Ticket -> String -> CommonServer.Identity -> IO CommonServer.File
+downloadFromFileServer t fn i = do
     logConnection "DirectoryServer" "FileServer" "GET download"
     manager <- newManager defaultManagerSettings
-    response <- runClientM (fileClientDownload fn) (ClientEnv manager (BaseUrl Http (address i) (read(port i)::Int) ""))
+    response <- runClientM (fileClientDownload t fn) (ClientEnv manager (BaseUrl Http (address i) (read(port i)::Int) ""))
     case response of
         Left err -> return (File "" "")
         Right response' -> return response'
 
-uploadToFileServer :: CommonServer.File -> CommonServer.Identity -> IO CommonServer.Response
-uploadToFileServer f i = do
+uploadToFileServer :: CommonServer.Ticket -> CommonServer.File -> CommonServer.Identity -> IO CommonServer.Response
+uploadToFileServer t f i = do
     logConnection "DirectoryServer" "FileServer" "POST upload"
     manager <- newManager defaultManagerSettings
-    response <- runClientM (fileClientUpload f) (ClientEnv manager (BaseUrl Http (address i) (read(port i)::Int) ""))
+    response <- runClientM (fileClientUpload t f) (ClientEnv manager (BaseUrl Http (address i) (read(port i)::Int) ""))
     case response of
         Left err -> return (CommonServer.Response CommonServer.FileUploadError i "")
         Right response' -> return response'
@@ -162,7 +162,7 @@ getFiles t = liftIO $ do
     else do
         logConnection "" "DirectoryServer" "GET files"
         fileServers <- getAllFileServers
-        mapM_ getFilesFromFileServer fileServers
+        mapM_ (getFilesFromFileServer t) fileServers
         fileMappings <- getAllFileMappings
         let fileNames = Data.List.map DirectoryServer.fileName fileMappings
         let fileNames' = Data.List.nub $ Data.List.sort fileNames
@@ -177,7 +177,7 @@ openFile t fn = liftIO $ do
     else do
         logConnection "" "DirectoryServer" "GET open"
         fileMapping <- findFileMapping fn    
-        file <- downloadFromFileServer fn $ identity fileMapping
+        file <- downloadFromFileServer t fn $ identity fileMapping
         logTrailing
         return file
 
@@ -190,7 +190,7 @@ closeFile t f = liftIO $ do
     else do
         logConnection "" "DirectoryServer" "POST close"
         fileMapping <- findFileMapping (CommonServer.fileName f)    
-        response <- uploadToFileServer f (identity fileMapping)
+        response <- uploadToFileServer t f (identity fileMapping)
         logTrailing
         return response
 

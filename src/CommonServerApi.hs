@@ -24,19 +24,16 @@ type ApiHandler = ExceptT ServantErr IO
 --  FileServer Api 
 ------------------------------
 type FileApi = 
-    "files" :> Get '[JSON] [FilePath] :<|>
-    "download" :> Capture "fileName" String :> Get '[JSON] CommonServer.File :<|>
-    "upload" :> ReqBody '[JSON] CommonServer.File :> Post '[JSON] CommonServer.Response -- :<|>
---    "beginTrans" :> Get '[JSON] CommonServer.Response :<|>
---    "endTrans" :> Get '[JSON] CommonServer.Response :<|>
---    "commitTrans" :> Get '[JSON] CommonServer.Response
+    "files" :> ReqBody '[JSON] CommonServer.Ticket :> Post '[JSON] [FilePath] :<|>
+    "download" :> ReqBody '[JSON] CommonServer.Ticket :> ReqBody '[JSON] String :> Post '[JSON] CommonServer.File :<|>
+    "upload" :> ReqBody '[JSON] CommonServer.Ticket :> ReqBody '[JSON] CommonServer.File :> Post '[JSON] CommonServer.Response
 
 fileApi :: Proxy FileApi
 fileApi = Proxy
 
-fileClientFiles :: ClientM [FilePath]
-fileClientDownload :: String -> ClientM CommonServer.File
-fileClientUpload :: CommonServer.File -> ClientM CommonServer.Response
+fileClientFiles :: CommonServer.Ticket -> ClientM [FilePath]
+fileClientDownload :: CommonServer.Ticket -> String -> ClientM CommonServer.File
+fileClientUpload :: CommonServer.Ticket -> CommonServer.File -> ClientM CommonServer.Response
 
 fileClientFiles :<|> fileClientDownload :<|> fileClientUpload = Servant.Client.client fileApi
 

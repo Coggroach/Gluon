@@ -56,22 +56,22 @@ mkFileServer = do
 ------------------------------
 --  Serving Functions
 ------------------------------
-getFiles :: ApiHandler [FilePath]
-getFiles = liftIO $ do
+getFiles :: CommonServer.Ticket -> ApiHandler [FilePath]
+getFiles t = liftIO $ do
     logConnection "" "FileServer" "GET files"
     dir <- getCurrentDirectory
     logTrailing
     listDirectory dir
 
-downloadFile :: String -> ApiHandler File
-downloadFile fn = liftIO $ do
+downloadFile :: CommonServer.Ticket -> String -> ApiHandler File
+downloadFile t fn = liftIO $ do
     logConnection "" "FileServer" "GET download"
     content <- liftIO (readFile fn)
     logTrailing
     return (File fn content)
 
-uploadFile :: File -> ApiHandler CommonServer.Response
-uploadFile (File f c) = liftIO $ do
+uploadFile :: CommonServer.Ticket -> File -> ApiHandler CommonServer.Response
+uploadFile t (File f c) = liftIO $ do
     logConnection "" "FileServer" "POST upload"
     liftIO (writeFile f c)
     logTrailing
