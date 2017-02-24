@@ -173,7 +173,7 @@ openFile t fn = liftIO $ do
     flag <- isNotValidTicket t
     if flag then do
         logError "DirectoryServer" "Session Timed out"
-        return (File fn (encryptDecrypt (getSessionKeyFromTicket t) "Timeout"))
+        return (CommonServer.File fn (encryptDecrypt (getSessionKeyFromTicket t) "Timeout"))
     else do
         logConnection "" "DirectoryServer" "GET open"
         fileMapping <- findFileMapping fn    
@@ -181,13 +181,18 @@ openFile t fn = liftIO $ do
         logTrailing
         return file
 
-closeFile :: CommonServer.File -> ApiHandler CommonServer.Response
-closeFile f = liftIO $ do
-    logConnection "" "DirectoryServer" "POST close"
-    fileMapping <- findFileMapping (CommonServer.fileName f)    
-    response <- uploadToFileServer f (identity fileMapping)
-    logTrailing
-    return response
+closeFile :: CommonServer.Ticket -> CommonServer.File -> ApiHandler CommonServer.Response
+closeFile t f = liftIO $ do
+    flag <- isNotValidTicket t
+    if flag then do
+        logError "DirectoryServer" "Session Timed out"
+        return (CommonServer.Response CommonServer.DirectoryError directoryServerIdentity "")
+    else do
+        logConnection "" "DirectoryServer" "POST close"
+        fileMapping <- findFileMapping (CommonServer.fileName f)    
+        response <- uploadToFileServer f (identity fileMapping)
+        logTrailing
+        return response
 
 joinServer :: CommonServer.Identity -> ApiHandler CommonServer.Response
 joinServer i = liftIO $ do

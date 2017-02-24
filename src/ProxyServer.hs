@@ -136,11 +136,23 @@ getFileFromDirectoryServer t fn = do
     case response of
         Left err -> do
             logError "ProxyServer" "Problem connecting to DirectoryServer"
-            return (CommonServer.Response CommonServer.DirectoryError proxyServerIdentity "")
+            return (CommonServer.File "Error" "")
         Right response' -> do
             logAction "ProxyServer" "Fetch" "Got File from DirectoryServer"
             return response'
 
+uploadFileToDirectoryServer :: CommonServer.Ticket -> CommonServer.File -> CommonServer.Response
+uploadFileToDirectoryServer t f = do
+    logConnection "ProxyServer" "DirectoryServer" "POST close"
+    manager <- newManager defaultManagerSettings
+    response <- runClientM (directoryClientOpen t fn) (ClientEnv manager (BaseUrl Http (address directoryServerIdentity) (getIdentityPort directoryServerIdentity) ""))
+    case response of
+        Left err -> do
+            logError "ProxyServer" "Problem connecting to DirectoryServer"
+            return (CommonServer.Response CommonServer.DirectoryError proxyServerIdentity "")
+        Right response' -> do
+            logAction "ProxyServer" "Upload" "Uploaded File to DirectoryServer"
+            return response'
 
 ------------------------------
 --  Serving Functions
@@ -172,16 +184,21 @@ getFiles (CommonServer.ClientRequest ec req) = do
     logConnection "" "ProxyServer" "POST files"
     let session = findClientSession $ unecryptedUsername ec
     let ticket = getTicketFromSession session
-    return getFilesFromDirectoryServer ticket
+    return (getFilesFromDirectoryServer ticket)
 
 openFile :: CommonServer.ClientRequest -> ApiHandler CommonServer.File
 openFile (CommonServer.ClientRequest ec req) = do
     logConnection "" "ProxyServer" "POST open"
     let session = findClientSession $ unecryptedUsername ec
     let ticket = getTicketFromSession session
-    return getFileFromDirectoryServer ticket
+    return (getFileFromDirectoryServer ticket req)
 
---close
+closeFile :: CommonServer.ClientFileRequest -> ApiHandler CommonServer.Response
+closeFile (CommonServer.ClientFileRequest ec req) = do
+    logConnection "" "ProxyServer" "POST close"
+    let session = findClientSession $ unecryptedUsername ec
+    let ticket = getTicketFromSession session
+    return (uploadFileToDirectoryServer ticket req)
 
 --begin
 
