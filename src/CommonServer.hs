@@ -88,7 +88,7 @@ data ClientFileRequest = ClientFileRequest {
 --  Security 
 ------------------------------
 data Ticket = Ticket {
-    ticketId :: String,
+    encryptedTicketId :: String,
     encryptedTimeout :: String
 } deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
 
@@ -108,6 +108,15 @@ data SessionFile = SessionFile {
     sessionEncryptedFile :: File
 } deriving (Eq, Show, Generic, FromJSON, ToJSON)
 
+getTicketFromSession :: Session -> Ticket
+getTicketFromSession (Session t k time) = Ticket t time
+
+getSessionKeyFromTicket :: Ticket -> String
+getSessionKeyFromTicket (Ticket t _) = encryptDecrypt sharedSecret t
+
+getSessionTimeoutFromTicket :: Ticket -> UTCTime
+getSessionTimeoutFromTicket (Ticket _ o) = decryptTime sharedSecret o
+
 ------------------------------
 --  Responses
 ------------------------------
@@ -121,6 +130,7 @@ data ResponseCode =
     FileUploadComplete |
     FileUploadError |
     DirectoryJoinSuccess |
+    DirectoryError |
     SecurityClientRegistered |
     SecurityClientNotRegistered |
     SecurityError |

@@ -44,7 +44,7 @@ fileClientFiles :<|> fileClientDownload :<|> fileClientUpload = Servant.Client.c
 --  DirectoryServer Api
 ------------------------------
 type DirectoryApi = 
-    "files" :> Get '[JSON] [FilePath] :<|>    
+    "files" :> ReqBody '[JSON] CommonServer.Ticket :> Post '[JSON] [FilePath] :<|>
     "open" :> Capture "fileName" String :> Get '[JSON] CommonServer.File :<|>
     "close" :> ReqBody '[JSON] CommonServer.File :> Post '[JSON] CommonServer.Response :<|>
     "join" :> ReqBody '[JSON] CommonServer.Identity :> Post '[JSON] CommonServer.Response  
@@ -55,7 +55,7 @@ type DirectoryApi =
 directoryApi :: Proxy DirectoryApi
 directoryApi = Proxy
 
-directoryClientFiles :: ClientM [FilePath]
+directoryClientFiles :: CommonServer.Ticket -> ClientM [FilePath]
 directoryClientOpen :: String -> ClientM  CommonServer.File
 directoryClientClose :: CommonServer.File -> ClientM CommonServer.Response
 directoryClientJoin :: CommonServer.Identity -> ClientM CommonServer.Response
@@ -84,7 +84,7 @@ securityClientLogin :<|> securityClientRegister :<|> securityClientContains = Se
 ------------------------------
 type ProxyApi =
     "login" :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.Response :<|>
-    "files" :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] [String] :<|>
+    "files" :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] [FilePath] :<|>
     "open"  :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.File :<|>
     "close" :> ReqBody '[JSON] CommonServer.ClientFileRequest :> Post '[JSON] CommonServer.Response :<|>
     "begin" :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.Response :<|>

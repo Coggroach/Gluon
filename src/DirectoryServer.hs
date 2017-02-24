@@ -142,17 +142,31 @@ uploadToFileServer f i = do
         Left err -> return (CommonServer.Response CommonServer.FileUploadError i "")
         Right response' -> return response'
 
+isNotValidTicket :: Ticket -> IO Bool
+isNotValidTicket t = do
+    let decrypytedTimeout = getSessionTimeoutFromTicket t
+    currentTime <- getCurrentTime
+    if currentTime > decrypytedTimeout then
+        return True
+    else return False
+
 ------------------------------
 --  Serving Functions
 ------------------------------
-getFiles :: ApiHandler [FilePath]
-getFiles = liftIO $ do
-    logConnection "" "DirectoryServer" "GET files"
-    fileServers <- getAllFileServers
-    mapM_ getFilesFromFileServer fileServers
-    fileMappings <- getAllFileMappings
-    let fileNames = Data.List.map DirectoryServer.fileName fileMappings
-    return (Data.List.nub $ Data.List.sort fileNames)
+getFiles :: CommonServer.Ticket -> ApiHandler [FilePath]
+getFiles t = liftIO $ do
+    flag <- isNotValidTicket t
+    if flag then do
+        logError "DirectoryServer" "Session Timed out"
+        return (encryptDecryptArray (getSessionKeyFromTicket t) ["Timeout", "Session Expired"])
+    else do
+        logConnection "" "DirectoryServer" "GET files"
+        fileServers <- getAllFileServers
+        mapM_ getFilesFromFileServer fileServers
+        fileMappings <- getAllFileMappings
+        let fileNames = Data.List.map DirectoryServer.fileName fileMappings
+        let fileNames' = Data.List.nub $ Data.List.sort fileNames
+        return (encryptDecryptArray (getSessionKeyFromTicket t) fileNames')
 
 openFile :: String -> ApiHandler CommonServer.File
 openFile fn = liftIO $ do

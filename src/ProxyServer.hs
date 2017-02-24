@@ -115,6 +115,19 @@ deleteDatabases = liftIO $ do
 createEncryptedUserNameWithPassword :: String -> String -> String
 createEncryptedUserNameWithPassword u p = encryptDecrypt p u
 
+getFilesFromDirectoryServer :: CommonServer.Ticket -> IO [FilePath]
+getFilesFromDirectoryServer t = do
+    logConnection "ProxyServer" "DirectoryServer" "POST register"
+    manager <- newManager defaultManagerSettings
+    response <- runClientM (directoryClientFiles t) (ClientEnv manager (BaseUrl Http (address directoryServerIdentity) (getIdentityPort directoryServerIdentity) ""))
+    case response of
+        Left err -> do
+            logError "ProxyServer" "Problem connecting to DirectoryServer"
+            return (CommonServer.Response CommonServer.DirectoryError proxyServerIdentity "")
+        Right response' -> do
+            logAction "ProxyServer" "Login" "Got FileList from DirectoryServer"
+            return response'
+
 ------------------------------
 --  Serving Functions
 ------------------------------
@@ -133,14 +146,20 @@ loginClient (CommonServer.ClientRequest ec req) = do
         CommonServer.SecurityClientRegistered -> do
             loginToSecurityServer ec
             logTrailing
-            return (CommonServer.Response CommonServer.SecurityClientLoggedIn securityServerIdentity "")
+            return (CommonServer.Response CommonServer.SecurityClientLoggedIn securityServerIdentity "Client Logged In")
         CommonServer.SecurityClientNotRegistered -> do
             registerToSecurityServer (CommonServer.Client clientName clientPassword)
             loginToSecurityServer (CommonServer.EncryptedClient clientName (createEncryptedUserNameWithPassword clientName clientPassword))
             logTrailing
-            return (CommonServer.Response CommonServer.SecurityClientLoggedIn securityServerIdentity "")
+            return (CommonServer.Response CommonServer.SecurityClientLoggedIn securityServerIdentity "Client Registered")
 
--- files
+getFiles :: CommonServer.ClientRequest -> ApiHandler [FilePath]
+getFiles (CommonServer.ClientRequest ec req) = do
+    logConnection "" "ProxyServer" "POST files"
+    let clientName = unecryptedUsername ec
+    let session = findClientSession clientName
+    let ticket = getTicketFromSession session
+    return getFilesFromDirectoryServer ticket
 
 -- open
 
