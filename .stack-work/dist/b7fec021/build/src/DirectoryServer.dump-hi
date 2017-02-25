@@ -1,9 +1,9 @@
 
 ==================== FINAL INTERFACE ====================
-2017-02-24 23:57:12.7049335 UTC
+2017-02-25 00:02:48.2789648 UTC
 
 interface Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:DirectoryServer [family instance module] 8001
-  interface hash: 5d3451c060171edf35b07002afd19104
+  interface hash: b39567a5507f999ff0fc8ac019c4f0f6
   ABI hash: 46581d86f78a75fc86f2a335bd1de8c6
   export-list hash: 0b21bca9a05aaddfc6e66b59d7871463
   orphan hash: bcedf045bb742963021e861afdb512f2
@@ -202,8 +202,8 @@ family instance modules: Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  CommonServer dd556a6a52a5f761e3a0e0fb49369ecc
-  exports: bcdf1cb16ee98e9a967416e4f381df23
+import  -/  CommonServer 260c73de2fa0ed9206332e5b388a9a3c
+  exports: 658b2a4686dc5e421860f6926e436f58
   DirectoryError 66747ce2835435584d8c1005e35abee7
   DirectoryJoinSuccess b3534b3427e871108eeade3b5591d680
   File 89f7df8bc343c7e50c800c148885d804

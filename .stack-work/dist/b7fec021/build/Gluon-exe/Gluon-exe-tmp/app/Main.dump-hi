@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-02-24 23:57:14.0371801 UTC
+2017-02-25 00:05:50.7027714 UTC
 
 interface main@main:Main 8001
-  interface hash: 8575f9963761e484542cc4cf7d3fce13
-  ABI hash: 7054baae8b9ab4c45b325603f89dce59
-  export-list hash: 1b493b71039aa8dead544df78b29a772
+  interface hash: 6c131a35a64985ce441b2dacaac4349a
+  ABI hash: 5440d3302e217986a8d65058c9c190b5
+  export-list hash: 88cb93477636192ea003ac897bc5f02d
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: a6cd0d3f810fac92f4cf3833737ade65
   sig of: Nothing
@@ -13,7 +13,9 @@ interface main@main:Main 8001
   where
 exports:
   Main.directoryServerCompare
-  Main.fileServerCompare
+  Main.fileServerCompare0
+  Main.fileServerCompare1
+  Main.fileServerCompare2
   Main.main
   Main.runSelectedApp
   Main.securityServerCompare
@@ -190,10 +192,10 @@ family instance modules: Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:Comm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer dd556a6a52a5f761e3a0e0fb49369ecc
+import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer 260c73de2fa0ed9206332e5b388a9a3c
 import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:DirectoryServer 46581d86f78a75fc86f2a335bd1de8c6
-import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:FileServer d7be05434c63b4454e196224e9a31526
-import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:SecurityServer fc21a662f9e05fb8b1860f87effb3131
+import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:FileServer b3fa5817cbbb052f482838539a781931
+import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:SecurityServer 3e270c3a2c530b97df4bb1aa16c53804
 import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
 import  -/  base-4.9.0.0:GHC.List 47d436dfb7454bb1883fb4d943e3f389
 import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
@@ -215,15 +217,21 @@ d6831ef04cb9301b090dfae6f7bb7ec7
 73e7f1a0d59d83780acf6c79f4fb0ce0
   directoryServerCompare :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "DirectoryServer"#) -}
-469c021cbbade7a5eb28897642d1fe0a
-  fileServerCompare :: GHC.Base.String
-  {- Unfolding: (GHC.CString.unpackCString# "FileServer"#) -}
-cdf7173e4467b08e861221cc99852f66
+54abd0ac3ae4741eedff21ef986403fb
+  fileServerCompare0 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# "FileServer0"#) -}
+5d68f3e90b738c0cf58fc90e0ea1c848
+  fileServerCompare1 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# "FileServer1"#) -}
+f1901fa47ebcffb6304717038f77aa7c
+  fileServerCompare2 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# "FileServer2"#) -}
+647091d9da3d329949c705a15be0fde2
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-fe20d6069ba5d3feeff8ddbf25197528
+6a77c9f53cc51b641b1ea2ad74100fe7
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -249,7 +257,7 @@ fe20d6069ba5d3feeff8ddbf25197528
                            of {}
                         : ds2 xs
                         -> Main.main2 (GHC.List.head @ GHC.Base.String xs) ipv } } }) -}
-0a783b638c7bed5259f8478c2253cbd3
+2b5dba432543e8aab06d79967768d61b
   main2 ::
     GHC.Base.String
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -257,7 +265,7 @@ fe20d6069ba5d3feeff8ddbf25197528
   {- Arity: 2, Strictness: <S,U><S,U>,
      Unfolding: (\ (s :: GHC.Base.String)
                    (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case GHC.Base.eqString s Main.fileServerCompare of wild {
+                 case GHC.Base.eqString s Main.fileServerCompare0 of wild {
                    GHC.Types.False
                    -> case GHC.Base.eqString s Main.directoryServerCompare of wild1 {
                         GHC.Types.False
@@ -268,11 +276,14 @@ fe20d6069ba5d3feeff8ddbf25197528
                                 of {}
                              GHC.Types.True -> SecurityServer.mkSecurityServer1 eta }
                         GHC.Types.True -> DirectoryServer.mkDirectoryServer1 eta }
-                   GHC.Types.True -> FileServer.mkFileServer1 eta }) -}
+                   GHC.Types.True
+                   -> FileServer.mkFileServer1
+                        CommonServer.fileServerIdentity0
+                        eta }) -}
 709a8f61e410f203f5e01d6146c2f0f8
   main3 :: GHC.Types.IO ()
   {- Strictness: x -}
-693f8e92894c215ab6f8199b089fe99e
+da749e5aeb5ce4ce0c0ec082f12d02f8
   main4 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -280,7 +291,7 @@ fe20d6069ba5d3feeff8ddbf25197528
      Unfolding: (GHC.TopHandler.runMainIO1
                    @ ()
                    Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
-4003de26b7ce9903c174d5e6eef93b15
+9284b4a7c0f782ba3f78eb25b5044ae2
   runSelectedApp :: GHC.Base.String -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <S,U><S,U>,
      Unfolding: InlineRule (0, True, True)

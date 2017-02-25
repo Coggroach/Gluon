@@ -141,8 +141,14 @@ data ResponseCode =
 --  Common Variables 
 ------------------------------
 
-fileServerIdentity :: Identity
-fileServerIdentity = Identity "127.0.0.1" "8082" FileServer
+fileServerIdentity0 :: Identity
+fileServerIdentity0 = Identity "127.0.0.1" "8082" FileServer
+
+fileServerIdentity1 :: Identity
+fileServerIdentity1 = Identity "127.0.0.1" "8083" FileServer
+
+fileServerIdentity2 :: Identity
+fileServerIdentity2 = Identity "127.0.0.1" "8084" FileServer
 
 directoryServerIdentity :: Identity
 directoryServerIdentity = Identity "127.0.0.1" "8081" DirectoryServer

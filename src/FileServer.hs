@@ -26,6 +26,9 @@ import           Network.HTTP.Client (newManager, defaultManagerSettings)
 resources :: Resources
 resources = Resources "res/FileServers";
 
+fileServerIdentity :: Identity
+fileServerIdentity = fileServerIdentity0
+
 ------------------------------
 --  Server Functions
 ------------------------------
@@ -38,11 +41,12 @@ fileServer =
 fileApp :: Application
 fileApp = serve fileApi fileServer
 
-mkFileServer :: IO()
-mkFileServer = do
+mkFileServer :: Identity -> IO()
+mkFileServer i = do
     let dir = path resources
     createDirectoryIfMissing True dir
     setCurrentDirectory dir
+    let fileServerIdentity = Identity (address i) (port i) (serverType i)
     logHeading "FileServer"    
     logConnection "FileServer" "DirectoryServer" "POST join"
     manager <- newManager defaultManagerSettings
@@ -58,14 +62,14 @@ mkFileServer = do
 ------------------------------
 getFiles :: CommonServer.Ticket -> ApiHandler [FilePath]
 getFiles t = liftIO $ do
-    logConnection "" "FileServer" "GET files"
+    logConnection "" "FileServer" "POST files"
     dir <- getCurrentDirectory
     logTrailing
     listDirectory dir
 
 downloadFile :: CommonServer.Ticket -> String -> ApiHandler File
 downloadFile t fn = liftIO $ do
-    logConnection "" "FileServer" "GET download"
+    logConnection "" "FileServer" "POST download"
     content <- liftIO (readFile fn)
     logTrailing
     return (File fn content)

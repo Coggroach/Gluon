@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-02-24 22:36:48.6105149 UTC
+2017-02-25 00:00:38.7173572 UTC
 
 interface Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer [orphan module] [family instance module] 8001
-  interface hash: 5924f0c7097d723f4b60c8cd7b8c0369
-  ABI hash: dd556a6a52a5f761e3a0e0fb49369ecc
-  export-list hash: bcdf1cb16ee98e9a967416e4f381df23
+  interface hash: eb8dc75a9ba54070b173d6b845f88e2e
+  ABI hash: 260c73de2fa0ed9206332e5b388a9a3c
+  export-list hash: 658b2a4686dc5e421860f6926e436f58
   orphan hash: ef20272622ad3782cc6c8ecdb0feb126
   flag hash: b114ef48677a2c4a46915ceb66b3c73b
   sig of: Nothing
@@ -19,7 +19,9 @@ exports:
   CommonServer.encryptDecryptArray
   CommonServer.encryptPort
   CommonServer.encryptTime
-  CommonServer.fileServerIdentity
+  CommonServer.fileServerIdentity0
+  CommonServer.fileServerIdentity1
+  CommonServer.fileServerIdentity2
   CommonServer.getIdentityPort
   CommonServer.getIdentitySafeString
   CommonServer.getIdentityString
@@ -38575,16 +38577,36 @@ eb8b82fb3485624065dcda014fcbd931
                 (\ (ds :: CommonServer.ClientFileRequest) ->
                  case ds of wild { CommonServer.ClientFileRequest ds1 ds2 ->
                  ds2 }) -}
-01423caa7693b27231a6caf9f2b20117
-  fileServerIdentity :: CommonServer.Identity
+551004bc2dfe7ced049638e329267205
+  fileServerIdentity0 :: CommonServer.Identity
   {- Strictness: m,
      Unfolding: (CommonServer.Identity
                    CommonServer.directoryServerIdentity2
-                   CommonServer.fileServerIdentity1
+                   CommonServer.fileServerIdentity4
                    CommonServer.FileServer) -}
-46ddd4fc5b061a216a6c17fa28dc9eee
-  fileServerIdentity1 :: [GHC.Types.Char]
+0df8c73fba601e27b27f9cb1fbca94ba
+  fileServerIdentity1 :: CommonServer.Identity
+  {- Strictness: m,
+     Unfolding: (CommonServer.Identity
+                   CommonServer.directoryServerIdentity2
+                   CommonServer.fileServerIdentity5
+                   CommonServer.FileServer) -}
+29af91dbae3cc26a871787c2ecde98c1
+  fileServerIdentity2 :: CommonServer.Identity
+  {- Strictness: m,
+     Unfolding: (CommonServer.Identity
+                   CommonServer.directoryServerIdentity2
+                   CommonServer.fileServerIdentity6
+                   CommonServer.FileServer) -}
+76d65dafd8c60e530e61537b38cb070c
+  fileServerIdentity4 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "8082"#) -}
+89d8da7d0749ac30d019999591d8c5c2
+  fileServerIdentity5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "8083"#) -}
+eb00e15184db0f1ae70cd72585456eac
+  fileServerIdentity6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "8084"#) -}
 ffb5ba59aff7a0519da609a39285465f
   getIdentityPort :: CommonServer.Identity -> GHC.Types.Int
   {- Arity: 1, Strictness: <L,1*U(A,1*U,A)>,

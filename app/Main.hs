@@ -6,8 +6,14 @@ import DirectoryServer
 import FileServer
 import SecurityServer
 
-fileServerCompare :: String
-fileServerCompare = "FileServer"
+fileServerCompare0 :: String
+fileServerCompare0 = "FileServer0"
+
+fileServerCompare1 :: String
+fileServerCompare1 = "FileServer1"
+
+fileServerCompare2 :: String
+fileServerCompare2 = "FileServer2"
 
 directoryServerCompare :: String
 directoryServerCompare = "DirectoryServer"
@@ -17,7 +23,9 @@ securityServerCompare = "SecurityServer"
 
 runSelectedApp :: String -> IO()
 runSelectedApp s = case () of
-    () | s == fileServerCompare ->  mkFileServer
+    () | s == fileServerCompare0 ->  mkFileServer fileServerIdentity0
+       | s == fileServerCompare0 ->  mkFileServer fileServerIdentity1
+       | s == fileServerCompare0 ->  mkFileServer fileServerIdentity2
        | s == directoryServerCompare -> mkDirectoryServer
        | s == securityServerCompare -> mkSecurityServer
 
