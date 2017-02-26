@@ -24,8 +24,8 @@ securityServerCompare = "SecurityServer"
 runSelectedApp :: String -> IO()
 runSelectedApp s = case () of
     () | s == fileServerCompare0 ->  mkFileServer fileServerIdentity0
-       | s == fileServerCompare0 ->  mkFileServer fileServerIdentity1
-       | s == fileServerCompare0 ->  mkFileServer fileServerIdentity2
+       | s == fileServerCompare1 ->  mkFileServer fileServerIdentity1
+       | s == fileServerCompare2 ->  mkFileServer fileServerIdentity2
        | s == directoryServerCompare -> mkDirectoryServer
        | s == securityServerCompare -> mkSecurityServer
 

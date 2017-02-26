@@ -159,6 +159,9 @@ securityServerIdentity = Identity "127.0.0.1" "8080" SecurityServer
 proxyServerIdentity :: Identity
 proxyServerIdentity = Identity "127.0.0.1" "8079" ProxyServer
 
+transactionServerIdentity :: Identity
+transactionServerIdentity = Identity "127.0.0.1" "8078" TransactionServer
+
 ------------------------------
 --  Common Functions 
 ------------------------------

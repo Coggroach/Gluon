@@ -63,7 +63,7 @@ mkProxyServer = do
     logHeading "ProxyServer"
     logAction "ProxyServer" "Start" $ show (getIdentityString proxyServerIdentity)
     deleteDatabases
-    run (getIdentityport proxyServerIdentity) proxyApp
+    run (getIdentityPort proxyServerIdentity) proxyApp
 
 ------------------------------
 --  Helper Functions
