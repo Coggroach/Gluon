@@ -69,3 +69,7 @@ mkTransactionServer = do
 ------------------------------
 --  Serving Functions
 ------------------------------
+
+beginTransaction
+
+endTransaction
