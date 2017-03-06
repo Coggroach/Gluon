@@ -69,14 +69,27 @@ getFiles t = liftIO $ do
 
 downloadFile :: CommonServer.Ticket -> String -> ApiHandler File
 downloadFile t fn = liftIO $ do
-    logConnection "" "FileServer" "POST download"
-    content <- liftIO (readFile fn)
-    logTrailing
-    return (File fn content)
+    flag <- isNotValidTicket t
+    if flag then do
+        logError "FileServer" "Session Timed out"
+        return (CommonServer.File fn (encryptDecrypt (getSessionKeyFromTicket t) "Timeout")) 
+    else do
+        logConnection "" "FileServer" "POST download"
+        let decryptedFileName = encryptDecrypt (getSessionKeyFromTicket t) fn
+        content <- liftIO (readFile decryptedFileName)
+        logTrailing
+        return (File fn content)
 
 uploadFile :: CommonServer.Ticket -> File -> ApiHandler CommonServer.Response
-uploadFile t (File f c) = liftIO $ do
-    logConnection "" "FileServer" "POST upload"
-    liftIO (writeFile f c)
-    logTrailing
-    return (CommonServer.Response CommonServer.FileUploadComplete fileServerIdentity "")
+uploadFile t (File fn c) = liftIO $ do
+    flag <- isNotValidTicket t
+    if flag then do
+        logError "FileServer" "Session Timed out"
+        return (CommonServer.Response CommonServer.FileUploadError fileServerIdentity "")
+    else do
+        logConnection "" "FileServer" "POST upload"
+        let decryptedFileName = encryptDecrypt (getSessionKeyFromTicket t) fn
+        let decryptedFileContent = encryptDecrypt (getSessionKeyFromTicket t) c
+        liftIO (writeFile decryptedFileName decryptedFileContent)
+        logTrailing
+        return (CommonServer.Response CommonServer.FileUploadComplete fileServerIdentity "")

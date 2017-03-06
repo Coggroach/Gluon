@@ -178,6 +178,14 @@ getIdentitySafeString i = address i ++ "_" ++ port i
 getIdentityTypeString :: Identity -> String
 getIdentityTypeString i = show (serverType i) ++ "_" ++ port i
 
+isNotValidTicket :: Ticket -> IO Bool
+isNotValidTicket t = do
+    let decrypytedTimeout = getSessionTimeoutFromTicket t
+    currentTime <- getCurrentTime
+    if currentTime > decrypytedTimeout then
+        return True
+    else return False
+
 ------------------------------
 --  Logging Functions 
 ------------------------------

@@ -142,14 +142,6 @@ uploadToFileServer t f i = do
         Left err -> return (CommonServer.Response CommonServer.FileUploadError i "")
         Right response' -> return response'
 
-isNotValidTicket :: Ticket -> IO Bool
-isNotValidTicket t = do
-    let decrypytedTimeout = getSessionTimeoutFromTicket t
-    currentTime <- getCurrentTime
-    if currentTime > decrypytedTimeout then
-        return True
-    else return False
-
 ------------------------------
 --  Serving Functions
 ------------------------------
