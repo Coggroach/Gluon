@@ -80,9 +80,9 @@ type ProxyApi =
     "login" :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.Response :<|>
     "files" :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] [FilePath] :<|>
     "open"  :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.File :<|>
-    "close" :> ReqBody '[JSON] CommonServer.ClientFileRequest :> Post '[JSON] CommonServer.Response :<|>
-    "begin" :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.Response :<|>
-    "end"   :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.Response
+    "close" :> ReqBody '[JSON] CommonServer.ClientFileRequest :> Post '[JSON] CommonServer.Response -- :<|>
+    --"begin" :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.Response :<|>
+    --"end"   :> ReqBody '[JSON] CommonServer.ClientRequest :> Post '[JSON] CommonServer.Response
 
 proxyApi :: Proxy ProxyApi
 proxyApi = Proxy

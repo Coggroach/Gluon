@@ -46,15 +46,15 @@ resources = Resources "res/ProxyServer";
 ------------------------------
 proxyServer :: Server ProxyApi
 proxyServer =
-    loginClient :<|>
-    getFiles :<|>
-    openFile :<|>
-    closeFile :<|>
-    beginTransaction :<|>
-    endTransaction
+    ProxyServer.loginClient :<|>
+    ProxyServer.getFiles :<|>
+    ProxyServer.openFile :<|>
+    ProxyServer.closeFile -- :<|>
+    --beginTransaction :<|>
+    --endTransaction
 
 proxyApp :: Application
-proxyApp = server proxyApi proxyServer
+proxyApp = serve proxyApi proxyServer
 
 mkProxyServer :: IO()
 mkProxyServer = do
@@ -99,8 +99,8 @@ findClientSession :: String -> IO CommonServer.Session
 findClientSession name = liftIO $ do
     logDatabase "ProxyServer" "ClientSessionDb" "Find" name
     connectToDatabase $ do
-        docs <- find (select ["_id" =: name] "ClientSessionDb") >>= drainCursor
-        return $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe CommonServer.Session) docs
+        docs <- Database.MongoDB.find (select ["_id" =: name] "ClientSessionDb") >>= drainCursor
+        return $ head $ Data.Maybe.mapMaybe (\ b -> fromBSON b :: Maybe CommonServer.Session) docs
 
 upsertClientSession :: String -> CommonServer.Session -> IO ()
 upsertClientSession name session = liftIO $ do
@@ -123,12 +123,12 @@ getFilesFromDirectoryServer t = do
     case response of
         Left err -> do
             logError "ProxyServer" "Problem connecting to DirectoryServer"
-            return (CommonServer.Response CommonServer.DirectoryError proxyServerIdentity "")
+            return []
         Right response' -> do
             logAction "ProxyServer" "Fetch" "Got FileList from DirectoryServer"
             return response'
 
-getFileFromDirectoryServer :: CommonServer.Ticket -> String -> CommonServer.File
+getFileFromDirectoryServer :: CommonServer.Ticket -> String -> IO CommonServer.File
 getFileFromDirectoryServer t fn = do
     logConnection "ProxyServer" "DirectoryServer" "POST open"
     manager <- newManager defaultManagerSettings
@@ -141,11 +141,11 @@ getFileFromDirectoryServer t fn = do
             logAction "ProxyServer" "Fetch" "Got File from DirectoryServer"
             return response'
 
-uploadFileToDirectoryServer :: CommonServer.Ticket -> CommonServer.File -> CommonServer.Response
+uploadFileToDirectoryServer :: CommonServer.Ticket -> CommonServer.File -> IO CommonServer.Response
 uploadFileToDirectoryServer t f = do
     logConnection "ProxyServer" "DirectoryServer" "POST close"
-    manager <- newManager defaultManagerSettings
-    response <- runClientM (directoryClientOpen t fn) (ClientEnv manager (BaseUrl Http (address directoryServerIdentity) (getIdentityPort directoryServerIdentity) ""))
+    manager <- newManager defaultManagerSettings    
+    response <- runClientM (directoryClientClose t f) (ClientEnv manager (BaseUrl Http (address directoryServerIdentity) (getIdentityPort directoryServerIdentity) ""))
     case response of
         Left err -> do
             logError "ProxyServer" "Problem connecting to DirectoryServer"
@@ -158,7 +158,7 @@ uploadFileToDirectoryServer t f = do
 --  Serving Functions
 ------------------------------
 loginClient :: CommonServer.ClientRequest -> ApiHandler CommonServer.Response
-loginClient (CommonServer.ClientRequest ec req) = do
+loginClient (CommonServer.ClientRequest ec req) = liftIO $ do
     logConnection "" "ProxyServer" "POST login"
     let clientName = unecryptedUsername ec
     let clientPassword = encryptedData ec
@@ -180,28 +180,31 @@ loginClient (CommonServer.ClientRequest ec req) = do
             return (CommonServer.Response CommonServer.SecurityClientLoggedIn securityServerIdentity "Client Registered")
 
 getFiles :: CommonServer.ClientRequest -> ApiHandler [FilePath]
-getFiles (CommonServer.ClientRequest ec req) = do
+getFiles (CommonServer.ClientRequest ec req) = liftIO $ do
     logConnection "" "ProxyServer" "POST files"
-    let session = findClientSession $ unecryptedUsername ec
-    let ticket = getTicketFromSession session
+    session <- findClientSession $ unecryptedUsername ec
+    let ticket = getTicketFromSession session    
+    files <- getFilesFromDirectoryServer ticket
     logTrailing
-    return (getFilesFromDirectoryServer ticket)
+    return files
 
 openFile :: CommonServer.ClientRequest -> ApiHandler CommonServer.File
-openFile (CommonServer.ClientRequest ec req) = do
+openFile (CommonServer.ClientRequest ec req) = liftIO $ do
     logConnection "" "ProxyServer" "POST open"
-    let session = findClientSession $ unecryptedUsername ec
-    let ticket = getTicketFromSession session
+    session <- findClientSession $ unecryptedUsername ec
+    let ticket = getTicketFromSession session    
+    file <- getFileFromDirectoryServer ticket req
     logTrailing
-    return (getFileFromDirectoryServer ticket req)
+    return file
 
 closeFile :: CommonServer.ClientFileRequest -> ApiHandler CommonServer.Response
-closeFile (CommonServer.ClientFileRequest ec req) = do
+closeFile (CommonServer.ClientFileRequest ec req) = liftIO $ do
     logConnection "" "ProxyServer" "POST close"
-    let session = findClientSession $ unecryptedUsername ec
+    session <- findClientSession $ unecryptedUsername ec
     let ticket = getTicketFromSession session
+    response <-  uploadFileToDirectoryServer ticket req
     logTrailing
-    return (uploadFileToDirectoryServer ticket req)
+    return response
 
 --begin
 

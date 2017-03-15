@@ -50,7 +50,7 @@ transactionServer =
     endTransaction
 
 transactionApp :: Application
-transactionApp = server transactionApi transactionServer
+transactionApp = serve transactionApi transactionServer
 
 mkTransactionServer :: IO()
 mkTransactionServer = do

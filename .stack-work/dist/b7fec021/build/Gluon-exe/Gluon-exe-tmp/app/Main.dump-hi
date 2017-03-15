@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-03-15 10:52:25.8628783 UTC
+2017-03-15 14:04:20.5345969 UTC
 
 interface main@main:Main 8001
-  interface hash: 795a8c952aaf9a1154ce80cf07d333cd
-  ABI hash: a8dda5683b468affa34b1c85f71ef481
-  export-list hash: 88cb93477636192ea003ac897bc5f02d
+  interface hash: 7965deea7bb4039f7c15fd5986f58a0c
+  ABI hash: bf7bb3da8ed86fa4cf4c44cdb3fd008f
+  export-list hash: 4654791f9fe9ef8300fb9814a65a9ed4
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: a6cd0d3f810fac92f4cf3833737ade65
   sig of: Nothing
@@ -17,6 +17,7 @@ exports:
   Main.fileServerCompare1
   Main.fileServerCompare2
   Main.main
+  Main.proxyServerCompare
   Main.runSelectedApp
   Main.securityServerCompare
 module dependencies:
@@ -192,10 +193,11 @@ family instance modules: Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:Comm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer 121ea84ff32b4f8988d8246ea2ca4c5c
-import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:DirectoryServer df68255aa5f3aa7c388f5d1a79572d3c
-import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:FileServer 6fba6f8048fe8f1845177a50f6d63f69
-import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:SecurityServer 821b8e5bc04cdca22dcc7d5f8f209cf6
+import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer 26d6a06685e261f99ff577839b2c2f42
+import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:DirectoryServer fca14235fe529d17a82d4977ca371308
+import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:FileServer c342bd3c1114ae819dddb117151ebc05
+import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:ProxyServer 8d02b3b9e305a729f3352f7a4b7ecc04
+import  -/  Gluon-0.1.0.0@Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:SecurityServer 622ca3ddac15696a9a927fd8780e4a59
 import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
 import  -/  base-4.9.0.0:GHC.List 47d436dfb7454bb1883fb4d943e3f389
 import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
@@ -226,12 +228,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
 f1901fa47ebcffb6304717038f77aa7c
   fileServerCompare2 :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "FileServer2"#) -}
-8e1d5801632d49403715b3bd6bdbf021
+261ba5cc9b8d03e719968367ec089677
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-da0b1ec1358390c35517f088636cc525
+65dbe09d4fc2292cf8527bc8ff078e7b
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -257,7 +259,7 @@ da0b1ec1358390c35517f088636cc525
                            of {}
                         : ds2 xs
                         -> Main.main2 (GHC.List.head @ GHC.Base.String xs) ipv } } }) -}
-150fae50ed02392a64f3af0e4675f14d
+cac74b9b9d194e7082142c62edd127ec
   main2 ::
     GHC.Base.String
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -275,9 +277,14 @@ da0b1ec1358390c35517f088636cc525
                                   GHC.Types.False
                                   -> case GHC.Base.eqString s Main.securityServerCompare of wild4 {
                                        GHC.Types.False
-                                       -> case Main.main3
-                                          ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-                                          of {}
+                                       -> case GHC.Base.eqString
+                                                 s
+                                                 Main.proxyServerCompare of wild5 {
+                                            GHC.Types.False
+                                            -> case Main.main3
+                                               ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                                               of {}
+                                            GHC.Types.True -> ProxyServer.mkProxyServer1 eta }
                                        GHC.Types.True -> SecurityServer.mkSecurityServer1 eta }
                                   GHC.Types.True -> DirectoryServer.mkDirectoryServer1 eta }
                              GHC.Types.True
@@ -291,7 +298,7 @@ da0b1ec1358390c35517f088636cc525
 709a8f61e410f203f5e01d6146c2f0f8
   main3 :: GHC.Types.IO ()
   {- Strictness: x -}
-3342c22f8ecd5f10dedc5eafc7ee6b19
+c57d1bd0758cfb85cea47a95c703b0a5
   main4 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -299,7 +306,10 @@ da0b1ec1358390c35517f088636cc525
      Unfolding: (GHC.TopHandler.runMainIO1
                    @ ()
                    Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
-2aa64b83f10bd2c838b2cc2aba4f4dba
+4a8566a437c770975e35d14c14ff279c
+  proxyServerCompare :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# "ProxyServer"#) -}
+abb761eecb6481c1320b03a788a0293a
   runSelectedApp :: GHC.Base.String -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <S,U><S,U>,
      Unfolding: InlineRule (0, True, True)

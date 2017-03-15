@@ -30,7 +30,7 @@ deriving instance ToBSON Bool
 data File = File { 
     fileName :: FilePath, 
     fileContent :: String 
-} deriving (Eq, Show, Generic, ToJSON, FromJSON)
+} deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
 
 ------------------------------
 --  Server Identity 
@@ -77,12 +77,12 @@ data EncryptedClient = EncryptedClient {
 data ClientRequest = ClientRequest {
     requestEncryptedClient :: EncryptedClient,
     request :: String
-}
+} deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
 
 data ClientFileRequest = ClientFileRequest {
     fileRequestEncryptedClient :: EncryptedClient,
     fileRequestEncryptedFile :: File
-}
+} deriving (Eq, Show, Generic, ToJSON, FromJSON, FromBSON, ToBSON)
 
 ------------------------------
 --  Security 

@@ -5,6 +5,7 @@ import CommonServer
 import DirectoryServer
 import FileServer
 import SecurityServer
+import ProxyServer
 
 fileServerCompare0 :: String
 fileServerCompare0 = "FileServer0"
@@ -21,6 +22,9 @@ directoryServerCompare = "DirectoryServer"
 securityServerCompare :: String
 securityServerCompare = "SecurityServer"
 
+proxyServerCompare :: String
+proxyServerCompare = "ProxyServer"
+
 runSelectedApp :: String -> IO()
 runSelectedApp s = case () of
     () | s == fileServerCompare0 ->  mkFileServer fileServerIdentity0
@@ -28,6 +32,7 @@ runSelectedApp s = case () of
        | s == fileServerCompare2 ->  mkFileServer fileServerIdentity2
        | s == directoryServerCompare -> mkDirectoryServer
        | s == securityServerCompare -> mkSecurityServer
+       | s == proxyServerCompare -> mkProxyServer
 
 main :: IO ()
 main = do
