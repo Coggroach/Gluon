@@ -1,12 +1,12 @@
 
 ==================== FINAL INTERFACE ====================
-2017-02-25 00:02:47.2006985 UTC
+2017-03-15 10:44:53.1217349 UTC
 
 interface Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:SecurityServer 8001
-  interface hash: cda2f7fbfe34cc513db70a43cdadf4e1
-  ABI hash: 3e270c3a2c530b97df4bb1aa16c53804
-  export-list hash: cadc29fb1f1cd691e73002d479c3ce62
-  orphan hash: 599fe4c43068cde383e7431c6a748439
+  interface hash: f87c040c162189d8ba946acf7a5ffc06
+  ABI hash: 821b8e5bc04cdca22dcc7d5f8f209cf6
+  export-list hash: 72b81050ab6cb1a6e332236fbd5e00e2
+  orphan hash: de40a8076bef458f588a3a576ad5d215
   flag hash: e86faf246ab80a8d5a1b92fcc1360c46
   sig of: Nothing
   used TH splices: False
@@ -195,23 +195,23 @@ family instance modules: Gluon-0.1.0.0-2zM8ehVFg6FFhvYw0f6srV:CommonServer
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  CommonServer 260c73de2fa0ed9206332e5b388a9a3c
-  exports: 658b2a4686dc5e421860f6926e436f58
+import  -/  CommonServer 121ea84ff32b4f8988d8246ea2ca4c5c
+  exports: 23fb44605f24aa64755efbb52e294ecf
   Client fd86d3246e343f9150aa68cb929e213b
   EncryptedClient dbf7a38d3d8f27b7d213dad5fd5e2397
   EncryptedClient 7865d6b0cc77dccff4ba2748f2755128
   Resources 3eedfa21843d31060a26c830017589e3
   Resources 6dcd1258aefe8ac46625c0bde7dae835
-  Response 75f5e3a27ae8454e692f41556a064715
-  Response 70f1d29750784e319bc9b9c8829a9bf2
-  SecurityClientNotRegistered 1111f5a6590ed4f66d8573d12413915d
-  SecurityClientRegistered dc5a57619fc01927c4084c84fe2d660a
+  Response f06fedb8ec98746a83380a38e695df6d
+  Response 6bda3e0d1b2a4508179481ff89af3f2f
+  SecurityClientNotRegistered ca239fad0117dfb1cebe69a71c155f97
+  SecurityClientRegistered 3f09cf9321a73bc9e971a54a9470120e
   Session f7ae422b173ee3fd8f9fc6a3c4c521cf
   Session 213d3a350b94bc459e87633178585deb
   encryptDecrypt ae8cc2d8b76528d516ea30a1fe5fceff
   encryptTime 54ec1c3b85eb5fd816dce9dfe2a42080
-  getIdentityPort ffb5ba59aff7a0519da609a39285465f
-  getIdentityString 619064e966b40eb24f2466f05b30aaf4
+  getIdentityPort 54a2c5ef1e354d3c34b0f3d7ff83a19f
+  getIdentityString dbcb4bce1f3654a33263e99a798ead01
   logAction 67521feb2c9d16e2eec4df6d06dc82c5
   logConnection b0739c4def4ef1f0e0da147e98bac21c
   logDatabase 65440336b0af3847526c77e22df70dad
@@ -220,14 +220,14 @@ import  -/  CommonServer 260c73de2fa0ed9206332e5b388a9a3c
   logTrailing 1ef388b4add1c6112f1109f876c2a420
   password e875f3b8b36934f57b53d8e85c6d7421
   path ba61456f9fa12984f2b731c13e779f06
-  securityServerIdentity 0536355ea9b97bfbb99795e50639677b
+  securityServerIdentity 23d6674c106fb650ad88d09a45c2122f
   sharedSecret fbb25965f5f7f0279f40670b6dd5e93a
   username 9084daf8b1ca17f572275654f97311e1
-import  -/  CommonServerApi 5ab7bb49d6b2c268dc4be659597676b5
-  exports: 63d28e5b60d1de75984dcd4c13aaa84c
+import  -/  CommonServerApi cb828ab13fc3a0cd0910c8913f4ecbd0
+  exports: 420409bedc3e5a26be1fb58e6d7c6b21
   ApiHandler 231c7e4613e81ffd1be884fe0c4b6817
-  SecurityApi 7e800b869af1c31fa62740a16311b28e
-  securityApi a4ebf59780d88d7af2ee44af11f73703
+  SecurityApi 7222dde27352b9e3cab52d945cabe28f
+  securityApi 81b12fb8c5a95d233b735441c11a23b9
 import  -/  MongoDbConnector e6043e92a69386ef6dbd0263147cfeef
   exports: 195ced448d1d936e2baf506ab3de4d5a
   connectToDatabase 497c812f9c1b3e78d2c14152b3b904b9
@@ -269,7 +269,7 @@ import  -/  transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Except
 import  -/  wai-3.2.1.1@wai-3.2.1.1-GVNFJ2NUhhADT18B8nh1gg:Network.Wai 6802161fda2a254e932e92defc21d045
 import  -/  warp-3.2.9@warp-3.2.9-3hyX88L3Ey11UVH92i8P4R:Network.Wai.Handler.Warp 80364e098a21cbf3e268e5ee24bf0351
 import  -/  warp-3.2.9@warp-3.2.9-3hyX88L3Ey11UVH92i8P4R:Network.Wai.Handler.Warp.Run 1dbf1f4e5768a75efe6facb4e0c716b3
-8c021e4d75443288eebb38ea47b95547
+cb02a6f766ff010595826c5ab50a639e
   $s$fAllCTRender:a ::
     Servant.API.ContentTypes.AllCTRender
       '[Servant.API.ContentTypes.JSON] CommonServer.Response
@@ -301,14 +301,14 @@ import  -/  warp-3.2.9@warp-3.2.9-3hyX88L3Ey11UVH92i8P4R:Network.Wai.Handler.War
                        `cast`
                      (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
                      SecurityServer.$s$fAllCTRender:a1) -}
-1f5611c563d2a145e8e7e257c6f47df8
+c1b8fe9f5d914ac170b05891f0cb2752
   $s$fAllCTRender:a1 ::
     Servant.API.ContentTypes.AllMimeRender
       '[Servant.API.ContentTypes.JSON] CommonServer.Response
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 SecurityServer.$s$fAllCTRender:a_$s$fAllMimeRender:a0 -}
-4a41394808ecaaa937716255fb3dbd67
+2a791095e7ce0d4625a1a0a401f98312
   $s$fAllCTRender:a2 ::
     Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
     -> CommonServer.Response
@@ -332,7 +332,7 @@ import  -/  warp-3.2.9@warp-3.2.9-3hyX88L3Ey11UVH92i8P4R:Network.Wai.Handler.War
                    (GHC.Types.[]
                       @ (Network.HTTP.Media.MediaType.Internal.MediaType,
                          Data.ByteString.Lazy.Internal.ByteString))) -}
-af3ad2353fbb3aeb8595a980608e6998
+6c936dc4e8e52c637d7d43d621e032b3
   $s$fAllCTRender:a3 ::
     Servant.API.ContentTypes.MimeRender
       Servant.API.ContentTypes.JSON CommonServer.Response
@@ -409,7 +409,7 @@ ec47bdf1e472bc9cb0ebc6b1480f8058
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 SecurityServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa1 -}
-b0b146c7e9791ef9a6bc390fda3a4cf2
+da3a6a4ec63f0437de185d08c27300e3
   $s$fAllCTRender:a_$s$fAllMimeRender:a0 ::
     Servant.API.ContentTypes.AllMimeRender
       '[Servant.API.ContentTypes.JSON] CommonServer.Response
@@ -435,7 +435,7 @@ b0b146c7e9791ef9a6bc390fda3a4cf2
                      @ CommonServer.Session
                      SecurityServer.$s$fAllCTRender:a_$dMimeRender)
                   SecurityServer.$s$fAllCTRender:a5 -}
-0ec6b14cf0880e7fcb7ac4481a58502e
+e5c683d05695e0bce067b781e323d7bc
   $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa ::
     Servant.API.ContentTypes.MimeRender
       Servant.API.ContentTypes.JSON CommonServer.Response
@@ -461,7 +461,7 @@ c93be207251b33090f61f8b584902431
                      @ CommonServer.Session
                      CommonServer.$fToJSONSession)
                   SecurityServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender1 -}
-1f8a6383cac6ab3b900ea2d7231e44fa
+c1eece0b39c5f1393dea520b2474092d
   $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender ::
     Data.Proxy.Proxy Servant.API.ContentTypes.JSON
     -> CommonServer.Response
@@ -718,7 +718,7 @@ d34db6ba0df0a702807fcbb28d44231f
                              SecurityServer.login5
                              ipv2 of ds3 { (#,#) ipv4 ipv5 ->
                       (# ipv4, SecurityServer.login2 #) } } } }) -}
-fea26151ad202a1bcfbf5f54d9a22a39
+bb29ede9b6804cd931b7bf5d850427bf
   contains ::
     GHC.Base.String -> CommonServerApi.ApiHandler CommonServer.Response
   {- Arity: 2, Strictness: <L,U><S,U>,
@@ -735,7 +735,7 @@ fea26151ad202a1bcfbf5f54d9a22a39
                                     <Servant.Server.Internal.ServantErr.ServantErr>_N
                                     <GHC.Types.IO>_R
                                     <CommonServer.Response>_N))) -}
-5989f00696834491d530f111a85d5e50
+93b5355ad049e3655914b7a079d592b1
   contains1 ::
     GHC.Base.String
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -772,7 +772,7 @@ a056957e80dab60c93bca007ab559133
 5ca948d5684090f4c9b18bf78bb5c4c6
   contains13 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "securityServer"#) -}
-07a7d29ad1dd7fb7232075c6271e0249
+d4c2691f1b98e52a9c2ab7d56c8efed9
   contains2 ::
     Data.Either.Either
       Servant.Server.Internal.ServantErr.ServantErr CommonServer.Response
@@ -780,14 +780,14 @@ a056957e80dab60c93bca007ab559133
                    @ Servant.Server.Internal.ServantErr.ServantErr
                    @ CommonServer.Response
                    SecurityServer.contains3) -}
-cb47a79e6ad683a21fea3c240e285d71
+9834b88adbc3bcbd74f0f04adb1132e4
   contains3 :: CommonServer.Response
   {- Strictness: m,
      Unfolding: (CommonServer.Response
                    CommonServer.SecurityClientNotRegistered
                    CommonServer.securityServerIdentity
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-d9ecf54011274b89764afe411daeb76c
+d200f1afed201d5f75ad6f2126025fef
   contains4 ::
     Data.Either.Either
       Servant.Server.Internal.ServantErr.ServantErr CommonServer.Response
@@ -795,7 +795,7 @@ d9ecf54011274b89764afe411daeb76c
                    @ Servant.Server.Internal.ServantErr.ServantErr
                    @ CommonServer.Response
                    SecurityServer.contains5) -}
-2efc985daae4e96f4c45ff45fb1a4062
+4c46a88bdb3bc991b36a8bd6de2340ff
   contains5 :: CommonServer.Response
   {- Strictness: m,
      Unfolding: (CommonServer.Response
@@ -1103,14 +1103,14 @@ a53e0bb5a90e79b5fb2bb51e8fb87979
                    SecurityServer.getFailedSession1
                    SecurityServer.login10
                    SecurityServer.getFailedSession1) -}
-5ee726a2c0e4e6f3c5c42501f6a2c681
+bcc961853214d948a4b74df2c484db4c
   mkSecurityServer :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 SecurityServer.mkSecurityServer1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-656ec196ee292c1236d99df6d734b0c4
+616403173c3c03e37cdb6aa179a56e8a
   mkSecurityServer1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -1233,7 +1233,7 @@ e955776811f10f091c759b1b95e5f2a3
 968c48a1de37b4c76a3a933eb7c00452
   mkSecurityServer9 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "res/SecurityServer"#) -}
-cb877a09a5a60e3a6bf3cc1223ab695e
+502f7dcb4a964e41c0a48cdfb9da0c1d
   register ::
     CommonServer.Client
     -> CommonServerApi.ApiHandler CommonServer.Response
@@ -1256,12 +1256,12 @@ f3fa4bd2fda804b985d902c29055f4bb
   {- Strictness: m,
      Unfolding: (CommonServer.Resources
                    SecurityServer.mkSecurityServer9) -}
-dab9297d79957ff01d51f17ed369f956
+10c9c94e27a35882ab00befca5f36654
   securityApp :: Network.Wai.Application
   {- Arity: 2,
      Unfolding: (Servant.Server.Internal.RoutingApplication.toApplication
                    SecurityServer.securityApp1) -}
-789fd7d6572b86c6043f7abf7a02589e
+d871e40bbef77d1c02a29140d7a61e5b
   securityApp1 ::
     Network.Wai.Internal.Request
     -> (Servant.Server.Internal.RoutingApplication.RouteResult
@@ -1281,7 +1281,7 @@ dab9297d79957ff01d51f17ed369f956
                    GHC.Tuple.()
                    eta
                    eta1) -}
-7352f79b5182674ffe685e56c65ecc90
+7a612b308504f7975d0cc7d84bc84d65
   securityApp10 ::
     ()
     -> ()
@@ -1301,7 +1301,7 @@ dab9297d79957ff01d51f17ed369f956
                    (b1 :: ())
                    (req :: Network.Wai.Internal.Request) ->
                  SecurityServer.securityApp11) -}
-91fabb51926ea1d15cddfbf86cfa7450
+2c084f5bf6f8fc7d08581759c929b0f7
   securityApp11 ::
     Servant.Server.Internal.RoutingApplication.RouteResult
       (Servant.Server.Internal.Server
@@ -1366,7 +1366,7 @@ dab9297d79957ff01d51f17ed369f956
                                             <Control.Monad.Trans.Except.ExceptT
                                                Servant.Server.Internal.ServantErr.ServantErr
                                                GHC.Types.IO>_N)))))) -}
-cada9832cd45410d0bd5c1375d69f2ea
+fff600342d0e1d7e77a526fa0e9edfe1
   securityApp12 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       (Data.Text.Internal.Text, ())
@@ -1428,7 +1428,7 @@ cada9832cd45410d0bd5c1375d69f2ea
 18f6a68e0a8a7891e86b1546e8dbc31c
   securityApp15 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "contains"#) -}
-e5c45df8868c0caa3bc349bd135d3b0e
+fda65a8e7ad4cc76f5b52cae72bc807d
   securityApp16 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
@@ -1439,7 +1439,7 @@ e5c45df8868c0caa3bc349bd135d3b0e
                    (GHC.Types.[]
                       @ (()
                          -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-1d646c200d28e4b643089dce5225b6e0
+905ffeaa6cda45adacc7cf72d29a4bbb
   securityApp17 ::
     Data.Map.Base.Map
       Data.Text.Internal.Text
@@ -1466,7 +1466,7 @@ e5c45df8868c0caa3bc349bd135d3b0e
                       @ (Servant.Server.Internal.Router.Router'
                            ()
                            Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-3b9ddefb99c9ca3236ec8e331e236024
+dbec6ce2a2863d2a426b3be372ad466b
   securityApp18 :: Servant.Server.Internal.Router.Router ()
   {- Unfolding: (Servant.Server.Internal.$w$croute2
                    @ *
@@ -1518,7 +1518,7 @@ e5c45df8868c0caa3bc349bd135d3b0e
                                 <Control.Monad.Trans.Except.ExceptT
                                    Servant.Server.Internal.ServantErr.ServantErr
                                    GHC.Types.IO>_N)))_R) -}
-912c98f789dc05031ca26ac73e92888e
+e412925e874a7274e648316914ca68bc
   securityApp19 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
@@ -1579,7 +1579,7 @@ e5c45df8868c0caa3bc349bd135d3b0e
                         (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                   <()>_R)))
                    SecurityServer.securityApp20) -}
-727592f12e0f83f9de4021bbb63ac7b9
+7727184648e380bf36a266d7bd056969
   securityApp2 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
@@ -1588,7 +1588,7 @@ e5c45df8868c0caa3bc349bd135d3b0e
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
                    SecurityServer.securityApp16
                    SecurityServer.securityApp3) -}
-9bfa066d7abdcc370a0d615a2c52e9be
+7b1a9be3ce679989e19ea591373bd0f8
   securityApp20 ::
     ()
     -> ()
@@ -1608,7 +1608,7 @@ e5c45df8868c0caa3bc349bd135d3b0e
                    (b1 :: ())
                    (req :: Network.Wai.Internal.Request) ->
                  SecurityServer.securityApp21) -}
-f6c1a65925bbc2f01a72bcf26fb32da3
+a3f489666830db2c6c11ae53291f196d
   securityApp21 ::
     Servant.Server.Internal.RoutingApplication.RouteResult
       (Servant.Server.Internal.Server
@@ -1673,7 +1673,7 @@ f6c1a65925bbc2f01a72bcf26fb32da3
                                             <Control.Monad.Trans.Except.ExceptT
                                                Servant.Server.Internal.ServantErr.ServantErr
                                                GHC.Types.IO>_N)))))) -}
-409435ecddf8d94fafc75447723ef429
+a5c7d6a6ea3840d752a3f7edbf68bb4c
   securityApp22 ::
     CommonServer.Client
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -1904,7 +1904,7 @@ ab6d20ea127737037efccecaf1a400da
 0dd26a8fd0b7b66779c78e3401e467ec
   securityApp26 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "POST register"#) -}
-c1dc314c1a7cab03fc97f1e76af9e91f
+969c375b918c32ac7771fdf980caf3bc
   securityApp27 ::
     Data.Proxy.Proxy
       (Servant.API.Verbs.Verb
@@ -1958,18 +1958,18 @@ c1dc314c1a7cab03fc97f1e76af9e91f
                            200
                            '[Servant.API.ContentTypes.JSON]
                            CommonServer.Response)) }) -}
-8e0d23172ed8fee431954d44819da31a
+a3302ce40aafd077bc50d52959f6aa40
   securityApp28 ::
     Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
     -> Data.ByteString.Lazy.Internal.ByteString
     -> Data.ByteString.Lazy.Internal.ByteString
     -> GHC.Base.Maybe
          (Data.Either.Either GHC.Base.String CommonServer.Client)
-  {- Arity: 3,
-     Unfolding: (\ (w1 :: Data.Proxy.Proxy
-                            '[Servant.API.ContentTypes.JSON])
-                   (w2 :: Data.ByteString.Lazy.Internal.ByteString)[OneShot]
-                   (w3 :: Data.ByteString.Lazy.Internal.ByteString)[OneShot] ->
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,U>,
+     Unfolding: InlineRule (3, True, True)
+                (\ (w1 :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
+                   (w2 :: Data.ByteString.Lazy.Internal.ByteString)
+                   (w3 :: Data.ByteString.Lazy.Internal.ByteString) ->
                  Servant.API.ContentTypes.$w$chandleCTypeH
                    @ '[Servant.API.ContentTypes.JSON]
                    @ CommonServer.Client
@@ -1994,7 +1994,7 @@ c81a090d8806d5be679ce22004382832
                    SecurityServer.securityApp30
                    0#
                    ipv }) -}
-496a5d9761303b3502caca2b0ee8d597
+6486df662d3ae04d622e8b38a11e93f4
   securityApp3 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
@@ -2008,7 +2008,7 @@ c81a090d8806d5be679ce22004382832
 408b6b7d086197c9ece79f340e47145b
   securityApp30 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "register"#) -}
-f0fd737fccc0cdb4f6e90de861d75452
+9b18a36ca21128700606c2b0b9648ce1
   securityApp31 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
@@ -2019,7 +2019,7 @@ f0fd737fccc0cdb4f6e90de861d75452
                    (GHC.Types.[]
                       @ (()
                          -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-5c06561a711034923a6b3a4a00be5f0d
+e79b2315013620ef55e5d5c8c3cfa140
   securityApp32 ::
     Data.Map.Base.Map
       Data.Text.Internal.Text
@@ -2046,7 +2046,7 @@ f0fd737fccc0cdb4f6e90de861d75452
                       @ (Servant.Server.Internal.Router.Router'
                            ()
                            Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-c2b5f7f9537314d69122631fc40158e7
+6613e691b5e89116efba714da6002870
   securityApp33 :: Servant.Server.Internal.Router.Router ()
   {- Unfolding: (Servant.Server.Internal.$w$croute2
                    @ *
@@ -2302,18 +2302,18 @@ cc6dfa262cd3283cec6399e5096d1c4b
                            200
                            '[Servant.API.ContentTypes.JSON]
                            CommonServer.Session)) }) -}
-801072c0cdcc11c43425486607272305
+7e79bcfdcbeaba0ed88eda537dc1d814
   securityApp38 ::
     Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
     -> Data.ByteString.Lazy.Internal.ByteString
     -> Data.ByteString.Lazy.Internal.ByteString
     -> GHC.Base.Maybe
          (Data.Either.Either GHC.Base.String CommonServer.EncryptedClient)
-  {- Arity: 3,
-     Unfolding: (\ (w1 :: Data.Proxy.Proxy
-                            '[Servant.API.ContentTypes.JSON])
-                   (w2 :: Data.ByteString.Lazy.Internal.ByteString)[OneShot]
-                   (w3 :: Data.ByteString.Lazy.Internal.ByteString)[OneShot] ->
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,U>,
+     Unfolding: InlineRule (3, True, True)
+                (\ (w1 :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
+                   (w2 :: Data.ByteString.Lazy.Internal.ByteString)
+                   (w3 :: Data.ByteString.Lazy.Internal.ByteString) ->
                  Servant.API.ContentTypes.$w$chandleCTypeH
                    @ '[Servant.API.ContentTypes.JSON]
                    @ CommonServer.EncryptedClient
@@ -2338,7 +2338,7 @@ cc6dfa262cd3283cec6399e5096d1c4b
                    SecurityServer.securityApp40
                    0#
                    ipv }) -}
-778bf24f4d0cd8342d19172de95d3346
+13c37b7e9bd1927ed27a59a840386d06
   securityApp4 ::
     Data.Map.Base.Map
       Data.Text.Internal.Text
@@ -2368,7 +2368,7 @@ cc6dfa262cd3283cec6399e5096d1c4b
 703897fd7f3fa6bba9b104c943e71726
   securityApp40 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "login"#) -}
-20edf76e307bd2f85350acc9f5bb04f2
+20d3b32512ced6c396cc486080561a57
   securityApp5 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
@@ -2376,12 +2376,12 @@ cc6dfa262cd3283cec6399e5096d1c4b
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
                    SecurityServer.securityApp6) -}
-f2a407d77bebb7365273678ad4dc883c
+ebd16afbfba1da472c1e5642b0ff34cc
   securityApp6 ::
     Servant.Server.Internal.Router.Router (Data.Text.Internal.Text, ())
   {- Unfolding: (SecurityServer.securityApp12
                    SecurityServer.securityApp7) -}
-48feebc63f42df652a9f407938d8f588
+d5c5a4864286b14db015a705b7c86d90
   securityApp7 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       (Data.Text.Internal.Text, ())
@@ -2449,7 +2449,7 @@ f578e65eaf7ba248968e4c9d0a7862ac
                                         [GHC.Types.Char]>_R))
                       (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                 <[GHC.Types.Char]>_R))) }) -}
-b0e004006c563424277276ee13fb4cb7
+52e81fcfe4f3f4b8ad01f922399153bd
   securityApp9 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
@@ -2510,14 +2510,14 @@ b0e004006c563424277276ee13fb4cb7
                         (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                   <()>_R)))
                    SecurityServer.securityApp10) -}
-4668085d56f3045e1100449ab7bf906f
+ccba11e529506be025f7da48e6c61894
   securityApp_r :: Servant.Server.Internal.Router.Router ()
   {- Unfolding: (Servant.Server.Internal.Router.choice
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
                    SecurityServer.securityApp31
                    SecurityServer.securityApp2) -}
-03c236d1fd54eff6399f837cd1ab9220
+0e8582443365cec6f49abb51c04e1b37
   securityServer ::
     Servant.Server.Internal.Server CommonServerApi.SecurityApi
   {- Strictness: m,
@@ -2677,7 +2677,7 @@ b0e004006c563424277276ee13fb4cb7
                                     <Control.Monad.Trans.Except.ExceptT
                                        Servant.Server.Internal.ServantErr.ServantErr
                                        GHC.Types.IO>_N)))) -}
-013389128326ba96aa3326f37c9b9c1b
+9c3991c1f00ac7743a57fe1fb3c4baa8
   securityServer1 ::
     (CommonServer.EncryptedClient
      -> CommonServerApi.ApiHandler CommonServer.Session)
@@ -2708,7 +2708,7 @@ b0e004006c563424277276ee13fb4cb7
                                        <GHC.Types.IO>_R
                                        <CommonServer.Session>_N)))
                    SecurityServer.securityServer2) -}
-e66812da3c13c81daf50f02955240a14
+4edf88099e0526ace93823c166c03777
   securityServer2 ::
     (CommonServer.Client
      -> CommonServerApi.ApiHandler CommonServer.Response)

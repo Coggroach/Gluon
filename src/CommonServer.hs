@@ -129,6 +129,7 @@ data Response = Response {
 data ResponseCode = 
     FileUploadComplete |
     FileUploadError |
+    FileLockedOrReadOnly |
     DirectoryJoinSuccess |
     DirectoryError |
     SecurityClientRegistered |

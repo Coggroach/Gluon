@@ -40,8 +40,15 @@ import           MongoDbConnector
 ------------------------------
 data FileMapping = FileMapping{
     fileName :: FilePath,
-    identity :: CommonServer.Identity
+    identity :: CommonServer.Identity,
+    lock :: FileLock
 } deriving (Eq, Show, Generic,ToJSON, FromJSON, ToBSON, FromBSON)
+
+data FileLock = 
+    FileLocked |
+    FileUnlocked |
+    FileReadOnly
+    deriving (Eq, Show, Generic,ToJSON, FromJSON, ToBSON, FromBSON)
 
 resources :: Resources
 resources = Resources "res/DirectoryServer";
@@ -81,9 +88,17 @@ deleteDatabases = liftIO $ do
 upsertFileMapping :: CommonServer.Identity -> [FileMapping] -> String -> IO [FileMapping]
 upsertFileMapping id array filename = liftIO $ do
     logDatabase "DirectoryServer" "FileMappingDb" "Upsert" filename
-    let filemapping = FileMapping filename id
+    let filemapping = FileMapping filename id FileUnlocked
     connectToDatabase $ Database.MongoDB.upsert (Database.MongoDB.select ["_id" =: filename] "FileMappingDb") $ toBSON filemapping
-    return $ FileMapping filename id : array
+    return $ FileMapping filename id FileUnlocked : array
+
+updateFileMapping :: String -> FileLock -> IO()
+updateFileMapping s fl = liftIO $ do
+    fileMapping <- findFileMapping s
+    let newFileMapping = FileMapping s (identity fileMapping) fl
+    logDatabase "DirectoryServer" "FileMappingDb" "Upsert" (s ++ show fl)
+    connectToDatabase $ Database.MongoDB.upsert (Database.MongoDB.select ["_id" =: s] "FileMappingDb") $ toBSON newFileMapping
+
 
 upsertFileServer :: CommonServer.Identity -> IO()
 upsertFileServer i = liftIO $ do
@@ -168,10 +183,16 @@ openFile t fn = liftIO $ do
         return (CommonServer.File fn (encryptDecrypt (getSessionKeyFromTicket t) "Timeout"))
     else do
         logConnection "" "DirectoryServer" "GET open"
-        fileMapping <- findFileMapping fn    
-        file <- downloadFromFileServer t fn $ identity fileMapping
-        logTrailing
-        return file
+        fileMapping <- findFileMapping fn
+        if lock fileMapping /= FileLocked then do
+            file <- downloadFromFileServer t fn $ identity fileMapping
+            updateFileMapping fn FileReadOnly
+            logTrailing
+            return file
+        else do
+            logTrailing
+            return (CommonServer.File fn (encryptDecrypt (getSessionKeyFromTicket t) "FileLocked"))
+
 
 closeFile :: CommonServer.Ticket -> CommonServer.File -> ApiHandler CommonServer.Response
 closeFile t f = liftIO $ do
@@ -181,10 +202,16 @@ closeFile t f = liftIO $ do
         return (CommonServer.Response CommonServer.DirectoryError directoryServerIdentity "")
     else do
         logConnection "" "DirectoryServer" "POST close"
-        fileMapping <- findFileMapping (CommonServer.fileName f)    
-        response <- uploadToFileServer t f (identity fileMapping)
-        logTrailing
-        return response
+        let fn = CommonServer.fileName f
+        fileMapping <- findFileMapping fn
+        if lock fileMapping == FileUnlocked then do
+            response <- uploadToFileServer t f (identity fileMapping)
+            updateFileMapping fn FileUnlocked
+            logTrailing
+            return response
+        else do
+            logTrailing
+            return (CommonServer.Response CommonServer.FileLockedOrReadOnly directoryServerIdentity "")
 
 joinServer :: CommonServer.Identity -> ApiHandler CommonServer.Response
 joinServer i = liftIO $ do
